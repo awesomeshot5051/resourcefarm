@@ -1,0 +1,43 @@
+modLoader = "javafml"
+loaderVersion = "*"
+license = "All rights reserved"
+#issueTrackerURL = "https://github.com/henkelmax/easy-villagers/issues"
+[[mods]]
+modId = "resource_farms"
+#version = "${mod_version}"
+displayName = "Resource Farms"
+#updateJSONURL = "https://update.maxhenkel.de/neoforge/resource_farms"
+#displayURL = "https://www.curseforge.com/minecraft/mc-mods/easy-villagers"
+logoFile = "../assets/resource_farms/textures/gui/icons/icon.png"
+authors = "awesomeshot5051"
+description = '''Resource Farms'''
+[[dependencies.resource_farms]]
+modId = "neoforge"
+type = "required"
+version = "21.3.11-beta"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.resource_farms]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1]"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.resource_farms]]
+modId = "jei"
+type = "optional"
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.resource_farms]]
+modId = "theoneprobe"
+type = "optional"
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.resource_farms]]
+modId = "jade"
+type = "optional"
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"

@@ -1,0 +1,37 @@
+/tick rate 10000
+/gamerule doDaylightCycle false
+/time set noon
+/difficulty peaceful
+/gamerule doWeatherCycle false
+/kill @e[type=!player[
+/kill @e[type=!player]
+/reload
+/time set noon
+/gamerule doDaylightCycle false
+/gamerule doMobSpawning false
+/gamerule doWeatherCycle false
+/time set day
+/recipe give Dev resource_farms:coal_farm
+/recipe give Dev resource_farms:copper_farm
+/recipe take Dev resource_farms:copper_farm
+/recipe take Dev resource_farms:dcopper_farm
+/recipe give Dev minecraft:blast_furnace
+/ride Dev mount Dev
+/summon minecraft:ender_dragon
+/tick freeze
+/ride 3a012823-2f7e-449f-84e1-8c33ea8d1250 mount Dev
+/ride Dev mount 3a012823-2f7e-449f-84e1-8c33ea8d1250
+/tick unfreeze
+/ride Dev mount 3a012823-2f7e-449f-84e1-8c33ea8d1250
+/tick freeze
+/tick unfreeze
+/kill @e[type=minecraft:ender_dragon]
+/summon ender_dragon ~ ~ ~ {CustomName:'[{"text":"Jimmy"}]'}
+/ride 81897b51-af1f-4fc0-b901-578347468b36 mount @e[type=minecraft:ender_dragon]
+/summon ender_dragon ~ ~ ~ {CustomName:'[{"text":"Jimmy"}]'}
+/kill @e[type=minecraft:ender_dragon]
+/time set day
+/gamerule doDaylightCycle false
+/gamerule doWeatherCycle false
+/weather clear
+/kill @e[type=!minecraft:player]
