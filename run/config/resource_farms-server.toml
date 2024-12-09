@@ -1,0 +1,237 @@
+#Whether the mob drops cooked meat
+dropsCookedMeat = true
+
+[chicken_farm]
+	#The time in ticks the chicken farm takes to spawn a chicken
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[cod_farm]
+	#The time in ticks the cod farm takes to spawn a cod
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[cow_farm]
+	#The time in ticks the cow farm takes to spawn a cow
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[glow_squid_farm]
+	#The time in ticks the glow squid farm takes to spawn a glow squid
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[horse_farm]
+	#The time in ticks the horse farm takes to spawn a horse
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[mooshroom_farm]
+	#The time in ticks the mooshroom farm takes to spawn a mooshroom
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[parrot_farm]
+	#The time in ticks the parrot farm takes to spawn a parrot
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[pig_farm]
+	#The time in ticks the pig farm takes to spawn a pig
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[pufferfish_farm]
+	#The time in ticks the pufferfish farm takes to spawn a pufferfish
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[rabbit_farm]
+	#The time in ticks the rabbit farm takes to spawn a rabbit
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[salmon_farm]
+	#The time in ticks the salmon farm takes to spawn a salmon
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[sheep_farm]
+	#The time in ticks the sheep farm takes to spawn a sheep
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[snow_golem_farm]
+	#The time in ticks the snow golem farm takes to spawn a snow golem
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[squid_farm]
+	#The time in ticks the squid farm takes to spawn a squid
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[strider_farm]
+	#The time in ticks the strider farm takes to spawn a strider
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[tropical_fish_farm]
+	#The time in ticks the tropical fish farm takes to spawn a tropical fish
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[turtle_farm]
+	#The time in ticks the turtle farm takes to spawn a turtle
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[enderman_farm]
+	#The time in ticks the enderman farm takes to spawn an enderman
+	#Range: 180 ~ 180
+	spawn_time = 180
+
+[goat_farm]
+	#The time in ticks the goat farm takes to spawn a goat
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[iron_golem_farm]
+	#The time in ticks the iron farm takes to spawn an iron golem
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[piglin_farm]
+	#The time in ticks the piglin farm takes to spawn a piglin
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[spider_farm]
+	#The time in ticks the spider farm takes to spawn a spider
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[zombified_piglin_farm]
+	#The time in ticks the zombified piglin farm takes to spawn a zombified piglin
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[blaze_farm]
+	#The time in ticks the blaze farm takes to spawn a blaze
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[creeper_farm]
+	#The time in ticks the creeper farm takes to spawn a creeper
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[drowned_farm]
+	#The time in ticks the drowned farm takes to spawn a drowned
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[elder_guardian_farm]
+	#The time in ticks the elder guardian farm takes to spawn an elder guardian
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[evoker_farm]
+	#The time in ticks the evoker farm takes to spawn an evoker
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[ghast_farm]
+	#The time in ticks the ghast farm takes to spawn a ghast
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[guardian_farm]
+	#The time in ticks the guardian farm takes to spawn a guardian
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[hoglin_farm]
+	#The time in ticks the hoglin farm takes to spawn a hoglin
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[illusioner_farm]
+	#The time in ticks the illusioner farm takes to spawn an illusioner
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[magma_cube_farm]
+	#The time in ticks the magma cube farm takes to spawn a magma cube
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[phantom_farm]
+	#The time in ticks the phantom farm takes to spawn a phantom
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[pillager_farm]
+	#The time in ticks the pillager farm takes to spawn a pillager
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[ravager_farm]
+	#The time in ticks the ravager farm takes to spawn a ravager
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[shulker_farm]
+	#The time in ticks the shulker farm takes to spawn a shulker
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[skeleton_farm]
+	#The time in ticks the skeleton farm takes to spawn a skeleton
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[slime_farm]
+	#The time in ticks the slime farm takes to spawn a slime
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[vex_farm]
+	#The time in ticks the vex farm takes to spawn a vex
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[vindicator_farm]
+	#The time in ticks the vindicator farm takes to spawn a vindicator
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[warden_farm]
+	#The time in ticks the warden farm takes to spawn a warden
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[witch_farm]
+	#The time in ticks the witch farm takes to spawn a witch
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[wither_skeleton_farm]
+	#The time in ticks the wither skeleton farm takes to spawn a wither skeleton
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[zoglin_farm]
+	#The time in ticks the zoglin farm takes to spawn a zoglin
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[zombie_farm]
+	#The time in ticks the zombie farm takes to spawn a zombie
+	#Range: 60 ~ 60
+	spawn_time = 60
+
+[villager]
+	#If the villager reputation should be the same for every player
+	#This affects the prices of cured/converted villagers and the prices of the auto trader
+	universal_reputation = true

@@ -1,0 +1,12 @@
+/tick rate 10000
+/gamerule doDaylightCycle false
+/time set noon
+/difficulty peaceful
+/gamerule doWeatherCycle false
+/kill @e[type=!player[
+/kill @e[type=!player]
+/reload
+/time set noon
+/gamerule doDaylightCycle false
+/gamerule doMobSpawning false
+/gamerule doWeatherCycle false

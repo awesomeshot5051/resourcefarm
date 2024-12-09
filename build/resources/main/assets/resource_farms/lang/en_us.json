@@ -1,0 +1,13 @@
+{
+  "block.resource_farms.copper_farm": "Copper Farm Block",
+  "gui.resource_farms.food_items": "Food Items",
+  "gui.resource_farms.output_items": "Output",
+  "gui.resource_farms.input": "Input Items",
+  "gui.resource_farms.output": "Output Items",
+  "gui.resource_farms.inventory_viewer": "Inventory Viewer",
+  "itemGroup.resource_farms": "Resource Farms",
+  "category.resource_farms": "Resource Farms",
+  "config.jade.plugin_resource_farms.villager": "Villager",
+  "config.jade.plugin_resource_farms.converter": "Converter",
+  "config.jade.plugin_resource_farms.breeder": "Breeder"
+}
