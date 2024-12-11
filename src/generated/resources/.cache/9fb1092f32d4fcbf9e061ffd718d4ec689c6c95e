@@ -1,3 +1,9 @@
-// 1.21.1	2024-12-05T16:16:08.6690526	Recipes
-80a6155c5b3ae4c009eb99a95d2575e892d9ed27 data/minecraft/advancement/recipes/misc/copper_farm.json
-1b73844d6d90db95a22242d590f02f751ab3a97e data/minecraft/recipe/copper_farm.json
+// 1.21.1	2024-12-10T14:46:08.1567167	Recipes
+2c268a9d4d474b405e4c105bd473c90f9e821286 data/resource_farms/advancement/recipes/misc/coal_farm.json
+8c61e9644309a91d84b502901a336d2931dedb57 data/resource_farms/advancement/recipes/misc/copper_farm.json
+a938ca62ba74afdf9f92d963a3b120bc082ef36d data/resource_farms/advancement/recipes/misc/dcoal_farm.json
+35ebdc878ad279ecfd229c865aa80a4272994a52 data/resource_farms/advancement/recipes/misc/dcopper_farm.json
+ab02dfe68f9bc46d75f674a717b6130e24aedc97 data/resource_farms/recipe/coal_farm.json
+1b73844d6d90db95a22242d590f02f751ab3a97e data/resource_farms/recipe/copper_farm.json
+9ec965828725ab889c5ecd6ff54c4db2bc64c373 data/resource_farms/recipe/dcoal_farm.json
+0b866f3dff5f38aef0c5af8e4bd9560a0884bd98 data/resource_farms/recipe/dcopper_farm.json
