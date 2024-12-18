@@ -44,9 +44,9 @@ public class RendererBase<T extends FakeWorldTileentity> extends BlockRendererBa
         return villagerRenderer;
     }
 
-//    public <S extends EntityRenderState, L extends MobRenderer<?, ?, ?>> S getRenderState(L render, S state) {
+//    public <S extends EntityRenderState, L extends MobRenderer<?, ?, ?>> S getRenderState(L BlockInternalRender, S state) {
 //        if (state == null) {
-//            state = (S) render.createRenderState();
+//            state = (S) BlockInternalRender.createRenderState();
 //        }
 //        return state;
 //    }

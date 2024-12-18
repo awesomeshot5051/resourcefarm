@@ -4,6 +4,7 @@ import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.OutputItemHandler;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
@@ -42,15 +43,31 @@ public class DeepslateCoalOreFarmTileentity extends VillagerTileentity implement
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.STONE_PICKAXE);
+//        pickType = new ItemStack(Items.STONE_PICKAXE);
     }
 
-    public static int getCoalGenerateTime() {
-        return Main.SERVER_CONFIG.coalGenerateTime.get() - 20 * 10;
+    public static double getCoalGenerateTime(DeepslateCoalOreFarmTileentity tileEntity) {
+        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
+                (tileEntity.getPickType().getItem().equals(Items.WOODEN_PICKAXE) ? 1 :
+                        tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? 10 :
+                                tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
+                                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
+                                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
+                                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
+                                                                1); // Default to Wooden PICKAXE divisor if none matches
+
     }
 
-    public static int getCoalBreakTime() {
-        return getCoalGenerateTime() + 20 * 10;
+    public static double getCoalBreakTime(DeepslateCoalOreFarmTileentity tileEntity) {
+
+        return getCoalGenerateTime(tileEntity) + (tileEntity.getPickType().getItem().equals(Items.WOODEN_PICKAXE) ? (20 * 10) :
+                tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? (20 * 8) :
+                        tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? (20 * 4) :
+                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? (20 * 2) :
+                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? (20 * 2) :
+                                                tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? (20 * 5) :
+                                                        (20 * 10)); // Default to Wooden PICKAXE break time if none matches
+
     }
 
 
@@ -71,18 +88,8 @@ public class DeepslateCoalOreFarmTileentity extends VillagerTileentity implement
         // Increment the main timer
         timer++;
 
-        // Sync break stage only during breaking animation
-        if (timer >= getCoalGenerateTime() && timer < getCoalBreakTime()) {
-            breakStage = (timer - getCoalGenerateTime()) / (20); // Advance every 20 ticks
-            if (breakStage > 9) { // Reset if it exceeds max stage
-                breakStage = 0;
-            }
-        } else {
-            breakStage = 0; // Reset break stage when not animating
-        }
-
         // Handle reset and item drops
-        if (timer >= getCoalBreakTime()) {
+        if (timer >= getCoalBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -116,19 +123,31 @@ public class DeepslateCoalOreFarmTileentity extends VillagerTileentity implement
 
     @Override
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
-        super.saveAdditional(compound, provider);
+
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
+        // Save the pickType as an NBT tag
+        if (pickType != null) {
+            CompoundTag pickTypeTag = new CompoundTag();
+            pickTypeTag.putString("id", pickType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
+            pickTypeTag.putInt("count", pickType.getCount()); // Save the count
+            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+        }
         compound.putLong("Timer", timer);
+        super.saveAdditional(compound, provider);
     }
 
     @Override
     protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         ContainerHelper.loadAllItems(compound, inventory, provider);
-        NonNullList<ItemStack> picktypes = NonNullList.create();
-        if (pickType != null) {
-            picktypes = NonNullList.withSize(1, pickType);
+        if (compound.contains("PickType")) {
+            SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
+            Main.LOGGER.info("{} uses {}", this.getType(), pickType.getItem());
         }
-        ContainerHelper.loadAllItems(compound, picktypes, provider);
+        if (pickType == null) {
+            // If no pickType is saved, set a default one (e.g., Stone Pickaxe)
+            pickType = new ItemStack(Items.STONE_PICKAXE);
+        }
+
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }
@@ -136,4 +155,6 @@ public class DeepslateCoalOreFarmTileentity extends VillagerTileentity implement
     public IItemHandler getItemHandler() {
         return outputItemHandler;
     }
+
+
 }

@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
-import static com.awesomeshot5051.resourceFarm.blocks.render.PickaxeRendererUtil.renderSwingingPickaxe;
+import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.renderSwingingPickaxe;
 
 
 public class DeepslateCopperOreFarmRenderer extends RendererBase<DeepslateCopperOreFarmTileentity> {
@@ -34,15 +34,27 @@ public class DeepslateCopperOreFarmRenderer extends RendererBase<DeepslateCopper
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
         // Render the Copper Ore Block
-        blockRenderDispatcher.renderSingleBlock(
-                Blocks.DEEPSLATE_COPPER_ORE.defaultBlockState(),
-                matrixStack,
-                buffer,
-                combinedLight,
-                combinedOverlay,
-                ModelData.EMPTY,
-                RenderType.SOLID
-        );
+        if (farm.getTimer() >= DeepslateCopperOreFarmTileentity.getCopperGenerateTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.DEEPSLATE_COPPER_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        } else if (farm.getTimer() >= DeepslateCopperOreFarmTileentity.getCopperBreakTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.AIR.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        }
 
 
         matrixStack.popPose();

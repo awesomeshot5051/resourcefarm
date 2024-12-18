@@ -1,12 +1,3 @@
-/tick rate 10000
-/gamerule doDaylightCycle false
-/time set noon
-/difficulty peaceful
-/gamerule doWeatherCycle false
-/kill @e[type=!player[
-/kill @e[type=!player]
-/reload
-/time set noon
 /gamerule doDaylightCycle false
 /gamerule doMobSpawning false
 /gamerule doWeatherCycle false
@@ -35,3 +26,25 @@
 /gamerule doWeatherCycle false
 /weather clear
 /kill @e[type=!minecraft:player]
+/tick freeze
+/tick unfreeze
+/clear
+/enchant Dev minecraft:efficiency
+/enchant Dev minecraft:efficiency 5
+/enchant Dev minecraft:unbreaking 4
+/enchant Dev minecraft:unbreaking 3
+/tick rate 1
+/tick rate 10
+/tick rate 10000
+/tick rate 20
+/tick rate 40
+/tick rate 1000
+/tick rate 20
+/tick freeze
+/tick step 29s
+/tick step stop
+/tick step 160t
+/tick step 1t
+/tick rate 1
+/tick unfreeze
+/tick rate 20

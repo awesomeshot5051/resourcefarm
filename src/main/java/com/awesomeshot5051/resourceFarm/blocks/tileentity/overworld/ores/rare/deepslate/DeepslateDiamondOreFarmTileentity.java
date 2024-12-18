@@ -4,6 +4,7 @@ import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.OutputItemHandler;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
@@ -41,12 +42,24 @@ public class DeepslateDiamondOreFarmTileentity extends VillagerTileentity implem
         pickType = new ItemStack(Items.STONE_PICKAXE);
     }
 
-    public static int getDiamondGenerateTime() {
-        return Main.SERVER_CONFIG.diamondGenerateTime.get() - 20 * 10;
+    public static double getDiamondGenerateTime(DeepslateDiamondOreFarmTileentity tileEntity) {
+        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
+                (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
+                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
+                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
+                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
+                                                1); // Default to Wooden PICKAXE divisor if none matches
+
     }
 
-    public static int getDiamondBreakTime() {
-        return getDiamondGenerateTime() + 20 * 10;
+    public static double getDiamondBreakTime(DeepslateDiamondOreFarmTileentity tileEntity) {
+
+        return getDiamondGenerateTime(tileEntity) + (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? (20 * 4) :
+                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? (20 * 2) :
+                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? (20 * 2) :
+                                tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? (20 * 5) :
+                                        (20 * 10)); // Default to Wooden PICKAXE break time if none matches
+
     }
 
     public long getTimer() {
@@ -64,16 +77,8 @@ public class DeepslateDiamondOreFarmTileentity extends VillagerTileentity implem
     @Override
     public void tick() {
         timer++;
-        if (timer >= getDiamondGenerateTime() && timer < getDiamondBreakTime()) {
-            breakStage = (timer - getDiamondGenerateTime()) / 20;
-            if (breakStage > 9) {
-                breakStage = 0;
-            }
-        } else {
-            breakStage = 0;
-        }
 
-        if (timer >= getDiamondBreakTime()) {
+        if (timer >= getDiamondBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -103,19 +108,31 @@ public class DeepslateDiamondOreFarmTileentity extends VillagerTileentity implem
 
     @Override
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
-        super.saveAdditional(compound, provider);
+
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
+        // Save the pickType as an NBT tag
+        if (pickType != null) {
+            CompoundTag pickTypeTag = new CompoundTag();
+            pickTypeTag.putString("id", pickType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
+            pickTypeTag.putInt("count", pickType.getCount()); // Save the count
+            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+        }
         compound.putLong("Timer", timer);
+        super.saveAdditional(compound, provider);
     }
 
     @Override
     protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         ContainerHelper.loadAllItems(compound, inventory, provider);
-        NonNullList<ItemStack> picktypes = NonNullList.create();
-        if (pickType != null) {
-            picktypes = NonNullList.withSize(1, pickType);
+        if (compound.contains("PickType")) {
+            SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
+            Main.LOGGER.info("{} uses {}", this.getType(), pickType.getItem());
         }
-        ContainerHelper.loadAllItems(compound, picktypes, provider);
+        if (pickType == null) {
+            // If no pickType is saved, set a default one (e.g., Stone Pickaxe)
+            pickType = new ItemStack(Items.STONE_PICKAXE);
+        }
+
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }

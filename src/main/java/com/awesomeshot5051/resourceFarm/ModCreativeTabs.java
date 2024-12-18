@@ -21,10 +21,45 @@ public class ModCreativeTabs {
 
 
 //                output.accept(new ItemStack(ModBlocks.INVENTORY_VIEWER.get()));
+                /// Common Regular
                 output.accept(new ItemStack(ModBlocks.COPPER_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.DCOPPER_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.COAL_FARM.get()));
+                output.accept(new ItemStack(ModBlocks.GOLD_FARM.get()));
+                output.accept(new ItemStack(ModBlocks.IRON_FARM.get()));
+
+                /// uncommon Regular
+                output.accept(new ItemStack(ModBlocks.REDSTONE_FARM.get()));
+
+                /// rare regular
+                output.accept(new ItemStack(ModBlocks.LAPIS_FARM.get()));
+                output.accept(new ItemStack(ModBlocks.DIAMOND_FARM.get()));
+
+                /// very rare regular
+                output.accept(new ItemStack(ModBlocks.EMERALD_FARM.get()));
+
+
+                /// common deepslate
+                output.accept(new ItemStack(ModBlocks.DCOPPER_FARM.get()));
+                output.accept(new ItemStack(ModBlocks.DIRON_FARM.get()));
+                output.accept(new ItemStack(ModBlocks.DGOLD_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.DCOAL_FARM.get()));
+
+
+                /// uncommon deepslate
+                output.accept(new ItemStack(ModBlocks.DREDSTONE_FARM.get()));
+
+
+                /// rare deepslate
+                output.accept(new ItemStack(ModBlocks.DLAPIS_FARM.get()));
+                output.accept(new ItemStack(ModBlocks.DDIAMOND_FARM.get()));
+
+                /// very rare deepslate
+                output.accept(new ItemStack(ModBlocks.DEMERALD_FARM.get()));
+
+
+                output.accept(new ItemStack(ModBlocks.SAND_FARM.get()));
+                output.accept(new ItemStack(ModBlocks.CONCRETE_POWDER_FARM.get()));
+
             })
             .title(Component.translatable("itemGroup.resource_farms"))
             .build());

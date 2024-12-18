@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
-import static com.awesomeshot5051.resourceFarm.blocks.render.PickaxeRendererUtil.renderSwingingPickaxe;
+import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.renderSwingingPickaxe;
 
 public class DeepslateGoldOreFarmRenderer extends RendererBase<DeepslateGoldOreFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
@@ -26,21 +26,33 @@ public class DeepslateGoldOreFarmRenderer extends RendererBase<DeepslateGoldOreF
     }
 
     @Override
-    public void render(DeepslateGOLDOreFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(DeepslateGoldOreFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
         // Render the GOLD Ore Block
-        blockRenderDispatcher.renderSingleBlock(
-                Blocks.DEEPSLATE_GOLD_ORE.defaultBlockState(),
-                matrixStack,
-                buffer,
-                combinedLight,
-                combinedOverlay,
-                ModelData.EMPTY,
-                RenderType.SOLID
-        );
+        if (farm.getTimer() >= DeepslateGoldOreFarmTileentity.getGoldGenerateTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.DEEPSLATE_GOLD_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        } else if (farm.getTimer() >= DeepslateGoldOreFarmTileentity.getGoldBreakTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.AIR.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        }
 
         matrixStack.popPose();
         // Render the Pickaxe

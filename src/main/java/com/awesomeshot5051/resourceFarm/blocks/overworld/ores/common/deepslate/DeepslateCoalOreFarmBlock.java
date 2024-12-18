@@ -1,6 +1,7 @@
 package com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate;
 
 
+import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateCoalOreFarmTileentity;
@@ -16,6 +17,7 @@ import de.maxhenkel.corelib.client.CustomRendererBlockItem;
 import de.maxhenkel.corelib.client.ItemRenderer;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -48,6 +50,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
+import static net.minecraft.world.item.BlockItem.setBlockEntityData;
 import static net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag;
 
 public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
@@ -100,6 +103,10 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
 //                DeepslateCoalOreFarmRenderer.setStaticFarmstack(pickType.getStackInSlot(0));
                 // Ensure the tile entity is marked as changed and synced
                 farmTileEntity.setChanged();
+                CompoundTag compoundTag = new CompoundTag();
+                compoundTag.putString("id", farmTileEntity.pickType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
+                compoundTag.putInt("count", farmTileEntity.pickType.getCount()); // Save the count
+                setBlockEntityData(stack, blockEntity.getType(), compoundTag);
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
@@ -140,6 +147,8 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
 //        Objects.requireNonNull(this.asItem().getDefaultInstance().get(ModDataComponents.PICK_TYPE)).getStackInSlot(0);
+//        this.asItem().getDefaultInstance().get(ModDataComponents.PICK_TYPE).getStackInSlot(0);
+        Main.LOGGER.info("Success!");
         return new DeepslateCoalOreFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
     }
 

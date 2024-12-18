@@ -1,7 +1,0 @@
-{
-  "parent": "resource_farms:block/farm",
-  "textures": {
-    "front": "minecraft:block/copper_ore",
-    "back": "minecraft:block/copper_ore"
-  }
-}

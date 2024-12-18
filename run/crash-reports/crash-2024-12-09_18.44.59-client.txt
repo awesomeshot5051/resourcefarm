@@ -7,7 +7,7 @@ Description: Unexpected error
 java.lang.NullPointerException: Cannot invoke "net.minecraft.world.item.ItemStack.isEmpty()" because "itemStack" is null
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.entity.ItemRenderer.renderStatic(ItemRenderer.java:253) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.entity.ItemRenderer.renderStatic(ItemRenderer.java:238) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.render.PickaxeRendererUtil.renderSwingingPickaxe(PickaxeRendererUtil.java:57) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.renderSwingingPickaxe(PickaxeRendererUtil.java:57) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.CopperOreFarmRenderer.render(Unknown Source) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.CopperOreFarmRenderer.render(Unknown Source) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.BlockItemRendererBase.renderByItem(BlockItemRendererBase.java:38) ~[%23185!/:?] {re:classloading}
@@ -51,7 +51,7 @@ Thread: Render thread
 Stacktrace:
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.entity.ItemRenderer.renderStatic(ItemRenderer.java:253) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.entity.ItemRenderer.renderStatic(ItemRenderer.java:238) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.render.PickaxeRendererUtil.renderSwingingPickaxe(PickaxeRendererUtil.java:57) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.renderSwingingPickaxe(PickaxeRendererUtil.java:57) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.CopperOreFarmRenderer.render(Unknown Source) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.CopperOreFarmRenderer.render(Unknown Source) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.BlockItemRendererBase.renderByItem(BlockItemRendererBase.java:38) ~[%23185!/:?] {re:classloading}

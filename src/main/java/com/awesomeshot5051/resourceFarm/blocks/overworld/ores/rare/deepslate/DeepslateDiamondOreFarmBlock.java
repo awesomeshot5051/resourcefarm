@@ -2,10 +2,12 @@ package com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.deepslate;
 
 import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.deepslate.DeepslateDiamondOreFarmTileentity;
 import com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData;
 import com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData;
 import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
 import com.awesomeshot5051.resourceFarm.gui.OutputContainer;
+import com.awesomeshot5051.resourceFarm.items.render.overworld.ores.rare.deepslate.DeepslateDiamondOreFarmItemRenderer;
 import com.awesomeshot5051.resourceFarm.recipe.ModDataComponents;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;

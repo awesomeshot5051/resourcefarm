@@ -1,139 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CoalOreFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCoalOreFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCoalOreFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CoalOreFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/common/deepslate/DeepslateCoalOreFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/common/regular/CoalOreFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/dcoal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/dcopper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/ddiamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/demerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/dgold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/diamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/diron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/dlapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/dredstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/emerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/gold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/iron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/lapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/common/deepslate/dcoal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/common/deepslate/dcopper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/common/deepslate/dgold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/common/deepslate/diron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/common/regular/coal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/common/regular/copper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/common/regular/gold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/common/regular/iron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/rare/deepslate/ddiamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/rare/deepslate/demerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/rare/regular/diamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/rare/regular/emerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/uncommon/deepslate/dlapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/uncommon/deepslate/dredstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/uncommon/regular/lapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/ores/uncommon/regular/redstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/redstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/coal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/dcoal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/dcopper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/ddiamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/demerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/dgold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/diamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/diron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/dlapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/dredstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/emerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/gold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/iron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/lapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/common/deepslate/dcoal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/common/deepslate/dcopper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/common/deepslate/dgold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/common/deepslate/diron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/common/regular/coal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/common/regular/copper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/common/regular/gold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/common/regular/iron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/rare/deepslate/demerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/rare/regular/diamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/rare/regular/emerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/uncommon/deepslate/dlapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/uncommon/deepslate/dredstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/uncommon/regular/lapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/uncommon/regular/redstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/redstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/coal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dcoal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dcopper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/ddiamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/demerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dgold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/diamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/diron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dlapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dredstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/emerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/gold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/iron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/lapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/common/deepslate/dcoal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/common/deepslate/dcopper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/common/deepslate/dgold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/common/deepslate/diron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/common/regular/coal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/common/regular/copper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/common/regular/gold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/common/regular/iron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/rare/deepslate/ddiamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/rare/deepslate/demerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/rare/regular/diamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/rare/regular/emerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/uncommon/deepslate/dlapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/uncommon/deepslate/dredstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/uncommon/regular/lapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/ores/uncommon/regular/redstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/redstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/coal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/dcoal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/ddiamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/demerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/dgold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/diamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/diron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/dlapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/dredstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/emerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/gold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/iron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/lapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/common/deepslate/dcoal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/common/deepslate/dcopper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/common/deepslate/dgold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/common/deepslate/diron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/common/regular/coal_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/common/regular/copper_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/common/regular/gold_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/common/regular/iron_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/rare/deepslate/ddiamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/rare/deepslate/demerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/rare/regular/diamond_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/rare/regular/emerald_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/uncommon/deepslate/dlapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/uncommon/deepslate/dredstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/uncommon/regular/lapis_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/ores/uncommon/regular/redstone_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/redstone_farm.json" afterDir="false" />
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="We're working with stuff.&#10;&#10;Not quite cooking with gas, but we're getting there.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/BlockInternalRender/BucketRenderUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/BlockInternalRender/ShovelRendererUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/datacomponents/getPickType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/jei/JEIIntegration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/jei/RecipeTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/jei/recipeCategories/FarmRecipeCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomShapelessBlockRecipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomShapelessRecipeBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/cpowder_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/rock/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/rock/stone_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/soil/cpowder_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/soil/sand_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/sand_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/stone_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/cpowder_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/rock/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/rock/stone_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/soil/cpowder_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/soil/sand_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/sand_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/stone_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/cpowder_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/rock/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/rock/stone_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/soil/cpowder_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/soil/sand_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/sand_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/stone_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/cpowder_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/rock/concrete_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/rock/stone_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/soil/cpowder_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/soil/sand_farm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/sand_farm.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
@@ -141,107 +55,133 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/configuration-cache.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/configuration-cache.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/ModCreativeTabs.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/ModCreativeTabs.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/ServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/ServerConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/ModBlocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/ModBlocks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCopperOreFarmBlock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCopperOreFarmBlock$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCopperOreFarmBlock$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCopperOreFarmBlock$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCopperOreFarmBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCopperOreFarmBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CopperOreFarmBlock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CopperOreFarmBlock$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CopperOreFarmBlock$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CopperOreFarmBlock$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CopperOreFarmBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CopperOreFarmBlock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/render/PickaxeRendererUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/render/PickaxeRendererUtil.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/SyncableTileentity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/SyncableTileentity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCoalOreFarmTileentity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCoalOreFarmTileentity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCopperOreFarmTileentity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCopperOreFarmTileentity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CopperOreFarmTileentity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CopperOreFarmTileentity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/BlockRendererBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/BlockRendererBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCoalOreFarmRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCoalOreFarmRenderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCopperOreFarmRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCopperOreFarmRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CoalOreFarmRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CoalOreFarmRenderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CopperOreFarmRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CopperOreFarmRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/DataGenerators.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/items/ModItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/items/ModItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/common/regular/CopperOreFarmItemRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/common/regular/CopperOreFarmItemRenderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/recipe/CustomBlockRecipe$Serializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/recipe/CustomBlockRecipe$Serializer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/recipe/CustomBlockRecipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/recipe/CustomBlockRecipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/recipe/CustomShapedRecipeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/recipe/CustomShapedRecipeBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/recipe/ModRecipes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/recipe/ModRecipes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.65-minecraft-merged.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.65-minecraft-merged.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.65-minecraft-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.65-minecraft-sources.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.65-minecraft.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.65-minecraft.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/clientLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientLegacyClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/clientRunClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunClasspath.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/clientRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunProgramArgs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/clientRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunVmArgs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/dataLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/dataLegacyClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/dataRunClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/dataRunClasspath.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/dataRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/dataRunProgramArgs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/dataRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/dataRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/gameTestServerLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/gameTestServerLegacyClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/gameTestServerRunClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/gameTestServerRunClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/gameTestServerRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/gameTestServerRunVmArgs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/minecraft_assets.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/minecraft_assets.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/serverLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/serverLegacyClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/serverRunClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/serverRunClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/serverRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/serverRunVmArgs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/overworld/aboveGround/miscellaneous/copper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/dcoal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/dcoal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/dcopper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/dcopper_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/overworld/aboveGround/ores/common/dcoal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/overworld/aboveGround/ores/common/deepslate/dcoal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/overworld/aboveGround/ores/common/deepslate/dcopper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/overworld/aboveGround/ores/common/regular/coal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/blockstates/overworld/aboveGround/ores/common/regular/copper_farm.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/coal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/coal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/dcoal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/dcoal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/dcopper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/dcopper_farm.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/overworld/aboveground/miscellaneous/copper_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/overworld/aboveGround/miscellaneous/copper_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/data/minecraft/advancement/recipes/misc/copper_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/data/minecraft/recipe/copper_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CustomBlockRecipe$Serializer.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/overworld/aboveground/ores/common/dcoal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/overworld/aboveground/ores/common/deepslate/dcoal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/overworld/aboveground/ores/common/deepslate/dcopper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/overworld/aboveground/ores/common/regular/coal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/block/overworld/aboveground/ores/common/regular/copper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/coal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/coal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/dcoal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/dcoal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/dcopper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/dcopper_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/overworld/aboveGround/ores/common/deepslate/dcoal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/overworld/aboveGround/ores/common/deepslate/dcopper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/models/item/overworld/aboveGround/ores/common/regular/copper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/coal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/coal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/dcoal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/dcoal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/overworld/common/ores/copper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/overworld/common/ores/deepslate/dcoal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/overworld/common/ores/deepslate/dcopper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/overworld/common/ores/regular/coal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/loot_table/blocks/overworld/common/ores/regular/copper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/recipe/coal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/data/resource_farms/recipe/coal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/recipe/copper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/data/resource_farms/recipe/copper_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/recipe/dcoal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/data/resource_farms/recipe/dcoal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data/resource_farms/recipe/dcopper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/data/resource_farms/recipe/dcopper_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CustomBlockRecipe$Serializer.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CustomBlockRecipe$Serializer.class.uniqueId0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CustomBlockRecipe.class.uniqueId2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CustomShapedRecipeBuilder.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ModRecipes.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ModCreativeTabs.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ModRecipes.class.uniqueId1" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ModRecipes.class.uniqueId1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/downloadAssets/nfrt_artifact_manifest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/downloadAssets/nfrt_artifact_manifest.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/command_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/command_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/jei/recipe-category-sort-order.ini" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei/recipe-category-sort-order.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/config/resource_farms-server-1.toml.bak" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/resource_farms-server-1.toml.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/resource_farms-server-2.toml.bak" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/resource_farms-server-2.toml.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/config/resource_farms-server.toml" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/resource_farms-server.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-1.log.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-10.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-10.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-11.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-11.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-12.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-12.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-13.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-13.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-14.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-14.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-15.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-15.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-16.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-16.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-17.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-17.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-18.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-18.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-19.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-19.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-20.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-20.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-21.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-21.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-22.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-22.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-23.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-23.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-24.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-24.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-25.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-25.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-26.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-26.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-27.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-27.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-28.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-28.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-29.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-29.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-30.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-30.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-31.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-31.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-32.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-32.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-33.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-33.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-34.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-34.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-35.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-35.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-36.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-36.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-37.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-37.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-38.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-38.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-39.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-39.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-40.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-40.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-41.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-41.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-6.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-6.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-7.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-7.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-8.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-8.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-08-9.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-08-9.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_15.15.56-client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_15.15.56-client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_19.54.47-client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_19.54.47-client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_19.55.57-client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_19.55.57-client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_20.02.29-client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_20.02.29-client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_20.16.52-client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-08_20.16.52-client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-09_18.43.37-client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-09_18.43.37-client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-09_18.44.59-client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/crash-reports/crash-2024-12-09_18.44.59-client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-1.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-10.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-10.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-11.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-11.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-12.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-12.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-13.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-13.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-14.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-14.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-15.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-15.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-16.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-16.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-17.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-17.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-18.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-18.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-19.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-19.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-20.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-20.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-21.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-21.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-22.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-22.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-23.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-23.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-24.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-24.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-25.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-25.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-26.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-26.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-27.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-27.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-28.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-28.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-29.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-29.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-30.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-30.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-31.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-31.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-32.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-32.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-6.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-6.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-7.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-7.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-8.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-8.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2024-12-10-9.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2024-12-10-9.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
@@ -249,6 +189,7 @@
       <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/options.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
@@ -258,50 +199,65 @@
       <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.-1.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-1.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.0.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.0.0.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/session.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/minecraft/advancement/recipes/misc/copper_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/minecraft/recipe/copper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/coal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/coal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/coal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/copper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/copper_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/dcoal_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/dcoal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/dcopper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/dcopper_farm.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/ModCreativeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/ModCreativeTabs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/ServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/ServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/ModBlocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCopperOreFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCopperOreFarmBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CopperOreFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/CopperOreFarmBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/GoldOreFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/regular/GoldOreFarmBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/render/PickaxeRendererUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/BlockInternalRender/PickaxeRendererUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/SyncableTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/SyncableTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCoalOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCoalOreFarmTileentity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCopperOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCopperOreFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateGoldOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateGoldOreFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CopperOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CopperOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/BlockRendererBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/BlockRendererBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/GoldOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/GoldOreFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/RendererBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/RendererBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCoalOreFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCoalOreFarmRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCopperOreFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateCopperOreFarmRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateGoldOreFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/deepslate/DeepslateGoldOreFarmRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CoalOreFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CoalOreFarmRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CopperOreFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/CopperOreFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/GoldOreFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/common/regular/GoldOreFarmRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/DataGenerators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/data/DataGenerators.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/data/providers/recipe/ModRecipeProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/common/regular/CopperOreFarmItemRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/common/regular/CopperOreFarmItemRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/common/regular/GoldOreFarmItemRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/common/regular/GoldOreFarmItemRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmItemRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmItemRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomBlockRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomBlockRecipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/overworld/aboveGround/miscellaneous/copper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/blockstates/coal_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomShapedRecipeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomShapedRecipeBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/ModRecipes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/ModRecipes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/farm.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/aboveground/miscellaneous/copper_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/overworld/aboveGround/miscellaneous/copper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/block/overworld/ores/rare/deepslate/ddiamond_farm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/overworld/common/ores/copper_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/dcopper_farm.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -409,41 +365,43 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/MCreatorWorkspaces/modTemplate&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MCreatorWorkspaces/resourceFarm/src/main/resources/data/resource_farms/loot_table/blocks/overworld/rock&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\blockstates" />
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\block" />
+      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\data\resource_farms\loot_table\blocks\overworld\rock" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item" />
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\data\resource_farms\loot_table\blocks" />
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\blockstates\overworld\ores\common\regular" />
+      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\overworld\rock" />
+      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\block" />
+      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\block\overworld\rock" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\block" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\block\overworld\ores\common\regular" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\block\overworld\ores\common\deepslate" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\overworld" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\block\overworld\ores\common" />
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\data\resource_farms\loot_table\blocks\overworld\ores\uncommon\deepslate" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.awesomeshot5051.resourceFarm.items.render.nether.ores.veryrare.regular" />
+      <recent name="com.awesomeshot5051.resourceFarm.items.render.overworld.rock.common" />
+      <recent name="com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.veryRare.regular" />
       <recent name="com.awesomeshot5051.resourceFarm.data.recipe" />
       <recent name="com.awesomeshot5051.resourceFarm.data.providers" />
-      <recent name="com.awesomeshot5051.resourceFarm.data" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.awesomeshot5051.resourceFarm.recipe" />
       <recent name="com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate" />
       <recent name="com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate" />
       <recent name="com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.deepslate" />
       <recent name="com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.deepslate" />
-      <recent name="com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.resourceFarm [runClient]">
@@ -559,10 +517,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.resourceFarm [runData]" />
         <item itemvalue="Gradle.resourceFarm [runClient]" />
-        <item itemvalue="Gradle.resourceFarm [clean]" />
+        <item itemvalue="Gradle.resourceFarm [runData]" />
         <item itemvalue="Gradle.resourceFarm [classes]" />
+        <item itemvalue="Gradle.resourceFarm [clean]" />
         <item itemvalue="Gradle.resourceFarm [buildNeeded]" />
       </list>
     </recent_temporary>
@@ -576,7 +534,39 @@
       <option name="presentableId" value="Default" />
       <updated>1733150288157</updated>
     </task>
+    <task id="LOCAL-00001" summary="We're working with stuff.&#10;&#10;Not quite cooking with gas, but we're getting there.">
+      <option name="closed" value="true" />
+      <created>1733888788896</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733888788896</updated>
+    </task>
+    <task id="LOCAL-00002" summary="We're working with stuff.&#10;&#10;Not quite cooking with gas, but we're getting there.">
+      <option name="closed" value="true" />
+      <created>1733888929372</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733888929372</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="We're working with stuff.&#10;&#10;Not quite cooking with gas, but we're getting there." />
+    <option name="LAST_COMMIT_MESSAGE" value="We're working with stuff.&#10;&#10;Not quite cooking with gas, but we're getting there." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -586,21 +576,24 @@
           <option name="timeStamp" value="92" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomShapedRecipeBuilder.java</url>
-          <line>135</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java</url>
-          <line>165</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomShapelessRecipeBuilder.java</url>
+          <line>49</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomBlockRecipe.java</url>
-          <line>91</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
+          <condition expression="location.toString().equalsIgnoreCase(&quot;resource_farms:concrete_farm&quot;)" language="JAVA" />
+          <url>jar://$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.65-minecraft-merged.jar!/net/minecraft/data/recipes/RecipeOutput.class</url>
+          <line>17</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomShapelessRecipeBuilder.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/data/providers/recipe/ModRecipeProvider.java</url>
+          <line>185</line>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>

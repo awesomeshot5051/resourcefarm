@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
-import static com.awesomeshot5051.resourceFarm.blocks.render.PickaxeRendererUtil.renderSwingingPickaxe;
+import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.renderSwingingPickaxe;
 
 
 public class DeepslateCoalOreFarmRenderer extends RendererBase<DeepslateCoalOreFarmTileentity> {
@@ -34,15 +34,27 @@ public class DeepslateCoalOreFarmRenderer extends RendererBase<DeepslateCoalOreF
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
         // Render the Coal Ore Block
-        blockRenderDispatcher.renderSingleBlock(
-                Blocks.DEEPSLATE_COAL_ORE.defaultBlockState(),
-                matrixStack,
-                buffer,
-                combinedLight,
-                combinedOverlay,
-                ModelData.EMPTY,
-                RenderType.SOLID
-        );
+        if (farm.getTimer() >= DeepslateCoalOreFarmTileentity.getCoalGenerateTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.DEEPSLATE_COAL_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        } else if (farm.getTimer() >= DeepslateCoalOreFarmTileentity.getCoalBreakTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.AIR.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        }
 
 
         matrixStack.popPose();

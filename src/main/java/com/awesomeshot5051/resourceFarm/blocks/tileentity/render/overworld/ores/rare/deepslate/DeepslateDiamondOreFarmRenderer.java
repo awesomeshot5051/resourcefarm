@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
-import static com.awesomeshot5051.resourceFarm.blocks.render.PickaxeRendererUtil.renderSwingingPickaxe;
+import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.renderSwingingPickaxe;
 
 public class DeepslateDiamondOreFarmRenderer extends RendererBase<DeepslateDiamondOreFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
@@ -32,15 +32,27 @@ public class DeepslateDiamondOreFarmRenderer extends RendererBase<DeepslateDiamo
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
         // Render the Diamond Ore Block
-        blockRenderDispatcher.renderSingleBlock(
-                Blocks.DEEPSLATE_DIAMOND_ORE.defaultBlockState(),
-                matrixStack,
-                buffer,
-                combinedLight,
-                combinedOverlay,
-                ModelData.EMPTY,
-                RenderType.SOLID
-        );
+        if (farm.getTimer() >= DeepslateDiamondOreFarmTileentity.getDiamondGenerateTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.DEEPSLATE_DIAMOND_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        } else if (farm.getTimer() >= DeepslateDiamondOreFarmTileentity.getDiamondBreakTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.AIR.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        }
 
         matrixStack.popPose();
         // Render the Pickaxe

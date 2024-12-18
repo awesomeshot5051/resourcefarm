@@ -1,0 +1,32 @@
+{
+  "type": "resource_farms:shaped_serializer",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "c:glass_panes"
+    },
+    "C": {
+      "item": "minecraft:deepslate_diamond_ore"
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
+    },
+    "P": [
+      {
+        "item": "minecraft:diamond_pickaxe"
+      },
+      {
+        "item": "minecraft:netherite_pickaxe"
+      }
+    ]
+  },
+  "pattern": [
+    "BBB",
+    "BPB",
+    "DCD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_farms:ddiamond_farm"
+  }
+}

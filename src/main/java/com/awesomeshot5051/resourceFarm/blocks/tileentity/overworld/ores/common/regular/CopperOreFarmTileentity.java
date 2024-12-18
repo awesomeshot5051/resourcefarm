@@ -45,12 +45,28 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
         pickType = new ItemStack(Items.STONE_PICKAXE);
     }
 
-    public static int getCopperGenerateTime() {
-        return Main.SERVER_CONFIG.copperGenerateTime.get() - 20 * 10;
+    public static double getCopperGenerateTime(CopperOreFarmTileentity tileEntity) {
+        return (double) Main.SERVER_CONFIG.copperGenerateTime.get() /
+                (tileEntity.getPickType().getItem().equals(Items.WOODEN_PICKAXE) ? 1 :
+                        tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? 10 :
+                                tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
+                                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
+                                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
+                                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
+                                                                1); // Default to Wooden PICKAXE divisor if none matches
+
     }
 
-    public static int getCopperBreakTime() {
-        return getCopperGenerateTime() + 20 * 10;
+    public static double getCopperBreakTime(CopperOreFarmTileentity tileEntity) {
+
+        return getCopperGenerateTime(tileEntity) + (tileEntity.getPickType().getItem().equals(Items.WOODEN_PICKAXE) ? (20 * 10) :
+                tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? (20 * 8) :
+                        tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? (20 * 4) :
+                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? (20 * 2) :
+                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? (20 * 2) :
+                                                tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? (20 * 5) :
+                                                        (20 * 10)); // Default to Wooden PICKAXE break time if none matches
+
     }
 
 
@@ -70,19 +86,8 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
     public void tick() {
         // Increment the main timer
         timer++;
-
-        // Sync break stage only during breaking animation
-        if (timer >= getCopperGenerateTime() && timer < getCopperBreakTime()) {
-            breakStage = (timer - getCopperGenerateTime()) / (20); // Advance every 20 ticks
-            if (breakStage > 9) { // Reset if it exceeds max stage
-                breakStage = 0;
-            }
-        } else {
-            breakStage = 0; // Reset break stage when not animating
-        }
-
         // Handle reset and item drops
-        if (timer >= getCopperBreakTime()) {
+        if (timer >= getCopperBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -104,7 +109,8 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
             return Collections.emptyList();
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.COPPER_INGOT));
+        int count = serverWorld.random.nextInt(2, 5);
+        drops.add(new ItemStack(Items.COPPER_INGOT, count));
 
 
         return drops;

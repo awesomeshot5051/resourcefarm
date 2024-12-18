@@ -74,8 +74,8 @@ public class GoldOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
             }
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
-        GoldOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new GoldOreFarmTileentity(BlockPos.ZERO, ModBlocks.DGOLD_FARM.get().defaultBlockState()));
-        GoldOreFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new GoldOreFarmTileentity(BlockPos.ZERO, ModBlocks.DGOLD_FARM.get().defaultBlockState()));
+        GoldOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new GoldOreFarmTileentity(BlockPos.ZERO, ModBlocks.GOLD_FARM.get().defaultBlockState()));
+        GoldOreFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new GoldOreFarmTileentity(BlockPos.ZERO, ModBlocks.GOLD_FARM.get().defaultBlockState()));
     }
 
     @Override
@@ -108,7 +108,7 @@ public class GoldOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.DGOLD_FARM::get);
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.GOLD_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;

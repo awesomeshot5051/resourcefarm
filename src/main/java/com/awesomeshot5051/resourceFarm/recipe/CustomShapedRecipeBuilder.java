@@ -17,7 +17,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -32,31 +34,26 @@ public class CustomShapedRecipeBuilder implements RecipeBuilder {
     private final List<String> rows = Lists.newArrayList();
     private final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+    private final boolean showNotification = true;
     @Nullable
     private String group;
-    private boolean showNotification = true;
 
     public CustomShapedRecipeBuilder(RecipeCategory category, ItemLike result, int count) {
         this(category, new ItemStack(result, count));
     }
 
     public CustomShapedRecipeBuilder(RecipeCategory p_249996_, ItemStack result) {
+//        this(p_249996_, result);
         this.category = p_249996_;
         this.result = result.getItem();
         this.count = result.getCount();
         this.resultStack = result;
     }
 
-    /**
-     * Creates a new builder for a shaped recipe.
-     */
     public static CustomShapedRecipeBuilder shaped(RecipeCategory category, ItemLike result) {
         return shaped(category, result, 1);
     }
 
-    /**
-     * Creates a new builder for a shaped recipe.
-     */
     public static CustomShapedRecipeBuilder shaped(RecipeCategory category, ItemLike result, int count) {
         return new CustomShapedRecipeBuilder(category, result, count);
     }
@@ -65,23 +62,20 @@ public class CustomShapedRecipeBuilder implements RecipeBuilder {
         return new CustomShapedRecipeBuilder(p_251325_, result);
     }
 
-    /**
-     * Adds a key to the recipe pattern.
-     */
+
+    @Nonnull
     public CustomShapedRecipeBuilder define(Character symbol, TagKey<Item> tag) {
         return this.define(symbol, Ingredient.of(tag));
     }
 
-    /**
-     * Adds a key to the recipe pattern.
-     */
+
+    @Nonnull
     public CustomShapedRecipeBuilder define(Character symbol, ItemLike item) {
         return this.define(symbol, Ingredient.of(item));
     }
 
-    /**
-     * Adds a key to the recipe pattern.
-     */
+
+    @Nonnull
     public CustomShapedRecipeBuilder define(Character symbol, Ingredient ingredient) {
         if (this.key.containsKey(symbol)) {
             throw new IllegalArgumentException("Symbol '" + symbol + "' is already defined!");
@@ -93,9 +87,8 @@ public class CustomShapedRecipeBuilder implements RecipeBuilder {
         }
     }
 
-    /**
-     * Adds a new entry to the patterns for this recipe.
-     */
+
+    @Nonnull
     public CustomShapedRecipeBuilder pattern(String pattern) {
         if (!this.rows.isEmpty() && pattern.length() != this.rows.get(0).length()) {
             throw new IllegalArgumentException("Pattern must be the same width on every line!");
@@ -105,28 +98,26 @@ public class CustomShapedRecipeBuilder implements RecipeBuilder {
         }
     }
 
+    @Override
     public CustomShapedRecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
         this.criteria.put(name, criterion);
         return this;
     }
 
-    public CustomShapedRecipeBuilder group(@Nullable String groupName) {
-        this.group = groupName;
-        return this;
-    }
 
-    public CustomShapedRecipeBuilder showNotification(boolean showNotification) {
-        this.showNotification = showNotification;
+    @Override
+    public RecipeBuilder group(@org.jetbrains.annotations.Nullable String s) {
         return this;
     }
 
     @Override
+    @Nonnull
     public Item getResult() {
         return this.result;
     }
 
     @Override
-    public void save(RecipeOutput recipeOutput, ResourceLocation id) {
+    public void save(RecipeOutput recipeOutput, @NotNull ResourceLocation id) {
         ShapedRecipePattern shapedrecipepattern = this.ensureValid(id);
         Advancement.Builder advancement$builder = recipeOutput.advancement()
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
@@ -140,6 +131,7 @@ public class CustomShapedRecipeBuilder implements RecipeBuilder {
                 this.resultStack,
                 this.showNotification
         );
+
         recipeOutput.accept(id, shapedrecipe, advancement$builder.build(id.withPrefix("recipes/" + this.category.getFolderName() + "/")));
     }
 

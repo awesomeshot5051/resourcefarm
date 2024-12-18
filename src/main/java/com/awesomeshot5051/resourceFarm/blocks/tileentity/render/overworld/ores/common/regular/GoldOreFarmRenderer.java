@@ -1,6 +1,7 @@
-package com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.;
+package com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular;
 
-.GoldOreFarmTileentity;
+
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.GoldOreFarmTileentity;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.RendererBase;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -15,7 +16,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
-import static com.awesomeshot5051.resourceFarm.blocks.render.PickaxeRendererUtil.renderSwingingPickaxe;
+import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.renderSwingingPickaxe;
 
 public class GoldOreFarmRenderer extends RendererBase<GoldOreFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
@@ -26,22 +27,33 @@ public class GoldOreFarmRenderer extends RendererBase<GoldOreFarmTileentity> {
     }
 
     @Override
-    public void render(GOLDOreFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(GoldOreFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
         // Render the GOLD Ore Block
-        blockRenderDispatcher.renderSingleBlock(
-                Blocks._GOLD_ORE.defaultBlockState(),
-                matrixStack,
-                buffer,
-                combinedLight,
-                combinedOverlay,
-                ModelData.EMPTY,
-                RenderType.SOLID
-        );
-
+        if (farm.getTimer() >= GoldOreFarmTileentity.getGoldGenerateTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.GOLD_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        } else if (farm.getTimer() >= GoldOreFarmTileentity.getGoldBreakTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.AIR.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        }
         matrixStack.popPose();
         // Render the Pickaxe
         renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());

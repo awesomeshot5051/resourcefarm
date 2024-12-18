@@ -39,12 +39,28 @@ public class CoalOreFarmTileentity extends VillagerTileentity implements ITickab
         pickType = new ItemStack(Items.STONE_PICKAXE);
     }
 
-    public static int getCoalGenerateTime() {
-        return Main.SERVER_CONFIG.coalGenerateTime.get() - 20 * 4;
+    public static double getCoalGenerateTime(CoalOreFarmTileentity tileEntity) {
+        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
+                (tileEntity.getPickType().getItem().equals(Items.WOODEN_PICKAXE) ? 1 :
+                        tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? 10 :
+                                tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
+                                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
+                                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
+                                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
+                                                                1); // Default to Wooden PICKAXE divisor if none matches
+
     }
 
-    public static int getCoalBreakTime() {
-        return getCoalGenerateTime() + 20 * 4; // 30 seconds spawn time + 10 seconds kill time
+    public static double getCoalBreakTime(CoalOreFarmTileentity tileEntity) {
+
+        return getCoalGenerateTime(tileEntity) + (tileEntity.getPickType().getItem().equals(Items.WOODEN_PICKAXE) ? (20 * 10) :
+                tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? (20 * 8) :
+                        tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? (20 * 4) :
+                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? (20 * 2) :
+                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? (20 * 2) :
+                                                tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? (20 * 5) :
+                                                        (20 * 10)); // Default to Wooden PICKAXE break time if none matches
+
     }
 
     //private static final ResourceKey<LootTable> COAL_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/coal"));
@@ -61,33 +77,23 @@ public class CoalOreFarmTileentity extends VillagerTileentity implements ITickab
         // Increment the main timer
         timer++;
 
-        // Sync break stage only during breaking animation
-        if (timer >= getCoalBreakTime() && timer < getCoalBreakTime()) {
-//            breakStage = (timer - getCopperGenerateTime()) / (20); // Advance every 20 ticks
-//            if (breakStage > 9) { // Reset if it exceeds max stage
-//                breakStage = 0;
-//            }
-//        } else {
-//            breakStage = 0; // Reset break stage when not animating
-//        }
-
-            // Handle reset and item drops
-            if (timer >= getCoalBreakTime()) {
-                for (ItemStack drop : getDrops()) {
-                    for (int i = 0; i < itemHandler.getSlots(); i++) {
-                        drop = itemHandler.insertItem(i, drop, false);
-                        if (drop.isEmpty()) {
-                            break;
-                        }
+        // Handle reset and item drops
+        if (timer >= getCoalBreakTime(this)) {
+            for (ItemStack drop : getDrops()) {
+                for (int i = 0; i < itemHandler.getSlots(); i++) {
+                    drop = itemHandler.insertItem(i, drop, false);
+                    if (drop.isEmpty()) {
+                        break;
                     }
                 }
-
-                timer = 0L; // Reset the timer
-                sync(); // Sync to the client
             }
 
-            setChanged(); // Mark the tile entity as dirty
+            timer = 0L; // Reset the timer
+            sync(); // Sync to the client
         }
+
+        setChanged(); // Mark the tile entity as dirty
+
     }
 
     private List<ItemStack> getDrops() {

@@ -1,13 +1,18 @@
 {
-  "type": "resource_farms:custom_serializer",
+  "type": "resource_farms:shaped_serializer",
   "category": "misc",
   "key": {
     "B": {
       "tag": "c:glass_panes"
     },
-    "C": {
-      "item": "minecraft:coal_ore"
-    },
+    "C": [
+      {
+        "item": "minecraft:coal_ore"
+      },
+      {
+        "item": "minecraft:coal_block"
+      }
+    ],
     "P": [
       {
         "item": "minecraft:wooden_pickaxe"

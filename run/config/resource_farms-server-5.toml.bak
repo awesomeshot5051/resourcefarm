@@ -1,0 +1,59 @@
+[villager]
+	#If the villager reputation should be the same for every player
+	#This affects the prices of cured/converted villagers and the prices of the auto trader
+	universal_reputation = true
+
+[copper_farm]
+	#The time in ticks the copper farm takes to generate resources
+	#Range: 180 ~ 180
+	generate_time = 180
+
+[coal_farm]
+	#The time in ticks the coal farm takes to generate resources
+	#Range: 45 ~ 45
+	generate_time = 45
+
+[iron_farm]
+	#The time in ticks the iron farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60
+
+[gold_farm]
+	#The time in ticks the gold farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60
+
+[diamond_farm]
+	#The time in ticks the diamond farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60
+
+[emerald_farm]
+	#The time in ticks the emerald farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60
+
+[redstone_farm]
+	#The time in ticks the redstone farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60
+
+[lapis_farm]
+	#The time in ticks the lapis farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60
+
+[quartz_farm]
+	#The time in ticks the quartz farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60
+
+[netherite_farm]
+	#The time in ticks the netherite farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60
+
+[sand_farm]
+	#The time in ticks the sand farm takes to generate resources
+	#Range: 60 ~ 60
+	generate_time = 60

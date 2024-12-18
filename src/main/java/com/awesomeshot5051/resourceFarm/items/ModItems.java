@@ -25,6 +25,36 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> COAL_FARM = ITEM_REGISTER.register("coal_farm", () -> ModBlocks.COAL_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> DCOPPER_FARM = ITEM_REGISTER.register("dcopper_farm", () -> ModBlocks.DCOPPER_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> DCOAL_FARM = ITEM_REGISTER.register("dcoal_farm", () -> ModBlocks.DCOAL_FARM.get().toItem());
+    // Regular ores
+    public static final DeferredHolder<Item, Item> IRON_FARM = ITEM_REGISTER.register("iron_farm", () -> ModBlocks.IRON_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> GOLD_FARM = ITEM_REGISTER.register("gold_farm", () -> ModBlocks.GOLD_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DIAMOND_FARM = ITEM_REGISTER.register("diamond_farm", () -> ModBlocks.DIAMOND_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> EMERALD_FARM = ITEM_REGISTER.register("emerald_farm", () -> ModBlocks.EMERALD_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> LAPIS_FARM = ITEM_REGISTER.register("lapis_farm", () -> ModBlocks.LAPIS_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> REDSTONE_FARM = ITEM_REGISTER.register("redstone_farm", () -> ModBlocks.REDSTONE_FARM.get().toItem());
+
+
+    public static final DeferredHolder<Item, Item> SAND_FARM = ITEM_REGISTER.register("sand_farm", () -> ModBlocks.SAND_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CONCRETE_POWDER_FARM = ITEM_REGISTER.register("cpowder_farm", () -> ModBlocks.CONCRETE_POWDER_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CONCRETE_FARM = ITEM_REGISTER.register("concrete_farm", () -> ModBlocks.CONCRETE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> COBBLESTONE_FARM = ITEM_REGISTER.register("cobblestone_farm", () -> ModBlocks.COBBLESTONE_FARM.get().toItem());
+
+
+    // Deepslate variants
+    public static final DeferredHolder<Item, Item> DIRON_FARM = ITEM_REGISTER.register("diron_farm", () -> ModBlocks.DIRON_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DGOLD_FARM = ITEM_REGISTER.register("dgold_farm", () -> ModBlocks.DGOLD_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DDIAMOND_FARM = ITEM_REGISTER.register("ddiamond_farm", () -> ModBlocks.DDIAMOND_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DEMERALD_FARM = ITEM_REGISTER.register("demerald_farm", () -> ModBlocks.DEMERALD_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DLAPIS_FARM = ITEM_REGISTER.register("dlapis_farm", () -> ModBlocks.DLAPIS_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DREDSTONE_FARM = ITEM_REGISTER.register("dredstone_farm", () -> ModBlocks.DREDSTONE_FARM.get().toItem());
+
+//    public static final DeferredHolder<Item, Item> DNETHERITE_FARM = ITEM_REGISTER.register("dnetherite_farm", () -> ModBlocks.DNETHERITE_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> DQUARTZ_FARM = ITEM_REGISTER.register("dquartz_farm", () -> ModBlocks.DQUARTZ_FARM.get().toItem());
+
+    // Nether variants
+    public static final DeferredHolder<Item, Item> NETHER_QUARTZ_FARM = ITEM_REGISTER.register("nether_quartz_farm", () -> ModBlocks.NETHER_QUARTZ_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> NETHER_GOLD_FARM = ITEM_REGISTER.register("nether_gold_farm", () -> ModBlocks.NETHER_GOLD_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> NETHERITE_FARM = ITEM_REGISTER.register("netherite_farm", () -> ModBlocks.NETHERITE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> ICON_ITEM = ITEM_REGISTER.register("icon_item",
             () -> new IconItem(new Item.Properties()));
     private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPE_REGISTER = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Main.MODID);
