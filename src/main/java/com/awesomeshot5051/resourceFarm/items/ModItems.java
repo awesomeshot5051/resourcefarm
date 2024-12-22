@@ -1,19 +1,14 @@
 package com.awesomeshot5051.resourceFarm.items;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData;
-import com.awesomeshot5051.resourceFarm.datacomponents.PickTypeData;
-import com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData;
-import com.awesomeshot5051.resourceFarm.datacomponents.VillagerData;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.Item;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import net.minecraft.core.component.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
+import net.neoforged.bus.api.*;
+import net.neoforged.neoforge.registries.*;
 
 public class ModItems {
 
@@ -21,6 +16,7 @@ public class ModItems {
     private static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     //    public static final DeferredHolder<Item, Item> INCUBATOR = ITEM_REGISTER.register("incubator", () -> ModBlocks.INCUBATOR.get().toItem());
     public static final DeferredHolder<Item, Item> INVENTORY_VIEWER = ITEM_REGISTER.register("inventory_viewer", () -> ModBlocks.INVENTORY_VIEWER.get().toItem());
+    public static final DeferredHolder<Item, Item> ANDESITE_FARM = ITEM_REGISTER.register("andesite_farm", () -> ModBlocks.ANDESITE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> COPPER_FARM = ITEM_REGISTER.register("copper_farm", () -> ModBlocks.COPPER_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> COAL_FARM = ITEM_REGISTER.register("coal_farm", () -> ModBlocks.COAL_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> DCOPPER_FARM = ITEM_REGISTER.register("dcopper_farm", () -> ModBlocks.DCOPPER_FARM.get().toItem());
@@ -33,6 +29,7 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> LAPIS_FARM = ITEM_REGISTER.register("lapis_farm", () -> ModBlocks.LAPIS_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> REDSTONE_FARM = ITEM_REGISTER.register("redstone_farm", () -> ModBlocks.REDSTONE_FARM.get().toItem());
 
+    public static final DeferredHolder<Item, Item> GRANITE_FARM = ITEM_REGISTER.register("granite_farm", () -> ModBlocks.GRANITE_FARM.get().toItem());
 
     public static final DeferredHolder<Item, Item> SAND_FARM = ITEM_REGISTER.register("sand_farm", () -> ModBlocks.SAND_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> CONCRETE_POWDER_FARM = ITEM_REGISTER.register("cpowder_farm", () -> ModBlocks.CONCRETE_POWDER_FARM.get().toItem());
@@ -48,8 +45,6 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> DLAPIS_FARM = ITEM_REGISTER.register("dlapis_farm", () -> ModBlocks.DLAPIS_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> DREDSTONE_FARM = ITEM_REGISTER.register("dredstone_farm", () -> ModBlocks.DREDSTONE_FARM.get().toItem());
 
-//    public static final DeferredHolder<Item, Item> DNETHERITE_FARM = ITEM_REGISTER.register("dnetherite_farm", () -> ModBlocks.DNETHERITE_FARM.get().toItem());
-//    public static final DeferredHolder<Item, Item> DQUARTZ_FARM = ITEM_REGISTER.register("dquartz_farm", () -> ModBlocks.DQUARTZ_FARM.get().toItem());
 
     // Nether variants
     public static final DeferredHolder<Item, Item> NETHER_QUARTZ_FARM = ITEM_REGISTER.register("nether_quartz_farm", () -> ModBlocks.NETHER_QUARTZ_FARM.get().toItem());
@@ -57,6 +52,26 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> NETHERITE_FARM = ITEM_REGISTER.register("netherite_farm", () -> ModBlocks.NETHERITE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> ICON_ITEM = ITEM_REGISTER.register("icon_item",
             () -> new IconItem(new Item.Properties()));
+    public static final DeferredHolder<Item, Item> BASALT_FARM = ITEM_REGISTER.register("basalt_farm", () -> ModBlocks.BASALT_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> BLACKSTONE_FARM = ITEM_REGISTER.register("blackstone_farm", () -> ModBlocks.BLACKSTONE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CALCITE_FARM = ITEM_REGISTER.register("calcite_farm", () -> ModBlocks.CALCITE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DIRT_FARM = ITEM_REGISTER.register("dirt_farm", () -> ModBlocks.DIRT_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DEEPSLATE_FARM = ITEM_REGISTER.register("deepslate_farm", () -> ModBlocks.DEEPSLATE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> ESTONE_FARM = ITEM_REGISTER.register("estone_farm", () -> ModBlocks.ESTONE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> GLOWSTONE_FARM = ITEM_REGISTER.register("glowstone_farm", () -> ModBlocks.GLOWSTONE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> GRASS_FARM = ITEM_REGISTER.register("grass_farm", () -> ModBlocks.GRASS_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> GRAVEL_FARM = ITEM_REGISTER.register("gravel_farm", () -> ModBlocks.GRAVEL_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> NETHERRACK_FARM = ITEM_REGISTER.register("netherrack_farm", () -> ModBlocks.NETHERRACK_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> OBSIDIAN_FARM = ITEM_REGISTER.register("obsidian_farm", () -> ModBlocks.OBSIDIAN_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> PURPUR_FARM = ITEM_REGISTER.register("purpur_farm", () -> ModBlocks.PURPUR_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> RSAND_FARM = ITEM_REGISTER.register("rsand_farm", () -> ModBlocks.RSAND_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> SNOW_FARM = ITEM_REGISTER.register("snow_farm", () -> ModBlocks.SNOW_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> STONE_FARM = ITEM_REGISTER.register("stone_farm", () -> ModBlocks.STONE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> SSTONE_FARM = ITEM_REGISTER.register("sstone_farm", () -> ModBlocks.SSTONE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> SSOIL_FARM = ITEM_REGISTER.register("ssoil_farm", () -> ModBlocks.SSOIL_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> SSAND_FARM = ITEM_REGISTER.register("ssand_farm", () -> ModBlocks.SSAND_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> TERRACOTTA_FARM = ITEM_REGISTER.register("terracotta_farm", () -> ModBlocks.TERRACOTTA_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> TUFF_FARM = ITEM_REGISTER.register("tuff_farm", () -> ModBlocks.TUFF_FARM.get().toItem());
     private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPE_REGISTER = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Main.MODID);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<VillagerData>> VILLAGER_DATA_COMPONENT = DATA_COMPONENT_TYPE_REGISTER.register("villager", () -> DataComponentType.<VillagerData>builder().persistent(VillagerData.CODEC).networkSynchronized(VillagerData.STREAM_CODEC).build());
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<PickTypeData>> PICK_TYPE = DATA_COMPONENT_TYPE_REGISTER.register("pick_type", () -> DataComponentType.<PickTypeData>builder().persistent(PickTypeData.CODEC).networkSynchronized(PickTypeData.STREAM_CODEC).build());

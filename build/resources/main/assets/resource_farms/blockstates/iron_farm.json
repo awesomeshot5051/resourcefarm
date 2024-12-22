@@ -1,5 +1,9 @@
 {
   "variants": {
+    "facing=east": {
+      "model": "resource_farms:block/iron_farm",
+      "y": 90
+    },
     "facing=north": {
       "model": "resource_farms:block/iron_farm"
     },
@@ -10,10 +14,6 @@
     "facing=west": {
       "model": "resource_farms:block/iron_farm",
       "y": 270
-    },
-    "facing=east": {
-      "model": "resource_farms:block/iron_farm",
-      "y": 90
     }
   }
 }

@@ -1,25 +1,17 @@
 package com.awesomeshot5051.resourceFarm.integration.jei;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.integration.jei.recipeCategories.FarmRecipeCategory;
-import com.awesomeshot5051.resourceFarm.recipe.CustomBlockRecipe;
-import com.awesomeshot5051.resourceFarm.recipe.ModRecipes;
-import mezz.jei.api.IModPlugin;
-import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.helpers.IJeiHelpers;
-import mezz.jei.api.recipe.IRecipeManager;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.runtime.IJeiRuntime;
-import net.minecraft.client.Minecraft;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeManager;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.integration.jei.recipeCategories.*;
+import com.awesomeshot5051.resourceFarm.recipe.*;
+import mezz.jei.api.*;
+import mezz.jei.api.helpers.*;
+import mezz.jei.api.registration.*;
+import net.minecraft.client.*;
+import net.minecraft.resources.*;
+import net.minecraft.world.item.crafting.*;
 
-import javax.annotation.Nonnull;
-import java.util.List;
-import java.util.stream.Collectors;
+import javax.annotation.*;
+import java.util.*;
 
 @JeiPlugin
 public class JEIIntegration implements IModPlugin {
@@ -31,20 +23,11 @@ public class JEIIntegration implements IModPlugin {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
-        IRecipeManager recipeRegistry = jeiRuntime.getRecipeManager();
-        RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
-//        List<RecipeHolder<CraftingRecipe>> hiddenRecipes = new ArrayList<>();
-
-
-//        recipeRegistry.hideRecipes(RecipeTypes.CRAFTING, hiddenRecipes);
-    }
-
-    @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         IJeiHelpers jeiHelpers = registration.getJeiHelpers();
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
+
+        // Register your custom recipe category
         registration.addRecipeCategories(
                 new FarmRecipeCategory(guiHelper)
         );
@@ -53,12 +36,27 @@ public class JEIIntegration implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         assert Minecraft.getInstance().level != null;
+
         RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
-        List<CustomBlockRecipe> farmblockrecipes = recipeManager.getAllRecipesFor(ModRecipes.FARM_RECIPE.get())
-                .stream().map(RecipeHolder::value).collect(Collectors.toList());
+        List<RecipeHolder<CustomBlockRecipe>> recipes = recipeManager.getAllRecipesFor(ModRecipes.FARM_RECIPE.get());
+        // Extract all recipes of your custom type
+        List<CustomBlockRecipe> customBlockRecipes = recipeManager.getAllRecipesFor(ModRecipes.FARM_RECIPE.get())
+                .stream()
+                .map(RecipeHolder::value) // Extract the CustomBlockRecipe
+                .toList();
 
-        registration.addRecipes(FarmRecipeCategory.TYPE, farmblockrecipes);
+        // Register your custom recipes in JEI under your custom RecipeType
+        registration.addRecipes(FarmRecipeCategory.TYPE, customBlockRecipes);
+    }
 
+
+    private ShapedRecipe toShapedRecipe(CustomBlockRecipe customRecipe) {
+        return new ShapedRecipe(
+                "", // No group required
+                customRecipe.category(),
+                customRecipe.pattern,
+                customRecipe.getResult()
+        );
     }
 
 }

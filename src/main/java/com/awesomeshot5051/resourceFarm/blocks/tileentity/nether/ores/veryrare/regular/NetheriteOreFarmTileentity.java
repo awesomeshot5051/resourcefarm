@@ -1,29 +1,19 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.veryrare.regular;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.OutputItemHandler;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
-import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
-import de.maxhenkel.corelib.inventory.ItemListInventory;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import de.maxhenkel.corelib.blockentity.*;
+import de.maxhenkel.corelib.inventory.*;
+import net.minecraft.core.*;
+import net.minecraft.nbt.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.items.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class NetheriteOreFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
@@ -43,23 +33,19 @@ public class NetheriteOreFarmTileentity extends VillagerTileentity implements IT
     }
 
     public static double getNetheriteGenerateTime(NetheriteOreFarmTileentity tileEntity) {
-        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
-                (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
-                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
-                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
-                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
-                                                1); // Default to Wooden PICKAXE divisor if none matches
+        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() / (
+                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 5 :
+                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 10 :
+                                1); // Default to Wooden PICKAXE divisor if none matches
 
     }
 
     public static double getNetheriteBreakTime(NetheriteOreFarmTileentity tileEntity) {
 
-        return getNetheriteGenerateTime(tileEntity) + (tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? (20 * 8) :
-                tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? (20 * 4) :
-                        tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? (20 * 2) :
-                                tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? (20 * 2) :
-                                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? (20 * 2) :
-                                                (20 * 10)); // Default to Wooden PICKAXE break time if none matches
+        return getNetheriteGenerateTime(tileEntity) + (
+                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? (20 * 8) :
+                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? (20 * 4) :
+                                (20 * 10)); // Default to Wooden PICKAXE break time if none matches
 
     }
 

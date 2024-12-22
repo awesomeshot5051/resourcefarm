@@ -1,19 +1,19 @@
 {
   "variants": {
+    "facing=east": {
+      "model": "resource_farms:block/emerald_farm",
+      "y": 90
+    },
     "facing=north": {
-      "model": "resource_farms:block/demerald_farm"
+      "model": "resource_farms:block/emerald_farm"
     },
     "facing=south": {
-      "model": "resource_farms:block/demerald_farm",
+      "model": "resource_farms:block/emerald_farm",
       "y": 180
     },
     "facing=west": {
-      "model": "resource_farms:block/demerald_farm",
+      "model": "resource_farms:block/emerald_farm",
       "y": 270
-    },
-    "facing=east": {
-      "model": "resource_farms:block/demerald_farm",
-      "y": 90
     }
   }
 }

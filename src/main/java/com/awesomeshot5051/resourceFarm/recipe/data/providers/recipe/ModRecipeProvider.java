@@ -1,21 +1,18 @@
 package com.awesomeshot5051.resourceFarm.recipe.data.providers.recipe;
 
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import com.awesomeshot5051.resourceFarm.recipe.CustomShapedRecipeBuilder;
-import com.awesomeshot5051.resourceFarm.recipe.CustomShapelessRecipeBuilder;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.awesomeshot5051.resourceFarm.recipe.*;
+import net.minecraft.core.*;
+import net.minecraft.data.*;
+import net.minecraft.data.recipes.*;
+import net.minecraft.resources.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.*;
+import net.neoforged.neoforge.common.*;
+import net.neoforged.neoforge.common.conditions.*;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
@@ -181,7 +178,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
                 .define('P', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
-                .define('C', Items.GREEN_CONCRETE_POWDER)
+                .define('C', Tags.Items.CONCRETE_POWDERS)
                 .unlockedBy("has_sand", has(Items.GREEN_CONCRETE_POWDER)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "cpowder_farm"));
         CustomShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CONCRETE_FARM.get(), 1)
                 .requires(ModBlocks.CONCRETE_POWDER_FARM.get())
@@ -195,9 +192,233 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
                 .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
-                .define('C', Ingredient.of(Items.STONE, Items.COBBLESTONE))
-                .unlockedBy("has_cobblestone", has(Items.COBBLESTONE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "cobblestone_farm"));
+                .define('C', Items.COBBLESTONE)
+                .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "cobblestone_farm"));
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.NETHERITE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("NCN")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('N', Items.NETHERITE_INGOT)
+                .define('C', Items.ANCIENT_DEBRIS)
+                .unlockedBy("has_netherite_block", has(Items.NETHERITE_INGOT))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "netherite_farm"));
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BASALT_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.BASALT)
+                .unlockedBy("has_basalt", has(Items.BASALT)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "basalt_farm"));
 
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BLACKSTONE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.BLACKSTONE)
+                .unlockedBy("has_blackstone", has(Items.BLACKSTONE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "blackstone_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CALCITE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.CALCITE)
+                .unlockedBy("has_calcite", has(Items.CALCITE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "calcite_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DEEPSLATE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.DEEPSLATE)
+                .unlockedBy("has_deepslate", has(Items.DEEPSLATE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "deepslate_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DIRT_FARM.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('C', Items.DIRT)
+                .unlockedBy("has_dirt", has(Items.DIRT)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "dirt_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ESTONE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.END_STONE)
+                .unlockedBy("has_end_stone", has(Items.END_STONE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "estone_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GLOWSTONE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "glowstone_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GRASS_FARM.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('C', Items.GRASS_BLOCK)
+                .unlockedBy("has_grass", has(Items.GRASS_BLOCK)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "grass_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GRAVEL_FARM.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('C', Items.GRAVEL)
+                .unlockedBy("has_gravel", has(Items.GRAVEL)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "gravel_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NETHER_GOLD_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.NETHER_GOLD_ORE)
+                .unlockedBy("has_nether_gold", has(Items.NETHER_GOLD_ORE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "nether_gold_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NETHER_QUARTZ_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.NETHER_QUARTZ_ORE)
+                .unlockedBy("has_nether_quartz", has(Items.NETHER_QUARTZ_ORE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "nether_quartz_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NETHERRACK_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.NETHERRACK)
+                .unlockedBy("has_netherrack", has(Items.NETHERRACK)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "netherrack_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.OBSIDIAN_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.OBSIDIAN)
+                .unlockedBy("has_obsidian", has(Items.OBSIDIAN)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "obsidian_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PURPUR_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.PURPUR_BLOCK)
+                .unlockedBy("has_purpur", has(Items.PURPUR_BLOCK)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "purpur_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RSAND_FARM.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('C', Items.RED_SAND)
+                .unlockedBy("has_red_sand", has(Items.RED_SAND)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "rsand_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SSTONE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.SANDSTONE)
+                .unlockedBy("has_sandstone", has(Items.SANDSTONE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "sstone_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SNOW_FARM.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('C', Items.SNOW_BLOCK)
+                .unlockedBy("has_snow", has(Items.SNOW_BLOCK)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "snow_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SSOIL_FARM.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('C', Items.SOUL_SOIL)
+                .unlockedBy("has_soul_soil", has(Items.SOUL_SOIL)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "ssoil_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SSAND_FARM.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('C', Items.SOUL_SAND)
+                .unlockedBy("has_soul_sand", has(Items.SOUL_SAND)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "ssand_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STONE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.STONE)
+                .unlockedBy("has_stone", has(Items.STONE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "stone_farm"));
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.TERRACOTTA_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.TERRACOTTA)
+                .unlockedBy("has_terracotta", has(Items.TERRACOTTA)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "terracotta_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.TUFF_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.TUFF)
+                .unlockedBy("has_tuff", has(Items.TUFF)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "tuff_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ANDESITE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.ANDESITE)
+                .unlockedBy("has_andesite", has(Items.ANDESITE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "andesite_farm"));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GRANITE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.GRANITE)
+                .unlockedBy("has_granite", has(Items.GRANITE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "granite_farm"));
     }
 
 }

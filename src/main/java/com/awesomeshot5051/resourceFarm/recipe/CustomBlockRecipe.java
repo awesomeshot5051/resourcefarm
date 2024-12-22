@@ -1,22 +1,21 @@
 package com.awesomeshot5051.resourceFarm.recipe;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.ItemContainerContents;
+import com.awesomeshot5051.resourceFarm.*;
+import com.mojang.serialization.*;
+import com.mojang.serialization.codecs.*;
+import net.minecraft.core.*;
+import net.minecraft.core.component.*;
+import net.minecraft.network.*;
+import net.minecraft.network.codec.*;
+import net.minecraft.resources.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.crafting.*;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import org.jetbrains.annotations.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class CustomBlockRecipe extends ShapedRecipe {
     public static final DataComponentType<ItemContainerContents> pickTypeComponent = ModDataComponents.PICK_TYPE.get();
@@ -50,6 +49,10 @@ public class CustomBlockRecipe extends ShapedRecipe {
 
     public boolean matches(CraftingInput input, Level level) {
         return this.pattern.matches(input);
+    }
+
+    public ResourceLocation getId() {
+        return ResourceLocation.fromNamespaceAndPath(Main.MODID, result.getDescriptionId());
     }
 
     @Override

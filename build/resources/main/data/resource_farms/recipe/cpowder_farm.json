@@ -6,7 +6,7 @@
       "tag": "c:glass_panes"
     },
     "C": {
-      "item": "minecraft:green_concrete_powder"
+      "tag": "c:concrete_powders"
     },
     "P": [
       {
