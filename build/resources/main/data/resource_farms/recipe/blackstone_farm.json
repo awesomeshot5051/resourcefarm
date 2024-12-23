@@ -1,0 +1,38 @@
+{
+  "type": "resource_farms:shaped_serializer",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "c:glass_panes"
+    },
+    "C": {
+      "item": "minecraft:blackstone"
+    },
+    "P": [
+      {
+        "item": "minecraft:wooden_pickaxe"
+      },
+      {
+        "item": "minecraft:stone_pickaxe"
+      },
+      {
+        "item": "minecraft:iron_pickaxe"
+      },
+      {
+        "item": "minecraft:diamond_pickaxe"
+      },
+      {
+        "item": "minecraft:netherite_pickaxe"
+      }
+    ]
+  },
+  "pattern": [
+    "BBB",
+    "BPB",
+    "BCB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_farms:blackstone_farm"
+  }
+}

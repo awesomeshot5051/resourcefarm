@@ -1,0 +1,32 @@
+{
+  "type": "resource_farms:shaped_serializer",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "c:glass_panes"
+    },
+    "C": {
+      "item": "minecraft:ancient_debris"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "P": [
+      {
+        "item": "minecraft:diamond_pickaxe"
+      },
+      {
+        "item": "minecraft:netherite_pickaxe"
+      }
+    ]
+  },
+  "pattern": [
+    "BBB",
+    "BPB",
+    "NCN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_farms:netherite_farm"
+  }
+}

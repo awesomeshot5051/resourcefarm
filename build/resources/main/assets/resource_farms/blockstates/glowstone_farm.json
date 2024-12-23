@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "resource_farms:block/glowstone_farm",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "resource_farms:block/glowstone_farm"
+    },
+    "facing=south": {
+      "model": "resource_farms:block/glowstone_farm",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "resource_farms:block/glowstone_farm",
+      "y": 270
+    }
+  }
+}

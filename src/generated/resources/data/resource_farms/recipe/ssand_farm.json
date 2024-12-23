@@ -1,0 +1,38 @@
+{
+  "type": "resource_farms:shaped_serializer",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "c:glass_panes"
+    },
+    "C": {
+      "item": "minecraft:soul_sand"
+    },
+    "S": [
+      {
+        "item": "minecraft:wooden_shovel"
+      },
+      {
+        "item": "minecraft:stone_shovel"
+      },
+      {
+        "item": "minecraft:iron_shovel"
+      },
+      {
+        "item": "minecraft:diamond_shovel"
+      },
+      {
+        "item": "minecraft:netherite_shovel"
+      }
+    ]
+  },
+  "pattern": [
+    "BBB",
+    "BSB",
+    "BCB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_farms:ssand_farm"
+  }
+}
