@@ -1,19 +1,19 @@
 package com.awesomeshot5051.resourceFarm.integration.jei.recipeCategories;
 
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import com.awesomeshot5051.resourceFarm.recipe.CustomBlockRecipe;
-import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeIngredientRole;
+import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import mezz.jei.api.gui.builder.*;
+import mezz.jei.api.gui.drawable.*;
+import mezz.jei.api.helpers.*;
 import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import org.jetbrains.annotations.Nullable;
+import mezz.jei.api.recipe.*;
+import mezz.jei.api.recipe.category.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.block.*;
+import org.jetbrains.annotations.*;
 
 public class FarmRecipeCategory implements IRecipeCategory<CustomBlockRecipe> {
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("resource_farms", "farm_recipe");
@@ -23,18 +23,19 @@ public class FarmRecipeCategory implements IRecipeCategory<CustomBlockRecipe> {
     public IGuiHelper guiHelper;
 
     public FarmRecipeCategory(IGuiHelper guiHelper) {
-        this.background = guiHelper.createDrawable(BACKGROUND, 0, 0, 160, 125);
         this.guiHelper = guiHelper;
+        this.background = guiHelper.createDrawableItemLike(Blocks.CRAFTING_TABLE);
+        guiHelper.createCraftingGridHelper();
     }
 
     @Override
     public int getWidth() {
-        return 10;
+        return 116;
     }
 
     @Override
     public int getHeight() {
-        return 10;
+        return 54;
     }
 
     public ResourceLocation getUid() {
@@ -47,13 +48,13 @@ public class FarmRecipeCategory implements IRecipeCategory<CustomBlockRecipe> {
     }
 
     @Override
-    public RecipeType<CustomBlockRecipe> getRecipeType() {
+    public @NotNull RecipeType<CustomBlockRecipe> getRecipeType() {
         return TYPE;
     }
 
     @Override
-    public Component getTitle() {
-        return Component.translatable("crafting");
+    public @NotNull Component getTitle() {
+        return Component.translatable("gui.jei.category.craftingTable");
     }
 
 
@@ -68,9 +69,25 @@ public class FarmRecipeCategory implements IRecipeCategory<CustomBlockRecipe> {
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, CustomBlockRecipe recipe, IFocusGroup focuses) {
-        // Define how to layout recipe inputs/outputs
-        builder.addSlot(RecipeIngredientRole.INPUT, 10, 10).addIngredients(recipe.getIngredients().get(1));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 90, 10).addItemStack(recipe.getResult());
+    public void setRecipe(IRecipeLayoutBuilder builder, CustomBlockRecipe recipe, @NotNull IFocusGroup focuses) {
+        int xStart = 10; // Starting x position
+        int yStart = 0; // Starting y position
+        int spacing = 20; // Space between slots
+        int gridSize = 3; // Number of slots per row and column
+        int i = 0; // Ingredient index
+
+        for (int row = 0; row < gridSize; row++) {
+            for (int col = 0; col < gridSize; col++) {
+                if (i < recipe.getIngredients().size()) { // Ensure we don't go out of bounds
+                    int x = xStart + col * spacing;
+                    int y = yStart + row * spacing;
+                    builder.addInputSlot(x, y).addIngredients(recipe.getIngredients().get(i));
+                    i++; // Move to the next ingredient
+                }
+            }
+        }
+//        builder.addInputSlot(10, 10).addIngredients(recipe.getIngredients().get(1));
+//        builder.addInputSlot(20, 10).addIngredients(recipe.getIngredients().get(2));
+        builder.addOutputSlot(90, 10).addItemStack(recipe.getResult());
     }
 }

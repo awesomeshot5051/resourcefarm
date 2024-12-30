@@ -1,0 +1,11 @@
+{
+  "values": [
+    "resource_farms:dcoal_farm",
+    "resource_farms:deepslate_farm",
+    "resource_farms:dcopper_farm",
+    "resource_farms:dgold_farm",
+    "resource_farms:diron_farm",
+    "resource_farms:dlapis_farm",
+    "resource_farms:dredstone_farm"
+  ]
+}

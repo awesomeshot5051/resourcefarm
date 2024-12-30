@@ -2,27 +2,24 @@ package com.awesomeshot5051.resourceFarm;
 
 //import com.awesomeshot5051.resourceFarm.advancements.resourceFarmTriggerInstance;
 
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.events.GuiEvents;
-import com.awesomeshot5051.resourceFarm.events.ModSoundEvents;
-import com.awesomeshot5051.resourceFarm.gui.Containers;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import com.awesomeshot5051.resourceFarm.loottable.ModLootTables;
-import com.awesomeshot5051.resourceFarm.recipe.ModDataComponents;
-import com.awesomeshot5051.resourceFarm.recipe.ModRecipes;
-import de.maxhenkel.corelib.CommonRegistry;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.neoforge.common.NeoForge;
-import org.apache.logging.log4j.LogManager;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.data.*;
+import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
+import com.awesomeshot5051.resourceFarm.events.*;
+import com.awesomeshot5051.resourceFarm.gui.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.awesomeshot5051.resourceFarm.loottable.*;
+import de.maxhenkel.corelib.*;
+import net.neoforged.api.distmarker.*;
+import net.neoforged.bus.api.*;
+import net.neoforged.fml.common.*;
+import net.neoforged.fml.config.*;
+import net.neoforged.fml.event.lifecycle.*;
+import net.neoforged.fml.loading.*;
+import net.neoforged.neoforge.common.*;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 @Mod(Main.MODID)
 public class Main {

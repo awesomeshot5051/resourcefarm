@@ -5,7 +5,7 @@ Time: 2024-12-05 16:12:25
 Description: mouseClicked event handler
 
 java.lang.ClassCastException: class net.neoforged.neoforge.registries.DeferredHolder cannot be cast to class net.minecraft.world.item.crafting.RecipeType (net.neoforged.neoforge.registries.DeferredHolder is in module neoforge@21.1.65 of loader 'TRANSFORMER' @7d0614f; net.minecraft.world.item.crafting.RecipeType is in module minecraft@1.21.1 of loader 'TRANSFORMER' @7d0614f)
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.recipe.CustomBlockRecipe.getType(CustomBlockRecipe.java:131) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.CustomBlockRecipe.getType(CustomBlockRecipe.java:131) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.crafting.RecipeManager.lambda$apply$0(RecipeManager.java:64) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
 	at java.base/java.util.Optional.ifPresentOrElse(Optional.java:196) ~[?:?] {}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.crafting.RecipeManager.apply(RecipeManager.java:61) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
@@ -66,7 +66,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Render thread
 Stacktrace:
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.recipe.CustomBlockRecipe.getType(CustomBlockRecipe.java:131) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.CustomBlockRecipe.getType(CustomBlockRecipe.java:131) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.crafting.RecipeManager.lambda$apply$0(RecipeManager.java:64) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
 	at java.base/java.util.Optional.ifPresentOrElse(Optional.java:196) ~[?:?] {}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.crafting.RecipeManager.apply(RecipeManager.java:61) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}

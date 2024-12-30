@@ -1,30 +1,20 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.OutputItemHandler;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
-import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
-import de.maxhenkel.corelib.inventory.ItemListInventory;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import de.maxhenkel.corelib.blockentity.*;
+import de.maxhenkel.corelib.inventory.*;
+import net.minecraft.core.*;
+import net.minecraft.nbt.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.items.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ConcreteFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
@@ -35,6 +25,24 @@ public class ConcreteFarmTileentity extends VillagerTileentity implements ITicka
     protected long breakStage;
     protected OutputItemHandler outputItemHandler;
     protected long tick = timer;
+    Item[] concrete = {
+            Items.WHITE_CONCRETE,
+            Items.ORANGE_CONCRETE,
+            Items.MAGENTA_CONCRETE,
+            Items.LIGHT_BLUE_CONCRETE,
+            Items.YELLOW_CONCRETE,
+            Items.LIME_CONCRETE,
+            Items.PINK_CONCRETE,
+            Items.GRAY_CONCRETE,
+            Items.LIGHT_GRAY_CONCRETE,
+            Items.CYAN_CONCRETE,
+            Items.PURPLE_CONCRETE,
+            Items.BLUE_CONCRETE,
+            Items.BROWN_CONCRETE,
+            Items.GREEN_CONCRETE,
+            Items.RED_CONCRETE,
+            Items.BLACK_CONCRETE
+    };
 
     public ConcreteFarmTileentity(BlockPos pos, BlockState state) {
         super(ModTileEntities.CONCRETE_FARM.get(), ModBlocks.CONCRETE_FARM.get().defaultBlockState(), pos, state);
@@ -107,7 +115,8 @@ public class ConcreteFarmTileentity extends VillagerTileentity implements ITicka
             return Collections.emptyList();
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.BLACK_CONCRETE)); // Change this as needed for custom loot
+        Item randomConcrete = concrete[serverWorld.random.nextInt(concrete.length)];
+        drops.add(new ItemStack(randomConcrete));
         return drops;
     }
 

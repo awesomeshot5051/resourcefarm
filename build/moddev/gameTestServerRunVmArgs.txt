@@ -11,13 +11,10 @@ java.base/sun.security.util=cpw.mods.securejarhandler
 --add-exports
 jdk.naming.dns/com.sun.jndi.dns=java.naming
 -Dlog4j2.configurationFile=D:\\MCreatorWorkspaces\\resourceFarm\\build\\moddev\\gameTestServerLog4j2.xml
+-Djava.net.preferIPv6Addresses=system
+-DignoreList=mixinextras-neoforge-0.4.1.jar,client-extra,neoforge-
+-DlegacyClassPath.file=D:\\MCreatorWorkspaces\\resourceFarm\\build\\moddev\\gameTestServerLegacyClasspath.txt
 -Dneoforge.enableGameTest=true
 -Dneoforge.gameTestServer=true
--DlegacyClassPath.file=D:\\MCreatorWorkspaces\\resourceFarm\\build\\moddev\\gameTestServerLegacyClasspath.txt
--DignoreList=securejarhandler-3.0.8.jar,asm-9.7.jar,asm-commons-9.7.jar,asm-tree-9.7.jar,asm-util-9.7.jar,asm-analysis-9.7.jar,bootstraplauncher-2.0.2.jar,JarJarFileSystems-0.4.1.jar,mixinextras-neoforge-0.4.1.jar,client-extra,neoforge-
--Dfml.gameLayerLibraries=
--DmergeModules=jna-5.10.0.jar,jna-platform-5.10.0.jar
--Djava.net.preferIPv6Addresses=system
--Dfml.pluginLayerLibraries=
 -Dneoforge.enabledGameTestNamespaces=resource_farms
 -Dforge.logging.markers=REGISTRIES

@@ -1,4 +1,4 @@
-// 1.21.1	2024-12-21T10:25:45.9389457	Recipes
+// 1.21.1	2024-12-23T14:46:40.2585972	Recipes
 9224f85c59c647ada055053d492dbc176ffe67cc data/resource_farms/advancement/recipes/misc/andesite_farm.json
 6e479078ce3ebf7638648b28ca6496553da53d81 data/resource_farms/advancement/recipes/misc/basalt_farm.json
 1e808f03281589b60e50d71b0320ce215d6b1024 data/resource_farms/advancement/recipes/misc/blackstone_farm.json
@@ -49,7 +49,7 @@ e8ea2f196298161b1cf480fd88f42ac9605a7727 data/resource_farms/advancement/recipes
 e75d30f55b876933eb771affd0d8358dbbb77f75 data/resource_farms/recipe/blackstone_farm.json
 a254278380040eedabec3b9c09cf2ebdd76d6e69 data/resource_farms/recipe/calcite_farm.json
 f90c34e71efce2eb894d490f4846bb9af1d6eada data/resource_farms/recipe/coal_farm.json
-b461ef44b90b35639e3b3df959a1ec0df250fc1a data/resource_farms/recipe/cobblestone_farm.json
+1fb862c9576591c90dec3444bfae15ebaa1f6228 data/resource_farms/recipe/cobblestone_farm.json
 673e1badf7f964f28d05e6e7e954cd53405fddcf data/resource_farms/recipe/concrete_farm.json
 80397fa1130e02f522b6324de654470a6358294a data/resource_farms/recipe/copper_farm.json
 db7abaaee65ae922757f910c1b154e331524b31c data/resource_farms/recipe/cpowder_farm.json

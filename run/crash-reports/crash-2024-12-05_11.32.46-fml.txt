@@ -43,7 +43,7 @@ Details:
 Stacktrace:
 	at TRANSFORMER/neoforge@21.1.65/net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:103) ~[neoforge-21.1.65-minecraft.jar%23184!/:?] {re:classloading}
 	at TRANSFORMER/neoforge@21.1.65/net.neoforged.neoforge.registries.DeferredHolder.get(DeferredHolder.java:117) ~[neoforge-21.1.65-minecraft.jar%23184!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.recipe.ModDataComponents.<clinit>(ModDataComponents.java:21) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.data.ModDataComponents.<clinit>(ModDataComponents.java:21) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.Main.<init>(Main.java:59) ~[%23185!/:?] {re:classloading}
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?] {}
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?] {}

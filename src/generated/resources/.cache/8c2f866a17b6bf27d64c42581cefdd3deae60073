@@ -1,0 +1,4 @@
+// 1.21.1	2024-12-27T10:27:44.0415476	Tags for minecraft:block mod id resource_farms
+14113e092fb6ac4e41a5f156d1bc2d029b604057 data/minecraft/tags/block/mineable/pickaxe.json
+e92acba21f349218ef350e29d9e3037937e70c7e data/minecraft/tags/block/needs_diamond_tool.json
+b8f465e509df876e6e66b15100cca1be2757f1bc data/minecraft/tags/block/needs_iron_tool.json
