@@ -6,10 +6,10 @@
         "artifact": "corelib"
       },
       "version": {
-        "range": "[1.21.1-2.1.4,)",
-        "artifactVersion": "1.21.1-2.1.4"
+        "range": "[1.21.3-2.1.5,)",
+        "artifactVersion": "1.21.3-2.1.5"
       },
-      "path": "META-INF/jarjar/corelib-1.21.1-2.1.4.jar",
+      "path": "META-INF/jarjar/corelib-1.21.3-2.1.5.jar",
       "isObfuscated": false
     }
   ]

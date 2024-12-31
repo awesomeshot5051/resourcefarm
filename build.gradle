@@ -20,6 +20,37 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven {
+        name = "henkelmax.public"
+        url = 'https://maven.maxhenkel.de/repository/public'
+    }
+    maven {
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+    maven {
+        name 'tterrag maven'
+        url "https://maven.tterrag.com/"
+    }
+    maven {
+        url "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    maven {
+        url "https://mvnrepository.com/artifact/net.neoforged/JarJarSelector"
+    }
+    maven {
+        url "https://maven.k-4u.nl"
+    }
+    maven {
+        url "file://${project.projectDir}/repo"
+    }
 }
 
 base {
@@ -123,18 +154,18 @@ dependencies {
 //    runtimeOnly "de.maxhenkel.corelib:corelib:${minecraft_version}-${corelib_version}"
 //    compileOnly "de.maxhenkel.corelib:corelib:${minecraft_version}-${corelib_version}:javadoc"
     // JarJar dependency
-    jarJar(implementation("de.maxhenkel.corelib:corelib:${minecraft_version}-${corelib_version}")) {
-//        version {
-//            // The version range your mod is actually compatible with.
-//            // Note that you may receive a *lower* version than your preferred if another
-//            // Mod is only compatible up to 1.7.24, for example, your mod might get 1.7.24 at runtime.
-//            strictly "[${corelib_version}]"
-//            prefer "${corelib_version}" // The version actually used in your dev workspace
-//        }
-//    implementation "de.maxhenkel.corelib:corelib:${minecraft_version}-${corelib_version}"
-
-        compileOnly "de.maxhenkel.corelib:corelib:${minecraft_version}-${corelib_version}:javadoc"
-//    implementation 'net.neoforged:JarJarSelector:0.4.2'
+    jarJar(implementation("de.maxhenkel.corelib:corelib:1.21.3-${corelib_version}")) {
+////        version {
+////            // The version range your mod is actually compatible with.
+////            // Note that you may receive a *lower* version than your preferred if another
+////            // Mod is only compatible up to 1.7.24, for example, your mod might get 1.7.24 at runtime.
+////            strictly "[${corelib_version}]"
+////            prefer "${corelib_version}" // The version actually used in your dev workspace
+////        }
+////    implementation "de.maxhenkel.corelib:corelib:${minecraft_version}-${corelib_version}"
+//
+        compileOnly "de.maxhenkel.corelib:corelib:1.21.3-${corelib_version}:javadoc"
+////    implementation 'net.neoforged:JarJarSelector:0.4.2'
     }
 }
 

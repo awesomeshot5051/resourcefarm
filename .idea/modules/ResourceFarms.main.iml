@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$/../../src/main" dumb="true">
+      <excludeFolder url="file://$MODULE_DIR$/../../src/main/java/com/awesomeshot5051/resourceFarm/integration" />
+      <excludeFolder url="file://$MODULE_DIR$/../../src/main/java/com/awesomeshot5051/resourceFarm/integration/jei" />
+    </content>
+  </component>
   <component name="FacetManager">
     <facet type="minecraft" name="Minecraft">
       <configuration>
@@ -14,7 +20,7 @@
   </component>
   <component name="McpModuleSettings">
     <option name="minecraftVersion" value="1.21.4" />
-    <option name="platformVersion" value="21.4.0-beta" />
+    <option name="platformVersion" value="21.4.47-beta" />
     <option name="srgType" value="TSRG" />
   </component>
 </module>

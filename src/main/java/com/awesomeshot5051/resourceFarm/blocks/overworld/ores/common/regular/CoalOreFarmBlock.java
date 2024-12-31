@@ -5,10 +5,7 @@ import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.
 import com.awesomeshot5051.resourceFarm.data.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
-import com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.regular.*;
-import de.maxhenkel.corelib.block.*;
 import de.maxhenkel.corelib.blockentity.*;
-import de.maxhenkel.corelib.client.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.world.*;
@@ -30,22 +27,18 @@ import java.util.*;
 
 import static net.minecraft.world.item.BlockItem.*;
 
-public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
+public class CoalOreFarmBlock extends BlockBase implements EntityBlock {
 
-    public CoalOreFarmBlock() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
+    public CoalOreFarmBlock(Properties properties) {
+        super(properties.mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
     }
 
-    @Override
-    public Item toItem() {
+    /*
         return new CustomRendererBlockItem(this, new Item.Properties()) {
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new CoalOreFarmItemRenderer(); // Custom creeper farm renderer
-            }
-        };
-    }
+                return new CoalOreFarm*/
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
@@ -74,7 +67,7 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+    protected InteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
         if (!(tileEntity instanceof CoalOreFarmTileentity farm)) { // Check for coalOreFarmTileentity
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
@@ -93,7 +86,7 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
                 return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.COAL_FARM::get); // Adjust for acacia farm
             }
         });
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable

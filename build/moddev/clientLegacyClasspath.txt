@@ -117,4 +117,4 @@ C:\Users\Traee\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-tree\9.7\e446a
 C:\Users\Traee\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-util\9.7\c0655519f24d92af2202cb681cd7c1569df6ead6\asm-util-9.7.jar
 C:\Users\Traee\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm\9.7\73d7b3086e14beb604ced229c302feff6449723\asm-9.7.jar
 C:\Users\Traee\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\2.0.16\172931663a09a1fa515567af5fbef00897d3c04\slf4j-api-2.0.16.jar
-D:\MCreatorWorkspaces\resourceFarm\build\moddev\artifacts\neoforge-21.4.0-beta-minecraft-resources-aka-client-extra.jar
+D:\MCreatorWorkspaces\resourceFarm\build\moddev\artifacts\neoforge-21.4.47-beta-minecraft-resources-aka-client-extra.jar

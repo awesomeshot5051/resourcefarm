@@ -1,24 +1,21 @@
 package com.awesomeshot5051.resourceFarm.data.providers.models;
 
+import net.minecraft.client.data.models.*;
+import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.data.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.packs.*;
 import net.minecraft.world.item.*;
-import net.neoforged.neoforge.client.model.generators.*;
-import net.neoforged.neoforge.common.data.*;
 import org.jetbrains.annotations.*;
 
-public abstract class BaseBlockModelProvider extends BlockModelProvider {
+import java.util.logging.*;
 
-    public BaseBlockModelProvider(PackOutput output, String modid, ExistingFileHelper existingFileHelper) {
-        super(output, modid, existingFileHelper);
+public abstract class BaseBlockModelProvider extends BlockModelGenerators {
+
+    public BaseBlockModelProvider(PackOutput output, String modid) {
+        super(output, modid,);
     }
 
-    @NotNull
-    @Override
-    public String getName() {
-        return "Block model provider: " + modid;
-    }
 
     public BlockModelBuilder sideBottomTop(Item item) {
         // Create the block model

@@ -4,12 +4,10 @@ import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.items.*;
 import net.minecraft.data.*;
 import net.minecraft.world.item.*;
-import net.neoforged.neoforge.client.model.generators.*;
-import net.neoforged.neoforge.common.data.*;
 
 
 public class ModItemModelProvider extends ItemModelProvider {
-    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+    public ModItemModelProvider(PackOutput output, ExistingModelFile existingFileHelper) {
         super(output, Main.MODID, existingFileHelper);
     }
 

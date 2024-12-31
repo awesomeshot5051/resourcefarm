@@ -95,9 +95,7 @@ public class ModTileEntities {
         BlockEntityRenderers.register(ModTileEntities.TUFF_FARM.get(), TuffFarmRenderer::new);
 
 
-    }    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GraniteFarmTileentity>> GRANITE_FARM = BLOCK_ENTITY_REGISTER.register(
-            "granite_farm", () -> BlockEntityType.Builder.of(GraniteFarmTileentity::new, ModBlocks.GRANITE_FARM.get()).build(null)
-    );
+    }
 
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
 
@@ -173,204 +171,206 @@ public class ModTileEntities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSAND_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSOIL_FARM.get(), (object, context) -> object.getItemHandler());
 
-    }
+    }    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GraniteFarmTileentity>> GRANITE_FARM = BLOCK_ENTITY_REGISTER.register(
+            "granite_farm", () -> new BlockEntityType<>(GraniteFarmTileentity::new, ModBlocks.GRANITE_FARM.get())
+    );
 
     public static void init(IEventBus eventBus) {
         BLOCK_ENTITY_REGISTER.register(eventBus);
     }
 
+
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RedSandFarmTileentity>> RSAND_FARM = BLOCK_ENTITY_REGISTER.register(
             "rsand_farm",
-            () -> BlockEntityType.Builder.of(RedSandFarmTileentity::new, ModBlocks.RSAND_FARM.get()).build(null)
+            () -> new BlockEntityType<>(RedSandFarmTileentity::new, ModBlocks.RSAND_FARM.get())
     );
 
 
-
-
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GravelFarmTileentity>> GRAVEL_FARM = BLOCK_ENTITY_REGISTER.register(
-            "gravel_farm", () -> BlockEntityType.Builder.of(GravelFarmTileentity::new, ModBlocks.GRAVEL_FARM.get()).build(null)
+            "gravel_farm", () -> new BlockEntityType<>(GravelFarmTileentity::new, ModBlocks.GRAVEL_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GrassFarmTileentity>> GRASS_FARM = BLOCK_ENTITY_REGISTER.register(
             "grass_farm",
-            () -> BlockEntityType.Builder.of(GrassFarmTileentity::new, ModBlocks.GRASS_FARM.get()).build(null)
+            () -> new BlockEntityType<>(GrassFarmTileentity::new, ModBlocks.GRASS_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DirtFarmTileentity>> DIRT_FARM = BLOCK_ENTITY_REGISTER.register(
             "dirt_farm",
-            () -> BlockEntityType.Builder.of(DirtFarmTileentity::new, ModBlocks.DIRT_FARM.get()).build(null)
+            () -> new BlockEntityType<>(DirtFarmTileentity::new, ModBlocks.DIRT_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SnowFarmTileentity>> SNOW_FARM = BLOCK_ENTITY_REGISTER.register(
             "snow_farm",
-            () -> BlockEntityType.Builder.of(SnowFarmTileentity::new, ModBlocks.SNOW_FARM.get()).build(null)
+            () -> new BlockEntityType<>(SnowFarmTileentity::new, ModBlocks.SNOW_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SoulSandFarmTileentity>> SSAND_FARM = BLOCK_ENTITY_REGISTER.register(
-            "ssand_farm", () -> BlockEntityType.Builder.of(SoulSandFarmTileentity::new, ModBlocks.SSAND_FARM.get()).build(null)
+            "ssand_farm", () -> new BlockEntityType<>(SoulSandFarmTileentity::new, ModBlocks.SSAND_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateFarmTileentity>> DEEPSLATE_FARM = BLOCK_ENTITY_REGISTER.register(
             "deepslate_farm",
-            () -> BlockEntityType.Builder.of(DeepslateFarmTileentity::new, ModBlocks.DEEPSLATE_FARM.get()).build(null)
+            () -> new BlockEntityType<>(DeepslateFarmTileentity::new, ModBlocks.DEEPSLATE_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SoulSoilFarmTileentity>> SSOIL_FARM = BLOCK_ENTITY_REGISTER.register(
-            "ssoil_farm", () -> BlockEntityType.Builder.of(SoulSoilFarmTileentity::new, ModBlocks.SSOIL_FARM.get()).build(null)
+            "ssoil_farm", () -> new BlockEntityType<>(SoulSoilFarmTileentity::new, ModBlocks.SSOIL_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AndesiteFarmTileentity>> ANDESITE_FARM = BLOCK_ENTITY_REGISTER.register(
-            "andesite_farm", () -> BlockEntityType.Builder.of(AndesiteFarmTileentity::new, ModBlocks.ANDESITE_FARM.get()).build(null)
+            "andesite_farm", () -> new BlockEntityType<>(AndesiteFarmTileentity::new, ModBlocks.ANDESITE_FARM.get())
     );
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TuffFarmTileentity>> TUFF_FARM = BLOCK_ENTITY_REGISTER.register(
             "tuff_farm",
-            () -> BlockEntityType.Builder.of(TuffFarmTileentity::new, ModBlocks.TUFF_FARM.get()).build(null)
+            () -> new BlockEntityType<>(TuffFarmTileentity::new, ModBlocks.TUFF_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NetheriteOreFarmTileentity>> NETHERITE_FARM = BLOCK_ENTITY_REGISTER.register("deepslate_netherite_farm", () ->
-            BlockEntityType.Builder.of(NetheriteOreFarmTileentity::new, ModBlocks.NETHERITE_FARM.get()).build(null)
+            new BlockEntityType<>(NetheriteOreFarmTileentity::new, ModBlocks.NETHERITE_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SandstoneFarmTileentity>> SSTONE_FARM = BLOCK_ENTITY_REGISTER.register(
-            "sstone_farm", () -> BlockEntityType.Builder.of(SandstoneFarmTileentity::new, ModBlocks.SSTONE_FARM.get()).build(null)
+            "sstone_farm", () -> new BlockEntityType<>(SandstoneFarmTileentity::new, ModBlocks.SSTONE_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ConcreteFarmTileentity>> CONCRETE_FARM = BLOCK_ENTITY_REGISTER.register("concrete_farm", () ->
-            BlockEntityType.Builder.of(ConcreteFarmTileentity::new, ModBlocks.CONCRETE_FARM.get()).build(null)
+            new BlockEntityType<>(ConcreteFarmTileentity::new, ModBlocks.CONCRETE_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CobblestoneFarmTileentity>> COBBLESTONE_FARM = BLOCK_ENTITY_REGISTER.register("cobblestone_farm", () ->
-            BlockEntityType.Builder.of(CobblestoneFarmTileentity::new, ModBlocks.COBBLESTONE_FARM.get()).build(null)
+            new BlockEntityType<>(CobblestoneFarmTileentity::new, ModBlocks.COBBLESTONE_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StoneFarmTileentity>> STONE_FARM = BLOCK_ENTITY_REGISTER.register(
             "stone_farm",
-            () -> BlockEntityType.Builder.of(StoneFarmTileentity::new, ModBlocks.STONE_FARM.get()).build(null)
+            () -> new BlockEntityType<>(StoneFarmTileentity::new, ModBlocks.STONE_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateGoldOreFarmTileentity>> DGOLD_FARM = BLOCK_ENTITY_REGISTER.register("dgold_farm", () ->
-            BlockEntityType.Builder.of(DeepslateGoldOreFarmTileentity::new, ModBlocks.DGOLD_FARM.get()).build(null)
+            new BlockEntityType<>(DeepslateGoldOreFarmTileentity::new, ModBlocks.DGOLD_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<IronOreFarmTileentity>> IRON_FARM = BLOCK_ENTITY_REGISTER.register("iron_farm", () ->
-            BlockEntityType.Builder.of(IronOreFarmTileentity::new, ModBlocks.IRON_FARM.get()).build(null)
+            new BlockEntityType<>(IronOreFarmTileentity::new, ModBlocks.IRON_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ObsidianFarmTileentity>> OBSIDIAN_FARM = BLOCK_ENTITY_REGISTER.register(
             "obsidian_farm",
-            () -> BlockEntityType.Builder.of(ObsidianFarmTileentity::new, ModBlocks.OBSIDIAN_FARM.get()).build(null)
+            () -> new BlockEntityType<>(ObsidianFarmTileentity::new, ModBlocks.OBSIDIAN_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SandFarmTileentity>> SAND_FARM = BLOCK_ENTITY_REGISTER.register("sand_farm", () ->
-            BlockEntityType.Builder.of(SandFarmTileentity::new, ModBlocks.SAND_FARM.get()).build(null)
+            new BlockEntityType<>(SandFarmTileentity::new, ModBlocks.SAND_FARM.get())
     );
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ConcretePowderFarmTileentity>> CONCRETE_POWDER_FARM = BLOCK_ENTITY_REGISTER.register("cpowder_farm", () ->
-            BlockEntityType.Builder.of(ConcretePowderFarmTileentity::new, ModBlocks.CONCRETE_POWDER_FARM.get()).build(null)
+            new BlockEntityType<>(ConcretePowderFarmTileentity::new, ModBlocks.CONCRETE_POWDER_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CalciteFarmTileentity>> CALCITE_FARM = BLOCK_ENTITY_REGISTER.register(
             "calcite_farm",
-            () -> BlockEntityType.Builder.of(CalciteFarmTileentity::new, ModBlocks.CALCITE_FARM.get()).build(null)
+            () -> new BlockEntityType<>(CalciteFarmTileentity::new, ModBlocks.CALCITE_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GoldOreFarmTileentity>> GOLD_FARM = BLOCK_ENTITY_REGISTER.register("gold_farm", () ->
-            BlockEntityType.Builder.of(GoldOreFarmTileentity::new, ModBlocks.GOLD_FARM.get()).build(null)
+            new BlockEntityType<>(GoldOreFarmTileentity::new, ModBlocks.GOLD_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TerracottaFarmTileentity>> TERRACOTTA_FARM = BLOCK_ENTITY_REGISTER.register(
-            "terracotta_farm", () -> BlockEntityType.Builder.of(TerracottaFarmTileentity::new, ModBlocks.TERRACOTTA_FARM.get()).build(null)
+            "terracotta_farm", () -> new BlockEntityType<>(TerracottaFarmTileentity::new, ModBlocks.TERRACOTTA_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DiamondOreFarmTileentity>> DIAMOND_FARM = BLOCK_ENTITY_REGISTER.register("diamond_farm", () ->
-            BlockEntityType.Builder.of(DiamondOreFarmTileentity::new, ModBlocks.DIAMOND_FARM.get()).build(null)
+            new BlockEntityType<>(DiamondOreFarmTileentity::new, ModBlocks.DIAMOND_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EndStoneFarmTileentity>> ESTONE_FARM = BLOCK_ENTITY_REGISTER.register(
             "estone_farm",
-            () -> BlockEntityType.Builder.of(EndStoneFarmTileentity::new, ModBlocks.ESTONE_FARM.get()).build(null)
+            () -> new BlockEntityType<>(EndStoneFarmTileentity::new, ModBlocks.ESTONE_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EmeraldOreFarmTileentity>> EMERALD_FARM = BLOCK_ENTITY_REGISTER.register("emerald_farm", () ->
-            BlockEntityType.Builder.of(EmeraldOreFarmTileentity::new, ModBlocks.EMERALD_FARM.get()).build(null)
+            new BlockEntityType<>(EmeraldOreFarmTileentity::new, ModBlocks.EMERALD_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PurpurFarmTileentity>> PURPUR_FARM = BLOCK_ENTITY_REGISTER.register(
             "purpur_farm",
-            () -> BlockEntityType.Builder.of(PurpurFarmTileentity::new, ModBlocks.PURPUR_FARM.get()).build(null)
+            () -> new BlockEntityType<>(PurpurFarmTileentity::new, ModBlocks.PURPUR_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LapisOreFarmTileentity>> LAPIS_FARM = BLOCK_ENTITY_REGISTER.register("lapis_farm", () ->
-            BlockEntityType.Builder.of(LapisOreFarmTileentity::new, ModBlocks.LAPIS_FARM.get()).build(null)
+            new BlockEntityType<>(LapisOreFarmTileentity::new, ModBlocks.LAPIS_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RedstoneOreFarmTileentity>> REDSTONE_FARM = BLOCK_ENTITY_REGISTER.register("redstone_farm", () ->
-            BlockEntityType.Builder.of(RedstoneOreFarmTileentity::new, ModBlocks.REDSTONE_FARM.get()).build(null)
+            new BlockEntityType<>(RedstoneOreFarmTileentity::new, ModBlocks.REDSTONE_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InventoryViewerTileentity>> INVENTORY_VIEWER = BLOCK_ENTITY_REGISTER.register("inventory_viewer", () ->
-            BlockEntityType.Builder.of(InventoryViewerTileentity::new, ModBlocks.INVENTORY_VIEWER.get()).build(null)
+            new BlockEntityType<>(InventoryViewerTileentity::new, ModBlocks.INVENTORY_VIEWER.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateIronOreFarmTileentity>> DIRON_FARM = BLOCK_ENTITY_REGISTER.register("diron_farm", () ->
-            BlockEntityType.Builder.of(DeepslateIronOreFarmTileentity::new, ModBlocks.DIRON_FARM.get()).build(null)
+            new BlockEntityType<>(DeepslateIronOreFarmTileentity::new, ModBlocks.DIRON_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CopperOreFarmTileentity>> COPPER_FARM = BLOCK_ENTITY_REGISTER.register("copper_farm", () ->
-            BlockEntityType.Builder.of(CopperOreFarmTileentity::new, ModBlocks.COPPER_FARM.get()).build(null)
+            new BlockEntityType<>(CopperOreFarmTileentity::new, ModBlocks.COPPER_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateDiamondOreFarmTileentity>> DDIAMOND_FARM = BLOCK_ENTITY_REGISTER.register("ddiamond_farm", () ->
-            BlockEntityType.Builder.of(DeepslateDiamondOreFarmTileentity::new, ModBlocks.DDIAMOND_FARM.get()).build(null)
+            new BlockEntityType<>(DeepslateDiamondOreFarmTileentity::new, ModBlocks.DDIAMOND_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateEmeraldOreFarmTileentity>> DEMERALD_FARM = BLOCK_ENTITY_REGISTER.register("demerald_farm", () ->
-            BlockEntityType.Builder.of(DeepslateEmeraldOreFarmTileentity::new, ModBlocks.DEMERALD_FARM.get()).build(null)
+            new BlockEntityType<>(DeepslateEmeraldOreFarmTileentity::new, ModBlocks.DEMERALD_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateCopperOreFarmTileentity>> DCOPPER_FARM = BLOCK_ENTITY_REGISTER.register("dcopper_farm", () ->
-            BlockEntityType.Builder.of(DeepslateCopperOreFarmTileentity::new, ModBlocks.DCOPPER_FARM.get()).build(null)
+            new BlockEntityType<>(DeepslateCopperOreFarmTileentity::new, ModBlocks.DCOPPER_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateLapisOreFarmTileentity>> DLAPIS_FARM = BLOCK_ENTITY_REGISTER.register("dlapis_farm", () ->
-            BlockEntityType.Builder.of(DeepslateLapisOreFarmTileentity::new, ModBlocks.DLAPIS_FARM.get()).build(null)
+            new BlockEntityType<>(DeepslateLapisOreFarmTileentity::new, ModBlocks.DLAPIS_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateRedstoneOreFarmTileentity>> DREDSTONE_FARM = BLOCK_ENTITY_REGISTER.register("dredstone_farm", () ->
-            BlockEntityType.Builder.of(DeepslateRedstoneOreFarmTileentity::new, ModBlocks.DREDSTONE_FARM.get()).build(null)
+            new BlockEntityType<>(DeepslateRedstoneOreFarmTileentity::new, ModBlocks.DREDSTONE_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepslateCoalOreFarmTileentity>> DCOAL_FARM = BLOCK_ENTITY_REGISTER.register("dcoal_farm", () ->
-            BlockEntityType.Builder.of(DeepslateCoalOreFarmTileentity::new, ModBlocks.DCOAL_FARM.get()).build(null)
+            new BlockEntityType<>(DeepslateCoalOreFarmTileentity::new, ModBlocks.DCOAL_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CoalOreFarmTileentity>> COAL_FARM = BLOCK_ENTITY_REGISTER.register("coal_farm", () ->
-            BlockEntityType.Builder.of(CoalOreFarmTileentity::new, ModBlocks.COAL_FARM.get()).build(null)
+            new BlockEntityType<>(CoalOreFarmTileentity::new, ModBlocks.COAL_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BasaltFarmTileentity>> BASALT_FARM = BLOCK_ENTITY_REGISTER.register(
             "basalt_farm",
-            () -> BlockEntityType.Builder.of(BasaltFarmTileentity::new, ModBlocks.BASALT_FARM.get()).build(null)
+            () -> new BlockEntityType<>(BasaltFarmTileentity::new, ModBlocks.BASALT_FARM.get())
     );
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlackstoneFarmTileentity>> BLACKSTONE_FARM = BLOCK_ENTITY_REGISTER.register(
             "blackstone_farm",
-            () -> BlockEntityType.Builder.of(BlackstoneFarmTileentity::new, ModBlocks.BLACKSTONE_FARM.get()).build(null)
+            () -> new BlockEntityType<>(BlackstoneFarmTileentity::new, ModBlocks.BLACKSTONE_FARM.get())
     );
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NetherrackFarmTileentity>> NETHERRACK_FARM = BLOCK_ENTITY_REGISTER.register(
             "netherrack_farm",
-            () -> BlockEntityType.Builder.of(NetherrackFarmTileentity::new, ModBlocks.NETHERRACK_FARM.get()).build(null)
+            () -> new BlockEntityType<>(NetherrackFarmTileentity::new, ModBlocks.NETHERRACK_FARM.get())
     );
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GlowstoneFarmTileentity>> GLOWSTONE_FARM = BLOCK_ENTITY_REGISTER.register(
             "glowstone_farm",
-            () -> BlockEntityType.Builder.of(GlowstoneFarmTileentity::new, ModBlocks.GLOWSTONE_FARM.get()).build(null)
+            () -> new BlockEntityType<>(GlowstoneFarmTileentity::new, ModBlocks.GLOWSTONE_FARM.get())
     );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NetherQuartzOreFarmTileentity>> NETHER_QUARTZ_FARM = BLOCK_ENTITY_REGISTER.register("nether_quartz_farm", () ->
-            BlockEntityType.Builder.of(NetherQuartzOreFarmTileentity::new, ModBlocks.NETHER_QUARTZ_FARM.get()).build(null)
+            new BlockEntityType<>(NetherQuartzOreFarmTileentity::new, ModBlocks.NETHER_QUARTZ_FARM.get())
     );
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NetherGoldOreFarmTileentity>> NETHER_GOLD_FARM = BLOCK_ENTITY_REGISTER.register("nether_gold_farm", () ->
-            BlockEntityType.Builder.of(NetherGoldOreFarmTileentity::new, ModBlocks.NETHER_GOLD_FARM.get()).build(null)
+            new BlockEntityType<>(NetherGoldOreFarmTileentity::new, ModBlocks.NETHER_GOLD_FARM.get())
     );
 
 
