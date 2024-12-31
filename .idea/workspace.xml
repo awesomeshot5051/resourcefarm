@@ -7,7 +7,73 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1 Release...JEI does NOT work yet" />
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1 Release...JEI does NOT work yet">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/CustomSmithingRecipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/XP Upgrade.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/item/Experience_Orb_Value_17-36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/item/upgrade_energy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ResourceFarms.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ResourceFarms.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/moddev/clientRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunProgramArgs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/moddev/clientRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunVmArgs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/moddev/gameTestServerRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/gameTestServerRunProgramArgs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/moddev/gameTestServerRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/gameTestServerRunVmArgs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/moddev/serverRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/serverRunProgramArgs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/moddev/serverRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/serverRunVmArgs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/ModRecipes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/ModRecipes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/data/providers/recipe/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/recipe/data/providers/recipe/ModRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/andesite_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/basalt_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/blackstone_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/calcite_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/coal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/cobblestone_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/concrete_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/copper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/cpowder_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dcoal_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dcopper_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/ddiamond_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/deepslate_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/demerald_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dgold_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/diamond_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/diron_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dirt_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dlapis_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/dredstone_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/emerald_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/estone_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/glowstone_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/gold_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/granite_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/grass_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/gravel_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/iron_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/lapis_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/nether_gold_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/nether_quartz_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/netherite_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/netherrack_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/obsidian_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/purpur_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/redstone_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/rsand_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/sand_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/snow_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/ssand_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/ssoil_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/sstone_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/stone_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/terracotta_farm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/tuff_farm.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,47 +172,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.Build resourceFarm.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [buildNeeded].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [classes].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [runClient].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [runData].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [testClasses].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/MCreatorWorkspaces/resourceFarm/src/main/resources/assets/resource_farms/models/item&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.Build resourceFarm.executor": "Run",
+    "Gradle.resourceFarm [buildNeeded].executor": "Run",
+    "Gradle.resourceFarm [classes].executor": "Run",
+    "Gradle.resourceFarm [clean].executor": "Run",
+    "Gradle.resourceFarm [jar].executor": "Run",
+    "Gradle.resourceFarm [runClient].executor": "Run",
+    "Gradle.resourceFarm [runData].executor": "Run",
+    "Gradle.resourceFarm [testClasses].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/MCreatorWorkspaces/resourceFarm/src/main/resources/assets/resource_farms/textures/item",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "rearrange.code.on.save": "true",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\textures\item" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\block" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\overworld\soil" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\nether\ores" />
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\overworld\rock" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\overworld\soil" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\overworld\gravel_farm.json" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\nether\rock" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\nether" />
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\data\resource_farms\loot_table\blocks\nether\soil" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.awesomeshot5051.resourceFarm.items.render.nether.ores.veryrare.regular" />
