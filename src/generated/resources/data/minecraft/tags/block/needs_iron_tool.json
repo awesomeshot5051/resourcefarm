@@ -6,6 +6,7 @@
     "resource_farms:dgold_farm",
     "resource_farms:diron_farm",
     "resource_farms:dlapis_farm",
-    "resource_farms:dredstone_farm"
+    "resource_farms:dredstone_farm",
+    "resource_farms:dirt_farm"
   ]
 }
