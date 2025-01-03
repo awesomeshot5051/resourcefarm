@@ -116,7 +116,7 @@ public class BlackstoneFarmTileentity extends VillagerTileentity implements ITic
         ContainerHelper.loadAllItems(compound, inventory, provider);
         if (compound.contains("PickType")) {
             SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
-            Main.LOGGER.info("{} uses {}", this.getType(), pickType.getItem());
+
         }
         if (pickType == null) {
 // If no pickType is saved, set a default one (e.g., Stone Pickaxe)
