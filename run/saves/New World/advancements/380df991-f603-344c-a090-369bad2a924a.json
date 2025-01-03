@@ -2400,5 +2400,23 @@
     },
     "done": true
   },
+  "resource_farms:recipes/misc/purpur_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-03 15:02:02 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherrack_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-03 15:02:02 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/estone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-03 15:02:02 -0500"
+    },
+    "done": true
+  },
   "DataVersion": 3955
 }

@@ -1,18 +1,29 @@
 package com.awesomeshot5051.resourceFarm.BlockInternalRender;
 
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.sounds.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.*;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.*;
+import net.minecraft.core.*;
+import net.minecraft.sounds.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.state.*;
+import org.jetbrains.annotations.*;
+
+import java.util.*;
 
 import static com.mojang.math.Axis.*;
 
 public class ShovelRendererUtil {
+    private static VillagerTileentity Farm;
+    private static boolean soundPlayedThisSwing = false;
+
     public static <T extends VillagerTileentity> void renderSwingingShovel(T farm, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay, ItemStack pickaxeStack, Direction direction, long timer) {
+        Farm = farm;
         // Get the item renderer
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
@@ -56,7 +67,13 @@ public class ShovelRendererUtil {
         matrixStack.mulPose(XP.rotationDegrees(angle));
         // Scale the pickaxe to make it fit
         matrixStack.scale(0.5f, 0.5f, 0.5f);
-
+        // Play sound only once per swing
+        if (angle >= 45 && !soundPlayedThisSwing && Main.CLIENT_CONFIG.pickaxeSoundRendered.get()) {
+            playSound(Objects.requireNonNull(farm.getLevel()), farm.getBlockState(), ModSounds.SHOVEL_SOUND.get());
+            soundPlayedThisSwing = true;
+        } else if (swingProgress < 0.5) { // Reset the flag in the first half of the swing cycle
+            soundPlayedThisSwing = false;
+        }
         // Render the pickaxe
         itemRenderer.renderStatic(
                 pickaxeStack,
@@ -72,5 +89,13 @@ public class ShovelRendererUtil {
 
         // Restore the previous matrix state
         matrixStack.popPose();
+    }
+
+    private static void playSound(@NotNull Level level, BlockState state, SoundEvent sound) {
+        Vec3i vec3i = state.getValue(FakeWorldTileentity.FACING).getNormal();
+        double d0 = Farm.getBlockPos().getX() + 0.5D + (double) vec3i.getX() / 2.0D;
+        double d1 = Farm.getBlockPos().getY() + 0.5D + (double) vec3i.getY() / 2.0D;
+        double d2 = Farm.getBlockPos().getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
+        level.playLocalSound(d0, d1, d2, sound, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F, true);
     }
 }

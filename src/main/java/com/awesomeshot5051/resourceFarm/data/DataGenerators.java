@@ -3,6 +3,7 @@ package com.awesomeshot5051.resourceFarm.data;
 import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.data.providers.models.*;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.*;
+import com.awesomeshot5051.resourceFarm.data.providers.sound.*;
 import com.awesomeshot5051.resourceFarm.data.providers.tags.BlockTagsProvider;
 import net.minecraft.core.*;
 import net.minecraft.data.*;
@@ -33,5 +34,9 @@ public class DataGenerators {
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
         generator.addProvider(event.includeServer(), new ModBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new BlockTagsProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(
+                event.includeClient(),
+                new BaseSoundProvider(packOutput, existingFileHelper)
+        );
     }
 }

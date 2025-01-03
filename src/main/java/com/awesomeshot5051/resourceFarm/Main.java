@@ -10,6 +10,7 @@ import com.awesomeshot5051.resourceFarm.events.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.awesomeshot5051.resourceFarm.loottable.*;
+import com.awesomeshot5051.resourceFarm.sounds.*;
 import de.maxhenkel.corelib.*;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.bus.api.*;
@@ -46,6 +47,7 @@ public class Main {
         ModCreativeTabs.init(eventBus);
         ModLootTables.init(eventBus);
 //        eventBus.addListener(DataGenerators::gatherData);
+        ModSounds.register(eventBus);
         ModRecipes.registerRecipes(eventBus);
         ModRecipes.registerTypes(eventBus);
         SERVER_CONFIG = CommonRegistry.registerConfig(MODID, ModConfig.Type.SERVER, ServerConfig.class);

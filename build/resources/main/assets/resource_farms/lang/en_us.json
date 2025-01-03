@@ -53,6 +53,8 @@
   "gui.resource_farms.input": "Input Items",
   "gui.resource_farms.output": "Output Items",
   "gui.resource_farms.inventory_viewer": "Inventory Viewer",
+  "sound.resource_farms.pickaxe_sound": "Pickaxe Mining",
+  "sound.resource_farms.shovel_sound": "Shovel Digging",
   "itemGroup.resource_farms": "Resource Farms",
   "category.resource_farms": "Resource Farms",
   "config.jade.plugin_resource_farms.villager": "Villager",

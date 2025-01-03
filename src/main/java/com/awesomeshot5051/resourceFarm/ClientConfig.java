@@ -1,19 +1,22 @@
 package com.awesomeshot5051.resourceFarm;
 
-import de.maxhenkel.corelib.config.ConfigBase;
-import net.neoforged.neoforge.common.ModConfigSpec;
+import de.maxhenkel.corelib.config.*;
+import net.neoforged.neoforge.common.*;
 
 public class ClientConfig extends ConfigBase {
 
-//    public final ModConfigSpec.BooleanValue enableRightClickPickup;
+    //    public final ModConfigSpec.BooleanValue enableRightClickPickup;
     public final ModConfigSpec.DoubleValue villagerVolume;
     public final ModConfigSpec.EnumValue<CycleTradesButtonLocation> cycleTradesButtonLocation;
     public final ModConfigSpec.BooleanValue renderBlockContents;
     public final ModConfigSpec.IntValue blockRenderDistance;
+    public final ModConfigSpec.BooleanValue pickaxeSoundRendered;
 
     public ClientConfig(ModConfigSpec.Builder builder) {
         super(builder);
-
+        pickaxeSoundRendered = builder
+                .comment("Whether or not the pickaxe mining sounds will be played")
+                .define("pickaxeSound", true);
 //        enableRightClickPickup = builder
 //                .comment("If villagers should be able to be picked up by sneaking and right-clicking")
 //                .define("villager.sneak_pick_up", true);
