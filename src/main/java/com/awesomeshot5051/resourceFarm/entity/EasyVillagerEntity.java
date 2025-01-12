@@ -1,18 +1,15 @@
 package com.awesomeshot5051.resourceFarm.entity;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ai.gossip.GossipType;
-import net.minecraft.world.entity.npc.Villager;
-import net.minecraft.world.entity.npc.VillagerData;
-import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerType;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.Level;
+import com.awesomeshot5051.resourceFarm.*;
+import net.minecraft.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.util.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.gossip.*;
+import net.minecraft.world.entity.npc.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.trading.*;
+import net.minecraft.world.level.*;
 
 public class EasyVillagerEntity extends Villager {
 
@@ -25,15 +22,6 @@ public class EasyVillagerEntity extends Villager {
 
     public EasyVillagerEntity(EntityType<? extends Villager> type, Level worldIn, VillagerType villagerType) {
         super(type, worldIn, villagerType);
-    }
-
-    @Override
-    public int getPlayerReputation(Player player) {
-        if (Main.SERVER_CONFIG.universalReputation.get()) {
-            return getUniversalReputation(this);
-        } else {
-            return super.getPlayerReputation(player);
-        }
     }
 
     public static int getReputation(Villager villager) {
@@ -55,20 +43,6 @@ public class EasyVillagerEntity extends Villager {
         };
     }
 
-    public void recalculateOffers() {
-        resetOffers(this);
-        calculateOffers(this);
-    }
-
-    @Override
-    public int getAge() {
-        if (level() != null && level().isClientSide) {
-            return super.getAge() < 0 ? -24000 : 1;
-        } else {
-            return age;
-        }
-    }
-
     public static void recalculateOffers(Villager villager) {
         resetOffers(villager);
         calculateOffers(villager);
@@ -86,6 +60,29 @@ public class EasyVillagerEntity extends Villager {
             for (MerchantOffer merchantoffer : villager.getOffers()) {
                 merchantoffer.addToSpecialPriceDiff(-Mth.floor((float) i * merchantoffer.getPriceMultiplier()));
             }
+        }
+    }
+
+    @Override
+    public int getPlayerReputation(Player player) {
+        if (Main.SERVER_CONFIG.universalReputation.get()) {
+            return getUniversalReputation(this);
+        } else {
+            return super.getPlayerReputation(player);
+        }
+    }
+
+    public void recalculateOffers() {
+        resetOffers(this);
+        calculateOffers(this);
+    }
+
+    @Override
+    public int getAge() {
+        if (level().isClientSide) {
+            return super.getAge() < 0 ? -24000 : 1;
+        } else {
+            return age;
         }
     }
 
