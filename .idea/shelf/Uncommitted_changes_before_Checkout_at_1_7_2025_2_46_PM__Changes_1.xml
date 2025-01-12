@@ -1,0 +1,114 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1" date="1736279177817" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 1/7/2025 2:46 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/file-system.probe" />
+    <option name="AFTER_PATH" value=".gradle/file-system.probe" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/file-system.probe" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/moddev/artifacts/neoforge-21.1.65-minecraft-sources.jar" />
+    <option name="AFTER_PATH" value="build/moddev/artifacts/neoforge-21.1.65-minecraft-sources.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/neoforge-21.1.65-minecraft-sources.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/region/r.-1.0.mca" />
+    <option name="AFTER_PATH" value="run/saves/New World/region/r.-1.0.mca" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/r.-1.0.mca" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/region/r.0.0.mca" />
+    <option name="AFTER_PATH" value="run/saves/New World/region/r.0.0.mca" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/r.0.0.mca" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.10/executionHistory/executionHistory.bin" />
+    <option name="AFTER_PATH" value=".gradle/8.10/executionHistory/executionHistory.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/executionHistory.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/region/r.-10.10.mca" />
+    <option name="AFTER_PATH" value="run/saves/New World/region/r.-10.10.mca" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/r.-10.10.mca" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/moddev/artifacts/neoforge-21.1.65-minecraft-merged.jar" />
+    <option name="AFTER_PATH" value="build/moddev/artifacts/neoforge-21.1.65-minecraft-merged.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/neoforge-21.1.65-minecraft-merged.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/entities/r.-11.10.mca" />
+    <option name="AFTER_PATH" value="run/saves/New World/entities/r.-11.10.mca" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/r.-11.10.mca" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/entities/r.-11.9.mca" />
+    <option name="AFTER_PATH" value="run/saves/New World/entities/r.-11.9.mca" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/r.-11.9.mca" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" />
+    <option name="AFTER_PATH" value="run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/380df991-f603-344c-a090-369bad2a924a.dat_old" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/region/r.-10.9.mca" />
+    <option name="AFTER_PATH" value="run/saves/New World/region/r.-10.9.mca" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/r.-10.9.mca" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/DIM-1/data/raids.dat" />
+    <option name="AFTER_PATH" value="run/saves/New World/DIM-1/data/raids.dat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/raids.dat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/DIM1/data/raids_end.dat" />
+    <option name="AFTER_PATH" value="run/saves/New World/DIM1/data/raids_end.dat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/raids_end.dat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.10/fileHashes/fileHashes.lock" />
+    <option name="AFTER_PATH" value=".gradle/8.10/fileHashes/fileHashes.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/fileHashes.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/level.dat_old" />
+    <option name="AFTER_PATH" value="run/saves/New World/level.dat_old" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/level.dat_old" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.10/fileHashes/fileHashes.bin" />
+    <option name="AFTER_PATH" value=".gradle/8.10/fileHashes/fileHashes.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/fileHashes.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" />
+    <option name="AFTER_PATH" value="run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/380df991-f603-344c-a090-369bad2a924a.dat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="AFTER_PATH" value=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/buildOutputCleanup.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.10/fileHashes/resourceHashesCache.bin" />
+    <option name="AFTER_PATH" value=".gradle/8.10/fileHashes/resourceHashesCache.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/resourceHashesCache.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/moddev/artifacts/neoforge-21.1.65-minecraft.jar" />
+    <option name="AFTER_PATH" value="build/moddev/artifacts/neoforge-21.1.65-minecraft.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/neoforge-21.1.65-minecraft.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="run/saves/New World/level.dat" />
+    <option name="AFTER_PATH" value="run/saves/New World/level.dat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/level.dat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.10/executionHistory/executionHistory.lock" />
+    <option name="AFTER_PATH" value=".gradle/8.10/executionHistory/executionHistory.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_7_2025_2_46_PM_[Changes]1/executionHistory.lock" />
+  </binary>
+</changelist>

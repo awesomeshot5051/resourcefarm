@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1 Release...JEI does NOT work yet">
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1 V 2.0.0">
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
@@ -350,8 +350,14 @@
       <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CustomShapedRecipeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CustomShapedRecipeBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CustomShapelessRecipeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CustomShapelessRecipeBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/UpgradeRecipeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/UpgradeRecipeBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/events/GuiEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/events/GuiEvents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/BlockItemRendererBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/render/BlockItemRendererBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/loottable/CopyBlockEntityData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/loottable/CopyBlockEntityData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -443,7 +449,7 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -704,7 +710,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="We're working with stuff.&#10;&#10;Not quite cooking with gas, but we're getting there." />
     <MESSAGE value="1.21.1 Release...JEI does NOT work yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.21.1 Release...JEI does NOT work yet" />
+    <MESSAGE value="1.21.1 V 2.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.21.1 V 2.0.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
