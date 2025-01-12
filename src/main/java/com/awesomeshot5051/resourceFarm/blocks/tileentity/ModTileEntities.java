@@ -47,8 +47,7 @@ public class ModTileEntities {
 
     @OnlyIn(Dist.CLIENT)
     public static void clientSetup() {
-        if (!Main.CLIENT_CONFIG.renderBlockContents.get()) {
-        }
+
         BlockEntityRenderers.register(ModTileEntities.ANDESITE_FARM.get(), AndesiteFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.ESTONE_FARM.get(), EndStoneFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.NETHERRACK_FARM.get(), NetherrackFarmRenderer::new);
@@ -95,9 +94,7 @@ public class ModTileEntities {
         BlockEntityRenderers.register(ModTileEntities.TUFF_FARM.get(), TuffFarmRenderer::new);
 
 
-    }    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GraniteFarmTileentity>> GRANITE_FARM = BLOCK_ENTITY_REGISTER.register(
-            "granite_farm", () -> BlockEntityType.Builder.of(GraniteFarmTileentity::new, ModBlocks.GRANITE_FARM.get()).build(null)
-    );
+    }
 
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
 
@@ -173,18 +170,20 @@ public class ModTileEntities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSAND_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSOIL_FARM.get(), (object, context) -> object.getItemHandler());
 
-    }
+    }    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GraniteFarmTileentity>> GRANITE_FARM = BLOCK_ENTITY_REGISTER.register(
+            "granite_farm", () -> BlockEntityType.Builder.of(GraniteFarmTileentity::new, ModBlocks.GRANITE_FARM.get()).build(null)
+    );
 
     public static void init(IEventBus eventBus) {
         BLOCK_ENTITY_REGISTER.register(eventBus);
     }
 
+
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RedSandFarmTileentity>> RSAND_FARM = BLOCK_ENTITY_REGISTER.register(
             "rsand_farm",
             () -> BlockEntityType.Builder.of(RedSandFarmTileentity::new, ModBlocks.RSAND_FARM.get()).build(null)
     );
-
-
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GravelFarmTileentity>> GRAVEL_FARM = BLOCK_ENTITY_REGISTER.register(

@@ -79,7 +79,7 @@ public class UpgradeRecipeBuilder implements RecipeBuilder {
 
     @Nonnull
     public UpgradeRecipeBuilder pattern(String pattern) {
-        if (!this.rows.isEmpty() && pattern.length() != this.rows.get(0).length()) {
+        if (!this.rows.isEmpty() && pattern.length() != this.rows.getFirst().length()) {
             throw new IllegalArgumentException("Pattern must be the same width on every line!");
         } else {
             this.rows.add(pattern);

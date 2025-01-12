@@ -13,7 +13,6 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.*;
 import net.neoforged.neoforge.common.conditions.*;
-import org.jetbrains.annotations.*;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -39,9 +38,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.DEMERALD_FARM::get,
             ModBlocks.DLAPIS_FARM::get,
             ModBlocks.DREDSTONE_FARM::get,
-            ModBlocks.ESTONE_FARM::get,
-            ModBlocks.PURPUR_FARM::get,
-            ModBlocks.NETHERRACK_FARM::get,
             ModBlocks.NETHERITE_FARM::get,
             ModBlocks.NETHER_QUARTZ_FARM::get,
             ModBlocks.NETHER_GOLD_FARM::get,
@@ -73,7 +69,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
+    protected void buildRecipes(RecipeOutput recipeOutput) {
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")

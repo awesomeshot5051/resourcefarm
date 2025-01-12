@@ -31,7 +31,7 @@ public class CustomShapelessRecipeBuilder implements RecipeBuilder {
     public CustomShapelessRecipeBuilder(RecipeCategory p_250837_, ItemStack result) {
 //        super(p_250837_, result);
         this.ingredients = NonNullList.create();
-        this.criteria = new LinkedHashMap();
+        this.criteria = new LinkedHashMap<>();
         this.category = p_250837_;
         this.result = result.getItem();
         this.count = result.getCount();

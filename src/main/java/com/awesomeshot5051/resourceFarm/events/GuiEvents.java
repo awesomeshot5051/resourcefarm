@@ -1,17 +1,14 @@
 package com.awesomeshot5051.resourceFarm.events;
 
-import com.awesomeshot5051.resourceFarm.ClientConfig;
-import com.awesomeshot5051.resourceFarm.Main;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.inventory.MerchantScreen;
-import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.sounds.SoundEvents;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.client.event.InputEvent;
-import net.neoforged.neoforge.client.event.ScreenEvent;
+import com.awesomeshot5051.resourceFarm.*;
+import net.minecraft.client.*;
+import net.minecraft.client.gui.screens.*;
+import net.minecraft.client.gui.screens.inventory.*;
+import net.minecraft.client.resources.sounds.*;
+import net.minecraft.sounds.*;
+import net.neoforged.api.distmarker.*;
+import net.neoforged.bus.api.*;
+import net.neoforged.neoforge.client.event.*;
 
 public class GuiEvents {
 
@@ -34,17 +31,10 @@ public class GuiEvents {
             return;
         }
 
-        int posX;
-
-        switch (loc) {
-            case TOP_LEFT:
-            default:
-                posX = merchantScreen.getGuiLeft() + 107;
-                break;
-            case TOP_RIGHT:
-                posX = merchantScreen.getGuiLeft() + 250;
-                break;
-        }
+        int posX = switch (loc) {
+            case TOP_RIGHT -> merchantScreen.getGuiLeft() + 250;
+            default -> merchantScreen.getGuiLeft() + 107;
+        };
 
     }
 

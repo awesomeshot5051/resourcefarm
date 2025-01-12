@@ -1,19 +1,15 @@
 package com.awesomeshot5051.resourceFarm.items.render;
 
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.FakeWorldTileentity;
-import com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData;
-import com.mojang.blaze3d.vertex.PoseStack;
-import de.maxhenkel.corelib.client.ItemRenderer;
-import de.maxhenkel.corelib.client.RendererProviders;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
-import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.mojang.blaze3d.vertex.*;
+import de.maxhenkel.corelib.client.*;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.world.item.*;
+import net.neoforged.neoforge.client.model.data.*;
 
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class BlockItemRendererBase<T extends BlockEntityRenderer<U>, U extends FakeWorldTileentity> extends ItemRenderer {
 
@@ -32,8 +28,9 @@ public class BlockItemRendererBase<T extends BlockEntityRenderer<U>, U extends F
             renderer = rendererSupplier.apply(RendererProviders.createBlockEntityRendererContext());
         }
         if (itemStack.getItem() instanceof BlockItem blockItem) {
-            minecraft.getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), matrixStack, buffer, combinedLightIn, combinedOverlayIn);
+            minecraft.getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), matrixStack, buffer, combinedLightIn, combinedOverlayIn, ModelData.builder().build(), RenderType.TRANSLUCENT);
         }
+        assert minecraft.level != null;
         U be = VillagerBlockEntityData.getAndStoreBlockEntity(itemStack, minecraft.level.registryAccess(), minecraft.level, tileEntitySupplier);
         renderer.render(be, 0F, matrixStack, buffer, combinedLightIn, combinedOverlayIn);
     }

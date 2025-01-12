@@ -1,18 +1,17 @@
 package com.awesomeshot5051.resourceFarm.loottable;
 
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import com.mojang.serialization.*;
+import com.mojang.serialization.codecs.*;
+import net.minecraft.nbt.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.storage.loot.*;
+import net.minecraft.world.level.storage.loot.functions.*;
+import net.minecraft.world.level.storage.loot.parameters.*;
+import net.minecraft.world.level.storage.loot.predicates.*;
+import org.jetbrains.annotations.*;
 
-import java.util.List;
+import java.util.*;
 
 public class CopyBlockEntityData extends LootItemConditionalFunction {
 
@@ -35,7 +34,7 @@ public class CopyBlockEntityData extends LootItemConditionalFunction {
     }
 
     @Override
-    public LootItemFunctionType getType() {
+    public @NotNull LootItemFunctionType<CopyBlockEntityData> getType() {
         return ModLootTables.COPY_BLOCK_ENTITY.get();
     }
 
