@@ -12,6 +12,7 @@ import com.awesomeshot5051.resourceFarm.sounds.*;
 import de.maxhenkel.corelib.block.*;
 import de.maxhenkel.corelib.blockentity.*;
 import de.maxhenkel.corelib.client.*;
+import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
@@ -34,6 +35,7 @@ import org.jetbrains.annotations.*;
 
 import javax.annotation.Nullable;
 import java.util.*;
+import java.util.stream.*;
 
 import static net.minecraft.world.item.BlockItem.*;
 
@@ -66,18 +68,30 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
-        if (Screen.hasShiftDown()) {
-            if (stack.get(ModDataComponents.PICK_TYPE) != null) {
-//                Objects.requireNonNull(stack.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0);
-                components.add(Component.literal("This block uses the " + Objects.requireNonNull(stack.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0)));
-            }
-        }
-
-        super.appendHoverText(stack, context, components, tooltipFlag);
         CopperOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CopperOreFarmTileentity(BlockPos.ZERO, ModBlocks.COPPER_FARM.get().defaultBlockState()));
         CopperOreFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CopperOreFarmTileentity(BlockPos.ZERO, ModBlocks.COPPER_FARM.get().defaultBlockState()));
-        // Removed villager-related tooltip information
+        if (Screen.hasShiftDown()) {
+            super.appendHoverText(stack, context, components, tooltipFlag);
+            if (Screen.hasShiftDown()) {
+                if (stack.has(ModDataComponents.PICK_TYPE)) {
+                    ItemStack axeType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0))).copyOne();
+                    components.add(Component.literal("This farm has a " + convertToReadableName(axeType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
+                            .withStyle(ChatFormatting.RED));
+                }
+            } else {
+                components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
+            }
+            // Removed villager-related tooltip information
+        }
+    }
 
+    private String convertToReadableName(String block) {
+        // Remove "item.minecraft." and replace underscores with spaces
+        String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
+        // Capitalize the first letter of each word
+        return Arrays.stream(readableName.split(" "))
+                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
+                .collect(Collectors.joining(" "));
     }
 
     @Override

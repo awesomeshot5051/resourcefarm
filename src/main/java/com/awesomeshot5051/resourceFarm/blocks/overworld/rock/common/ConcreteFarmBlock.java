@@ -67,7 +67,7 @@ public class ConcreteFarmBlock extends BlockBase implements EntityBlock, IItemBl
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         if (Screen.hasShiftDown()) {
-            if (stack.get(ModDataComponents.PICK_TYPE) != null) {
+            if (stack.has(ModDataComponents.PICK_TYPE)) {
                 components.add(Component.literal("This block uses a " + Component.translatable(String.valueOf(Objects.requireNonNull(stack.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0)))));
             }
         }
