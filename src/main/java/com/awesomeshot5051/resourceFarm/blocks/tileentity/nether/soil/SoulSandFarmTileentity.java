@@ -101,7 +101,7 @@ public class SoulSandFarmTileentity extends VillagerTileentity implements ITicka
             return Collections.emptyList();
         }
         int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
-        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+        if (getShovelEnchantmentStatus(shovelEnchantments, Enchantments.FORTUNE)) {
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();

@@ -98,11 +98,13 @@ public class GravelFarmTileentity extends VillagerTileentity implements ITickabl
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
-        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
-            dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
-        }
         List<ItemStack> drops = new ArrayList<>();
+        int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
+        if (getShovelEnchantmentStatus(shovelEnchantments, Enchantments.FORTUNE)) {
+            dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
+            drops.add(new ItemStack(Items.FLINT, dropCount));
+        }
+
         drops.add(new ItemStack(Items.GRAVEL, dropCount)); // Change this as needed for custom loot
         return drops;
     }
