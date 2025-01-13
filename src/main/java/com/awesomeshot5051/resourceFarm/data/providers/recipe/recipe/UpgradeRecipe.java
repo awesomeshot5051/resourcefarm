@@ -22,6 +22,7 @@ import org.jetbrains.annotations.*;
 import java.util.*;
 import java.util.stream.*;
 
+@SuppressWarnings("ALL")
 public class UpgradeRecipe extends ShapedRecipe {
     public static final DataComponentType<ItemContainerContents> pickTypeComponent = ModDataComponents.PICK_TYPE.get();
 

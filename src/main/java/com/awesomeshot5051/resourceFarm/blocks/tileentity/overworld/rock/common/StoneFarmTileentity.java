@@ -21,6 +21,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
+@SuppressWarnings("ALL")
 public class StoneFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;

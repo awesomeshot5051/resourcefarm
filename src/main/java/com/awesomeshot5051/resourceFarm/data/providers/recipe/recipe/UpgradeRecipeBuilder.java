@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 import javax.annotation.*;
 import java.util.*;
 
+@SuppressWarnings("ALL")
 public class UpgradeRecipeBuilder implements RecipeBuilder {
     private final RecipeCategory category;
     private final Item result;

@@ -4,6 +4,7 @@ import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.world.item.crafting.*;
 
+@SuppressWarnings("ALL")
 public class RecipeTypes<C extends ShapedRecipe> {
 
     public static final RecipeType<RecipeHolder<CustomBlockRecipe>> FARM_RECIPE =

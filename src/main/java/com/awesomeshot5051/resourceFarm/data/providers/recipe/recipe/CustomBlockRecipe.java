@@ -19,6 +19,7 @@ import org.jetbrains.annotations.*;
 
 import java.util.*;
 
+@SuppressWarnings("ALL")
 public class CustomBlockRecipe extends ShapedRecipe {
     public static final DataComponentType<ItemContainerContents> pickTypeComponent = ModDataComponents.PICK_TYPE.get();
 

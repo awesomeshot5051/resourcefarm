@@ -21,6 +21,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
+@SuppressWarnings("ALL")
 public class CopperOreFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     // Update the loot table for endermans instead of iron golems

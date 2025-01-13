@@ -1,21 +1,22 @@
 package com.awesomeshot5051.resourceFarm.datacomponents;
 
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.FakeWorldTileentity;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.level.Level;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import net.minecraft.core.*;
+import net.minecraft.core.component.*;
+import net.minecraft.nbt.*;
+import net.minecraft.network.*;
+import net.minecraft.network.codec.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
+import net.minecraft.world.level.*;
 
-import javax.annotation.Nullable;
-import java.lang.ref.WeakReference;
-import java.util.Objects;
-import java.util.function.Supplier;
+import javax.annotation.*;
+import java.lang.ref.*;
+import java.util.*;
+import java.util.function.*;
 
+@SuppressWarnings("ALL")
 public class VillagerBlockEntityData {
 
     public static final StreamCodec<RegistryFriendlyByteBuf, VillagerBlockEntityData> STREAM_CODEC = new StreamCodec<>() {

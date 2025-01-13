@@ -16,6 +16,7 @@ import java.lang.ref.WeakReference;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+@SuppressWarnings("ALL")
 public class FarmBlockEntityData {
 
     public static final StreamCodec<RegistryFriendlyByteBuf, FarmBlockEntityData> STREAM_CODEC = new StreamCodec<>() {

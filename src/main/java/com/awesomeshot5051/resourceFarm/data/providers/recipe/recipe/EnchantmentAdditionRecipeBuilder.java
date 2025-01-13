@@ -13,6 +13,7 @@ import net.minecraft.world.level.*;
 import javax.annotation.*;
 import java.util.*;
 
+@SuppressWarnings("ALL")
 public class EnchantmentAdditionRecipeBuilder implements RecipeBuilder {
     private final RecipeCategory category;
     private final Item result;

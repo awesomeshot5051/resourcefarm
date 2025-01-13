@@ -16,6 +16,7 @@ import javax.annotation.*;
 import java.util.*;
 
 //@JeiPlugin
+@SuppressWarnings("ALL")
 public class JEIIntegration implements IModPlugin {
 
     public static List<ItemStack> convertIngredientsToItemStacks(NonNullList<Ingredient> ingredients) {

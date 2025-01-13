@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.*;
 import javax.annotation.*;
 import java.util.*;
 
+@SuppressWarnings("ALL")
 public class VillagerTileentity extends FakeWorldTileentity {
 
     protected ItemStack villager;

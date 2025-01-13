@@ -16,6 +16,7 @@ import net.neoforged.neoforge.client.model.data.*;
 
 import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.*;
 
+@SuppressWarnings("ALL")
 public class GlowstoneFarmRenderer extends RendererBase<GlowstoneFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
 

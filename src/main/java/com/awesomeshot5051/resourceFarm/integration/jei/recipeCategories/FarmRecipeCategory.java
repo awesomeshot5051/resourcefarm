@@ -15,6 +15,7 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.*;
 import org.jetbrains.annotations.*;
 
+@SuppressWarnings("ALL")
 public class FarmRecipeCategory implements IRecipeCategory<CustomBlockRecipe> {
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("resource_farms", "farm_recipe");
     public static final RecipeType<CustomBlockRecipe> TYPE = RecipeType.create("resource_farms", "farm_recipe", CustomBlockRecipe.class);

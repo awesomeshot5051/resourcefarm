@@ -10,6 +10,7 @@ import net.neoforged.api.distmarker.*;
 import net.neoforged.bus.api.*;
 import net.neoforged.neoforge.client.event.*;
 
+@SuppressWarnings("ALL")
 public class GuiEvents {
 
     @OnlyIn(Dist.CLIENT)

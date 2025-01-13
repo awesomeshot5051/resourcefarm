@@ -21,6 +21,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.*;
 
+@SuppressWarnings("ALL")
 public class SoulSandFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     public ItemStack shovelType;

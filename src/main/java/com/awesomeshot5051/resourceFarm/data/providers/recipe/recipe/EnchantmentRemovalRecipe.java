@@ -18,6 +18,7 @@ import org.jetbrains.annotations.*;
 import java.util.*;
 
 
+@SuppressWarnings("ALL")
 public class EnchantmentRemovalRecipe extends ShapelessRecipe {
 
     final String group;

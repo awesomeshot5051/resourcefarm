@@ -1,13 +1,11 @@
 package com.awesomeshot5051.resourceFarm.gui;
 
-import de.maxhenkel.corelib.inventory.LockedSlot;
-import net.minecraft.world.Container;
-import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.inventory.Slot;
+import de.maxhenkel.corelib.inventory.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
 
+@SuppressWarnings("ALL")
 public abstract class InputOutputContainer extends ModContainerBase {
 
     public InputOutputContainer(MenuType type, int id, Inventory playerInventory, Container inputInventory, Container outputInventory, ContainerLevelAccess access) {

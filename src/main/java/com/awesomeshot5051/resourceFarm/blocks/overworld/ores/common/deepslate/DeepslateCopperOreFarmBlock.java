@@ -37,6 +37,7 @@ import java.util.*;
 
 import static net.minecraft.world.item.BlockItem.*;
 
+@SuppressWarnings("ALL")
 public class DeepslateCopperOreFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);

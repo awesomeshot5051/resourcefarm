@@ -10,6 +10,7 @@ import net.minecraft.world.item.*;
 import net.neoforged.bus.api.*;
 import net.neoforged.neoforge.registries.*;
 
+@SuppressWarnings("ALL")
 public class ModItems {
     public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(Registries.MENU, Main.MODID);
     public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);

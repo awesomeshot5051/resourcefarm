@@ -18,6 +18,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.CustomBlockRecipe.*;
 
+@SuppressWarnings("ALL")
 public class CustomShapelessBlockRecipe extends ShapelessRecipe {
     final String group;
     final CraftingBookCategory category;

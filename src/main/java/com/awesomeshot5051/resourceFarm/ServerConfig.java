@@ -1,8 +1,9 @@
 package com.awesomeshot5051.resourceFarm;
 
-import de.maxhenkel.corelib.config.ConfigBase;
-import net.neoforged.neoforge.common.ModConfigSpec;
+import de.maxhenkel.corelib.config.*;
+import net.neoforged.neoforge.common.*;
 
+@SuppressWarnings("ALL")
 public class ServerConfig extends ConfigBase {
     //meat dropping mobs
 
