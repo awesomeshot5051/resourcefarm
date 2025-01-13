@@ -4,7 +4,7 @@ license = "All rights reserved"
 #issueTrackerURL = "https://github.com/henkelmax/easy-villagers/issues"
 [[mods]]
 modId = "resource_farms"
-#version = "1.21.1-1.0.0"
+#version = "1.21.1-2.0.0"
 displayName = "Resource Farms"
 #updateJSONURL = "https://update.maxhenkel.de/neoforge/resource_farms"
 #displayURL = "https://www.curseforge.com/minecraft/mc-mods/easy-villagers"
