@@ -100,8 +100,12 @@ public class BasaltFarmTileentity extends VillagerTileentity implements ITickabl
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
+        int dropCount = 0;
+if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+           dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.BASALT)); // Change this as needed for custom loot
+        drops.add(dropCount, new ItemStack(Items.BASALT)); // Change this as needed for custom loot
         return drops;
     }
 

@@ -5,18 +5,18 @@ import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil.*;
 import com.awesomeshot5051.resourceFarm.data.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
-import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.soil.*;
+import com.awesomeshot5051.resourceFarm.sounds.*;
 import de.maxhenkel.corelib.block.*;
 import de.maxhenkel.corelib.blockentity.*;
 import de.maxhenkel.corelib.client.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
+import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.*;
-import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.*;
 import net.minecraft.world.level.*;
@@ -27,8 +27,9 @@ import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
+import org.jetbrains.annotations.*;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
 
@@ -51,6 +52,14 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
                 return new ConcretePowderFarmItemRenderer();
             }
         };
+    }
+
+    private void playSound(@NotNull Level level, BlockState state, SoundEvent sound, ConcretePowderFarmTileentity farm) {
+        Vec3i vec3i = state.getValue(FACING).getNormal();
+        double d0 = farm.getBlockPos().getX() + 0.5D + (double) vec3i.getX() / 2.0D;
+        double d1 = farm.getBlockPos().getY() + 0.5D + (double) vec3i.getY() / 2.0D;
+        double d2 = farm.getBlockPos().getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
+        level.playSound(null, d0, d1, d2, sound, SoundSource.BLOCKS, 5F, 10 * 0.1F + 0.9F);
     }
 
     @Override
@@ -83,22 +92,8 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof ConcretePowderFarmTileentity farm)) {
-            return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
-        }
-        player.openMenu(new MenuProvider() {
-            @Override
-            public Component getDisplayName() {
-                return Component.translatable(state.getBlock().getDescriptionId());
-            }
-
-            @Nullable
-            @Override
-            public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CONCRETE_POWDER_FARM::get);
-            }
-        });
-        return ItemInteractionResult.SUCCESS;
+        playSound(Objects.requireNonNull(worldIn), state, ModSounds.SHOVEL_SOUND.get(), (ConcretePowderFarmTileentity) tileEntity);
+        return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
     }
 
     @Nullable

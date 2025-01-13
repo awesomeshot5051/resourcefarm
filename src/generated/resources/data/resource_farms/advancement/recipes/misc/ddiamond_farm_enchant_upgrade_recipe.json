@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enchanted_book": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:enchantable/mining"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "resource_farms:ddiamond_farm_enchant_upgrade_recipe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_enchanted_book"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "resource_farms:ddiamond_farm_enchant_upgrade_recipe"
+    ]
+  }
+}

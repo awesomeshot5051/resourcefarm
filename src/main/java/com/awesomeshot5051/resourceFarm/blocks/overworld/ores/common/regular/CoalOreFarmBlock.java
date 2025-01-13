@@ -6,11 +6,13 @@ import com.awesomeshot5051.resourceFarm.data.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.regular.*;
+import com.awesomeshot5051.resourceFarm.sounds.*;
 import de.maxhenkel.corelib.block.*;
 import de.maxhenkel.corelib.blockentity.*;
 import de.maxhenkel.corelib.client.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
+import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.*;
@@ -24,8 +26,9 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
+import org.jetbrains.annotations.*;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
 
 import static net.minecraft.world.item.BlockItem.*;
@@ -45,6 +48,14 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
                 return new CoalOreFarmItemRenderer(); // Custom creeper farm renderer
             }
         };
+    }
+
+    private void playSound(@NotNull Level level, BlockState state, SoundEvent sound, CoalOreFarmTileentity farm) {
+        Vec3i vec3i = state.getValue(FACING).getNormal();
+        double d0 = farm.getBlockPos().getX() + 0.5D + (double) vec3i.getX() / 2.0D;
+        double d1 = farm.getBlockPos().getY() + 0.5D + (double) vec3i.getY() / 2.0D;
+        double d2 = farm.getBlockPos().getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
+        level.playSound(null, d0, d1, d2, sound, SoundSource.BLOCKS, 5F, 10 * 0.1F + 0.9F);
     }
 
     @Override
@@ -79,6 +90,7 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
         if (!(tileEntity instanceof CoalOreFarmTileentity farm)) { // Check for coalOreFarmTileentity
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
+        playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
 
         // Directly open the container without villager checks
         player.openMenu(new MenuProvider() {

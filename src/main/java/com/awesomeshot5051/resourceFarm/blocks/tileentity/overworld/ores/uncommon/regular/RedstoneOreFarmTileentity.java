@@ -99,9 +99,13 @@ public class RedstoneOreFarmTileentity extends VillagerTileentity implements ITi
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
+        int dropCount = 0;
+if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+           dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        }
         List<ItemStack> drops = new ArrayList<>();
         int count = serverWorld.random.nextInt(4, 6);
-        drops.add(new ItemStack(Items.REDSTONE, count)); // Change this as needed for custom loot
+        drops.add(dropCount, new ItemStack(Items.REDSTONE, count)); // Change this as needed for custom loot
         return drops;
     }
 

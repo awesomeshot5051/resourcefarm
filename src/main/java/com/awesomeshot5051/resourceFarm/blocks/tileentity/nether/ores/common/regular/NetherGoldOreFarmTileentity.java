@@ -99,9 +99,13 @@ public class NetherGoldOreFarmTileentity extends VillagerTileentity implements I
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
+        int dropCount = 0;
+if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+           dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        }
         List<ItemStack> drops = new ArrayList<>();
         int count = serverWorld.random.nextInt(0, 5);
-        drops.add(new ItemStack(Items.GOLD_NUGGET, count)); // Change this as needed for custom loot
+        drops.add(dropCount, new ItemStack(Items.GOLD_NUGGET, count)); // Change this as needed for custom loot
         return drops;
     }
 

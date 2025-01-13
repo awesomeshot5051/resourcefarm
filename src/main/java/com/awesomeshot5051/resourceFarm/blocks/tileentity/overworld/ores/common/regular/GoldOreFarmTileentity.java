@@ -101,8 +101,12 @@ public class GoldOreFarmTileentity extends VillagerTileentity implements ITickab
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
+        int dropCount = 0;
+if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+           dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.RAW_GOLD)); // Change this as needed for custom loot
+        drops.add(dropCount, new ItemStack(Items.RAW_GOLD)); // Change this as needed for custom loot
         return drops;
     }
 

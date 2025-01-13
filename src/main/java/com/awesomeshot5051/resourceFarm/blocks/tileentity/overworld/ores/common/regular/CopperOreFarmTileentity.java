@@ -110,9 +110,13 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
+        int dropCount = 0;
+        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+            dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        }
         List<ItemStack> drops = new ArrayList<>();
         int count = serverWorld.random.nextInt(2, 5);
-        drops.add(new ItemStack(Items.COPPER_INGOT, count));
+        drops.add(dropCount, new ItemStack(Items.COPPER_INGOT, count));
 
 
         return drops;

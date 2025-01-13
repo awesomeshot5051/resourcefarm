@@ -125,8 +125,12 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
         Item randomConcretePowder = concretePowders[serverWorld.random.nextInt(concretePowders.length)];
 
         // Create a new ItemStack for the randomly chosen color
+        int dropCount = 0;
+        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+            dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(randomConcretePowder));
+        drops.add(dropCount, new ItemStack(randomConcretePowder));
 
         return drops;
     }

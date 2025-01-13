@@ -114,9 +114,13 @@ public class DeepslateCopperOreFarmTileentity extends VillagerTileentity impleme
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
+        int dropCount = 0;
+        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+            dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        }
         List<ItemStack> drops = new ArrayList<>();
         int count = serverWorld.random.nextInt(2, 5);
-        drops.add(new ItemStack(Items.RAW_COPPER, count));
+        drops.add(dropCount, new ItemStack(Items.RAW_COPPER, count));
 
 
         return drops;

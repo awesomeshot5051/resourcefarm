@@ -99,10 +99,10 @@ public class AndesiteFarmBlock extends BlockBase implements EntityBlock, IItemBl
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), (AndesiteFarmTileentity) tileEntity);
-        if (!(tileEntity instanceof AndesiteFarmTileentity farm)) {
-            return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
-        }
+
+        AndesiteFarmTileentity farm = (AndesiteFarmTileentity) tileEntity;
+        assert farm != null;
+        playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
