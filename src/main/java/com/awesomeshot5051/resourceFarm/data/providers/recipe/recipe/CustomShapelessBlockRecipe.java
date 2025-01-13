@@ -4,11 +4,13 @@ import com.awesomeshot5051.resourceFarm.data.*;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import net.minecraft.core.*;
+import net.minecraft.core.component.*;
 import net.minecraft.network.*;
 import net.minecraft.network.codec.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.*;
 import net.neoforged.neoforge.common.util.*;
 
@@ -68,6 +70,7 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
 
     public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
         // Map to convert shovel tools to their respective pickaxe tools
+
         Map<Item, Item> shovelToPickaxeMap = Map.of(
                 Items.WOODEN_SHOVEL, Items.WOODEN_PICKAXE,
                 Items.STONE_SHOVEL, Items.STONE_PICKAXE,
@@ -96,7 +99,7 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
         // If pickContents is set, proceed to process the result
         if (pickContents != null) {
             ItemStack pickStack = pickContents.getStackInSlot(0); // Extract the ItemStack from pickContents
-
+            ItemEnchantments enchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
             // Check if the pickContents holds a shovel, and map it to the respective pickaxe
             if (shovelToPickaxeMap.containsKey(pickStack.getItem())) {
                 Item newTool = shovelToPickaxeMap.get(pickStack.getItem()); // Get corresponding pickaxe
@@ -105,6 +108,7 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
 
             // Create and configure the result item
             resultItem = getResultItem(registries).copy();
+            result2.set(DataComponents.STORED_ENCHANTMENTS, enchantments);
             resultItem.set(pickTypeComponent, pickContents);
         }
 

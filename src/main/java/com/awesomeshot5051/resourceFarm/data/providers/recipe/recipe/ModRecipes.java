@@ -19,6 +19,10 @@ public class ModRecipes {
     public static final Supplier<RecipeSerializer<UpgradeRecipe>> UPGRADE_SERIALIZER =
             RECIPE_SERIALIZERS.register("upgrade_serializer", UpgradeRecipe.Serializer::new);
     // Register the custom recipe serializer
+    public static final Supplier<RecipeSerializer<EnchantmentAdditionRecipe>> ENCHANTING_SERIALIZER =
+            RECIPE_SERIALIZERS.register("enchanting_serializer", EnchantmentAdditionRecipe.Serializer::new);
+    public static final Supplier<RecipeSerializer<EnchantmentRemovalRecipe>> ENCHANTMENT_REMOVER_SERIALIZER =
+            RECIPE_SERIALIZERS.register("enchantment_remover_serializer", EnchantmentRemovalRecipe.Serializer::new);
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, Main.MODID);
     public static final Supplier<RecipeType<CustomBlockRecipe>> FARM_RECIPE =
             RECIPE_TYPES.register(

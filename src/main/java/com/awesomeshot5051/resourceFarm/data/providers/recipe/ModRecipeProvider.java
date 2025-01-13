@@ -8,6 +8,7 @@ import net.minecraft.core.*;
 import net.minecraft.data.*;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.*;
+import net.minecraft.tags.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.*;
@@ -17,6 +18,7 @@ import net.neoforged.neoforge.common.conditions.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.*;
+import java.util.stream.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     // List of blocks that require a pickaxe to mine
@@ -62,6 +64,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.SSOIL_FARM::get, // Soul Soil Farm
             ModBlocks.SNOW_FARM::get
     );
+    public static final List<Supplier<Block>> ALL_FARMS = Stream
+            .concat(SHOVEL_BLOCKS.stream(), PICKAXE_BLOCKS.stream())
+            .collect(Collectors.toList());
 
 
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
@@ -579,6 +584,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_netherite", has(Items.NETHERITE_INGOT))
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_shovel_netherite_upgrade_recipe"));
+        });
+        ALL_FARMS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            EnchantmentAdditionRecipeBuilder.shapeless(RecipeCategory.MISC, farmBlock)
+                    .requires(Items.ENCHANTED_BOOK)
+                    .requires(farmBlock.asItem())
+                    .unlockedBy("has_enchanted_book", has(ItemTags.MINING_ENCHANTABLE))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_enchant_upgrade_recipe"));
+        });
+        ALL_FARMS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            EnchantmentRemovalRecipeBuilder.shapeless(RecipeCategory.MISC, farmBlock)
+                    .requires(farmBlock.asItem())
+                    .unlockedBy("has_farm", has(farmBlock.asItem()))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId() + "_enchantment_removal_recipe")));
         });
 
     }

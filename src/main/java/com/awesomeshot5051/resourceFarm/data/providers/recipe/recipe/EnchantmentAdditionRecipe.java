@@ -1,0 +1,193 @@
+package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
+
+import com.awesomeshot5051.resourceFarm.data.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.mojang.serialization.*;
+import com.mojang.serialization.codecs.*;
+import net.minecraft.core.*;
+import net.minecraft.core.component.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.network.*;
+import net.minecraft.network.codec.*;
+import net.minecraft.tags.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.level.*;
+import org.jetbrains.annotations.*;
+
+import java.util.*;
+
+
+public class EnchantmentAdditionRecipe extends ShapelessRecipe {
+    final String group;
+    final CraftingBookCategory category;
+    final ItemStack result;
+    final NonNullList<Ingredient> ingredients;
+    private ItemContainerContents swordContents;
+    private ItemStack result2;
+
+    public EnchantmentAdditionRecipe(String group, CraftingBookCategory category, ItemStack result, NonNullList<Ingredient> ingredients) {
+        super(group, category, result, ingredients);
+        this.group = group;
+        this.category = category;
+        this.result = result;
+        this.ingredients = ingredients;
+        boolean isSimple = ingredients.stream().allMatch(Ingredient::isSimple);
+    }
+
+    @Override
+    public RecipeSerializer<EnchantmentAdditionRecipe> getSerializer() {
+        return ModRecipes.ENCHANTING_SERIALIZER.get();
+    }
+
+
+    public ItemStack getResultItem(HolderLookup.Provider registries) {
+        return this.result;
+    }
+
+    public NonNullList<Ingredient> getIngredients() {
+        return this.ingredients;
+    }
+
+    public boolean matches(CraftingInput input, Level level) {
+        return super.matches(input, level);
+    }
+
+
+    public ItemStack assemble(CraftingInput input, HolderLookup.@NotNull Provider registries) {
+        List<ItemStack> ingredients = input.items(); // Ingredients from the crafting input
+        ItemStack resultItem = ItemStack.EMPTY;      // Default result
+        List<Item> farmBlocks = new ArrayList<>();
+        ItemEnchantments enchantments = ItemEnchantments.EMPTY;
+        ItemEnchantments.Mutable storedEnchantments = new ItemEnchantments.Mutable(enchantments);
+        for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
+            farmBlocks.add(sidedBlock.get());
+        }
+
+        ItemContainerContents pickContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_HOE)));   // Placeholder for pick contents
+        // Check the first and last ingredients for the HOE_TYPE component
+        for (ItemStack ingredient : ingredients) {
+            if (farmBlocks.contains(ingredient.getItem())) {
+                pickContents = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(ingredient.getOrDefault(ModDataComponents.PICK_TYPE, pickContents)).copyOne()));
+            } else if (ingredient.getItem().getDefaultInstance().has(DataComponents.STORED_ENCHANTMENTS)) {
+                storedEnchantments = new ItemEnchantments.Mutable(ingredient.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY));
+            }
+        }
+
+        HolderLookup<Item> itemLookup = registries.lookup(Registries.ITEM).orElseThrow();
+        HolderSet.Named<Item> pickEnchantables = itemLookup.get(ItemTags.MINING_ENCHANTABLE).orElseThrow();
+
+        // Retrieve the ItemStack (e.g., from pickContents)
+        ItemStack pickStack = pickContents.getStackInSlot(0);
+        ItemEnchantments enchantments2 = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
+//        Holder<Enchantment> holder = storedEnchantments.keySet().stream().toList().getFirst();
+        boolean isCompatible = checkEnchantmentCompatibility(storedEnchantments.toImmutable(), pickEnchantables, pickStack) && isCompatible(storedEnchantments, pickStack);
+
+        if (!isCompatible) {
+            return new ItemStack(Items.AIR);
+        }
+        for (Holder<Enchantment> holder : storedEnchantments.keySet()) {
+            // Get the enchantment level
+            int level = storedEnchantments.getLevel(holder);
+
+            // Apply the enchantment to the pickStack
+            pickStack.enchant(holder, level);
+        }
+
+        enchantments2 = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
+//        Holder<Enchantment> holder = enchantments2.keySet().stream().toList().getFirst();
+//        storedEnchantments.keySet().add(holder);
+        resultItem = getResultItem(registries).copy();
+        pickStack.set(DataComponents.ENCHANTMENTS, enchantments2);
+        pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
+        resultItem.set(DataComponents.STORED_ENCHANTMENTS, enchantments2);
+        resultItem.set(ModDataComponents.PICK_TYPE, pickContents);
+        return resultItem;
+    }
+
+    private boolean isCompatible(ItemEnchantments.Mutable storedEnchantments, ItemStack swordStack) {
+        if (storedEnchantments.keySet().stream().toList().getFirst().getDelegate().value().definition().supportedItems().unwrapKey().stream().findFirst().isPresent()) {
+            return storedEnchantments.keySet().stream().toList().getFirst().getDelegate().value().definition().supportedItems().unwrapKey().stream().findFirst().get().equals(ItemTags.MINING_ENCHANTABLE) || storedEnchantments.keySet().stream().toList().getFirst().getDelegate().is(EnchantmentTags.MINING_EXCLUSIVE) || storedEnchantments.keySet().stream().toList().getFirst().getDelegate().value().definition().supportedItems().stream().toList().contains(swordStack.getItemHolder());
+        }
+        return false;
+    }
+
+    /**
+     * Checks if the enchantments in the enchanted book are compatible with swords.
+     */
+    private boolean checkEnchantmentCompatibility(ItemEnchantments enchantments, HolderSet.Named<Item> swordEnchantables, ItemStack sword) {
+        for (var enchantmentEntry : enchantments.entrySet()) {
+            Holder<Enchantment> enchantmentHolder = enchantmentEntry.getKey();
+
+            // Check if the enchantment is valid for the SWORD_ENCHANTABLES tag
+            boolean isValid = swordEnchantables.stream().anyMatch(itemHolder -> {
+                // Get the item and check if the enchantment is applicable
+                return enchantmentHolder.unwrap().map(enchantment -> EnchantmentHelper.canStoreEnchantments(sword), holder -> false);
+            });
+
+            if (!isValid) {
+                return false; // Incompatible enchantment found
+            }
+        }
+
+        return true; // All enchantments are compatible
+    }
+
+
+    public boolean canCraftInDimensions(int width, int height) {
+        return width * height >= this.ingredients.size();
+    }
+
+
+    @Override
+    public CraftingBookCategory category() {
+        return category;
+    }
+
+    public static class Serializer implements RecipeSerializer<EnchantmentAdditionRecipe> {
+        public static final StreamCodec<RegistryFriendlyByteBuf, EnchantmentAdditionRecipe> STREAM_CODEC = StreamCodec.of(Serializer::toNetwork, Serializer::fromNetwork);
+        private static final MapCodec<EnchantmentAdditionRecipe> CODEC = RecordCodecBuilder.mapCodec((p_340779_) -> p_340779_.group(Codec.STRING.optionalFieldOf("group", "").forGetter((p_301127_) -> p_301127_.group), CraftingBookCategory.CODEC.fieldOf("category").orElse(CraftingBookCategory.MISC).forGetter((p_301133_) -> p_301133_.category), ItemStack.STRICT_CODEC.fieldOf("result").forGetter((p_301142_) -> p_301142_.result), Ingredient.CODEC_NONEMPTY.listOf().fieldOf("ingredients").flatXmap((p_301021_) -> {
+            Ingredient[] aingredient = p_301021_.toArray(Ingredient[]::new);
+            if (aingredient.length == 0) {
+                return DataResult.error(() -> "No ingredients for shapeless recipe");
+            } else {
+                return aingredient.length > ShapedRecipePattern.getMaxHeight() * ShapedRecipePattern.getMaxWidth() ? DataResult.error(() -> "Too many ingredients for shapeless recipe. The maximum is: %s".formatted(ShapedRecipePattern.getMaxHeight() * ShapedRecipePattern.getMaxWidth())) : DataResult.success(NonNullList.of(Ingredient.EMPTY, aingredient));
+            }
+        }, DataResult::success).forGetter((p_300975_) -> p_300975_.ingredients)).apply(p_340779_, EnchantmentAdditionRecipe::new));
+
+        public Serializer() {
+        }
+
+        private static EnchantmentAdditionRecipe fromNetwork(RegistryFriendlyByteBuf buffer) {
+            String s = buffer.readUtf();
+            CraftingBookCategory craftingbookcategory = buffer.readEnum(CraftingBookCategory.class);
+            int i = buffer.readVarInt();
+            NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i, Ingredient.EMPTY);
+            nonnulllist.replaceAll((p_319735_) -> Ingredient.CONTENTS_STREAM_CODEC.decode(buffer));
+            ItemStack itemstack = ItemStack.STREAM_CODEC.decode(buffer);
+            return new EnchantmentAdditionRecipe(s, craftingbookcategory, itemstack, nonnulllist);
+        }
+
+        private static void toNetwork(RegistryFriendlyByteBuf buffer, EnchantmentAdditionRecipe recipe) {
+            buffer.writeUtf(recipe.group);
+            buffer.writeEnum(recipe.category);
+            buffer.writeVarInt(recipe.ingredients.size());
+
+            for (Ingredient ingredient : recipe.ingredients) {
+                Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, ingredient);
+            }
+
+            ItemStack.STREAM_CODEC.encode(buffer, recipe.result);
+        }
+
+        public MapCodec<EnchantmentAdditionRecipe> codec() {
+            return CODEC;
+        }
+
+        public StreamCodec<RegistryFriendlyByteBuf, EnchantmentAdditionRecipe> streamCodec() {
+            return STREAM_CODEC;
+        }
+    }
+}

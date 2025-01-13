@@ -1,25 +1,30 @@
 package com.awesomeshot5051.resourceFarm.events;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.event.PlayLevelSoundEvent;
+import com.awesomeshot5051.resourceFarm.*;
+import net.minecraft.sounds.*;
+import net.neoforged.bus.api.*;
+import net.neoforged.neoforge.event.*;
 
 public class ModSoundEvents {
 
     @SubscribeEvent
     public void onSound(PlayLevelSoundEvent.AtEntity event) {
-        if (event.getSound() != null && event.getSource() != null && isVillagerSound(event.getSound().value()) && event.getSource().equals(SoundSource.BLOCKS)) {
-            event.setNewVolume(Main.CLIENT_CONFIG.villagerVolume.get().floatValue());
+        if (event.getSound() != null) {
+            event.getSource();
+            if (isVillagerSound(event.getSound().value()) && event.getSource().equals(SoundSource.BLOCKS)) {
+                event.setNewVolume(Main.CLIENT_CONFIG.villagerVolume.get().floatValue());
+            }
         }
     }
 
     @SubscribeEvent
     public void onSound(PlayLevelSoundEvent.AtPosition event) {
-        if (event.getSound() != null && event.getSound().value() != null && event.getSource() != null && isVillagerSound(event.getSound().value()) && event.getSource().equals(SoundSource.BLOCKS)) {
-            event.setNewVolume(Main.CLIENT_CONFIG.villagerVolume.get().floatValue());
+        if (event.getSound() != null) {
+            event.getSound().value();
+            event.getSource();
+            if (isVillagerSound(event.getSound().value()) && event.getSource().equals(SoundSource.BLOCKS)) {
+                event.setNewVolume(Main.CLIENT_CONFIG.villagerVolume.get().floatValue());
+            }
         }
     }
 

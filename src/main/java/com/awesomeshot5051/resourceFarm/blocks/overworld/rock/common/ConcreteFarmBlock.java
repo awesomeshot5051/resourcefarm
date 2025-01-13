@@ -30,6 +30,7 @@ import net.neoforged.api.distmarker.*;
 
 import javax.annotation.*;
 import java.util.*;
+import java.util.stream.*;
 
 import static net.minecraft.world.item.BlockItem.*;
 
@@ -110,5 +111,14 @@ public class ConcreteFarmBlock extends BlockBase implements EntityBlock, IItemBl
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> p_155268_) {
         return new SimpleBlockEntityTicker<>();
+    }
+
+    private String convertToReadableName(String block) {
+        // Remove "item.minecraft." and replace underscores with spaces
+        String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
+        // Capitalize the first letter of each word
+        return Arrays.stream(readableName.split(" "))
+                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
+                .collect(Collectors.joining(" "));
     }
 }

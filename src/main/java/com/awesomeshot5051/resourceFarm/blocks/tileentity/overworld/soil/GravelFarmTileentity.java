@@ -3,25 +3,31 @@ package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
 import de.maxhenkel.corelib.blockentity.*;
 import de.maxhenkel.corelib.inventory.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.*;
+
 public class GravelFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    public ItemStack pickType;
+    public Map<ResourceKey<Enchantment>, Boolean> shovelEnchantments = initializeShovelEnchantments();
+    public ItemStack shovelType;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
-    protected long breakStage;
     protected OutputItemHandler outputItemHandler;
 
     public GravelFarmTileentity(BlockPos pos, BlockState state) {
@@ -29,37 +35,44 @@ public class GravelFarmTileentity extends VillagerTileentity implements ITickabl
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.STONE_SHOVEL);
+        shovelType = new ItemStack(Items.STONE_SHOVEL);
     }
 
     public static double getGravelGenerateTime(GravelFarmTileentity tileEntity) {
         return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
-                (tileEntity.getPickType().getItem().equals(Items.IRON_SHOVEL) ? 15 :
-                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_SHOVEL) ? 20 :
-                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_SHOVEL) ? 25 :
-                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_SHOVEL) ? 30 :
+                (tileEntity.getShovelType().getItem().equals(Items.IRON_SHOVEL) ? 15 :
+                        tileEntity.getShovelType().getItem().equals(Items.GOLDEN_SHOVEL) ? 20 :
+                                tileEntity.getShovelType().getItem().equals(Items.DIAMOND_SHOVEL) ? 25 :
+                                        tileEntity.getShovelType().getItem().equals(Items.NETHERITE_SHOVEL) ? 30 :
                                                 1); // Default to Wooden SHOVEL divisor if none matches
     }
 
     public static double getGravelBreakTime(GravelFarmTileentity tileEntity) {
-        return getGravelGenerateTime(tileEntity) + (tileEntity.getPickType().getItem().equals(Items.STONE_SHOVEL) ? (20 * 8) :
-                tileEntity.getPickType().getItem().equals(Items.IRON_SHOVEL) ? (20 * 4) :
-                        tileEntity.getPickType().getItem().equals(Items.DIAMOND_SHOVEL) ? (20 * 2) :
-                                tileEntity.getPickType().getItem().equals(Items.NETHERITE_SHOVEL) ? (20 * 2) :
-                                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_SHOVEL) ? (20 * 2) :
-                                                (20 * 10)); // Default to Wooden SHOVEL break time if none matches
+
+        ShovelType shovel = ShovelType.fromItem(tileEntity.getShovelType().getItem());
+        if (tileEntity.getShovelType().isEnchanted()) {
+            tileEntity.setShovelEnchantmentStatus(tileEntity);
+        }
+        int baseValue = 20;
+        if (ShovelEnchantments.getShovelEnchantmentStatus(tileEntity.shovelEnchantments, Enchantments.EFFICIENCY)) {
+            baseValue = 10;
+        }
+//
+        return getGravelGenerateTime(tileEntity) + (shovel.equals(ShovelType.NETHERITE) ? (baseValue * 8) :
+                shovel.equals(ShovelType.DIAMOND) ? (baseValue * 4) :
+                        shovel.equals(ShovelType.IRON) ? (baseValue * 2) :
+                                shovel.equals(ShovelType.STONE) ? (baseValue * 2) :
+                                        shovel.equals(ShovelType.GOLDEN) ? (baseValue * 2) :
+                                                (baseValue * 10)); // Default to Wooden PICKAXE break time if none matches
     }
 
     public long getTimer() {
         return timer;
     }
 
-    public long getBreakStage() {
-        return breakStage;
-    }
 
-    public ItemStack getPickType() {
-        return pickType;
+    public ItemStack getShovelType() {
+        return shovelType;
     }
 
     @Override
@@ -98,12 +111,12 @@ public class GravelFarmTileentity extends VillagerTileentity implements ITickabl
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-        // Save the pickType as an NBT tag
-        if (pickType != null) {
-            CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", pickType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
-            pickTypeTag.putInt("count", pickType.getCount()); // Save the count
-            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+        // Save the shovelType as an NBT tag
+        if (shovelType != null) {
+            CompoundTag shovelTypeTag = new CompoundTag();
+            shovelTypeTag.putString("id", shovelType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
+            shovelTypeTag.putInt("count", shovelType.getCount()); // Save the count
+            compound.put("shovelType", shovelTypeTag); // Add the tag to the main compound
         }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
@@ -112,13 +125,13 @@ public class GravelFarmTileentity extends VillagerTileentity implements ITickabl
     @Override
     protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         ContainerHelper.loadAllItems(compound, inventory, provider);
-        if (compound.contains("PickType")) {
-            SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
+        if (compound.contains("shovelType")) {
+            SyncableTileentity.loadShovelType(compound, provider).ifPresent(stack -> this.shovelType = stack);
 
         }
-        if (pickType == null) {
-            // If no pickType is saved, set a default one (e.g., Stone Shovel)
-            pickType = new ItemStack(Items.STONE_SHOVEL);
+        if (shovelType == null) {
+            // If no shovelType is saved, set a default one (e.g., Stone Shovel)
+            shovelType = new ItemStack(Items.STONE_SHOVEL);
         }
 
         timer = compound.getLong("Timer");
@@ -127,6 +140,10 @@ public class GravelFarmTileentity extends VillagerTileentity implements ITickabl
 
     public IItemHandler getItemHandler() {
         return outputItemHandler;
+    }
+
+    protected Map<ResourceKey<Enchantment>, Boolean> getShovelEnchantments() {
+        return shovelEnchantments;
     }
 }
 

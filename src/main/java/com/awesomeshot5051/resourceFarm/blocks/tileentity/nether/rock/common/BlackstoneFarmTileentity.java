@@ -7,21 +7,26 @@ import de.maxhenkel.corelib.blockentity.*;
 import de.maxhenkel.corelib.inventory.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
+
 public class BlackstoneFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
+    public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
+    public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
-    protected long breakStage;
     protected OutputItemHandler outputItemHandler;
 
     public BlackstoneFarmTileentity(BlockPos pos, BlockState state) {
@@ -57,9 +62,6 @@ public class BlackstoneFarmTileentity extends VillagerTileentity implements ITic
         return timer;
     }
 
-    public long getBreakStage() {
-        return breakStage;
-    }
 
     public ItemStack getPickType() {
         return pickType;
@@ -100,7 +102,7 @@ public class BlackstoneFarmTileentity extends VillagerTileentity implements ITic
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-// Save the pickType as an NBT tag
+// Save the shovelType as an NBT tag
         if (pickType != null) {
             CompoundTag pickTypeTag = new CompoundTag();
             pickTypeTag.putString("id", pickType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
@@ -119,7 +121,7 @@ public class BlackstoneFarmTileentity extends VillagerTileentity implements ITic
 
         }
         if (pickType == null) {
-// If no pickType is saved, set a default one (e.g., Stone Pickaxe)
+// If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
             pickType = new ItemStack(Items.STONE_PICKAXE);
         }
 
@@ -129,5 +131,9 @@ public class BlackstoneFarmTileentity extends VillagerTileentity implements ITic
 
     public IItemHandler getItemHandler() {
         return outputItemHandler;
+    }
+
+    protected Map<ResourceKey<Enchantment>, Boolean> getPickaxeEnchantments() {
+        return pickaxeEnchantments;
     }
 }

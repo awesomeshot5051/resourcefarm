@@ -30,8 +30,8 @@ public abstract class BlockBase extends HorizontalRotatableBlock {
     }
 
 
-//    public static void setPickType(ItemStack pickType) {
-//        Picktype = NonNullList.withSize(1, pickType);
+//    public static void setPickType(ItemStack shovelType) {
+//        Picktype = NonNullList.withSize(1, shovelType);
 //    }
 
     public boolean overrideClick(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn) {

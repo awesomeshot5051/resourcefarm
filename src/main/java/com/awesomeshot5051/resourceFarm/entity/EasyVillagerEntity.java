@@ -10,6 +10,7 @@ import net.minecraft.world.entity.npc.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.trading.*;
 import net.minecraft.world.level.*;
+import org.jetbrains.annotations.*;
 
 public class EasyVillagerEntity extends Villager {
 
@@ -87,7 +88,7 @@ public class EasyVillagerEntity extends Villager {
     }
 
     @Override
-    public Component getName() {
+    public @NotNull Component getName() {
         if (hasCustomName()) {
             return super.getName();
         }

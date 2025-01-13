@@ -55,5 +55,5 @@
 
 [sand_farm]
 	#The time in ticks the sand farm takes to generate resources
-	#Range: 8.0 ~ 8.0
-	generate_time = 8.0
+	#Range: 600 ~ 600
+	generate_time = 600

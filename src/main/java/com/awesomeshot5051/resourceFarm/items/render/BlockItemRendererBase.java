@@ -28,7 +28,7 @@ public class BlockItemRendererBase<T extends BlockEntityRenderer<U>, U extends F
             renderer = rendererSupplier.apply(RendererProviders.createBlockEntityRendererContext());
         }
         if (itemStack.getItem() instanceof BlockItem blockItem) {
-            minecraft.getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), matrixStack, buffer, combinedLightIn, combinedOverlayIn, ModelData.builder().build(), RenderType.TRANSLUCENT);
+            minecraft.getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), matrixStack, buffer, combinedLightIn, combinedOverlayIn, ModelData.EMPTY, RenderType.cutout());
         }
         assert minecraft.level != null;
         U be = VillagerBlockEntityData.getAndStoreBlockEntity(itemStack, minecraft.level.registryAccess(), minecraft.level, tileEntitySupplier);

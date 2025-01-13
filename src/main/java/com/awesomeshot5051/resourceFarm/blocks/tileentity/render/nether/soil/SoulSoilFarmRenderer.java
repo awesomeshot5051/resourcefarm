@@ -54,7 +54,7 @@ public class SoulSoilFarmRenderer extends RendererBase<SoulSoilFarmTileentity> {
 
         matrixStack.popPose();
         // Render the Pickaxe
-        renderSwingingShovel(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+        renderSwingingShovel(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getShovelType(), getDirection(), farm.getTimer());
     }
 
     public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {

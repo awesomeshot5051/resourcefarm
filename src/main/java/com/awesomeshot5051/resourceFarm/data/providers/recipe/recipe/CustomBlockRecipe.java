@@ -12,6 +12,7 @@ import net.minecraft.resources.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import org.jetbrains.annotations.*;
@@ -60,18 +61,22 @@ public class CustomBlockRecipe extends ShapedRecipe {
     public @NotNull ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider registries) {
         ItemStack pickStack = craftingInput.getItem(4);
         ItemStack oreStack = craftingInput.getItem(7);
+        ItemEnchantments enchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
         List<ItemStack> itemStacks = new ArrayList<>();
         if (pickStack.isCorrectToolForDrops(Block.byItem(oreStack.getItem()).defaultBlockState())) {
             itemStacks.add(getResultItem(registries));
             // Set the pick type in the result item's data
             pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
 //            BlockRendererBase.setPickaxeType(Block.byItem(result.getItem().getDefaultInstance().getItem()), pickStack);
+
             result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
+
             // Example: Setting the pickaxe type
 //            NonNullList<ItemStack> p_00115 = NonNullList.withSize(1, pickStack);
 //            ContainerHelper.saveAllItems(new CompoundTag(), p_00115, registries);
 //            PickTypeData.getOrCreate(result);
         }
+        result2.set(DataComponents.STORED_ENCHANTMENTS, enchantments);
         result2.set(pickTypeComponent, pickContents);
 //        result.set(ModDataComponents.PICK_TYPE, pickContents);
 

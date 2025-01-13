@@ -30,6 +30,7 @@ import net.neoforged.api.distmarker.*;
 
 import javax.annotation.*;
 import java.util.*;
+import java.util.stream.*;
 
 import static net.minecraft.world.item.BlockItem.*;
 
@@ -69,11 +70,11 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof ConcretePowderFarmTileentity farmTileEntity) {
-            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
-            if (pickType != null) {
-                farmTileEntity.pickType = pickType.getStackInSlot(0);
+            ItemContainerContents shovelType = stack.get(ModDataComponents.PICK_TYPE);
+            if (shovelType != null) {
+                farmTileEntity.shovelType = shovelType.getStackInSlot(0);
                 farmTileEntity.setChanged();
-                updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
+                updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, shovelType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
         }
@@ -110,5 +111,14 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> p_155268_) {
         return new SimpleBlockEntityTicker<>();
+    }
+
+    private String convertToReadableName(String block) {
+        // Remove "item.minecraft." and replace underscores with spaces
+        String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
+        // Capitalize the first letter of each word
+        return Arrays.stream(readableName.split(" "))
+                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
+                .collect(Collectors.joining(" "));
     }
 }

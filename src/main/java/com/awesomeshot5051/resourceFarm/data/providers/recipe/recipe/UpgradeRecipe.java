@@ -15,6 +15,7 @@ import net.minecraft.tags.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.*;
 import org.jetbrains.annotations.*;
 
@@ -111,7 +112,7 @@ public class UpgradeRecipe extends ShapedRecipe {
         if (areAllModifiersEqual(modifer)) {
             List<ItemStack> itemStacks = new ArrayList<>();
             ItemStack pickStack;
-
+            ItemEnchantments itemenchantments = ItemEnchantments.EMPTY;
             if (craftingInput.getItem(4).get(ModDataComponents.PICK_TYPE) != null) {
                 pickStack = craftingInput.getItem(4).get(ModDataComponents.PICK_TYPE).copyOne();
             } else if (shovelFarms.contains(craftingInput.getItem(4).getItem())) {
@@ -125,7 +126,9 @@ public class UpgradeRecipe extends ShapedRecipe {
                     for (Map.Entry<Ingredient, Item> entry : materialToShovelMap.entrySet()) {
                         if (entry.getKey().test(modifer.getFirst())) {
                             // Convert the modifier into its corresponding pickaxe
+                            itemenchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
                             pickStack = new ItemStack(entry.getValue());
+                            pickStack.set(DataComponents.ENCHANTMENTS, itemenchantments);
                             break; // Break since we found the corresponding pickaxe
                         }
                     }
@@ -139,16 +142,22 @@ public class UpgradeRecipe extends ShapedRecipe {
                     for (Map.Entry<Ingredient, Item> entry : materialToPickaxeMap.entrySet()) {
                         if (entry.getKey().test(modifer.getFirst())) {
                             // Convert the modifier into its corresponding pickaxe
+                            itemenchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
                             pickStack = new ItemStack(entry.getValue());
+                            pickStack.set(DataComponents.ENCHANTMENTS, itemenchantments);
                             break; // Break since we found the corresponding pickaxe
                         }
                     }
                     // Set the pick type in the result item's data
                     pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
                     result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
+                    result2.set(DataComponents.STORED_ENCHANTMENTS, itemenchantments);// Copy the result item to avoid modifying the original
                 }
             }
+        } else {
+            return new ItemStack(Items.AIR);
         }
+
         result2.set(pickTypeComponent, pickContents);
         super.assemble(craftingInput, registries);
         return result2;
@@ -286,7 +295,7 @@ public class UpgradeRecipe extends ShapedRecipe {
 
     public static class Serializer implements RecipeSerializer<UpgradeRecipe> {
         public static final MapCodec<UpgradeRecipe> CODEC = RecordCodecBuilder.mapCodec((p_340778_) -> p_340778_.group(Codec.STRING.optionalFieldOf("group", "").forGetter((p_311729_) -> p_311729_.group), CraftingBookCategory.CODEC.fieldOf("category").orElse(CraftingBookCategory.MISC).forGetter((p_311732_) -> p_311732_.category), ShapedRecipePattern.MAP_CODEC.forGetter((p_311733_) -> p_311733_.pattern), ItemStack.STRICT_CODEC.fieldOf("result").forGetter((p_311730_) -> p_311730_.result), Codec.BOOL.optionalFieldOf("show_notification", true).forGetter((p_311731_) -> p_311731_.showNotification)).apply(p_340778_, UpgradeRecipe::new));
-        public static final StreamCodec<RegistryFriendlyByteBuf, UpgradeRecipe> STREAM_CODEC = StreamCodec.of(UpgradeRecipe.Serializer::toNetwork, UpgradeRecipe.Serializer::fromNetwork);
+        public static final StreamCodec<RegistryFriendlyByteBuf, UpgradeRecipe> STREAM_CODEC = StreamCodec.of(Serializer::toNetwork, Serializer::fromNetwork);
 
         public Serializer() {
         }

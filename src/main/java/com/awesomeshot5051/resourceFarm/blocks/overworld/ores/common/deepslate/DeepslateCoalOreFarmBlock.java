@@ -83,7 +83,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
-//                DeepslateCoalOreFarmRenderer.setStaticFarmstack(pickType.getStackInSlot(0));
+//                DeepslateCoalOreFarmRenderer.setStaticFarmstack(shovelType.getStackInSlot(0));
                 // Ensure the tile entity is marked as changed and synced
                 farmTileEntity.setChanged();
                 CompoundTag compoundTag = new CompoundTag();

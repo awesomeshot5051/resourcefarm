@@ -81,7 +81,7 @@ public class DeepslateCopperOreFarmBlock extends BlockBase implements EntityBloc
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
-//                DeepslateCopperOreFarmRenderer.setStaticFarmstack(pickType.getStackInSlot(0));
+//                DeepslateCopperOreFarmRenderer.setStaticFarmstack(shovelType.getStackInSlot(0));
                 // Ensure the tile entity is marked as changed and synced
                 farmTileEntity.setChanged();
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));

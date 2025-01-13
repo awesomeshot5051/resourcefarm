@@ -1,31 +1,29 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.OutputItemHandler;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
-import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
-import de.maxhenkel.corelib.inventory.ItemListInventory;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
+import de.maxhenkel.corelib.blockentity.*;
+import de.maxhenkel.corelib.inventory.*;
+import net.minecraft.core.*;
+import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.items.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
+import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 public class CoalOreFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
     public ItemStack pickType;
+    public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -52,15 +50,21 @@ public class CoalOreFarmTileentity extends VillagerTileentity implements ITickab
     }
 
     public static double getCoalBreakTime(CoalOreFarmTileentity tileEntity) {
-
-        return getCoalGenerateTime(tileEntity) + (tileEntity.getPickType().getItem().equals(Items.WOODEN_PICKAXE) ? (20 * 10) :
-                tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? (20 * 8) :
-                        tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? (20 * 4) :
-                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? (20 * 2) :
-                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? (20 * 2) :
-                                                tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? (20 * 5) :
-                                                        (20 * 10)); // Default to Wooden PICKAXE break time if none matches
-
+        PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
+        if (tileEntity.getPickType().isEnchanted()) {
+            tileEntity.setPickaxeEnchantmentStatus(tileEntity);
+        }
+        int baseValue = 20;
+        if (PickaxeEnchantments.getPickaxeEnchantmentStatus(tileEntity.pickaxeEnchantments, Enchantments.EFFICIENCY)) {
+            baseValue = 10;
+        }
+//
+        return getCoalGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
+                pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
+                        pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
+                                pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
+                                        pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
+                                                (baseValue * 10)); // Default to Wooden PICKAXE break time if none matches
     }
 
     //private static final ResourceKey<LootTable> COAL_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/coal"));
@@ -128,6 +132,10 @@ public class CoalOreFarmTileentity extends VillagerTileentity implements ITickab
 
     public IItemHandler getItemHandler() {
         return outputItemHandler;
+    }
+
+    protected Map<ResourceKey<Enchantment>, Boolean> getPickaxeEnchantments() {
+        return pickaxeEnchantments;
     }
 
 }

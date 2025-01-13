@@ -3,25 +3,32 @@ package com.awesomeshot5051.resourceFarm.blocks.tileentity.end.rock.common;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
 import de.maxhenkel.corelib.blockentity.*;
 import de.maxhenkel.corelib.inventory.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
+
 public class PurpurFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
+    public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
+    public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
-    protected long breakStage;
     protected OutputItemHandler outputItemHandler;
 
     public PurpurFarmTileentity(BlockPos pos, BlockState state) {
@@ -42,14 +49,22 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
 
     }
 
-    public static double getPurpurBreakTime(PurpurFarmTileentity tileEntity) {
+    public static double getPurpurBreakTime(PurpurFarmTileentity farm) {
 
-        return getPurpurGenerateTime(tileEntity) + (tileEntity.getPickType().getItem().equals(Items.STONE_PICKAXE) ? (20 * 8) :
-                tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? (20 * 4) :
-                        tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? (20 * 2) :
-                                tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? (20 * 2) :
-                                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? (20 * 2) :
-                                                (20 * 10)); // Default to Wooden PICKAXE break time if none matches
+        PickaxeType pickAxe = PickaxeType.fromItem(farm.getPickType().getItem());
+        if (farm.getPickType().isEnchanted()) {
+            farm.setPickaxeEnchantmentStatus(farm);
+        }
+        int baseValue = 20;
+        if (PickaxeEnchantments.getPickaxeEnchantmentStatus(farm.pickaxeEnchantments, Enchantments.EFFICIENCY)) {
+            baseValue = 10;
+        }
+        return getPurpurGenerateTime(farm) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 3.2) :
+                pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 5.6) :
+                        pickAxe.equals(PickaxeType.IRON) ? (baseValue * 4.8) :
+                                pickAxe.equals(PickaxeType.STONE) ? (baseValue * 6.4) :
+                                        pickAxe.equals(PickaxeType.WOODEN) ? (baseValue * 6.4) :
+                                                6.4);
 
     }
 
@@ -57,9 +72,6 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
         return timer;
     }
 
-    public long getBreakStage() {
-        return breakStage;
-    }
 
     public ItemStack getPickType() {
         return pickType;
@@ -100,7 +112,7 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-// Save the pickType as an NBT tag
+// Save the shovelType as an NBT tag
         if (pickType != null) {
             CompoundTag pickTypeTag = new CompoundTag();
             pickTypeTag.putString("id", pickType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
@@ -119,7 +131,7 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
 
         }
         if (pickType == null) {
-// If no pickType is saved, set a default one (e.g., Stone Pickaxe)
+// If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
             pickType = new ItemStack(Items.STONE_PICKAXE);
         }
 
@@ -129,5 +141,9 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
 
     public IItemHandler getItemHandler() {
         return outputItemHandler;
+    }
+
+    protected Map<ResourceKey<Enchantment>, Boolean> getPickaxeEnchantments() {
+        return pickaxeEnchantments;
     }
 }

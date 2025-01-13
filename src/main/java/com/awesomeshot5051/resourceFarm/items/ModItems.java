@@ -12,14 +12,7 @@ import net.neoforged.neoforge.registries.*;
 
 public class ModItems {
     public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(Registries.MENU, Main.MODID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
-    public static final DeferredItem<Item> XP_UPGRADE = ITEMS.register("xp_upgrade_card",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> SPEED_UPGRADE = ITEMS.register("speed_upgrade",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> FORTUNE_UPGRADE = ITEMS.register("fortune_upgrade",
-            () -> new Item(new Item.Properties()));
-    private static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
+    public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     //    public static final DeferredHolder<Item, Item> INCUBATOR = ITEM_REGISTER.register("incubator", () -> ModBlocks.INCUBATOR.get().toItem());
     public static final DeferredHolder<Item, Item> INVENTORY_VIEWER = ITEM_REGISTER.register("inventory_viewer", () -> ModBlocks.INVENTORY_VIEWER.get().toItem());
     public static final DeferredHolder<Item, Item> ANDESITE_FARM = ITEM_REGISTER.register("andesite_farm", () -> ModBlocks.ANDESITE_FARM.get().toItem());
@@ -72,6 +65,13 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> SSAND_FARM = ITEM_REGISTER.register("ssand_farm", () -> ModBlocks.SSAND_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TERRACOTTA_FARM = ITEM_REGISTER.register("terracotta_farm", () -> ModBlocks.TERRACOTTA_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TUFF_FARM = ITEM_REGISTER.register("tuff_farm", () -> ModBlocks.TUFF_FARM.get().toItem());
+    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
+    public static final DeferredItem<Item> XP_UPGRADE = ITEMS.register("xp_upgrade_card",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SPEED_UPGRADE = ITEMS.register("speed_upgrade",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> FORTUNE_UPGRADE = ITEMS.register("fortune_upgrade",
+            () -> new Item(new Item.Properties()));
     private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPE_REGISTER = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Main.MODID);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<VillagerData>> VILLAGER_DATA_COMPONENT = DATA_COMPONENT_TYPE_REGISTER.register("villager", () -> DataComponentType.<VillagerData>builder().persistent(VillagerData.CODEC).networkSynchronized(VillagerData.STREAM_CODEC).build());
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<PickTypeData>> PICK_TYPE = DATA_COMPONENT_TYPE_REGISTER.register("pick_type", () -> DataComponentType.<PickTypeData>builder().persistent(PickTypeData.CODEC).networkSynchronized(PickTypeData.STREAM_CODEC).build());
