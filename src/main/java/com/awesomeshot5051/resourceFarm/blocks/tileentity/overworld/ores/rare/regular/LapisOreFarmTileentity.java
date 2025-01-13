@@ -100,13 +100,16 @@ public class LapisOreFarmTileentity extends VillagerTileentity implements ITicka
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        int dropCount = 0;
-if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
-           dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
+        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+            dropCount = serverWorld.random.nextIntBetweenInclusive(1, 9);
         }
         List<ItemStack> drops = new ArrayList<>();
-        int count = serverWorld.random.nextInt(4, 9);
-        drops.add(dropCount, new ItemStack(Items.LAPIS_LAZULI, count)); // Change this as needed for custom loot
+        drops.add(new ItemStack(Items.LAPIS_LAZULI, dropCount)); // Change this as needed for custom loot
+        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
+            drops.clear();
+            drops.add(new ItemStack(Items.LAPIS_ORE));
+        }
         return drops;
     }
 

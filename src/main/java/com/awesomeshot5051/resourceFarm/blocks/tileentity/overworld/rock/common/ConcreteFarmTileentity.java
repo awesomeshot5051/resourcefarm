@@ -109,12 +109,12 @@ public class ConcreteFarmTileentity extends VillagerTileentity implements ITicka
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        int dropCount = 0;
+        int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
-            dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+            dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(dropCount, new ItemStack(Items.BLACK_CONCRETE)); // Change this as needed for custom loot
+        drops.add(new ItemStack(Items.BLACK_CONCRETE, dropCount)); // Change this as needed for custom loot
         return drops;
     }
 

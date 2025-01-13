@@ -89,12 +89,12 @@ public class BlackstoneFarmTileentity extends VillagerTileentity implements ITic
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        int dropCount = 0;
-if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
-           dropCount = serverWorld.random.nextIntBetweenInclusive(0, 5);
+        int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
+        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+            dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(dropCount, new ItemStack(Items.BLACKSTONE)); // Change this as needed for custom loot
+        drops.add(new ItemStack(Items.BLACKSTONE, dropCount)); // Change this as needed for custom loot
         return drops;
     }
 
