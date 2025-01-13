@@ -10,6 +10,7 @@ import com.awesomeshot5051.resourceFarm.sounds.*;
 import de.maxhenkel.corelib.block.*;
 import de.maxhenkel.corelib.blockentity.*;
 import de.maxhenkel.corelib.client.*;
+import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
@@ -65,9 +66,12 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         if (Screen.hasShiftDown()) {
-            if (stack.has(ModDataComponents.PICK_TYPE)) {
-                components.add(Component.literal("This block uses a " + Component.translatable(String.valueOf(Objects.requireNonNull(stack.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0)))));
-            }
+            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_SHOVEL)));
+            ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
+            components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
+                    .withStyle(ChatFormatting.RED));
+        } else {
+            components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
         ConcretePowderFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new ConcretePowderFarmTileentity(BlockPos.ZERO, ModBlocks.CONCRETE_POWDER_FARM.get().defaultBlockState()));

@@ -70,19 +70,17 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         CopperOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CopperOreFarmTileentity(BlockPos.ZERO, ModBlocks.COPPER_FARM.get().defaultBlockState()));
         CopperOreFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CopperOreFarmTileentity(BlockPos.ZERO, ModBlocks.COPPER_FARM.get().defaultBlockState()));
+        super.appendHoverText(stack, context, components, tooltipFlag);
         if (Screen.hasShiftDown()) {
-            super.appendHoverText(stack, context, components, tooltipFlag);
-            if (Screen.hasShiftDown()) {
-                if (stack.has(ModDataComponents.PICK_TYPE)) {
-                    ItemStack axeType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0))).copyOne();
-                    components.add(Component.literal("This farm has a " + convertToReadableName(axeType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
-                            .withStyle(ChatFormatting.RED));
-                }
-            } else {
-                components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
-            }
-            // Removed villager-related tooltip information
+            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
+            ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
+            components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
+                    .withStyle(ChatFormatting.RED));
+        } else {
+            components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
+        // Removed villager-related tooltip information
+
     }
 
     private String convertToReadableName(String block) {

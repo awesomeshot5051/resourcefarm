@@ -60,13 +60,12 @@ public class RedSandFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         if (Screen.hasShiftDown()) {
-            if (stack.has(ModDataComponents.PICK_TYPE)) {
-                ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0))).copyOne();
-                components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
-                        .withStyle(ChatFormatting.RED));
-            }
+            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_SHOVEL)));
+            ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
+            components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
+                    .withStyle(ChatFormatting.RED));
         } else {
-            components.add(Component.literal("Hold §4Shift§r to see tool"));
+            components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
         RedSandFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new RedSandFarmTileentity(BlockPos.ZERO, ModBlocks.RSAND_FARM.get().defaultBlockState()));

@@ -10,6 +10,8 @@ import com.awesomeshot5051.resourceFarm.sounds.*;
 import de.maxhenkel.corelib.block.*;
 import de.maxhenkel.corelib.blockentity.*;
 import de.maxhenkel.corelib.client.*;
+import net.minecraft.*;
+import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.sounds.*;
@@ -30,6 +32,7 @@ import org.jetbrains.annotations.*;
 
 import javax.annotation.Nullable;
 import java.util.*;
+import java.util.stream.*;
 
 import static net.minecraft.world.item.BlockItem.*;
 
@@ -80,8 +83,25 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
+        if (Screen.hasShiftDown()) {
+            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
+            ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
+            components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
+                    .withStyle(ChatFormatting.RED));
+        } else {
+            components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
+        }
         CoalOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CoalOreFarmTileentity(BlockPos.ZERO, ModBlocks.COAL_FARM.get().defaultBlockState()));
         // Removed villager-related tooltip information
+    }
+
+    private String convertToReadableName(String block) {
+        // Remove "item.minecraft." and replace underscores with spaces
+        String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
+        // Capitalize the first letter of each word
+        return Arrays.stream(readableName.split(" "))
+                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
+                .collect(Collectors.joining(" "));
     }
 
     @Override
