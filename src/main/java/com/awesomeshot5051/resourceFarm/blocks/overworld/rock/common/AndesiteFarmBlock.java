@@ -85,6 +85,7 @@ public class AndesiteFarmBlock extends BlockBase implements EntityBlock, IItemBl
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
+
         }
     }
 
@@ -102,7 +103,7 @@ public class AndesiteFarmBlock extends BlockBase implements EntityBlock, IItemBl
 
         AndesiteFarmTileentity farm = (AndesiteFarmTileentity) tileEntity;
         assert farm != null;
-        playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
+
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {

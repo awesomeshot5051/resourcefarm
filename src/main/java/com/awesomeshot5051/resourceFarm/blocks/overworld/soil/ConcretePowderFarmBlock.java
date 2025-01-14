@@ -1,40 +1,56 @@
 package com.awesomeshot5051.resourceFarm.blocks.overworld.soil;
 
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil.*;
-import com.awesomeshot5051.resourceFarm.data.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
-import com.awesomeshot5051.resourceFarm.enums.*;
-import com.awesomeshot5051.resourceFarm.items.render.overworld.soil.*;
-import com.awesomeshot5051.resourceFarm.sounds.*;
-import de.maxhenkel.corelib.block.*;
-import de.maxhenkel.corelib.blockentity.*;
-import de.maxhenkel.corelib.client.*;
-import net.minecraft.*;
-import net.minecraft.client.gui.screens.*;
-import net.minecraft.core.*;
-import net.minecraft.network.chat.*;
-import net.minecraft.sounds.*;
-import net.minecraft.world.*;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.*;
-import net.neoforged.api.distmarker.*;
-import org.jetbrains.annotations.*;
+import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil.ConcretePowderFarmTileentity;
+import com.awesomeshot5051.resourceFarm.data.ModDataComponents;
+import com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData;
+import com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData;
+import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
+import com.awesomeshot5051.resourceFarm.items.render.overworld.soil.ConcretePowderFarmItemRenderer;
+import com.awesomeshot5051.resourceFarm.sounds.ModSounds;
+import de.maxhenkel.corelib.block.IItemBlock;
+import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
+import de.maxhenkel.corelib.client.CustomRendererBlockItem;
+import de.maxhenkel.corelib.client.ItemRenderer;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-import java.util.*;
-import java.util.stream.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
-import static net.minecraft.world.item.BlockItem.*;
+import static net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag;
 
 public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
@@ -90,6 +106,7 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, shovelType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
+            playSound(level, state, ModSounds.SHOVEL_SOUND.get(), farmTileEntity);
         }
     }
 

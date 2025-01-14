@@ -1,4 +1,3 @@
-/recipe take Dev resource_farms:dcopper_farm
 /recipe give Dev minecraft:blast_furnace
 /ride Dev mount Dev
 /summon minecraft:ender_dragon
@@ -48,3 +47,4 @@
 /enchant Dev minecraft:efficiency 5
 /time set noon
 /gamerule doDaylightCycle false
+/give Dev resource_farms:chisel

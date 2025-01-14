@@ -93,6 +93,7 @@ public class TuffFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
+
         }
     }
 
@@ -102,7 +103,7 @@ public class TuffFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
         if (!(tileEntity instanceof TuffFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
+
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {

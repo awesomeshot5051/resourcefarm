@@ -58,5 +58,7 @@
   "minecraft:total_enchantment_power": null,
   "minecraft:villager_profession": null,
   "minecraft:waxed": null,
-  "minecraft:zombie_villager": null
+  "minecraft:zombie_villager": null,
+  "railcraft:track_component": null,
+  "resource_farms:villager": null
 }

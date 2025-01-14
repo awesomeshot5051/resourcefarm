@@ -67,5 +67,8 @@
     "registry_name": "OFF",
     "block_properties": false,
     "mod_name": true
+  },
+  "resource_farms": {
+    "villager": true
   }
 }
