@@ -8,7 +8,6 @@ import com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData;
 import com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData;
 import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.soil.ConcretePowderFarmItemRenderer;
-import com.awesomeshot5051.resourceFarm.sounds.ModSounds;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
 import de.maxhenkel.corelib.client.CustomRendererBlockItem;
@@ -106,14 +105,12 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, shovelType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
-            playSound(level, state, ModSounds.SHOVEL_SOUND.get(), farmTileEntity);
         }
     }
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        playSound(Objects.requireNonNull(worldIn), state, ModSounds.SHOVEL_SOUND.get(), (ConcretePowderFarmTileentity) tileEntity);
         return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
     }
 

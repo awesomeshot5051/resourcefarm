@@ -1,0 +1,280 @@
+[chorus_farm]
+#The time in ticks the chorus plant takes to drop stuff
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[crimson_farm]
+#The time in ticks the crimson farm takes to drop stuff
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[warped_farm]
+#The time in ticks the warped farm takes to drop stuff
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[wart_farm]
+#The time in ticks the nether wart farm takes to drop stuff
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[oak_farm]
+#The time in ticks the spruce farm takes to spawn a oak
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[spruce_farm]
+#The time in ticks the spruce farm takes to spawn a spruce
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[birch_farm]
+#The time in ticks the birch farm takes to spawn a birch
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[jungle_farm]
+#The time in ticks the elder azalea farm takes to spawn an elder azalea
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[dark_oak_farm]
+#The time in ticks the darkOak farm takes to spawn an darkOak
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[acacia_farm]
+#The time in ticks the acacia farm takes to spawn a acacia
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[azalea_farm]
+#The time in ticks the azalea farm takes to spawn a azalea
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[mangrove_farm]
+#The time in ticks the mangrove farm takes to spawn a mangrove
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[cherry_farm]
+#The time in ticks the cherry farm takes to spawn an cherry
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[wheat_farm]
+#The time in ticks the wheat farm takes to spawn wheat
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[carrot_farm]
+#The time in ticks the carrot farm takes to spawn carrots
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[gcarrot_farm]
+#The time in ticks the golden carrot farm takes to spawn golden carrots
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[potato_farm]
+#The time in ticks the potato farm takes to spawn potatoes
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[beetroot_farm]
+#The time in ticks the beetroot farm takes to spawn beetroots
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[pumpkin_farm]
+#The time in ticks the pumpkin farm takes to spawn pumpkins
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[melon_farm]
+#The time in ticks the melon farm takes to spawn melons
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[sugar_cane_farm]
+#The time in ticks the sugar cane farm takes to spawn sugar canes
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[cocoa_bean_farm]
+#The time in ticks the cocoa bean farm takes to spawn cocoa beans
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[sweet_berry_farm]
+#The time in ticks the sweet berry farm takes to spawn sweet berries
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[bamboo_farm]
+#The time in ticks the bamboo farm takes to spawn bamboo
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[dandelion_farm]
+#The time in ticks the dandelion farm takes to spawn dandelions
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[poppy_farm]
+#The time in ticks the poppy farm takes to spawn poppies
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[orchid_farm]
+#The time in ticks the blue orchid farm takes to spawn blue orchids
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[allium_farm]
+#The time in ticks the allium farm takes to spawn alliums
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[azure_farm]
+#The time in ticks the azure bluet farm takes to spawn azure bluets
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[red_farm]
+#The time in ticks the red tulip farm takes to spawn red tulips
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[orange_farm]
+#The time in ticks the orange tulip farm takes to spawn orange tulips
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[white_farm]
+#The time in ticks the white tulip farm takes to spawn white tulips
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[pink_farm]
+#The time in ticks the pink tulip farm takes to spawn pink tulips
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[daisy_farm]
+#The time in ticks the oxeye daisy farm takes to spawn oxeye daisies
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[cornflower_farm]
+#The time in ticks the cornflower farm takes to spawn cornflowers
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[lilly_farm]
+#The time in ticks the lily of the valley farm takes to spawn lilies
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[sunflower_farm]
+#The time in ticks the sunflower farm takes to spawn sunflowers
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[lilac_farm]
+#The time in ticks the lilac farm takes to spawn lilacs
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[rose_farm]
+#The time in ticks the rose bush farm takes to spawn rose bushes
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[peony_farm]
+#The time in ticks the peony farm takes to spawn peonies
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[vine_farm]
+#The time in ticks the vine farm takes to spawn vines
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[mushroom_farm]
+#The time in ticks the mushroom farm takes to spawn mushrooms
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[kelp_farm]
+#The time in ticks the Kelp farm takes to spawn Kelp
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[leaf_farm]
+#The time in ticks the Drip Leaf farm takes to spawn Drip Leaves
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[seagrass_farm]
+#The time in ticks the seagrass farm takes to spawn seagrass
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[pad_farm]
+#The time in ticks the lily pad farm takes to spawn lily pads
+# Default: 600
+# Range: 600 ~ 600
+spawn_time = 600
+
+[villager]
+#If the villager reputation should be the same for every player
+#This affects the prices of cured/converted villagers and the prices of the auto trader
+universal_reputation = true

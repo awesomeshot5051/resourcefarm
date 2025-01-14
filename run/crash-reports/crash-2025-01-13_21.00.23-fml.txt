@@ -1,0 +1,170 @@
+---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 2025-01-13 21:00:23
+Description: Mod loading failures have occurred; consult the issue messages for more details
+
+net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: main
+Stacktrace:
+	at TRANSFORMER/watermedia@2.1.13/org.watermedia.loaders.NeoForgeLoader.<init>(NeoForgeLoader.java:24) ~[watermedia-2.1.13.jar%23207!/:2.1.13] {re:classloading}
+-- Mod loading issue for: watermedia --
+Details:
+	Caused by 0: java.lang.RuntimeException: Failed starting WATERMeDIA for NeoForge: WATERMeDIA CANNOT be installed YET on SERVER-SIDE. Please remove WATERMeDIA from the server, and keep it on client
+		at TRANSFORMER/watermedia@2.1.13/org.watermedia.loaders.NeoForgeLoader.<init>(NeoForgeLoader.java:26) ~[watermedia-2.1.13.jar%23207!/:2.1.13] {re:classloading}
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?] {}
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?] {}
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:115) ~[loader-4.0.34.jar%2395!/:4.0] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.ModLoader.lambda$constructMods$3(ModLoader.java:153) ~[loader-4.0.34.jar%2395!/:4.0] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.ModLoader.lambda$dispatchParallelTask$7(ModLoader.java:231) ~[loader-4.0.34.jar%2395!/:4.0] {}
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?] {re:mixin}
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?] {}
+		at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:483) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) ~[?:?] {}
+
+	Mod file: /D:/MCreatorWorkspaces/resourceFarm/run/mods/watermedia-2.1.13.jar
+	Failure message: WaterMedia (watermedia) has failed to load correctly
+		java.lang.RuntimeException: Failed starting WATERMeDIA for NeoForge: WATERMeDIA CANNOT be installed YET on SERVER-SIDE. Please remove WATERMeDIA from the server, and keep it on client
+	Mod version: 2.1.13
+	Mod issues URL: https://github.com/WaterMediaTeam/watermedia/issues
+	Exception message: org.watermedia.core.exceptions.IllegalEnvironmentException: WATERMeDIA CANNOT be installed YET on SERVER-SIDE. Please remove WATERMeDIA from the server, and keep it on client
+Stacktrace:
+	at TRANSFORMER/watermedia@2.1.13/org.watermedia.loaders.NeoForgeLoader.<init>(NeoForgeLoader.java:24) ~[watermedia-2.1.13.jar%23207!/:2.1.13] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?] {}
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?] {}
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:115) ~[loader-4.0.34.jar%2395!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.ModLoader.lambda$constructMods$3(ModLoader.java:153) ~[loader-4.0.34.jar%2395!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.ModLoader.lambda$dispatchParallelTask$7(ModLoader.java:231) ~[loader-4.0.34.jar%2395!/:4.0] {}
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?] {re:mixin}
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?] {}
+	at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:483) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 21.0.3, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 74781056 bytes (71 MiB) / 501219328 bytes (478 MiB) up to 4078960640 bytes (3890 MiB)
+	CPUs: 12
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 7640HS w/ Radeon 760M Graphics     
+	Identifier: AuthenticAMD Family 25 Model 116 Stepping 1
+	Microarchitecture: Zen 3
+	Frequency (GHz): 4.29
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: AMD Radeon(TM) 760M
+	Graphics card #0 vendor: Advanced Micro Devices, Inc.
+	Graphics card #0 VRAM (MiB): 512.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 32.0.12033.1030
+	Graphics card #1 name: NVIDIA GeForce RTX 4060 Laptop GPU
+	Graphics card #1 vendor: NVIDIA
+	Graphics card #1 VRAM (MiB): 8188.00
+	Graphics card #1 deviceId: VideoController2
+	Graphics card #1 versionInfo: 32.0.15.6636
+	Memory slot #0 capacity (MiB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 5.60
+	Memory slot #0 type: Unknown
+	Memory slot #1 capacity (MiB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 5.60
+	Memory slot #1 type: Unknown
+	Virtual memory max (MiB): 56924.16
+	Virtual memory used (MiB): 27339.88
+	Swap memory total (MiB): 41369.80
+	Swap memory used (MiB): 1166.99
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 105528.33, total: 486109.00
+	Space in storage for workdir (MiB): available: 658297.88, total: 953852.00
+	JVM Flags: 0 total; 
+	ModLauncher: 11.0.4+main.d2e20e43
+	ModLauncher launch target: forgeserveruserdev
+	ModLauncher services: 
+		sponge-mixin-0.15.2+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-4.0.34.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.34.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.34.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.4.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.4.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		kotlinforforge@5.7.0
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		advanced-xray-neoforge-21.0.0.jar                 |Advanced XRay                 |xray                          |21.0.0              |Manifest: NOSIGNATURE
+		balm-neoforge-1.21.1-21.0.23.jar                  |Balm                          |balm                          |21.0.23             |Manifest: NOSIGNATURE
+		bodyguards-1.1.0-neoforge-1.21.1.jar              |Bodyguards                    |bodyguards                    |1.1.0               |Manifest: NOSIGNATURE
+		cloth-config-15.0.140-neoforge.jar                |Cloth Config v15 API          |cloth_config                  |15.0.140            |Manifest: NOSIGNATURE
+		cobweb-neoforge-1.21-1.3.0.jar                    |Cobweb                        |cobweb                        |1.3.0               |Manifest: NOSIGNATURE
+		corelib-1.21.1-2.1.4.jar                          |Corelib                       |corelib                       |1.21.1-2.1.4        |Manifest: NOSIGNATURE
+		coroutil-neoforge-1.21.0-1.3.8.jar                |CoroUtil                      |coroutil                      |1.21.0-1.3.8        |Manifest: NOSIGNATURE
+		cosmeticarmorreworked-1.21.1-v1-neoforge.jar      |CosmeticArmorReworked         |cosmeticarmorreworked         |1.21.1-v1-neoforge  |Manifest: 5e:ed:25:99:e4:44:14:c0:dd:89:c1:a9:4c:10:b5:0d:e4:b1:52:50:45:82:13:d8:d0:32:89:67:56:57:01:53
+		cosmoslibrary-neoforge-1.21.1-11.6.0.0.jar        |Cosmos Library                |cosmoslibrary                 |11.6.0.0            |Manifest: NOSIGNATURE
+		CreativeCore_NEOFORGE_v2.12.28_mc1.21.1.jar       |CreativeCore                  |creativecore                  |2.12.28             |Manifest: NOSIGNATURE
+		cristellib-neoforge-1.2.8.jar                     |Cristel Lib                   |cristellib                    |1.2.8               |Manifest: NOSIGNATURE
+		cupboard-1.21-2.9.jar                             |Cupboard mod                  |cupboard                      |2.9                 |Manifest: NOSIGNATURE
+		dimensionalpocketsii-neoforge-1.21.1-10.3.40.0-bet|Dimensional Pockets II        |dimensionalpocketsii          |10.3.40.0-beta      |Manifest: NOSIGNATURE
+		forgivingworld-1.21-4.7.jar                       |Forgiving world mod           |forgivingworld                |4.7                 |Manifest: NOSIGNATURE
+		guard_villager_trader-1.0.0-neoforge-1.21.1.jar   |Guard Villager Trader         |guard_villager_trader         |1.0.0               |Manifest: NOSIGNATURE
+		guardvillagers-2.3.2-1.21.1.jar                   |Guard Villagers               |guardvillagers                |2.3.2               |Manifest: NOSIGNATURE
+		guns++-5.7.3.jar                                  |Guns++                        |mr_guns                       |5.7.3               |Manifest: NOSIGNATURE
+		immersive_portals-6.0.6.jar                       |Immersive Portals             |immersive_portals_core        |6.0.6               |Manifest: NOSIGNATURE
+		InventoryProfilesNext-neoforge-1.21-2.1.0.jar     |Inventory Profiles Next       |inventoryprofilesnext         |2.1.0               |Manifest: NOSIGNATURE
+		jade-324717-5706149.jar                           |Jade                          |jade                          |15.3.4+neoforge     |Manifest: NOSIGNATURE
+		jei-1.21.1-neoforge-19.21.0.247.jar               |Just Enough Items             |jei                           |19.21.0.247         |Manifest: NOSIGNATURE
+		kffmod-5.7.0.jar                                  |Kotlin For Forge              |kotlinforforge                |5.7.0               |Manifest: NOSIGNATURE
+		kuma-api-neoforge-21.0.5-SNAPSHOT.jar             |KumaAPI                       |kuma_api                      |21.0.5-SNAPSHOT     |Manifest: NOSIGNATURE
+		libIPN-neoforge-1.21-6.2.1.jar                    |libIPN                        |libipn                        |6.2.1               |Manifest: NOSIGNATURE
+		LiquidBlocks-1.21-6.0.1.jar                       |Liquid Blocks                 |liquidblocks                  |6.0.1               |Manifest: NOSIGNATURE
+		mcw-bridges-3.0.0-mc1.21.1neoforge.jar            |Macaw's Bridges               |mcwbridges                    |3.0.0               |Manifest: NOSIGNATURE
+		mcw-doors-1.1.1-mc1.21.1neoforge.jar              |Macaw's Doors                 |mcwdoors                      |1.1.1               |Manifest: NOSIGNATURE
+		MagicMirror-1.21.1-1.0.0.1887.jar                 |Magic Mirror                  |magic_mirror                  |1.21.1-1.0.0.1887   |Manifest: NOSIGNATURE
+		neoforge-21.1.93.jar                              |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
+		dummmmmmy-1.21-2.0.6-neoforge.jar                 |MmmMmmMmmMmm                  |dummmmmmy                     |1.21-2.0.6          |Manifest: NOSIGNATURE
+		mob_farms-1.21.1-2.0.0.jar                        |Mob Farms                     |mob_farms                     |1                   |Manifest: NOSIGNATURE
+		moonlight-1.21-2.17.12-neoforge.jar               |Moonlight Lib                 |moonlight                     |1.21-2.17.12        |Manifest: NOSIGNATURE
+		mysticrift_pillagers_towers_aris-4.22.7-neoforge-1|MysticRift: Pillagers Towers A|mysticrift_pillagers_towers_ar|4.22.7              |Manifest: NOSIGNATURE
+		neoforge-21.1.93.jar                              |NeoForge                      |neoforge                      |21.1.93             |Manifest: NOSIGNATURE
+		netherportalfix-neoforge-1.21.1-21.1.1.jar        |NetherPortalFix               |netherportalfix               |21.1.1              |Manifest: NOSIGNATURE
+		plant_farms-1.21.1-2.0.0.jar                      |Plant Farms                   |plant_farms                   |1                   |Manifest: NOSIGNATURE
+		railcraft-reborn-1.21.1-1.2.4.jar                 |Railcraft Reborn              |railcraft                     |1.2.4               |Manifest: NOSIGNATURE
+		resource_farms-1.21.1-2.0.0.jar                   |Resource Farms                |resource_farms                |1                   |Manifest: NOSIGNATURE
+		server-sided-portals-neoforge-1.21-2.0.0.jar      |Server Sided Portals          |server_sided_portals          |2.0.0               |Manifest: NOSIGNATURE
+		voicechat-neoforge-1.21.1-2.5.26.jar              |Simple Voice Chat             |voicechat                     |1.21.1-2.5.26       |Manifest: NOSIGNATURE
+		TaxOceanVillager+M.1.21.1+NeoF.3.1.3.jar          |Tax' Ocean Villager           |taxov                         |3.1.3               |Manifest: NOSIGNATURE
+		theoneprobe-1.21_neo-12.0.0-1.jar                 |The One Probe                 |theoneprobe                   |1.21_neo-12.0.0-1   |Manifest: NOSIGNATURE
+		tnt_expanded-1.0.1-neoforge-1.21.1.jar            |TNT Expanded                  |tnt_expanded                  |1.0.1               |Manifest: NOSIGNATURE
+		t_and_t-neoforge-fabric-1.13.2.jar                |Towns and Towers              |t_and_t                       |1.13.2              |Manifest: NOSIGNATURE
+		villager_inventory-1.0.3-neoforge-1.21.1.jar      |Villager Inventory            |villager_inventory            |1.0.3               |Manifest: NOSIGNATURE
+		waterframes-NEOFORGE-mc1.21.1-v2.1.9.jar          |WaterFrames                   |waterframes                   |2.1.9               |Manifest: NOSIGNATURE
+		watermedia-2.1.13.jar                             |WaterMedia                    |watermedia                    |2.1.13              |Manifest: NOSIGNATURE
+		Xaeros_Minimap_24.7.1_NeoForge_1.21.jar           |Xaero's Minimap               |xaerominimap                  |24.7.1              |Manifest: NOSIGNATURE
+		explodingfurnaces-neoforge-1.2.0.jar              |You wouldn't put gunpowder in |explodingfurnaces             |1.2.0               |Manifest: NOSIGNATURE
+	Crash Report UUID: a89f6cd5-ddb6-4069-8896-020419d06d2b
+	FML: 4.0.34
+	NeoForge: 21.1.93

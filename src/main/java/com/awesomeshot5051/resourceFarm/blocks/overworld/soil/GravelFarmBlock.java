@@ -9,7 +9,6 @@ import com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData;
 import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
 import com.awesomeshot5051.resourceFarm.gui.OutputContainer;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.soil.GravelFarmItemRenderer;
-import com.awesomeshot5051.resourceFarm.sounds.ModSounds;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
 import de.maxhenkel.corelib.client.CustomRendererBlockItem;
@@ -103,7 +102,6 @@ public class GravelFarmBlock extends BlockBase implements EntityBlock, IItemBloc
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, shovelType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
-            playSound(level, state, ModSounds.SHOVEL_SOUND.get(), farmTileEntity);
         }
     }
 
