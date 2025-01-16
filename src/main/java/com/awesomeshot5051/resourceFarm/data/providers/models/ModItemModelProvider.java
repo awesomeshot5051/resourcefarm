@@ -1,12 +1,10 @@
 package com.awesomeshot5051.resourceFarm.data.providers.models;
 
 import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemDisplayContext;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraft.data.*;
+import net.minecraft.world.item.*;
+import net.neoforged.neoforge.client.model.generators.*;
+import net.neoforged.neoforge.common.data.*;
 
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -63,7 +61,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 //        basicItemWithFarmTexture(ModItems.TUFF_FARM.get());
 //        basicItemWithFarmTexture(ModItems.ANDESITE_FARM.get());
 //        basicItemWithFarmTexture(ModItems.GRANITE_FARM.get());
-        basicItem(ModItems.CHISEL.asItem());
+//        basicItem(ModItems.CHISEL.asItem());
 //basicItem()
         // Add more items as needed
     }
