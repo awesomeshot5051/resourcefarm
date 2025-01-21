@@ -25,6 +25,17 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
     final CraftingBookCategory category;
     final ItemStack result;
     final NonNullList<Ingredient> ingredients;
+    List<Item> shovelFarms = new ArrayList<>(List.of(
+            ModItems.CONCRETE_POWDER_FARM.get(),
+            ModItems.DIRT_FARM.get(),
+            ModItems.GRASS_FARM.get(),
+            ModItems.GRAVEL_FARM.get(),
+            ModItems.SAND_FARM.get(),
+            ModItems.RSAND_FARM.get(),  // Red Sand Farm
+            ModItems.SSAND_FARM.get(), // Soul Sand Farm
+            ModItems.SSOIL_FARM.get(), // Soul Soil Farm
+            ModItems.SNOW_FARM.get()
+    ));
     private ItemContainerContents swordContents;
     private ItemStack result2;
 
@@ -42,7 +53,6 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         return ModRecipes.ENCHANTING_SERIALIZER.get();
     }
 
-
     public ItemStack getResultItem(HolderLookup.Provider registries) {
         return this.result;
     }
@@ -55,7 +65,6 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         return super.matches(input, level);
     }
 
-
     public ItemStack assemble(CraftingInput input, HolderLookup.@NotNull Provider registries) {
         List<ItemStack> ingredients = input.items(); // Ingredients from the crafting input
         ItemStack resultItem = ItemStack.EMPTY;      // Default result
@@ -63,13 +72,17 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         ItemEnchantments enchantments = ItemEnchantments.EMPTY;
         ItemEnchantments.Mutable storedEnchantments = new ItemEnchantments.Mutable(enchantments);
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
-            farmBlocks.add(sidedBlock.get());
+            if (!shovelFarms.contains(sidedBlock.get())) {
+                farmBlocks.add(sidedBlock.get());
+            }
         }
 
-        ItemContainerContents pickContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_HOE)));   // Placeholder for pick contents
+        ItemContainerContents pickContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));   // Placeholder for pick contents
         // Check the first and last ingredients for the HOE_TYPE component
         for (ItemStack ingredient : ingredients) {
-            if (farmBlocks.contains(ingredient.getItem())) {
+            if (shovelFarms.contains(ingredient.getItem())) {
+                pickContents = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(ingredient.getOrDefault(ModDataComponents.PICK_TYPE, ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_SHOVEL))))).copyOne()));
+            } else if (farmBlocks.contains(ingredient.getItem())) {
                 pickContents = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(ingredient.getOrDefault(ModDataComponents.PICK_TYPE, pickContents)).copyOne()));
             } else if (ingredient.getItem().getDefaultInstance().has(DataComponents.STORED_ENCHANTMENTS)) {
                 storedEnchantments = new ItemEnchantments.Mutable(ingredient.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY));

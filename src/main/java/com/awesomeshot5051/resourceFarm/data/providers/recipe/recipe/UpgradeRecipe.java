@@ -2,6 +2,7 @@ package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.data.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
@@ -108,11 +109,10 @@ public class UpgradeRecipe extends ShapedRecipe {
                 Ingredient.of(Items.NETHERITE_INGOT), Items.NETHERITE_SHOVEL
         );
 
-
+        ItemStack pickStack;
         List<ItemStack> modifer = new ArrayList<>(List.of(craftingInput.getItem(1), craftingInput.getItem(3), craftingInput.getItem(5), craftingInput.getItem(7)));
         if (areAllModifiersEqual(modifer)) {
             List<ItemStack> itemStacks = new ArrayList<>();
-            ItemStack pickStack;
             ItemEnchantments itemenchantments = ItemEnchantments.EMPTY;
             if (craftingInput.getItem(4).get(ModDataComponents.PICK_TYPE) != null) {
                 pickStack = craftingInput.getItem(4).get(ModDataComponents.PICK_TYPE).copyOne();
@@ -153,6 +153,8 @@ public class UpgradeRecipe extends ShapedRecipe {
                     pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
                     result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
                     result2.set(DataComponents.STORED_ENCHANTMENTS, itemenchantments);// Copy the result item to avoid modifying the original
+                } else {
+                    pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
                 }
             }
         } else {
@@ -214,13 +216,6 @@ public class UpgradeRecipe extends ShapedRecipe {
     }
 
     private boolean isHigherPickType(ItemStack basePickType, ItemStack modifierPickType) {
-        // Define PickType levels in ascending order of strength
-        List<Item> pickTypeHierarchy = new ArrayList<>(List.of(
-                Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE,
-                Items.GOLDEN_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE
-        ));
-
-        // Map each pickaxe type to its corresponding material
         Map<Item, Ingredient> pickaxeToMaterialMap = Map.of(
                 Items.WOODEN_PICKAXE, Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS,
                         Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS,
@@ -232,34 +227,15 @@ public class UpgradeRecipe extends ShapedRecipe {
                 Items.NETHERITE_PICKAXE, Ingredient.of(Items.NETHERITE_INGOT)
         );
 
-        // Convert basePickType and modifierPickType to their corresponding materials
-        Item basePickItem = basePickType.getItem();
-        Item modifierPickItem = modifierPickType.getItem();
-
-        Item baseMaterialType = null;
         Item modifierMaterialType = null;
 
-        // Find the materials corresponding to the pickaxe items
         for (Map.Entry<Item, Ingredient> entry : pickaxeToMaterialMap.entrySet()) {
-            if (entry.getKey().equals(basePickType.getItem())) {
-                baseMaterialType = entry.getKey();
-            }
             if (entry.getValue().test(modifierPickType)) {
                 modifierMaterialType = entry.getKey();
+                break;
             }
         }
-
-        // Ensure both types were mapped to a valid pickaxe
-        if (baseMaterialType == null || modifierMaterialType == null) {
-            return false; // Invalid types, cannot compare
-        }
-
-        // Compare indices in the hierarchy
-        int baseIndex = pickTypeHierarchy.indexOf(baseMaterialType);
-        int modifierIndex = pickTypeHierarchy.indexOf(modifierMaterialType);
-
-        // Return true if the modifier type is higher in the hierarchy
-        return modifierIndex > baseIndex;
+        return PickaxeType.getRank(modifierMaterialType) > PickaxeType.getRank(basePickType.getItem());
     }
 
 

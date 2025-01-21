@@ -1,21 +1,5 @@
 {
   "stats": {
-    "minecraft:broken": {
-      "minecraft:wooden_shovel": 1
-    },
-    "minecraft:killed": {
-      "minecraft:salmon": 8,
-      "minecraft:wandering_trader": 1,
-      "minecraft:sheep": 3,
-      "minecraft:horse": 1,
-      "minecraft:trader_llama": 2,
-      "minecraft:chicken": 2,
-      "minecraft:drowned": 1
-    },
-    "minecraft:dropped": {
-      "resource_farms:cpowder_farm": 1,
-      "resource_farms:estone_farm": 1
-    },
     "minecraft:picked_up": {
       "minecraft:feather": 3,
       "minecraft:chicken": 2,
@@ -45,6 +29,7 @@
       "resource_farms:coal_farm": 1,
       "resource_farms:cpowder_farm": 8,
       "minecraft:crafting_table": 3,
+      "resource_farms:grass_farm": 3,
       "minecraft:wooden_pickaxe": 1,
       "minecraft:cooked_chicken": 1,
       "resource_farms:copper_farm": 6,
@@ -52,56 +37,59 @@
       "minecraft:furnace": 1,
       "minecraft:cooked_salmon": 2,
       "resource_farms:andesite_farm": 1,
-      "resource_farms:snow_farm": 2,
+      "resource_farms:snow_farm": 6,
       "minecraft:diamond_block": 2,
       "minecraft:air": 0,
       "minecraft:glass_pane": 32,
       "minecraft:glass": 14,
       "resource_farms:dcoal_farm": 6,
       "resource_farms:demerald_farm": 1,
-      "resource_farms:diron_farm": 2,
+      "resource_farms:diron_farm": 3,
       "minecraft:stick": 16,
       "resource_farms:dcopper_farm": 5,
       "minecraft:wooden_axe": 1,
       "resource_farms:netherite_farm": 3
     },
-    "minecraft:mined": {
-      "resource_farms:cpowder_farm": 2,
-      "minecraft:short_grass": 1,
-      "minecraft:grass_block": 27,
-      "minecraft:tall_grass": 2,
-      "resource_farms:basalt_farm": 1,
-      "minecraft:furnace": 1,
-      "minecraft:oak_log": 22,
-      "minecraft:sand": 38,
-      "minecraft:dirt": 29,
-      "minecraft:stone": 9,
-      "minecraft:oak_leaves": 11
+    "minecraft:dropped": {
+      "resource_farms:cpowder_farm": 1,
+      "resource_farms:estone_farm": 1
     },
     "minecraft:custom": {
       "minecraft:interact_with_furnace": 23,
       "minecraft:mob_kills": 18,
-      "minecraft:interact_with_crafting_table": 84,
+      "minecraft:interact_with_crafting_table": 94,
       "minecraft:interact_with_grindstone": 1,
-      "minecraft:leave_game": 57,
-      "minecraft:time_since_death": 748969,
-      "minecraft:time_since_rest": 748009,
-      "minecraft:sprint_one_cm": 68556,
+      "minecraft:leave_game": 61,
+      "minecraft:time_since_death": 762054,
+      "minecraft:time_since_rest": 761094,
+      "minecraft:sprint_one_cm": 68808,
       "minecraft:damage_taken": 270,
-      "minecraft:walk_one_cm": 185759,
+      "minecraft:walk_one_cm": 189053,
       "minecraft:drop": 2,
       "minecraft:damage_dealt": 1743,
       "minecraft:swim_one_cm": 40194,
-      "minecraft:fly_one_cm": 103898,
+      "minecraft:fly_one_cm": 104057,
       "minecraft:open_chest": 6,
       "minecraft:crouch_one_cm": 476,
-      "minecraft:play_time": 748969,
-      "minecraft:sneak_time": 1125,
+      "minecraft:play_time": 762054,
+      "minecraft:sneak_time": 1128,
       "minecraft:walk_under_water_one_cm": 26827,
-      "minecraft:jump": 558,
+      "minecraft:jump": 563,
       "minecraft:walk_on_water_one_cm": 13622,
-      "minecraft:total_world_time": 2155836,
+      "minecraft:total_world_time": 2169156,
       "minecraft:fall_one_cm": 7146
+    },
+    "minecraft:broken": {
+      "minecraft:wooden_shovel": 1
+    },
+    "minecraft:killed": {
+      "minecraft:salmon": 8,
+      "minecraft:wandering_trader": 1,
+      "minecraft:sheep": 3,
+      "minecraft:horse": 1,
+      "minecraft:trader_llama": 2,
+      "minecraft:chicken": 2,
+      "minecraft:drowned": 1
     },
     "minecraft:used": {
       "resource_farms:deepslate_farm": 1,
@@ -116,6 +104,7 @@
       "resource_farms:basalt_farm": 1,
       "minecraft:dirt": 37,
       "minecraft:mutton": 5,
+      "resource_farms:grass_farm": 3,
       "resource_farms:iron_farm": 1,
       "minecraft:crafting_table": 7,
       "resource_farms:cpowder_farm": 10,
@@ -123,7 +112,6 @@
       "resource_farms:dcopper_farm": 11,
       "minecraft:wooden_axe": 28,
       "resource_farms:andesite_farm": 4,
-      "resource_farms:chisel": 65,
       "resource_farms:netherite_farm": 9,
       "minecraft:grass_block": 1,
       "minecraft:bread": 1,
@@ -135,11 +123,24 @@
       "resource_farms:diron_farm": 2,
       "minecraft:wooden_sword": 35,
       "resource_farms:demerald_farm": 2,
-      "resource_farms:stone_farm": 13,
+      "resource_farms:stone_farm": 15,
       "minecraft:furnace": 2,
       "minecraft:deepslate_coal_ore": 4,
       "minecraft:egg": 2,
-      "resource_farms:snow_farm": 8
+      "resource_farms:snow_farm": 12
+    },
+    "minecraft:mined": {
+      "resource_farms:cpowder_farm": 2,
+      "minecraft:short_grass": 1,
+      "minecraft:grass_block": 27,
+      "minecraft:tall_grass": 2,
+      "resource_farms:basalt_farm": 1,
+      "minecraft:furnace": 1,
+      "minecraft:oak_log": 22,
+      "minecraft:sand": 38,
+      "minecraft:dirt": 29,
+      "minecraft:stone": 9,
+      "minecraft:oak_leaves": 11
     }
   },
   "DataVersion": 3955

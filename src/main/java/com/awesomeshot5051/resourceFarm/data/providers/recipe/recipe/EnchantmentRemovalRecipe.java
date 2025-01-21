@@ -8,7 +8,6 @@ import net.minecraft.core.*;
 import net.minecraft.core.component.*;
 import net.minecraft.network.*;
 import net.minecraft.network.codec.*;
-import net.minecraft.tags.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.crafting.*;
@@ -26,6 +25,17 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
     final ItemStack result;
     final NonNullList<Ingredient> ingredients;
     ItemStack farm;
+    List<Item> shovelFarms = new ArrayList<>(List.of(
+            ModItems.CONCRETE_POWDER_FARM.get(),
+            ModItems.DIRT_FARM.get(),
+            ModItems.GRASS_FARM.get(),
+            ModItems.GRAVEL_FARM.get(),
+            ModItems.SAND_FARM.get(),
+            ModItems.RSAND_FARM.get(),  // Red Sand Farm
+            ModItems.SSAND_FARM.get(), // Soul Sand Farm
+            ModItems.SSOIL_FARM.get(), // Soul Soil Farm
+            ModItems.SNOW_FARM.get()
+    ));
     private ItemContainerContents swordContents;
     private ItemStack result2;
 
@@ -50,7 +60,9 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
         ItemEnchantments enchantments = ItemEnchantments.EMPTY;
         ItemEnchantments.Mutable storedEnchantments = new ItemEnchantments.Mutable(enchantments);
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
-            farmBlocks.add(sidedBlock.get());
+            if (!shovelFarms.contains(sidedBlock.get())) {
+                farmBlocks.add(sidedBlock.get());
+            }
         }
         List<ItemStack> ingredient = input.items();
 
@@ -59,17 +71,15 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
         // Check the first and last ingredients for the PICK_TYPE component
         farm = new ItemStack(Items.AIR);
         for (ItemStack ingrnt : ingredient) {
-            if (farmBlocks.contains(ingrnt.getItem())) {
-                if (Objects.requireNonNull(ingrnt.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0).is(ItemTags.SHOVELS)) {
-                    shovelContents = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(ingrnt.getOrDefault(ModDataComponents.PICK_TYPE, shovelContents)).copyOne()));
-                    farm = ingrnt.getItem().getDefaultInstance();
-                    farm.remove(DataComponents.STORED_ENCHANTMENTS);
-                    ItemStack shovel = shovelContents.getStackInSlot(0);
-                    shovel.remove(DataComponents.ENCHANTMENTS);
-                    shovelContents = ItemContainerContents.fromItems(Collections.singletonList(shovel));
-                    farm.set(ModDataComponents.PICK_TYPE, shovelContents);
-                }
-            } else if (Objects.requireNonNull(ingrnt.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0).is(ItemTags.PICKAXES)) {
+            if (shovelFarms.contains(ingrnt.getItem())) {
+                shovelContents = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(ingrnt.getOrDefault(ModDataComponents.PICK_TYPE, shovelContents)).copyOne()));
+                farm = ingrnt.getItem().getDefaultInstance();
+                farm.remove(DataComponents.STORED_ENCHANTMENTS);
+                ItemStack shovel = shovelContents.getStackInSlot(0);
+                shovel.remove(DataComponents.ENCHANTMENTS);
+                shovelContents = ItemContainerContents.fromItems(Collections.singletonList(shovel));
+                farm.set(ModDataComponents.PICK_TYPE, shovelContents);
+            } else if (farmBlocks.contains(ingrnt.getItem())) {
                 pickaxeContents = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(ingrnt.getOrDefault(ModDataComponents.PICK_TYPE, pickaxeContents)).copyOne()));
                 farm = ingrnt.getItem().getDefaultInstance();
                 farm.remove(DataComponents.STORED_ENCHANTMENTS);
@@ -78,7 +88,6 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
                 pickaxeContents = ItemContainerContents.fromItems(Collections.singletonList(pickaxe));
                 farm.set(ModDataComponents.PICK_TYPE, pickaxeContents);
             }
-
         }
         return farm;
     }

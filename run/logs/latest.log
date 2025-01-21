@@ -1,15 +1,15 @@
-[14Jan2025 12:39:01.161] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 21.1.93, --assetIndex, 17, --assetsDir, C:\\Users\\Admin\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.neoForgeVersion, 21.1.93, --fml.fmlVersion, 4.0.34, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430]
-[14Jan2025 12:39:01.167] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.3+7-LTS-152
-[14Jan2025 12:39:01.171] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.3 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
-[14Jan2025 12:39:01.319] [main/WARN] [net.neoforged.fml.loading.FMLConfig/CORE]: Configuration file D:\MCreatorWorkspaces\resourceFarm\run\config\fml.toml is not correct. Correcting
-[14Jan2025 12:39:01.366] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[14Jan2025 12:39:01.544] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
-[14Jan2025 12:39:02.059] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
-[14Jan2025 12:39:02.467] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/Admin/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23131!/ Service=ModLauncher Env=CLIENT
-[14Jan2025 12:39:02.482] [main/WARN] [net.neoforged.fml.loading.FMLConfig/CORE]: Configuration file D:\MCreatorWorkspaces\resourceFarm\run\config\fml.toml is not correct. Correcting
-[14Jan2025 12:39:02.656] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: AMD Radeon(TM) 760M GL version 4.6.0 Core Profile Context 24.12.1.241127, ATI Technologies Inc.
-[14Jan2025 12:39:03.141] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
-[14Jan2025 12:39:03.145] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+[20Jan2025 21:54:20.226] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 21.1.93, --assetIndex, 17, --assetsDir, C:\\Users\\Owner\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.neoForgeVersion, 21.1.93, --fml.fmlVersion, 4.0.34, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430]
+[20Jan2025 21:54:20.230] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.5+9-LTS-239
+[20Jan2025 21:54:20.231] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.5 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
+[20Jan2025 21:54:20.343] [main/WARN] [net.neoforged.fml.loading.FMLConfig/CORE]: Configuration file D:\MCreatorWorkspaces\resourceFarm\run\config\fml.toml is not correct. Correcting
+[20Jan2025 21:54:20.375] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[20Jan2025 21:54:20.478] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[20Jan2025 21:54:20.616] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[20Jan2025 21:54:20.804] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/Owner/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23131!/ Service=ModLauncher Env=CLIENT
+[20Jan2025 21:54:20.812] [main/WARN] [net.neoforged.fml.loading.FMLConfig/CORE]: Configuration file D:\MCreatorWorkspaces\resourceFarm\run\config\fml.toml is not correct. Correcting
+[20Jan2025 21:54:20.889] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: AMD Radeon(TM) 760M GL version 4.6.0 Core Profile Context 22.40.05.22.231108, ATI Technologies Inc.
+[20Jan2025 21:54:21.150] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[20Jan2025 21:54:21.152] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
@@ -20,24 +20,23 @@
 		NeoForge 21.1.93 (neoforge)
 		Resource Farms 1 (resource_farms)
 		The One Probe 1.21_neo-12.0.0-1 (theoneprobe)
-[14Jan2025 12:39:04.854] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 21.1.93, --gameDir, ., --assetsDir, C:\Users\Admin\.gradle\caches\neoformruntime\assets, --assetIndex, 17]
-[14Jan2025 12:39:07.430] [main/WARN] [oshi.driver.windows.perfmon.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
-[14Jan2025 12:39:07.516] [pool-11-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
-[14Jan2025 12:39:08.509] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 1848 milliseconds
-[14Jan2025 12:39:15.066] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[14Jan2025 12:39:15.068] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
-[14Jan2025 12:39:15.072] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[14Jan2025 12:39:15.074] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[14Jan2025 12:39:15.077] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[14Jan2025 12:39:15.244] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/MCreatorWorkspaces/resourceFarm/build/moddev/artifacts/neoforge-21.1.93.jar%23183!/assets/.mcassetsroot' uses unexpected schema
-[14Jan2025 12:39:15.245] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/MCreatorWorkspaces/resourceFarm/build/moddev/artifacts/neoforge-21.1.93.jar%23183!/data/.mcassetsroot' uses unexpected schema
-[14Jan2025 12:39:15.287] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[14Jan2025 12:39:15.304] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[14Jan2025 12:39:15.481] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
-[14Jan2025 12:39:15.923] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.93, for MC 1.21.1
-[14Jan2025 12:39:16.365] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[14Jan2025 12:39:16.371] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 4.110 ms
-[14Jan2025 12:39:16.522] [modloading-sync-worker/ERROR] [net.minecraft.Util/]: Trying to throw a fatal exception, pausing in IDE
+[20Jan2025 21:54:21.994] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 21.1.93, --gameDir, ., --assetsDir, C:\Users\Owner\.gradle\caches\neoformruntime\assets, --assetIndex, 17]
+[20Jan2025 21:54:23.583] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 391 milliseconds
+[20Jan2025 21:54:23.692] [pool-11-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[20Jan2025 21:54:27.921] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20Jan2025 21:54:27.922] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20Jan2025 21:54:27.925] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[20Jan2025 21:54:27.926] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[20Jan2025 21:54:27.926] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20Jan2025 21:54:28.040] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/MCreatorWorkspaces/resourceFarm/build/moddev/artifacts/neoforge-21.1.93.jar%23183!/assets/.mcassetsroot' uses unexpected schema
+[20Jan2025 21:54:28.040] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/MCreatorWorkspaces/resourceFarm/build/moddev/artifacts/neoforge-21.1.93.jar%23183!/data/.mcassetsroot' uses unexpected schema
+[20Jan2025 21:54:28.080] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[20Jan2025 21:54:28.093] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[20Jan2025 21:54:28.179] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
+[20Jan2025 21:54:28.386] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.93, for MC 1.21.1
+[20Jan2025 21:54:28.563] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[20Jan2025 21:54:28.568] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 2.591 ms
+[20Jan2025 21:54:28.727] [modloading-sync-worker/ERROR] [net.minecraft.Util/]: Trying to throw a fatal exception, pausing in IDE
 java.lang.IllegalStateException: Adding duplicate key 'ResourceKey[minecraft:data_component_type / resource_farms:pick_type]' to registry
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.core.MappedRegistry.register(MappedRegistry.java:135) ~[neoforge-21.1.93.jar%23183!/:?]
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.core.MappedRegistry.register(MappedRegistry.java:123) ~[neoforge-21.1.93.jar%23183!/:?]
@@ -61,201 +60,182 @@ java.lang.IllegalStateException: Adding duplicate key 'ResourceKey[minecraft:dat
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[14Jan2025 12:39:16.525] [modloading-sync-worker/WARN] [net.minecraft.Util/]: Did you remember to set a breakpoint here?
-[14Jan2025 12:39:17.952] [Render thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: [resource_farms]
-[14Jan2025 12:39:18.230] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/theoneprobe, mod/jade, mod/resource_farms, mod/neoforge, mod/corelib, mod/jei
-[14Jan2025 12:39:18.381] [Worker-Main-1/ERROR] [net.minecraft.Util/]: Invalid path in pack: resource_farms:sounds/na(2).ogg, ignoring
-[14Jan2025 12:39:18.381] [Worker-Main-1/WARN] [net.minecraft.Util/]: Did you remember to set a breakpoint here?
-[14Jan2025 12:39:18.468] [Worker-Main-8/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
-[14Jan2025 12:39:18.599] [Worker-Main-10/ERROR] [net.minecraft.Util/]: Invalid path in pack: resource_farms:textures/item/Experience_Orb_Value_17-36.png, ignoring
-[14Jan2025 12:39:18.600] [Worker-Main-10/WARN] [net.minecraft.Util/]: Did you remember to set a breakpoint here?
-[14Jan2025 12:39:18.933] [Worker-Main-8/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
-[14Jan2025 12:39:19.135] [Worker-Main-4/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture resource_farms:block/water_still with size 25x25 limits mip level from 4 to 0
-[14Jan2025 12:39:19.990] [Worker-Main-5/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'resource_farms:blockstates/inventory_viewer.json' missing model for variant: 'resource_farms:inventory_viewer#facing=west'
-[14Jan2025 12:39:19.990] [Worker-Main-5/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'resource_farms:blockstates/inventory_viewer.json' missing model for variant: 'resource_farms:inventory_viewer#facing=east'
-[14Jan2025 12:39:19.992] [Worker-Main-5/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'resource_farms:blockstates/inventory_viewer.json' missing model for variant: 'resource_farms:inventory_viewer#facing=north'
-[14Jan2025 12:39:19.992] [Worker-Main-5/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'resource_farms:blockstates/inventory_viewer.json' missing model for variant: 'resource_farms:inventory_viewer#facing=south'
-[14Jan2025 12:39:20.012] [Worker-Main-5/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'resource_farms:item/inventory_viewer' referenced from: resource_farms:item/inventory_viewer: java.io.FileNotFoundException: resource_farms:models/item/inventory_viewer.json
-[14Jan2025 12:39:20.012] [Worker-Main-5/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'resource_farms:item/icon_item' referenced from: resource_farms:item/icon_item: java.io.FileNotFoundException: resource_farms:models/item/icon_item.json
-[14Jan2025 12:39:20.013] [Worker-Main-5/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'resource_farms:item/fortune_upgrade' referenced from: resource_farms:item/fortune_upgrade: java.io.FileNotFoundException: resource_farms:models/item/fortune_upgrade.json
-[14Jan2025 12:39:21.371] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.vanilla.VanillaPlugin
-[14Jan2025 12:39:21.446] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.vanilla.VanillaPlugin in 71.52 ms
-[14Jan2025 12:39:21.459] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.vanilla.VanillaPlugin in 84.34 ms
-[14Jan2025 12:39:21.459] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.universal.UniversalPlugin
-[14Jan2025 12:39:21.465] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.universal.UniversalPlugin in 5.984 ms
-[14Jan2025 12:39:21.466] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.universal.UniversalPlugin in 6.445 ms
-[14Jan2025 12:39:21.466] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.debug.DebugPlugin
-[14Jan2025 12:39:21.470] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.debug.DebugPlugin in 3.240 ms
-[14Jan2025 12:39:21.471] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.debug.DebugPlugin in 3.902 ms
-[14Jan2025 12:39:21.471] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.core.CorePlugin
-[14Jan2025 12:39:21.480] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.core.CorePlugin in 8.266 ms
-[14Jan2025 12:39:21.481] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.core.CorePlugin in 9.274 ms
-[14Jan2025 12:39:21.482] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.access.AccessibilityPlugin
-[14Jan2025 12:39:21.489] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.access.AccessibilityPlugin in 5.734 ms
-[14Jan2025 12:39:21.489] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.access.AccessibilityPlugin in 6.145 ms
-[14Jan2025 12:39:21.489] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Start loading plugin from com.awesomeshot5051.resourceFarm.integration.waila.PluginEasyVillagers
-[14Jan2025 12:39:21.494] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from com.awesomeshot5051.resourceFarm.integration.waila.PluginEasyVillagers in 2.863 ms
-[14Jan2025 12:39:21.494] [Worker-Main-5/INFO] [snownee.jade.Jade/]: Loaded plugin from com.awesomeshot5051.resourceFarm.integration.waila.PluginEasyVillagers in 3.411 ms
-[14Jan2025 12:39:21.714] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[14Jan2025 12:39:21.714] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[14Jan2025 12:39:21.863] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Headphones (Trae’s AirPods Pro - Find My)
-[14Jan2025 12:39:21.865] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[14Jan2025 12:39:22.016] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[14Jan2025 12:39:22.029] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[14Jan2025 12:39:22.030] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[14Jan2025 12:39:22.030] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[14Jan2025 12:39:22.031] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[14Jan2025 12:39:22.036] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[14Jan2025 12:39:22.037] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[14Jan2025 12:39:22.038] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[14Jan2025 12:39:22.038] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[14Jan2025 12:39:22.254] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[14Jan2025 12:39:22.256] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[14Jan2025 12:39:22.257] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[14Jan2025 12:39:22.257] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[14Jan2025 12:39:22.257] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[14Jan2025 12:39:22.308] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[14Jan2025 12:39:22.424] [Render thread/INFO] [net.neoforged.neoforge.client.entity.animation.json.AnimationLoader/]: Loaded 0 entity animations
-[14Jan2025 12:39:22.424] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 jei:textures/atlas/gui.png-atlas
-[14Jan2025 12:39:27.039] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1601 recipes
-[14Jan2025 12:39:27.274] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1710 advancements
-[14Jan2025 12:39:27.815] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver received class net.neoforged.neoforge.event.TagsUpdatedEvent too early, ignoring
-[14Jan2025 12:39:27.823] [Render thread/INFO] [snownee.jade.Jade/]: LootTableMineableCollector took 6.723 ms
-[14Jan2025 12:39:27.943] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21.1
-[14Jan2025 12:39:27.943] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[14Jan2025 12:39:29.355] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[14Jan2025 12:39:29.694] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[14Jan2025 12:39:29.816] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
-[14Jan2025 12:39:29.834] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 477 ms
-[14Jan2025 12:39:29.974] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[14Jan2025 12:39:29.974] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[14Jan2025 12:39:30.640] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver received class net.neoforged.neoforge.event.TagsUpdatedEvent
-[14Jan2025 12:39:30.976] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:30d529d6] logged in with entity id 5 at (-241.32759277525435, 113.0, 229.58788590677096)
-[14Jan2025 12:39:31.024] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[14Jan2025 12:39:31.629] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver received class net.neoforged.neoforge.client.event.RecipesUpdatedEvent
-[14Jan2025 12:39:31.630] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver transitioning state from LISTENING to JEI_STARTED
-[14Jan2025 12:39:31.631] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Starting JEI...
-[14Jan2025 12:39:31.642] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering item subtypes...
-[14Jan2025 12:39:31.647] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering item subtypes took 4.900 ms
-[14Jan2025 12:39:31.647] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering fluid subtypes...
-[14Jan2025 12:39:31.651] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering fluid subtypes took 3.200 ms
-[14Jan2025 12:39:31.654] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering ingredients...
-[14Jan2025 12:39:31.783] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering ingredients: jei:minecraft took 129.2 milliseconds
-[14Jan2025 12:39:31.784] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering ingredients took 130.6 ms
-[14Jan2025 12:39:31.784] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering extra ingredients...
-[14Jan2025 12:39:31.785] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering extra ingredients took 665.9 μs
-[14Jan2025 12:39:31.786] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering search ingredient aliases...
-[14Jan2025 12:39:31.787] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering search ingredient aliases took 858.6 μs
-[14Jan2025 12:39:31.801] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Mod Info...
-[14Jan2025 12:39:31.803] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Mod Info took 598.9 μs
-[14Jan2025 12:39:31.831] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering categories...
-[14Jan2025 12:39:31.846] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-16, 10] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:31.846] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering categories: jei:minecraft took 15.08 milliseconds
-[14Jan2025 12:39:31.854] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering categories took 23.22 ms
-[14Jan2025 12:39:31.855] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering vanilla category extensions...
-[14Jan2025 12:39:31.859] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering vanilla category extensions took 2.858 ms
-[14Jan2025 12:39:31.860] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipe catalysts...
-[14Jan2025 12:39:31.861] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipe catalysts took 1.188 ms
-[14Jan2025 12:39:31.861] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building recipe registry...
-[14Jan2025 12:39:31.874] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building recipe registry took 12.21 ms
-[14Jan2025 12:39:31.877] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering advanced plugins...
-[14Jan2025 12:39:31.877] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering advanced plugins took 527.5 μs
-[14Jan2025 12:39:31.878] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes...
-[14Jan2025 12:39:31.977] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-12, 18] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:32.073] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: jei:minecraft took 193.5 milliseconds
-[14Jan2025 12:39:32.168] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: jei:internal took 95.46 milliseconds
-[14Jan2025 12:39:32.169] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes took 290.0 ms
-[14Jan2025 12:39:32.175] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes transfer handlers...
-[14Jan2025 12:39:32.179] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes transfer handlers took 3.739 ms
-[14Jan2025 12:39:32.188] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building runtime...
-[14Jan2025 12:39:32.193] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering gui handlers...
-[14Jan2025 12:39:32.204] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering gui handlers took 10.43 ms
-[14Jan2025 12:39:32.208] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Runtime...
-[14Jan2025 12:39:32.211] [Render thread/INFO] [mezz.jei.gui.startup.JeiGuiStarter/]: Starting JEI GUI
-[14Jan2025 12:39:32.211] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient list...
-[14Jan2025 12:39:32.241] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient list took 29.26 ms
-[14Jan2025 12:39:32.241] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient filter...
-[14Jan2025 12:39:32.262] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-22, 12] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:32.275] [Render thread/INFO] [mezz.jei.gui.ingredients.IngredientFilter/]: Adding 1766 ingredients
-[14Jan2025 12:39:32.579] [Render thread/INFO] [mezz.jei.gui.ingredients.IngredientFilter/]: Added 1766 ingredients
-[14Jan2025 12:39:32.580] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient filter took 339.3 ms
-[14Jan2025 12:39:32.653] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-20, 7] stream is truncated: expected 1257226172 but read 4091
-[14Jan2025 12:39:32.680] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering Runtime: jei:neoforge_gui took 471.3 milliseconds
-[14Jan2025 12:39:32.680] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Runtime took 472.3 ms
-[14Jan2025 12:39:32.681] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building runtime took 492.2 ms
-[14Jan2025 12:39:32.681] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime...
-[14Jan2025 12:39:32.682] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime took 490.7 μs
-[14Jan2025 12:39:32.682] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Starting JEI took 1.051 s
-[14Jan2025 12:39:32.701] [Render thread/INFO] [snownee.jade.Jade/]: Received config from the server: 
-[14Jan2025 12:39:32.702] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 487 advancements
-[14Jan2025 12:39:32.741] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-9, 15] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:35.506] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
-[14Jan2025 12:39:35.507] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-13.25.mcc is not file
-[14Jan2025 12:39:37.019] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Declared size -272646858 of chunk [-29, 4] is negative
-[14Jan2025 12:39:37.040] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
-[14Jan2025 12:39:37.041] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-29.6.mcc is not file
-[14Jan2025 12:39:37.044] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-26, 27] is allocated, but stream is missing
-[14Jan2025 12:39:37.065] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
-[14Jan2025 12:39:37.066] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-21.27.mcc is not file
-[14Jan2025 12:39:37.117] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-13, 27] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:37.164] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Declared size -272646911 of chunk [-29, 11] is negative
-[14Jan2025 12:39:37.601] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-2, 9] is allocated, but stream is missing
-[14Jan2025 12:39:37.615] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-2, 12] is allocated, but stream is missing
-[14Jan2025 12:39:37.713] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-24, 28] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:37.783] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-22, 28] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:37.837] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
-[14Jan2025 12:39:37.837] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-21.28.mcc is not file
-[14Jan2025 12:39:37.840] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-13, 28] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:37.850] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-2, 14] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:37.851] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
-[14Jan2025 12:39:37.851] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-30.15.mcc is not file
-[14Jan2025 12:39:37.957] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
-[14Jan2025 12:39:37.958] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-20.0.mcc is not file
-[14Jan2025 12:39:37.963] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-19, 0] is allocated, but stream is missing
-[14Jan2025 12:39:37.967] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-30, 22] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:38.007] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-30, 1] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:38.007] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-28, 0] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:38.008] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-30, 5] stream is truncated: expected 538976287 but read 4091
-[14Jan2025 12:39:38.117] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
-[14Jan2025 12:39:38.119] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-30.28.mcc is not file
-[14Jan2025 12:39:44.649] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 488 advancements
-[14Jan2025 12:39:50.043] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 525 advancements
-[14Jan2025 12:39:52.826] [Server thread/WARN] [mezz.jei.common.network.packets.PacketDeletePlayerItem/]: Player 'literal{Dev} (380df991-f603-344c-a090-369bad2a924a)' tried to delete ItemStack 'translation{key='chat.square_brackets', args=[empty[siblings=[translation{key='item.minecraft.netherite_pickaxe', args=[]}]]]}[style={color=white,hoverEvent=TypedHoverEvent[action=<action show_item>, value=net.minecraft.network.chat.HoverEvent$ItemStackInfo@9f7fc0d1]}]' but is currently holding a different ItemStack 'translation{key='chat.square_brackets', args=[empty[siblings=[translation{key='block.minecraft.air', args=[]}]]]}'.
-[14Jan2025 12:39:58.233] [Server thread/ERROR] [net.minecraft.network.protocol.game.ServerPacketListener/]: Failed to handle packet net.minecraft.network.protocol.game.ServerboundContainerClickPacket@6824b7a6, suppressing error
-net.minecraft.ReportedException: Container click
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.AbstractContainerMenu.clicked(AbstractContainerMenu.java:308) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.network.ServerGamePacketListenerImpl.handleContainerClick(ServerGamePacketListenerImpl.java:1717) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.network.protocol.game.ServerboundContainerClickPacket.handle(ServerboundContainerClickPacket.java:83) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.network.protocol.game.ServerboundContainerClickPacket.handle(ServerboundContainerClickPacket.java:14) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:36) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.TickTask.run(TickTask.java:18) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:151) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:881) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:170) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:122) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:864) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:858) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.util.thread.BlockableEventLoop.runAllTasks(BlockableEventLoop.java:111) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:834) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:718) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.93.jar%23183!/:?]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-Caused by: java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:233) ~[?:?]
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.EnchantmentRemovalRecipe.assemble(EnchantmentRemovalRecipe.java:63) ~[%23185!/:?]
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.EnchantmentRemovalRecipe.assemble(EnchantmentRemovalRecipe.java:21) ~[%23185!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.CraftingMenu.slotChangedCraftingGrid(CraftingMenu.java:80) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.CraftingMenu.lambda$slotsChanged$0(CraftingMenu.java:99) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.ContainerLevelAccess.lambda$execute$0(ContainerLevelAccess.java:34) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.ContainerLevelAccess$2.evaluate(ContainerLevelAccess.java:21) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.ContainerLevelAccess.execute(ContainerLevelAccess.java:33) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.CraftingMenu.slotsChanged(CraftingMenu.java:99) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.TransientCraftingContainer.setItem(TransientCraftingContainer.java:78) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.Slot.set(Slot.java:83) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.Slot.setByPlayer(Slot.java:76) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.Slot.setByPlayer(Slot.java:72) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.Slot.safeInsert(Slot.java:189) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.AbstractContainerMenu.doClick(AbstractContainerMenu.java:419) ~[neoforge-21.1.93.jar%23183!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.inventory.AbstractContainerMenu.clicked(AbstractContainerMenu.java:298) ~[neoforge-21.1.93.jar%23183!/:?]
-	... 17 more
+[20Jan2025 21:54:28.730] [modloading-sync-worker/WARN] [net.minecraft.Util/]: Did you remember to set a breakpoint here?
+[20Jan2025 21:54:29.873] [Render thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: [resource_farms]
+[20Jan2025 21:54:30.064] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/theoneprobe, mod/jade, mod/resource_farms, mod/neoforge, mod/corelib, mod/jei
+[20Jan2025 21:54:30.180] [Worker-Main-1/ERROR] [net.minecraft.Util/]: Invalid path in pack: resource_farms:sounds/na(2).ogg, ignoring
+[20Jan2025 21:54:30.181] [Worker-Main-1/WARN] [net.minecraft.Util/]: Did you remember to set a breakpoint here?
+[20Jan2025 21:54:30.184] [Worker-Main-8/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[20Jan2025 21:54:30.237] [Worker-Main-11/ERROR] [net.minecraft.Util/]: Invalid path in pack: resource_farms:textures/item/Experience_Orb_Value_17-36.png, ignoring
+[20Jan2025 21:54:30.237] [Worker-Main-11/WARN] [net.minecraft.Util/]: Did you remember to set a breakpoint here?
+[20Jan2025 21:54:30.414] [Worker-Main-6/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[20Jan2025 21:54:30.531] [Worker-Main-5/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture resource_farms:block/water_still with size 25x25 limits mip level from 4 to 0
+[20Jan2025 21:54:31.017] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'resource_farms:blockstates/inventory_viewer.json' missing model for variant: 'resource_farms:inventory_viewer#facing=west'
+[20Jan2025 21:54:31.017] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'resource_farms:blockstates/inventory_viewer.json' missing model for variant: 'resource_farms:inventory_viewer#facing=east'
+[20Jan2025 21:54:31.017] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'resource_farms:blockstates/inventory_viewer.json' missing model for variant: 'resource_farms:inventory_viewer#facing=north'
+[20Jan2025 21:54:31.017] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'resource_farms:blockstates/inventory_viewer.json' missing model for variant: 'resource_farms:inventory_viewer#facing=south'
+[20Jan2025 21:54:31.024] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'resource_farms:item/inventory_viewer' referenced from: resource_farms:item/inventory_viewer: java.io.FileNotFoundException: resource_farms:models/item/inventory_viewer.json
+[20Jan2025 21:54:31.025] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'resource_farms:item/icon_item' referenced from: resource_farms:item/icon_item: java.io.FileNotFoundException: resource_farms:models/item/icon_item.json
+[20Jan2025 21:54:31.026] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'resource_farms:item/fortune_upgrade' referenced from: resource_farms:item/fortune_upgrade: java.io.FileNotFoundException: resource_farms:models/item/fortune_upgrade.json
+[20Jan2025 21:54:31.593] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.vanilla.VanillaPlugin
+[20Jan2025 21:54:31.632] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.vanilla.VanillaPlugin in 36.29 ms
+[20Jan2025 21:54:31.642] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.vanilla.VanillaPlugin in 46.40 ms
+[20Jan2025 21:54:31.642] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.universal.UniversalPlugin
+[20Jan2025 21:54:31.648] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.universal.UniversalPlugin in 4.503 ms
+[20Jan2025 21:54:31.648] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.universal.UniversalPlugin in 4.966 ms
+[20Jan2025 21:54:31.648] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.debug.DebugPlugin
+[20Jan2025 21:54:31.651] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.debug.DebugPlugin in 1.630 ms
+[20Jan2025 21:54:31.651] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.debug.DebugPlugin in 1.936 ms
+[20Jan2025 21:54:31.651] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.core.CorePlugin
+[20Jan2025 21:54:31.654] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.core.CorePlugin in 2.674 ms
+[20Jan2025 21:54:31.655] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.core.CorePlugin in 2.994 ms
+[20Jan2025 21:54:31.655] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Start loading plugin from snownee.jade.addon.access.AccessibilityPlugin
+[20Jan2025 21:54:31.658] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from snownee.jade.addon.access.AccessibilityPlugin in 2.497 ms
+[20Jan2025 21:54:31.658] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Loaded plugin from snownee.jade.addon.access.AccessibilityPlugin in 2.913 ms
+[20Jan2025 21:54:31.658] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Start loading plugin from com.awesomeshot5051.resourceFarm.integration.waila.PluginEasyVillagers
+[20Jan2025 21:54:31.660] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Bootstrapped plugin from com.awesomeshot5051.resourceFarm.integration.waila.PluginEasyVillagers in 804.2 μs
+[20Jan2025 21:54:31.660] [Worker-Main-2/INFO] [snownee.jade.Jade/]: Loaded plugin from com.awesomeshot5051.resourceFarm.integration.waila.PluginEasyVillagers in 1.372 ms
+[20Jan2025 21:54:31.799] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[20Jan2025 21:54:31.800] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[20Jan2025 21:54:31.882] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Headphones (Trae’s AirPods Pro - Find My)
+[20Jan2025 21:54:31.884] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[20Jan2025 21:54:32.066] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[20Jan2025 21:54:32.075] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[20Jan2025 21:54:32.075] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[20Jan2025 21:54:32.075] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[20Jan2025 21:54:32.079] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[20Jan2025 21:54:32.090] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[20Jan2025 21:54:32.090] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[20Jan2025 21:54:32.090] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[20Jan2025 21:54:32.090] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[20Jan2025 21:54:32.266] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[20Jan2025 21:54:32.267] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[20Jan2025 21:54:32.268] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[20Jan2025 21:54:32.269] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[20Jan2025 21:54:32.270] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[20Jan2025 21:54:32.332] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[20Jan2025 21:54:32.443] [Render thread/INFO] [net.neoforged.neoforge.client.entity.animation.json.AnimationLoader/]: Loaded 0 entity animations
+[20Jan2025 21:54:32.443] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 jei:textures/atlas/gui.png-atlas
+[20Jan2025 21:54:48.323] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1601 recipes
+[20Jan2025 21:54:48.485] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1710 advancements
+[20Jan2025 21:54:48.761] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver received class net.neoforged.neoforge.event.TagsUpdatedEvent too early, ignoring
+[20Jan2025 21:54:48.765] [Render thread/INFO] [snownee.jade.Jade/]: LootTableMineableCollector took 4.266 ms
+[20Jan2025 21:54:48.840] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21.1
+[20Jan2025 21:54:48.840] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[20Jan2025 21:54:49.715] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[20Jan2025 21:54:49.943] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[20Jan2025 21:54:50.031] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[20Jan2025 21:54:50.047] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 312 ms
+[20Jan2025 21:54:50.114] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
+[20Jan2025 21:54:50.114] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
+[20Jan2025 21:54:50.611] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver received class net.neoforged.neoforge.event.TagsUpdatedEvent
+[20Jan2025 21:54:50.810] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:6bbfdcd3] logged in with entity id 5 at (-241.3393942871964, 113.0, 225.92940672492608)
+[20Jan2025 21:54:50.855] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[20Jan2025 21:54:50.999] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver received class net.neoforged.neoforge.client.event.RecipesUpdatedEvent
+[20Jan2025 21:54:50.999] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver transitioning state from LISTENING to JEI_STARTED
+[20Jan2025 21:54:50.999] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Starting JEI...
+[20Jan2025 21:54:51.004] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering item subtypes...
+[20Jan2025 21:54:51.010] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering item subtypes took 5.079 ms
+[20Jan2025 21:54:51.010] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering fluid subtypes...
+[20Jan2025 21:54:51.012] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering fluid subtypes took 1.386 ms
+[20Jan2025 21:54:51.013] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering ingredients...
+[20Jan2025 21:54:51.118] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering ingredients: jei:minecraft took 104.0 milliseconds
+[20Jan2025 21:54:51.119] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering ingredients took 104.8 ms
+[20Jan2025 21:54:51.119] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering extra ingredients...
+[20Jan2025 21:54:51.120] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering extra ingredients took 409.8 μs
+[20Jan2025 21:54:51.120] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering search ingredient aliases...
+[20Jan2025 21:54:51.121] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering search ingredient aliases took 907.5 μs
+[20Jan2025 21:54:51.136] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Mod Info...
+[20Jan2025 21:54:51.137] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Mod Info took 690.1 μs
+[20Jan2025 21:54:51.151] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering categories...
+[20Jan2025 21:54:51.163] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering categories: jei:minecraft took 11.65 milliseconds
+[20Jan2025 21:54:51.169] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering categories took 17.69 ms
+[20Jan2025 21:54:51.170] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering vanilla category extensions...
+[20Jan2025 21:54:51.172] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering vanilla category extensions took 2.354 ms
+[20Jan2025 21:54:51.172] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipe catalysts...
+[20Jan2025 21:54:51.175] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipe catalysts took 1.333 ms
+[20Jan2025 21:54:51.175] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building recipe registry...
+[20Jan2025 21:54:51.184] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building recipe registry took 8.865 ms
+[20Jan2025 21:54:51.185] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering advanced plugins...
+[20Jan2025 21:54:51.185] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering advanced plugins took 504.0 μs
+[20Jan2025 21:54:51.186] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes...
+[20Jan2025 21:54:51.321] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: jei:minecraft took 133.8 milliseconds
+[20Jan2025 21:54:51.368] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: jei:internal took 47.22 milliseconds
+[20Jan2025 21:54:51.368] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes took 182.0 ms
+[20Jan2025 21:54:51.374] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes transfer handlers...
+[20Jan2025 21:54:51.376] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes transfer handlers took 2.381 ms
+[20Jan2025 21:54:51.383] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building runtime...
+[20Jan2025 21:54:51.387] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering gui handlers...
+[20Jan2025 21:54:51.393] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering gui handlers took 5.988 ms
+[20Jan2025 21:54:51.395] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Runtime...
+[20Jan2025 21:54:51.397] [Render thread/INFO] [mezz.jei.gui.startup.JeiGuiStarter/]: Starting JEI GUI
+[20Jan2025 21:54:51.397] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient list...
+[20Jan2025 21:54:51.413] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-16, 10] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:51.415] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient list took 18.32 ms
+[20Jan2025 21:54:51.415] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient filter...
+[20Jan2025 21:54:51.443] [Render thread/INFO] [mezz.jei.gui.ingredients.IngredientFilter/]: Adding 1766 ingredients
+[20Jan2025 21:54:51.532] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-12, 18] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:51.632] [Render thread/INFO] [mezz.jei.gui.ingredients.IngredientFilter/]: Added 1766 ingredients
+[20Jan2025 21:54:51.633] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient filter took 217.7 ms
+[20Jan2025 21:54:51.694] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering Runtime: jei:neoforge_gui took 298.5 milliseconds
+[20Jan2025 21:54:51.694] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Runtime took 299.2 ms
+[20Jan2025 21:54:51.695] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building runtime took 311.7 ms
+[20Jan2025 21:54:51.695] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime...
+[20Jan2025 21:54:51.695] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime took 417.5 μs
+[20Jan2025 21:54:51.695] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Starting JEI took 696.4 ms
+[20Jan2025 21:54:51.711] [Render thread/INFO] [snownee.jade.Jade/]: Received config from the server: 
+[20Jan2025 21:54:51.712] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 492 advancements
+[20Jan2025 21:54:52.070] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-20, 7] stream is truncated: expected 1257226172 but read 4091
+[20Jan2025 21:54:53.454] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
+[20Jan2025 21:54:53.455] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-13.25.mcc is not file
+[20Jan2025 21:54:54.537] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Declared size -272646858 of chunk [-29, 4] is negative
+[20Jan2025 21:54:54.538] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
+[20Jan2025 21:54:54.538] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-29.6.mcc is not file
+[20Jan2025 21:54:54.605] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-26, 27] is allocated, but stream is missing
+[20Jan2025 21:54:54.619] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
+[20Jan2025 21:54:54.619] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-21.27.mcc is not file
+[20Jan2025 21:54:54.634] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-13, 27] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:54.678] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Declared size -272646911 of chunk [-29, 11] is negative
+[20Jan2025 21:54:55.080] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-2, 9] is allocated, but stream is missing
+[20Jan2025 21:54:55.142] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-2, 12] is allocated, but stream is missing
+[20Jan2025 21:54:55.201] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-24, 28] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:55.214] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-22, 28] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:55.214] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
+[20Jan2025 21:54:55.214] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-21.28.mcc is not file
+[20Jan2025 21:54:55.220] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-13, 28] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:55.225] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-2, 14] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:55.231] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
+[20Jan2025 21:54:55.232] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-30.15.mcc is not file
+[20Jan2025 21:54:55.382] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
+[20Jan2025 21:54:55.382] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-20.0.mcc is not file
+[20Jan2025 21:54:55.382] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-19, 0] is allocated, but stream is missing
+[20Jan2025 21:54:55.382] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-30, 22] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:55.464] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-30, 1] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:55.469] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-28, 0] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:55.469] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk [-30, 5] stream is truncated: expected 538976287 but read 4091
+[20Jan2025 21:54:55.694] [IOWorker-entities/WARN] [net.minecraft.world.level.chunk.storage.RegionFile/]: Chunk has both internal and external streams
+[20Jan2025 21:54:55.694] [IOWorker-entities/ERROR] [net.minecraft.world.level.chunk.storage.RegionFile/]: External chunk path .\saves\New World\entities\c.-30.28.mcc is not file
+[20Jan2025 21:55:10.985] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[20Jan2025 21:55:11.028] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[20Jan2025 21:55:11.055] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[20Jan2025 21:55:11.062] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[20Jan2025 21:55:11.454] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver received class net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent$LoggingOut
+[20Jan2025 21:55:11.454] [Render thread/INFO] [mezz.jei.neoforge.startup.StartEventObserver/]: JEI StartEventObserver transitioning state from JEI_STARTED to LISTENING
+[20Jan2025 21:55:11.454] [Render thread/INFO] [mezz.jei.library.startup.JeiStarter/]: Stopping JEI
+[20Jan2025 21:55:11.455] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime Unavailable...
+[20Jan2025 21:55:11.455] [Render thread/INFO] [mezz.jei.neoforge.plugins.neoforge.NeoForgeGuiPlugin/]: Stopping JEI GUI
+[20Jan2025 21:55:11.458] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime Unavailable took 2.521 ms
+[20Jan2025 21:55:11.492] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
+[20Jan2025 21:55:11.492] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[20Jan2025 21:55:11.512] [Server thread/INFO] [net.minecraft.server.network.ServerCommonPacketListenerImpl/]: Stopping singleplayer server as player logged out
+[20Jan2025 21:55:11.543] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[20Jan2025 21:55:11.544] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[20Jan2025 21:55:11.544] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[20Jan2025 21:55:11.727] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[20Jan2025 21:55:11.769] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[20Jan2025 21:55:11.772] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[20Jan2025 21:55:11.783] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (New World): All chunks are saved
+[20Jan2025 21:55:11.783] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[20Jan2025 21:55:11.783] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[20Jan2025 21:55:11.783] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[20Jan2025 21:55:12.267] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
