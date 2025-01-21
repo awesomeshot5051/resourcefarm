@@ -1,0 +1,44 @@
+--------------------------------------------------------------------------------
+
+Command-Line:
+ - C:\Users\Owner\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\java.exe
+ - -jar
+ - C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.neoforged.jst\jst-cli-bundle\1.0.66\6340d2fe4a46f4e2bf6798f477ca82ec046ea9f2\jst-cli-bundle-1.0.66.jar
+ - --libraries-list
+ - C:\Users\Owner\.gradle\caches\neoformruntime\intermediate_results\listLibraries_abd82b6d5a14af4e6f44428378d014e7daca3a48_output.txt
+ - --in-format
+ - ARCHIVE
+ - --out-format
+ - ARCHIVE
+ - --enable-accesstransformers
+ - --access-transformer
+ - ats\accesstransformer.cfg
+ - --access-transformer
+ - ats\_script_neoforge.cfg
+ - --access-transformer
+ - D:\MCreatorWorkspaces\resourceFarm\src\main\resources\META-INF\accesstransformer.cfg
+ - --enable-parchment
+ - --parchment-mappings=C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.parchmentmc.data\parchment-1.21\2024.07.28\7bf10de1e335c26bd211adc64547795e2ad96b5b\parchment-1.21-2024.07.28.zip
+ - --parchment-conflict-prefix=p_
+ - C:\Users\Owner\.gradle\caches\neoformruntime\intermediate_results\applyNeoforgePatches_9a22e8f153fa05fdacf5649ba3bbb20e52718721_output.zip
+ - ./output.zip
+--------------------------------------------------------------------------------
+
+java.io.UncheckedIOException: java.nio.file.NoSuchFileException: C:\Users\Traee\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.2\25ea2e8b0c338a877313bd4672d3fe056ea78f0d\jsr305-3.0.2.jar
+	at net.neoforged.jst.cli.intellij.ClasspathSetup.addLibrary(ClasspathSetup.java:105)
+	at net.neoforged.jst.cli.intellij.ClasspathSetup.addLibraries(ClasspathSetup.java:81)
+	at net.neoforged.jst.cli.SourceFileProcessor.addLibrariesList(SourceFileProcessor.java:153)
+	at net.neoforged.jst.cli.Main.call(Main.java:74)
+	at net.neoforged.jst.cli.Main.call(Main.java:18)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2045)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2465)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2457)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2419)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2421)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at net.neoforged.jst.cli.Main.innerMain(Main.java:64)
+	at net.neoforged.jst.cli.Main.main(Main.java:50)
+Caused by: java.nio.file.NoSuchFileException: C:\Users\Traee\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.2\25ea2e8b0c338a877313bd4672d3fe056ea78f0d\jsr305-3.0.2.jar
+	... 15 more

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: net.neoforged:neoform:zip:1.21.1-20240808.144430" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="net.neoforged" artifactId="neoform" version="1.21.1-20240808.144430" baseVersion="1.21.1-20240808.144430" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.neoforged/neoform/1.21.1-20240808.144430/811e2bd86fa2cda2812e5e8e51d718ea8bd6d3f4/neoform-1.21.1-20240808.144430.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
