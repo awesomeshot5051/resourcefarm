@@ -136,6 +136,8 @@ public class UpgradeRecipe extends ShapedRecipe {
                     // Set the pick type in the result item's data
                     pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
                     result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
+                } else {
+                    pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
                 }
             } else {
                 if (isHigherPickType(pickStack, modifer.getFirst())) {
@@ -167,13 +169,6 @@ public class UpgradeRecipe extends ShapedRecipe {
     }
 
     private boolean isHigherShovelType(ItemStack baseShovelType, ItemStack modifierShovelType) {
-        // Define ShovelType levels in ascending order of strength
-        List<Item> shovelTypeHierarchy = new ArrayList<>(List.of(
-                Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL,
-                Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL
-        ));
-
-        // Map each shovel type to its corresponding material
         Map<Item, Ingredient> shovelToMaterialMap = Map.of(
                 Items.WOODEN_SHOVEL, Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS,
                         Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS,
@@ -185,35 +180,16 @@ public class UpgradeRecipe extends ShapedRecipe {
                 Items.NETHERITE_SHOVEL, Ingredient.of(Items.NETHERITE_INGOT)
         );
 
-        // Convert baseShovelType and modifierShovelType to their corresponding materials
-        Item baseShovelItem = baseShovelType.getItem();
-        Item modifierShovelItem = modifierShovelType.getItem();
-
-        Item baseMaterialType = null;
         Item modifierMaterialType = null;
 
-        // Find the materials corresponding to the shovel items
         for (Map.Entry<Item, Ingredient> entry : shovelToMaterialMap.entrySet()) {
-            if (entry.getKey().equals(baseShovelType.getItem())) {
-                baseMaterialType = entry.getKey();
-            }
             if (entry.getValue().test(modifierShovelType)) {
                 modifierMaterialType = entry.getKey();
             }
         }
-
-        // Ensure both types were mapped to a valid shovel
-        if (baseMaterialType == null || modifierMaterialType == null) {
-            return false; // Invalid types, cannot compare
-        }
-
-        // Compare indices in the hierarchy
-        int baseIndex = shovelTypeHierarchy.indexOf(baseMaterialType);
-        int modifierIndex = shovelTypeHierarchy.indexOf(modifierMaterialType);
-
-        // Return true if the modifier type is higher in the hierarchy
-        return modifierIndex > baseIndex;
+        return ShovelType.getRank(modifierMaterialType) > ShovelType.getRank(baseShovelType.getItem());
     }
+
 
     private boolean isHigherPickType(ItemStack basePickType, ItemStack modifierPickType) {
         Map<Item, Ingredient> pickaxeToMaterialMap = Map.of(
