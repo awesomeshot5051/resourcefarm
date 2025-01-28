@@ -646,7 +646,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738036104607</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
+      <option name="closed" value="true" />
+      <created>1738036146134</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1738036146134</updated>
+    </task>
+    <task id="LOCAL-00038" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
+      <option name="closed" value="true" />
+      <created>1738036215269</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1738036215269</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
