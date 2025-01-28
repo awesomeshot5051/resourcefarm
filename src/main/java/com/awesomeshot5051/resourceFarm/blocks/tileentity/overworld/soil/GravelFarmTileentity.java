@@ -1,38 +1,26 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.OutputItemHandler;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
-import com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments;
-import com.awesomeshot5051.resourceFarm.enums.ShovelType;
-import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
-import com.awesomeshot5051.corelib.inventory.ItemListInventory;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.inventory.*;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.items.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.getShovelEnchantmentStatus;
-import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.initializeShovelEnchantments;
+import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.*;
 
 public class GravelFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
@@ -144,7 +132,7 @@ public class GravelFarmTileentity extends VillagerTileentity implements ITickabl
         // Save the shovelType as an NBT tag
         if (shovelType != null) {
             CompoundTag shovelTypeTag = new CompoundTag();
-            shovelTypeTag.putString("id", shovelType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
+            shovelTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString()); // Save the item ID
             shovelTypeTag.putInt("count", shovelType.getCount()); // Save the count
             compound.put("shovelType", shovelTypeTag); // Add the tag to the main compound
         }

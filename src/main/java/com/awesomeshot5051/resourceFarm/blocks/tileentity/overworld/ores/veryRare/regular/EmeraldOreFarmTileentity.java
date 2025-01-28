@@ -141,6 +141,17 @@ public class EmeraldOreFarmTileentity extends VillagerTileentity implements ITic
             pickTypeTag.putInt("count", pickType.getCount()); // Save the count
             compound.put("PickType", pickTypeTag); // Add the tag to the main compound
         }
+        if (!pickaxeEnchantments.isEmpty()) {
+            ListTag enchantmentsList = new ListTag(); // Create a ListTag to store enchantments
+            for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : pickaxeEnchantments.entrySet()) {
+                if (entry.getValue()) { // Only include enchantments set to 'true'
+                    CompoundTag enchantmentTag = new CompoundTag();
+                    enchantmentTag.putString("id", entry.getKey().location().toString()); // Save the enchantment ID
+                    enchantmentsList.add(enchantmentTag); // Add the enchantment to the list
+                }
+            }
+            compound.put("PickaxeEnchantments", enchantmentsList); // Save the list to the compound
+        }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
     }
@@ -152,7 +163,7 @@ public class EmeraldOreFarmTileentity extends VillagerTileentity implements ITic
             SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
         }
         if (compound.contains("PickaxeEnchantments")) {
-            pickaxeEnchantments = SyncableTileentity.loadEnchantments(compound, provider, this);
+            pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (pickType == null) {
             // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)

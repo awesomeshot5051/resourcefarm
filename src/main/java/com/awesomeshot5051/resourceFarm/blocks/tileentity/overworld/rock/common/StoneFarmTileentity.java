@@ -1,25 +1,40 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common;
 
-import com.awesomeshot5051.corelib.blockentity.*;
-import com.awesomeshot5051.corelib.inventory.*;
-import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
-import com.awesomeshot5051.resourceFarm.enums.*;
-import net.minecraft.core.*;
-import net.minecraft.nbt.*;
-import net.minecraft.resources.*;
-import net.minecraft.server.level.*;
-import net.minecraft.world.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.*;
-import net.minecraft.world.level.block.state.*;
-import net.neoforged.neoforge.items.*;
+import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
+import com.awesomeshot5051.corelib.inventory.ItemListInventory;
+import com.awesomeshot5051.resourceFarm.Main;
+import com.awesomeshot5051.resourceFarm.OutputItemHandler;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
+import com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments;
+import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Container;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
-import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
+import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.getPickaxeEnchantmentStatus;
+import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.initializePickaxeEnchantments;
 
 @SuppressWarnings("ALL")
 public class StoneFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
@@ -138,7 +153,7 @@ public class StoneFarmTileentity extends VillagerTileentity implements ITickable
 // Save the shovelType as an NBT tag
         if (pickType != null) {
             CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", pickType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
+            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(pickType.getItem()).toString()); // Save the item ID
             pickTypeTag.putInt("count", pickType.getCount()); // Save the count
             compound.put("PickType", pickTypeTag); // Add the tag to the main compound
         }
@@ -167,7 +182,7 @@ public class StoneFarmTileentity extends VillagerTileentity implements ITickable
             SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
         }
         if (compound.contains("PickaxeEnchantments")) {
-            pickaxeEnchantments = SyncableTileentity.loadEnchantments(compound, provider, this);
+            pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)

@@ -33,7 +33,7 @@ public class SyncableTileentity extends BlockEntity {
         return Optional.empty();
     }
 
-    public static Map<ResourceKey<Enchantment>, Boolean> loadEnchantments(CompoundTag compound, HolderLookup.Provider provider, VillagerTileentity farm) {
+    public static Map<ResourceKey<Enchantment>, Boolean> loadPickaxeEnchantments(CompoundTag compound, HolderLookup.Provider provider, VillagerTileentity farm) {
         ListTag enchantmentsList = compound.getList("PickaxeEnchantments", CompoundTag.TAG_COMPOUND);
         Map<ResourceKey<Enchantment>, Boolean> enchantments = farm.getPickaxeEnchantments();
         for (int i = 0; i < enchantmentsList.size(); i++) {
@@ -51,10 +51,22 @@ public class SyncableTileentity extends BlockEntity {
         return enchantments;
     }
 
-    private static boolean isValidPickaxeEnchantment(String string, VillagerTileentity farm) {
-        ResourceLocation enchantmentLocation = ResourceLocation.parse(string);
-        ResourceKey<Enchantment> enchantmentKey = ResourceKey.create(Registries.ENCHANTMENT, enchantmentLocation);
-        return farm.getPickaxeEnchantments().containsKey(enchantmentKey);
+    public static Map<ResourceKey<Enchantment>, Boolean> loadShovelEnchantments(CompoundTag compound, HolderLookup.Provider provider, VillagerTileentity farm) {
+        ListTag enchantmentsList = compound.getList("ShovelEnchantments", CompoundTag.TAG_COMPOUND);
+        Map<ResourceKey<Enchantment>, Boolean> enchantments = farm.getShovelEnchantments();
+        for (int i = 0; i < enchantmentsList.size(); i++) {
+            CompoundTag enchantmentTag = enchantmentsList.getCompound(i);
+
+            // Retrieve the enchantment key and its status (enabled or not)
+            String enchantmentId = enchantmentTag.getString("id");
+            boolean enabled = enchantmentTag.getBoolean("enabled");
+
+            // Convert enchantment ID to a ResourceKey
+            ResourceLocation enchantmentLocation = ResourceLocation.parse(enchantmentId);
+            ResourceKey<Enchantment> enchantmentKey = ResourceKey.create(Registries.ENCHANTMENT, enchantmentLocation);
+            ShovelEnchantments.toggleShovelEnchantment(enchantments, enchantmentKey, true);
+        }
+        return enchantments;
     }
 
     // Utility method to validate and parse the pick type

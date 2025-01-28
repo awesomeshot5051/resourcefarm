@@ -8,6 +8,7 @@ import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -135,7 +136,7 @@ public class GrassFarmTileentity extends VillagerTileentity implements ITickable
         // Save the shovelType as an NBT tag
         if (shovelType != null) {
             CompoundTag shovelTypeTag = new CompoundTag();
-            shovelTypeTag.putString("id", shovelType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
+            shovelTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString()); // Save the item ID
             shovelTypeTag.putInt("count", shovelType.getCount()); // Save the count
             compound.put("shovelType", shovelTypeTag); // Add the tag to the main compound
         }
