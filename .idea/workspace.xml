@@ -7,12 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <change afterPath="$PROJECT_DIR$/secrets/secrets.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-    </list>
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +120,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Gradle.Build resourceFarm.executor": "Run",
     "Gradle.D:/MCreatorWorkspaces/resourceFarm [clean].executor": "Run",
@@ -618,7 +614,39 @@
       <option name="project" value="LOCAL" />
       <updated>1738035184112</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
+      <option name="closed" value="true" />
+      <created>1738035866904</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1738035866904</updated>
+    </task>
+    <task id="LOCAL-00034" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
+      <option name="closed" value="true" />
+      <created>1738035979344</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1738035979344</updated>
+    </task>
+    <task id="LOCAL-00035" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
+      <option name="closed" value="true" />
+      <created>1738036036850</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1738036036850</updated>
+    </task>
+    <task id="LOCAL-00036" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
+      <option name="closed" value="true" />
+      <created>1738036104607</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1738036104607</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
