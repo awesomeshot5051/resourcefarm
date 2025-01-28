@@ -1,6 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
-import com.awesomeshot5051.resourceFarm.data.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import net.minecraft.core.*;

@@ -1,75 +1,42 @@
 package com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common;
 
-import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.StoneFarmTileentity;
-import com.awesomeshot5051.resourceFarm.data.ModDataComponents;
-import com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData;
-import com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData;
-import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
-import com.awesomeshot5051.resourceFarm.gui.OutputContainer;
-import com.awesomeshot5051.resourceFarm.items.render.overworld.rock.common.StoneFarmItemRenderer;
-import de.maxhenkel.corelib.block.IItemBlock;
-import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
-import de.maxhenkel.corelib.client.CustomRendererBlockItem;
-import de.maxhenkel.corelib.client.ItemRenderer;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
-import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.ItemContainerContents;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
+import com.awesomeshot5051.corelib.block.*;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.client.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.gui.*;
+import com.awesomeshot5051.resourceFarm.items.render.overworld.rock.common.*;
+import net.minecraft.*;
+import net.minecraft.client.gui.screens.*;
+import net.minecraft.core.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.*;
+import net.neoforged.api.distmarker.*;
 
-import static net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag;
+import javax.annotation.*;
+import java.util.*;
+import java.util.stream.*;
+
+import static net.minecraft.world.item.BlockItem.*;
 
 public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
-    public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
-
     public StoneFarmBlock() {
-        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion());
-    }
-
-    private void playSound(@NotNull Level level, BlockState state, SoundEvent sound, StoneFarmTileentity farm) {
-        Vec3i vec3i = state.getValue(FACING).getNormal();
-        double d0 = farm.getBlockPos().getX() + 0.5D + (double) vec3i.getX() / 2.0D;
-        double d1 = farm.getBlockPos().getY() + 0.5D + (double) vec3i.getY() / 2.0D;
-        double d2 = farm.getBlockPos().getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
-        level.playSound(null, d0, d1, d2, sound, SoundSource.BLOCKS, 5F, 10 * 0.1F + 0.9F);
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion()); // Adjusted for stone farm
     }
 
     @Override
@@ -78,24 +45,9 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new StoneFarmItemRenderer();
+                return new StoneFarmItemRenderer(); // Custom stone farm renderer
             }
         };
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
-        if (Screen.hasShiftDown()) {
-            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
-            ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
-            components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
-                    .withStyle(ChatFormatting.RED));
-        } else {
-            components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
-        }
-        super.appendHoverText(stack, context, components, tooltipFlag);
-        StoneFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new StoneFarmTileentity(BlockPos.ZERO, ModBlocks.STONE_FARM.get().defaultBlockState()));
-        StoneFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new StoneFarmTileentity(BlockPos.ZERO, ModBlocks.STONE_FARM.get().defaultBlockState()));
     }
 
     @Override
@@ -106,7 +58,6 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
-                farmTileEntity.soundOn = true;
                 farmTileEntity.setChanged();
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
@@ -115,36 +66,18 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof StoneFarmTileentity farm)) {
-            return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, components, tooltipFlag);
+        StoneFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new StoneFarmTileentity(BlockPos.ZERO, ModBlocks.STONE_FARM.get().defaultBlockState()));
+        if (Screen.hasShiftDown()) {
+            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
+            ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
+            components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
+                    .withStyle(ChatFormatting.RED));
+
+        } else {
+            components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
-
-        player.openMenu(new MenuProvider() {
-            @Override
-            public Component getDisplayName() {
-                return Component.translatable(state.getBlock().getDescriptionId());
-            }
-
-            @Override
-            public @NotNull AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.STONE_FARM::get);
-            }
-        });
-        return ItemInteractionResult.SUCCESS;
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new StoneFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
-    }
-
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> p_155268_) {
-        return new SimpleBlockEntityTicker<>();
     }
 
     private String convertToReadableName(String block) {
@@ -154,5 +87,52 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+        BlockEntity tileEntity = worldIn.getBlockEntity(pos);
+        if (!(tileEntity instanceof StoneFarmTileentity farm)) { // Check for StoneFarmTileentity
+            return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
+        }
+
+        // Directly open the container without villager checks
+        player.openMenu(new MenuProvider() {
+            @Override
+            public Component getDisplayName() {
+                return Component.translatable(state.getBlock().getDescriptionId());
+            }
+
+            @Nullable
+            @Override
+            public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.STONE_FARM::get); // Adjust for stone farm
+            }
+        });
+        return ItemInteractionResult.SUCCESS;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> type) {
+        return new SimpleBlockEntityTicker<>(); // Keeps default behavior
+    }
+
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+        return new StoneFarmTileentity(blockPos, blockState); // Spawn StoneFarmTileentity
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public float getShadeBrightness(BlockState state, BlockGetter worldIn, BlockPos pos) {
+        return 1F;
     }
 }

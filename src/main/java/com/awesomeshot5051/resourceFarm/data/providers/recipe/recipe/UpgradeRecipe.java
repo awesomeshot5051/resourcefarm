@@ -1,7 +1,7 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
 import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.data.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
@@ -163,7 +163,7 @@ public class UpgradeRecipe extends ShapedRecipe {
             return new ItemStack(Items.AIR);
         }
 
-        result2.set(pickTypeComponent, pickContents);
+        result2.set(ModDataComponents.PICK_TYPE, pickContents);
         super.assemble(craftingInput, registries);
         return result2;
     }

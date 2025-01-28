@@ -1,21 +1,21 @@
 package com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate;
 
 
+import com.awesomeshot5051.corelib.block.*;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.client.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.*;
-import com.awesomeshot5051.resourceFarm.data.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.deepslate.*;
 import com.awesomeshot5051.resourceFarm.sounds.*;
-import de.maxhenkel.corelib.block.*;
-import de.maxhenkel.corelib.blockentity.*;
-import de.maxhenkel.corelib.client.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.sounds.*;
@@ -83,7 +83,6 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
 
         super.appendHoverText(stack, context, components, tooltipFlag);
         DeepslateCoalOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new DeepslateCoalOreFarmTileentity(BlockPos.ZERO, ModBlocks.DCOAL_FARM.get().defaultBlockState()));
-        DeepslateCoalOreFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new DeepslateCoalOreFarmTileentity(BlockPos.ZERO, ModBlocks.DCOAL_FARM.get().defaultBlockState()));
         // Removed villager-related tooltip information
 
     }
@@ -112,7 +111,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
                 // Ensure the tile entity is marked as changed and synced
                 farmTileEntity.setChanged();
                 CompoundTag compoundTag = new CompoundTag();
-                compoundTag.putString("id", farmTileEntity.pickType.getItem().builtInRegistryHolder().key().location().toString()); // Save the item ID
+                compoundTag.putString("id", BuiltInRegistries.ITEM.getKey(farmTileEntity.pickType.getItem()).toString()); // Save the item ID
                 compoundTag.putInt("count", farmTileEntity.pickType.getCount()); // Save the count
                 setBlockEntityData(stack, blockEntity.getType(), compoundTag);
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));

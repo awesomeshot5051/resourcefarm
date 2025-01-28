@@ -1,12 +1,12 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common;
 
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
-import de.maxhenkel.corelib.blockentity.*;
-import de.maxhenkel.corelib.inventory.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
@@ -142,6 +142,17 @@ public class StoneFarmTileentity extends VillagerTileentity implements ITickable
             pickTypeTag.putInt("count", pickType.getCount()); // Save the count
             compound.put("PickType", pickTypeTag); // Add the tag to the main compound
         }
+        if (!pickaxeEnchantments.isEmpty()) {
+            ListTag enchantmentsList = new ListTag(); // Create a ListTag to store enchantments
+            for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : pickaxeEnchantments.entrySet()) {
+                if (entry.getValue()) { // Only include enchantments set to 'true'
+                    CompoundTag enchantmentTag = new CompoundTag();
+                    enchantmentTag.putString("id", entry.getKey().location().toString()); // Save the enchantment ID
+                    enchantmentsList.add(enchantmentTag); // Add the enchantment to the list
+                }
+            }
+            compound.put("PickaxeEnchantments", enchantmentsList); // Save the list to the compound
+        }
         CompoundTag soundOnTag = new CompoundTag();
         soundOnTag.putBoolean("soundOn", soundOn);
         compound.put("soundON", soundOnTag);
@@ -154,7 +165,9 @@ public class StoneFarmTileentity extends VillagerTileentity implements ITickable
         ContainerHelper.loadAllItems(compound, inventory, provider);
         if (compound.contains("PickType")) {
             SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
-
+        }
+        if (compound.contains("PickaxeEnchantments")) {
+            pickaxeEnchantments = SyncableTileentity.loadEnchantments(compound, provider, this);
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)

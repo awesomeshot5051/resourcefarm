@@ -16,7 +16,7 @@ import java.lang.ref.*;
 import java.util.*;
 import java.util.function.*;
 
-@SuppressWarnings("ALL")
+
 public class VillagerBlockEntityData {
 
     public static final StreamCodec<RegistryFriendlyByteBuf, VillagerBlockEntityData> STREAM_CODEC = new StreamCodec<>() {

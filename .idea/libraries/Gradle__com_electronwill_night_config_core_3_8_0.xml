@@ -4,7 +4,11 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.electronwill.night-config/core/3.8.0/2498dd2b3120dd49e963e2feab8fa5d0c5f80e0a/core-3.8.0.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.electronwill.night-config/core/3.8.0/5c23046a6c3067c12ad5232ff039625c93caf795/core-3.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.electronwill.night-config/core/3.8.0/6384a65c20b63c95a093cf99addf2620af4efb41/core-3.8.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -1,13 +1,3 @@
-/recipe give Dev minecraft:blast_furnace
-/ride Dev mount Dev
-/summon minecraft:ender_dragon
-/tick freeze
-/ride 3a012823-2f7e-449f-84e1-8c33ea8d1250 mount Dev
-/ride Dev mount 3a012823-2f7e-449f-84e1-8c33ea8d1250
-/tick unfreeze
-/ride Dev mount 3a012823-2f7e-449f-84e1-8c33ea8d1250
-/tick freeze
-/tick unfreeze
 /kill @e[type=minecraft:ender_dragon]
 /summon ender_dragon ~ ~ ~ {CustomName:'[{"text":"Jimmy"}]'}
 /ride 81897b51-af1f-4fc0-b901-578347468b36 mount @e[type=minecraft:ender_dragon]
@@ -48,3 +38,13 @@
 /time set noon
 /gamerule doDaylightCycle false
 /give Dev resource_farms:chisel
+/time set day
+/time set nooon
+/time set noon
+/gamerule doDaylightCycle false
+/gamerule doMobLoot
+/gamerule doMobLoot false
+/gamerule doMobSpawning false
+/gamerule doImmediateRespawn false
+/gamerule doWeatherCycle false
+/difficulty peaceful

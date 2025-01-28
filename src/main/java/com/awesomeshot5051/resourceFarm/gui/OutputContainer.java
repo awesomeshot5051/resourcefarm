@@ -1,6 +1,6 @@
 package com.awesomeshot5051.resourceFarm.gui;
 
-import de.maxhenkel.corelib.inventory.LockedSlot;
+import com.awesomeshot5051.corelib.inventory.LockedSlot;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;

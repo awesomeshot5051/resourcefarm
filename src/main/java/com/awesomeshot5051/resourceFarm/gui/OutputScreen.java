@@ -1,7 +1,7 @@
 package com.awesomeshot5051.resourceFarm.gui;
 
 import com.awesomeshot5051.resourceFarm.Main;
-import de.maxhenkel.corelib.inventory.ScreenBase;
+import com.awesomeshot5051.corelib.inventory.ScreenBase;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;

@@ -4,7 +4,11 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.electronwill.night-config/toml/3.8.0/861dbcf2757dd6701c98b3949198549ccb5f62ff/toml-3.8.0.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.electronwill.night-config/toml/3.8.0/5e17de30a7211e9d15c34af09e44eafc7a231548/toml-3.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.electronwill.night-config/toml/3.8.0/b05e667e90a2611f59aa8c463e47c42b24fdbf04/toml-3.8.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

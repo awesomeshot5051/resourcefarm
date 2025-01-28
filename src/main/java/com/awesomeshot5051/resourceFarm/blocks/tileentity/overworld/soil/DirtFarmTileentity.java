@@ -8,8 +8,8 @@ import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
 import com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments;
 import com.awesomeshot5051.resourceFarm.enums.ShovelType;
-import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
-import de.maxhenkel.corelib.inventory.ItemListInventory;
+import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
+import com.awesomeshot5051.corelib.inventory.ItemListInventory;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -36,6 +36,7 @@ import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments
 
 public class DirtFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
+    private final boolean soundOn = true;
     public ItemStack shovelType;
     public Map<ResourceKey<Enchantment>, Boolean> shovelEnchantments = initializeShovelEnchantments();
     public ItemStack pickaxeType;
@@ -43,7 +44,6 @@ public class DirtFarmTileentity extends VillagerTileentity implements ITickableB
     protected long timer;
     protected ItemStackHandler itemHandler;
     protected OutputItemHandler outputItemHandler;
-    private final boolean soundOn = true;
 
     public DirtFarmTileentity(BlockPos pos, BlockState state) {
         super(ModTileEntities.DIRT_FARM.get(), ModBlocks.DIRT_FARM.get().defaultBlockState(), pos, state);

@@ -1,6 +1,6 @@
 package com.awesomeshot5051.resourceFarm;
 
-import de.maxhenkel.corelib.config.*;
+import com.awesomeshot5051.corelib.config.*;
 import net.neoforged.neoforge.common.*;
 
 @SuppressWarnings("ALL")

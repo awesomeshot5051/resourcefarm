@@ -33,7 +33,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../build/moddev/artifacts/neoforge-21.1.93-merged.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../build/moddev/artifacts/neoforge-21.1.114-merged.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -41,14 +41,13 @@
     </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Gradle: mezz.jei:jei-1.21.1-neoforge-api:19.19.0.220" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: mezz.jei:jei-1.21.1-common-api:19.19.0.220" level="project" />
-    <orderEntry type="library" name="Gradle: de.maxhenkel.corelib:corelib:1.21.1-2.1.4" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: de.maxhenkel.corelib:corelib:javadoc:1.21.1-2.1.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.awesomeshot5051.corelib:corelib:1.21-2.1.5" level="project" />
     <orderEntry type="library" name="Gradle: mcjty.theoneprobe:theoneprobe:1.21_neo-12.0.0-1" level="project" />
     <orderEntry type="library" name="Gradle: curse.maven:jade-324717:5706149" level="project" />
     <orderEntry type="library" name="Gradle: net.neoforged:neoform:zip:1.21.1-20240808.144430" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: io.github.llamalad7:mixinextras-neoforge:0.4.1" level="project" />
-    <orderEntry type="library" name="Gradle: net.neoforged.fancymodloader:loader:4.0.34" level="project" />
-    <orderEntry type="library" name="Gradle: net.neoforged.fancymodloader:earlydisplay:4.0.34" level="project" />
+    <orderEntry type="library" name="Gradle: net.neoforged.fancymodloader:loader:4.0.35" level="project" />
+    <orderEntry type="library" name="Gradle: net.neoforged.fancymodloader:earlydisplay:4.0.35" level="project" />
     <orderEntry type="library" name="Gradle: cpw.mods:securejarhandler:3.0.8" level="project" />
     <orderEntry type="library" name="Gradle: net.neoforged:accesstransformers:10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: cpw.mods:modlauncher:11.0.4" level="project" />
@@ -132,7 +131,7 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../build/moddev/artifacts/neoforge-21.1.93-client-extra-aka-minecraft-resources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../build/moddev/artifacts/neoforge-21.1.114-client-extra-aka-minecraft-resources.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

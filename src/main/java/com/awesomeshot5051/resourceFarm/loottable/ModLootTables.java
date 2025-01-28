@@ -1,11 +1,10 @@
 package com.awesomeshot5051.resourceFarm.loottable;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import com.awesomeshot5051.resourceFarm.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.world.level.storage.loot.functions.*;
+import net.neoforged.bus.api.*;
+import net.neoforged.neoforge.registries.*;
 
 public class ModLootTables {
 
@@ -15,4 +14,6 @@ public class ModLootTables {
     public static void init(IEventBus eventBus) {
         LOOT_FUNCTION_TYPE_REGISTER.register(eventBus);
     }
+
 }
+

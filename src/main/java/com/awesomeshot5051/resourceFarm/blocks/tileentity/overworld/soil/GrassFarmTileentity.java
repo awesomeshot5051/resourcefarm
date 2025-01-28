@@ -1,12 +1,12 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil;
 
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
-import de.maxhenkel.corelib.blockentity.*;
-import de.maxhenkel.corelib.inventory.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;

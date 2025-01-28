@@ -30,6 +30,7 @@ public class ModCreativeTabs {
                 output.accept(new ItemStack(ModBlocks.GRAVEL_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.SAND_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.STONE_FARM.get()));
+                output.accept(new ItemStack(ModBlocks.IRON_FARM.get()));
 
 /// Uncommon Regular
                 output.accept(new ItemStack(ModBlocks.CONCRETE_POWDER_FARM.get()));

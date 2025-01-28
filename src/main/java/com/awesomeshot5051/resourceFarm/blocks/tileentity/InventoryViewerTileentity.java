@@ -4,8 +4,8 @@ package com.awesomeshot5051.resourceFarm.blocks.tileentity;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.entity.EasyVillagerEntity;
 import com.awesomeshot5051.resourceFarm.gui.ModItemStackHandler;
-import de.maxhenkel.corelib.blockentity.IServerTickableBlockEntity;
-import de.maxhenkel.corelib.inventory.ItemListInventory;
+import com.awesomeshot5051.corelib.blockentity.IServerTickableBlockEntity;
+import com.awesomeshot5051.corelib.inventory.ItemListInventory;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
@@ -41,4 +41,4 @@ public class InventoryViewerTileentity extends VillagerTileentity implements ISe
         }
         return new ModItemStackHandler(ve.getInventory().getItems(), this);
     }
-    }
+}

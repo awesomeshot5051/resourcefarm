@@ -1,11 +1,15 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity;
 
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.protocol.*;
 import net.minecraft.network.protocol.game.*;
+import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.chunk.*;
@@ -27,6 +31,30 @@ public class SyncableTileentity extends BlockEntity {
             }
         }
         return Optional.empty();
+    }
+
+    public static Map<ResourceKey<Enchantment>, Boolean> loadEnchantments(CompoundTag compound, HolderLookup.Provider provider, VillagerTileentity farm) {
+        ListTag enchantmentsList = compound.getList("PickaxeEnchantments", CompoundTag.TAG_COMPOUND);
+        Map<ResourceKey<Enchantment>, Boolean> enchantments = farm.getPickaxeEnchantments();
+        for (int i = 0; i < enchantmentsList.size(); i++) {
+            CompoundTag enchantmentTag = enchantmentsList.getCompound(i);
+
+            // Retrieve the enchantment key and its status (enabled or not)
+            String enchantmentId = enchantmentTag.getString("id");
+            boolean enabled = enchantmentTag.getBoolean("enabled");
+
+            // Convert enchantment ID to a ResourceKey
+            ResourceLocation enchantmentLocation = ResourceLocation.parse(enchantmentId);
+            ResourceKey<Enchantment> enchantmentKey = ResourceKey.create(Registries.ENCHANTMENT, enchantmentLocation);
+            PickaxeEnchantments.togglePickaxeEnchantment(enchantments, enchantmentKey, true);
+        }
+        return enchantments;
+    }
+
+    private static boolean isValidPickaxeEnchantment(String string, VillagerTileentity farm) {
+        ResourceLocation enchantmentLocation = ResourceLocation.parse(string);
+        ResourceKey<Enchantment> enchantmentKey = ResourceKey.create(Registries.ENCHANTMENT, enchantmentLocation);
+        return farm.getPickaxeEnchantments().containsKey(enchantmentKey);
     }
 
     // Utility method to validate and parse the pick type

@@ -5,6 +5,8 @@
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.oshi/oshi-core/6.4.10/b1d8ab82d11d92fd639b56d639f8f46f739dd5fa/oshi-core-6.4.10.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.oshi/oshi-core/6.4.10/4ed9e291040b618d12880f00fe77f13777dfa7cb/oshi-core-6.4.10-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

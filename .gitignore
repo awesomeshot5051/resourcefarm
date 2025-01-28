@@ -1,0 +1,6 @@
+/secrets/secrets.properties
+/.gradle/
+/.idea/
+/build/
+/gradle/
+/run/

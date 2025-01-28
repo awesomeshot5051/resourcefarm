@@ -2,16 +2,16 @@ package com.awesomeshot5051.resourceFarm;
 
 //import com.awesomeshot5051.resourceFarm.advancements.resourceFarmTriggerInstance;
 
+import com.awesomeshot5051.corelib.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.data.*;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.events.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.awesomeshot5051.resourceFarm.loottable.*;
 import com.awesomeshot5051.resourceFarm.sounds.*;
-import de.maxhenkel.corelib.*;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.bus.api.*;
 import net.neoforged.fml.common.*;
@@ -19,7 +19,6 @@ import net.neoforged.fml.config.*;
 import net.neoforged.fml.event.lifecycle.*;
 import net.neoforged.fml.loading.*;
 import net.neoforged.neoforge.common.*;
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.*;
 
 @Mod(Main.MODID)

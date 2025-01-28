@@ -1,19 +1,16 @@
 package com.awesomeshot5051.resourceFarm.blocks;
 
-import de.maxhenkel.corelib.block.VoxelUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import com.awesomeshot5051.corelib.block.*;
+import net.minecraft.core.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.phys.shapes.*;
 
-public abstract class BlockBase extends HorizontalRotatableBlock {
+public class BlockBase extends HorizontalRotatableBlock {
 
     private static final VoxelShape SHAPE = VoxelUtils.combine(
             Block.box(0D, 0D, 0D, 16D, 1D, 16D),

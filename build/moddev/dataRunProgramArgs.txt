@@ -7,11 +7,11 @@ forgedatauserdev
 --assetIndex
 17
 --assetsDir
-C:\\Users\\Owner\\.gradle\\caches\\neoformruntime\\assets
+C:\\Users\\Traee\\.gradle\\caches\\neoformruntime\\assets
 --gameDir
 .
 --fml.neoForgeVersion
-21.1.97
+21.1.114
 --fml.fmlVersion
 4.0.35
 --fml.mcVersion

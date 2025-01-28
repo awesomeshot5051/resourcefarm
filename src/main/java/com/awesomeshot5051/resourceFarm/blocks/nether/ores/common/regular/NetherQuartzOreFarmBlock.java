@@ -1,16 +1,14 @@
 package com.awesomeshot5051.resourceFarm.blocks.nether.ores.common.regular;
 
+import com.awesomeshot5051.corelib.block.*;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.client.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.data.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.nether.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.sounds.*;
-import de.maxhenkel.corelib.block.*;
-import de.maxhenkel.corelib.blockentity.*;
-import de.maxhenkel.corelib.client.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
@@ -78,7 +76,6 @@ public class NetherQuartzOreFarmBlock extends BlockBase implements EntityBlock, 
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
         NetherQuartzOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new NetherQuartzOreFarmTileentity(BlockPos.ZERO, ModBlocks.NETHER_QUARTZ_FARM.get().defaultBlockState()));
-        NetherQuartzOreFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new NetherQuartzOreFarmTileentity(BlockPos.ZERO, ModBlocks.NETHER_QUARTZ_FARM.get().defaultBlockState()));
     }
 
     @Override

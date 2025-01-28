@@ -1,6 +1,6 @@
 package com.awesomeshot5051.resourceFarm.gui;
 
-import de.maxhenkel.corelib.inventory.ContainerBase;
+import com.awesomeshot5051.corelib.inventory.ContainerBase;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;

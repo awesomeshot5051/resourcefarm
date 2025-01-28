@@ -1,2582 +1,1111 @@
 {
   "minecraft:recipes/decorations/crafting_table": {
     "criteria": {
-      "unlock_right_away": "2024-12-10 08:24:41 -0800"
+      "unlock_right_away": "2025-01-26 20:13:57 -0500"
     },
     "done": true
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "minecraft:forest": "2024-12-10 08:24:42 -0800",
-      "minecraft:river": "2024-12-10 09:01:28 -0800",
-      "minecraft:meadow": "2024-12-21 08:01:56 -0800",
-      "minecraft:plains": "2024-12-10 08:26:27 -0800"
+      "minecraft:forest": "2025-01-26 20:13:58 -0500"
     },
     "done": false
   },
-  "minecraft:recipes/misc/iron_nugget_from_smelting": {
+  "resource_farms:recipes/misc/coal_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_iron_pickaxe": "2024-12-10 08:24:48 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
-  "minecraft:story/iron_tools": {
+  "resource_farms:recipes/misc/ssand_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "iron_pickaxe": "2024-12-10 08:24:48 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
-  "minecraft:recipes/misc/iron_nugget_from_blasting": {
+  "resource_farms:recipes/misc/sand_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_iron_pickaxe": "2024-12-10 08:24:48 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
-  "minecraft:recipes/decorations/lime_stained_glass_pane_from_glass_pane": {
+  "resource_farms:recipes/misc/ssoil_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
-  "minecraft:recipes/decorations/purple_stained_glass_pane_from_glass_pane": {
+  "resource_farms:recipes/misc/gold_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
-  "minecraft:recipes/decorations/blue_stained_glass_pane_from_glass_pane": {
+  "resource_farms:recipes/misc/granite_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/black_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/light_gray_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/yellow_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/brown_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/red_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/magenta_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/cyan_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/orange_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/light_blue_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/green_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/pink_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/white_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/gray_stained_glass_pane_from_glass_pane": {
-    "criteria": {
-      "has_glass_pane": "2024-12-10 08:25:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/copper_ingot_from_blasting_deepslate_copper_ore": {
-    "criteria": {
-      "has_deepslate_copper_ore": "2024-12-10 08:26:21 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcopper_farm": {
-    "criteria": {
-      "has_deepcopper": "2024-12-10 08:26:21 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/copper_ingot_from_smelting_deepslate_copper_ore": {
-    "criteria": {
-      "has_deepslate_copper_ore": "2024-12-10 08:26:21 -0800"
-    },
-    "done": true
-  },
-  "minecraft:story/root": {
-    "criteria": {
-      "crafting_table": "2024-12-10 08:26:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/copper_ingot_from_smelting_copper_ore": {
-    "criteria": {
-      "has_copper_ore": "2024-12-10 08:31:58 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/copper_farm": {
-    "criteria": {
-      "has_copper": "2024-12-10 08:31:58 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/copper_ingot_from_blasting_copper_ore": {
-    "criteria": {
-      "has_copper_ore": "2024-12-10 08:31:58 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/coal_farm": {
-    "criteria": {
-      "has_coal": "2024-12-10 08:56:46 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/coal_from_blasting_coal_ore": {
-    "criteria": {
-      "has_coal_ore": "2024-12-10 08:56:46 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/coal_from_smelting_coal_ore": {
-    "criteria": {
-      "has_coal_ore": "2024-12-10 08:56:46 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/blast_furnace": {
-    "criteria": {
-      "has_the_recipe": "2024-12-10 08:57:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/end_stone_brick_slab_from_end_stone_stonecutting": {
-    "criteria": {
-      "has_end_stone": "2024-12-10 08:58:40 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/end_stone_bricks": {
-    "criteria": {
-      "has_end_stone": "2024-12-10 08:58:40 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/end_stone_brick_wall_from_end_stone_stonecutting": {
-    "criteria": {
-      "has_end_stone": "2024-12-10 08:58:40 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/end_stone_bricks_from_end_stone_stonecutting": {
-    "criteria": {
-      "has_end_stone": "2024-12-10 08:58:40 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/end_stone_brick_stairs_from_end_stone_stonecutting": {
-    "criteria": {
-      "has_end_stone": "2024-12-10 08:58:40 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/torch": {
-    "criteria": {
-      "has_stone_pickaxe": "2024-12-10 10:50:00 -0800"
-    },
-    "done": true
-  },
-  "minecraft:story/upgrade_tools": {
-    "criteria": {
-      "stone_pickaxe": "2024-12-10 10:50:00 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diron_farm": {
-    "criteria": {
-      "has_deepslate_iron": "2024-12-11 08:01:48 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/iron_ingot_from_blasting_deepslate_iron_ore": {
-    "criteria": {
-      "has_deepslate_iron_ore": "2024-12-11 08:01:48 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/iron_ingot_from_smelting_deepslate_iron_ore": {
-    "criteria": {
-      "has_deepslate_iron_ore": "2024-12-11 08:01:48 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/gold_nugget_from_smelting": {
-    "criteria": {
-      "has_golden_pickaxe": "2024-12-11 08:02:06 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/gold_nugget_from_blasting": {
-    "criteria": {
-      "has_golden_pickaxe": "2024-12-11 08:02:06 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/chest": {
-    "criteria": {
-      "has_lots_of_items": "2024-12-11 08:24:30 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/gold_ingot_from_blasting_deepslate_gold_ore": {
-    "criteria": {
-      "has_deepslate_gold_ore": "2024-12-11 08:24:43 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dgold_farm": {
-    "criteria": {
-      "has_deepslate_gold": "2024-12-11 08:24:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/gold_ingot_from_smelting_deepslate_gold_ore": {
-    "criteria": {
-      "has_deepslate_gold_ore": "2024-12-11 08:24:43 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dredstone_farm": {
-    "criteria": {
-      "has_deepslate_redstone": "2024-12-11 08:24:44 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/redstone_from_smelting_deepslate_redstone_ore": {
-    "criteria": {
-      "has_deepslate_redstone_ore": "2024-12-11 08:24:44 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/redstone_from_blasting_deepslate_redstone_ore": {
-    "criteria": {
-      "has_deepslate_redstone_ore": "2024-12-11 08:24:44 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/lapis_lazuli_from_smelting_deepslate_lapis_ore": {
-    "criteria": {
-      "has_deepslate_lapis_ore": "2024-12-11 08:24:47 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dlapis_farm": {
-    "criteria": {
-      "has_deepslate_lapis": "2024-12-11 08:24:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/lapis_lazuli_from_blasting_deepslate_lapis_ore": {
-    "criteria": {
-      "has_deepslate_lapis_ore": "2024-12-11 08:24:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/lime_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/light_gray_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/pink_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/orange_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/red_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/magenta_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/brown_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/light_blue_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/glass": {
-    "criteria": {
-      "has_smelts_to_glass": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/green_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sand_farm": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/blue_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/yellow_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/sandstone": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/white_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/gray_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/black_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/purple_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/cyan_concrete_powder": {
-    "criteria": {
-      "has_sand": "2024-12-12 18:36:33 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/coal_from_smelting_deepslate_coal_ore": {
-    "criteria": {
-      "has_deepslate_coal_ore": "2024-12-12 19:38:13 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/coal_from_blasting_deepslate_coal_ore": {
-    "criteria": {
-      "has_deepslate_coal_ore": "2024-12-12 19:38:13 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcoal_farm": {
-    "criteria": {
-      "has_coal": "2024-12-12 19:38:13 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/iron_farm": {
-    "criteria": {
-      "has_iron": "2024-12-13 16:16:07 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/iron_ingot_from_smelting_iron_ore": {
-    "criteria": {
-      "has_iron_ore": "2024-12-13 16:16:07 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/iron_ingot_from_blasting_iron_ore": {
-    "criteria": {
-      "has_iron_ore": "2024-12-13 16:16:07 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cpowder_farm": {
-    "criteria": {
-      "has_sand": "2024-12-15 16:21:55 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/concrete_farm": {
-    "criteria": {
-      "has_cpowder_farm": "2024-12-16 19:27:27 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/brewing/cauldron": {
-    "criteria": {
-      "has_water_bucket": "2024-12-17 11:35:29 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/netherite_farm": {
-    "criteria": {
-      "has_netherite_block": "2024-12-20 15:31:28 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/netherite_ingot_from_netherite_block": {
-    "criteria": {
-      "has_netherite_block": "2024-12-20 15:31:28 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/netherite_block": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/netherite_boots_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/netherite_shovel_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/netherite_chestplate_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/netherite_sword_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/netherite_leggings_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/netherite_axe_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/netherite_hoe_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/netherite_pickaxe_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/lodestone": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/netherite_helmet_smithing": {
-    "criteria": {
-      "has_netherite_ingot": "2024-12-20 15:31:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/andesite_stairs_from_andesite_stonecutting": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/andesite_stairs": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/polished_andesite_from_andesite_stonecutting": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/polished_andesite": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/andesite_wall_from_andesite_stonecutting": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/polished_andesite_slab_from_andesite_stonecutting": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/andesite_wall": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/andesite_slab": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/polished_andesite_stairs_from_andesite_stonecutting": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/andesite_slab_from_andesite_stonecutting": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/andesite_farm": {
-    "criteria": {
-      "has_andesite": "2024-12-20 15:43:29 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/smooth_basalt": {
-    "criteria": {
-      "has_basalt": "2024-12-20 15:48:57 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/polished_basalt_from_basalt_stonecutting": {
-    "criteria": {
-      "has_basalt": "2024-12-20 15:48:57 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/basalt_farm": {
-    "criteria": {
-      "has_basalt": "2024-12-20 15:48:57 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/polished_basalt": {
-    "criteria": {
-      "has_basalt": "2024-12-20 15:48:57 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/mangrove_boat": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/acacia_boat": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/cherry_boat": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/bamboo_raft": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/spruce_boat": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/birch_boat": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/oak_boat": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/jungle_boat": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/dark_oak_boat": {
-    "criteria": {
-      "in_water": "2024-12-21 07:57:43 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dirt_farm": {
-    "criteria": {
-      "has_dirt": "2024-12-21 07:58:54 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/charcoal": {
-    "criteria": {
-      "has_log": "2024-12-21 07:59:59 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/oak_planks": {
-    "criteria": {
-      "has_logs": "2024-12-21 07:59:59 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/oak_wood": {
-    "criteria": {
-      "has_log": "2024-12-21 07:59:59 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/oak_slab": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/oak_sign": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/oak_trapdoor": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/oak_fence_gate": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/oak_pressure_plate": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/oak_door": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/stick": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/oak_stairs": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/oak_fence": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/barrel": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/oak_button": {
-    "criteria": {
-      "has_planks": "2024-12-21 08:00:25 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/ladder": {
-    "criteria": {
-      "has_stick": "2024-12-21 08:00:35 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/campfire": {
-    "criteria": {
-      "has_stick": "2024-12-21 08:00:35 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/wooden_hoe": {
-    "criteria": {
-      "has_stick": "2024-12-21 08:00:35 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/wooden_pickaxe": {
-    "criteria": {
-      "has_stick": "2024-12-21 08:00:35 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/wooden_axe": {
-    "criteria": {
-      "has_stick": "2024-12-21 08:00:35 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/wooden_shovel": {
-    "criteria": {
-      "has_stick": "2024-12-21 08:00:35 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/wooden_sword": {
-    "criteria": {
-      "has_stick": "2024-12-21 08:00:35 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_mutton_from_smoking": {
-    "criteria": {
-      "has_mutton": "2024-12-21 08:01:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_mutton": {
-    "criteria": {
-      "has_mutton": "2024-12-21 08:01:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/white_banner": {
-    "criteria": {
-      "has_white_wool": "2024-12-21 08:01:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/painting": {
-    "criteria": {
-      "has_wool": "2024-12-21 08:01:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_mutton_from_campfire_cooking": {
-    "criteria": {
-      "has_mutton": "2024-12-21 08:01:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:adventure/root": {
-    "criteria": {
-      "killed_something": "2024-12-21 08:01:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/white_bed": {
-    "criteria": {
-      "has_white_wool": "2024-12-21 08:01:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/white_carpet": {
-    "criteria": {
-      "has_white_wool": "2024-12-21 08:01:47 -0800"
-    },
-    "done": true
-  },
-  "minecraft:husbandry/balanced_diet": {
-    "criteria": {
-      "mutton": "2024-12-21 08:02:27 -0800",
-      "bread": "2024-12-21 08:16:44 -0800",
-      "cooked_chicken": "2024-12-21 08:11:01 -0800",
-      "salmon": "2024-12-21 08:04:25 -0800",
-      "cooked_salmon": "2024-12-21 08:11:14 -0800"
-    },
-    "done": false
-  },
-  "minecraft:husbandry/root": {
-    "criteria": {
-      "consumed_item": "2024-12-21 08:02:27 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_salmon_from_smoking": {
-    "criteria": {
-      "has_salmon": "2024-12-21 08:03:03 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_salmon_from_campfire_cooking": {
-    "criteria": {
-      "has_salmon": "2024-12-21 08:03:03 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_salmon": {
-    "criteria": {
-      "has_salmon": "2024-12-21 08:03:03 -0800"
-    },
-    "done": true
-  },
-  "minecraft:adventure/kill_all_mobs": {
-    "criteria": {
-      "minecraft:drowned": "2024-12-21 08:03:31 -0800"
-    },
-    "done": false
-  },
-  "minecraft:adventure/kill_a_mob": {
-    "criteria": {
-      "minecraft:drowned": "2024-12-21 08:03:31 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cake": {
-    "criteria": {
-      "has_egg": "2024-12-21 08:06:16 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_chicken_from_campfire_cooking": {
-    "criteria": {
-      "has_chicken": "2024-12-21 08:06:51 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_chicken": {
-    "criteria": {
-      "has_chicken": "2024-12-21 08:06:51 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/cooked_chicken_from_smoking": {
-    "criteria": {
-      "has_chicken": "2024-12-21 08:06:51 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/arrow": {
-    "criteria": {
-      "has_feather": "2024-12-21 08:06:51 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/lever": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/stone_sword": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/cobblestone_wall": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/stone_pickaxe": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/stone_axe": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:story/mine_stone": {
-    "criteria": {
-      "get_stone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/furnace": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/cobblestone_slab": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/cobblestone_slab_from_cobblestone_stonecutting": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cobblestone_farm": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/cobblestone_wall_from_cobblestone_stonecutting": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/cobblestone_stairs_from_cobblestone_stonecutting": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/cobblestone_stairs": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/stone_hoe": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/stone_shovel": {
-    "criteria": {
-      "has_cobblestone": "2024-12-21 08:09:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/smoker": {
-    "criteria": {
-      "has_furnace": "2024-12-21 08:10:30 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/red_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/light_blue_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/brewing/glass_bottle": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/green_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/brown_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/light_gray_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/blue_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/orange_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/cyan_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/pink_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/black_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/gray_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/purple_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/yellow_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/lime_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/glass_pane": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/magenta_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/white_stained_glass": {
-    "criteria": {
-      "has_glass": "2024-12-21 08:12:02 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/emerald_block": {
-    "criteria": {
-      "has_emerald": "2024-12-21 08:12:48 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/baked_potato_from_campfire_cooking": {
-    "criteria": {
-      "has_potato": "2024-12-21 08:13:17 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/baked_potato_from_smoking": {
-    "criteria": {
-      "has_potato": "2024-12-21 08:13:17 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/food/baked_potato": {
-    "criteria": {
-      "has_potato": "2024-12-21 08:13:17 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/iron_sword": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/iron_pickaxe": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/iron_leggings": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/shield": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/hopper": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/iron_bars": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/iron_boots": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/iron_chestplate": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/lantern": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/iron_nugget": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/bucket": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/iron_helmet": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/transportation/minecart": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/iron_hoe": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/iron_shovel": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:story/smelt_iron": {
-    "criteria": {
-      "iron": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/shears": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/iron_trapdoor": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/chain": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/iron_block": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/iron_axe": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/crossbow": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/smithing_table": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/iron_door": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/heavy_weighted_pressure_plate": {
-    "criteria": {
-      "has_iron_ingot": "2024-12-21 08:14:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/diamond_leggings": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/diamond_sword": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/jukebox": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/diamond_chestplate": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/diamond_helmet": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/diamond_pickaxe": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/diamond_block": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/diamond_hoe": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/diamond_shovel": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:story/mine_diamond": {
-    "criteria": {
-      "diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/diamond_axe": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/diamond_boots": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:17:18 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diamond_farm": {
-    "criteria": {
-      "has_diamond": "2024-12-21 08:19:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/diamond_from_smelting_diamond_ore": {
-    "criteria": {
-      "has_diamond_ore": "2024-12-21 08:19:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/diamond_from_blasting_diamond_ore": {
-    "criteria": {
-      "has_diamond_ore": "2024-12-21 08:19:37 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/diamond": {
-    "criteria": {
-      "has_diamond_block": "2024-12-21 08:20:57 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/diamond_from_smelting_deepslate_diamond_ore": {
-    "criteria": {
-      "has_deepslate_diamond_ore": "2024-12-21 08:21:55 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ddiamond_farm": {
-    "criteria": {
-      "has_deepslate_diamond": "2024-12-21 08:21:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/diamond_from_blasting_deepslate_diamond_ore": {
-    "criteria": {
-      "has_deepslate_diamond_ore": "2024-12-21 08:21:55 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/netherite_scrap_from_blasting": {
-    "criteria": {
-      "has_ancient_debris": "2024-12-21 08:22:39 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/netherite_scrap": {
-    "criteria": {
-      "has_ancient_debris": "2024-12-21 08:22:39 -0800"
-    },
-    "done": true
-  },
-  "minecraft:nether/obtain_ancient_debris": {
-    "criteria": {
-      "ancient_debris": "2024-12-21 08:22:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cpowder_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diamond_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/redstone_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diron_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/calcite_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ddiamond_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/demerald_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dlapis_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/granite_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/andesite_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ddiamond_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dredstone_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/calcite_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/snow_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/redstone_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcoal_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sand_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/tuff_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/stone_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/copper_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/copper_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/tuff_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dirt_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diamond_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dirt_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/rsand_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/snow_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diron_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/rsand_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcopper_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/calcite_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sand_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cpowder_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dlapis_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/granite_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/emerald_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dgold_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sstone_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/gold_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/granite_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/grass_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cpowder_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/coal_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/lapis_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/gravel_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/demerald_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/basalt_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/emerald_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/stone_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dredstone_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/tuff_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/coal_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/gold_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/iron_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ddiamond_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diamond_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ssand_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/iron_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sstone_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/andesite_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/calcite_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ssoil_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ssand_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cobblestone_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/copper_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/blackstone_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/basalt_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/granite_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sstone_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diron_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dgold_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcoal_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dirt_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcoal_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/tuff_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/netherite_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dredstone_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/gold_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ssoil_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dlapis_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/blackstone_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/nether_gold_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/blackstone_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/nether_gold_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ssoil_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/deepslate_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcopper_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ssand_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/copper_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/nether_quartz_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sstone_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/basalt_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/andesite_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sand_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dirt_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/netherite_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ssoil_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dgold_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/emerald_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcoal_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ssand_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/snow_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/lapis_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dredstone_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/coal_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/gravel_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/sand_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/redstone_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/demerald_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/emerald_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/blackstone_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/snow_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/deepslate_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/deepslate_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diamond_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/grass_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cobblestone_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/nether_quartz_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/gravel_farm_shovel_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cobblestone_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dgold_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/iron_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/ddiamond_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diron_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/nether_gold_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/lapis_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/nether_quartz_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dlapis_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/stone_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/deepslate_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/redstone_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/nether_gold_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/gravel_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/coal_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/netherite_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcopper_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/iron_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/dcopper_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cpowder_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/grass_farm_shovel_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/gold_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/demerald_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/rsand_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/andesite_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/lapis_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/nether_quartz_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/netherite_farm_pickaxe_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/cobblestone_farm_pickaxe_diamond_upgrade_recipe": {
-    "criteria": {
-      "has_diamond": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/stone_farm_pickaxe_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/basalt_farm_pickaxe_netherite_upgrade_recipe": {
-    "criteria": {
-      "has_netherite": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/rsand_farm_shovel_stone_upgrade_recipe": {
-    "criteria": {
-      "has_stone": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/grass_farm_shovel_iron_upgrade_recipe": {
-    "criteria": {
-      "has_iron": "2025-01-02 16:43:39 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/leather_helmet": {
-    "criteria": {
-      "has_leather": "2025-01-12 17:29:17 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/leather_leggings": {
-    "criteria": {
-      "has_leather": "2025-01-12 17:29:17 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/leather_chestplate": {
-    "criteria": {
-      "has_leather": "2025-01-12 17:29:17 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/leather_horse_armor": {
-    "criteria": {
-      "has_leather": "2025-01-12 17:29:17 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/item_frame": {
-    "criteria": {
-      "has_leather": "2025-01-12 17:29:17 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/combat/leather_boots": {
-    "criteria": {
-      "has_leather": "2025-01-12 17:29:17 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/snow_farm": {
-    "criteria": {
-      "has_snow": "2025-01-12 17:41:07 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone_bricks": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone_bricks_from_stone_stonecutting": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone_slab": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone_stairs_from_stone_stonecutting": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/stone_button": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/stonecutter": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/stone_pressure_plate": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/smooth_stone": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/stone_brick_walls_from_stone_stonecutting": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone_brick_slab_from_stone_stonecutting": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone_brick_stairs_from_stone_stonecutting": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone_slab_from_stone_stonecutting": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/stone_farm": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/chiseled_stone_bricks_stone_from_stonecutting": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stone_stairs": {
-    "criteria": {
-      "has_stone": "2025-01-12 17:42:26 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/stone_farm_enchantment_removal_recipe": {
-    "criteria": {
-      "has_farm": "2025-01-12 18:29:54 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/snow_farm_enchantment_removal_recipe": {
-    "criteria": {
-      "has_farm": "2025-01-12 18:29:54 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/stone_farm_enchant_upgrade_recipe": {
-    "criteria": {
-      "has_the_recipe": "2025-01-12 18:30:27 -0800"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/diron_farm_enchantment_removal_recipe": {
-    "criteria": {
-      "has_farm": "2025-01-20 21:33:59 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
   "resource_farms:recipes/misc/diron_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_the_recipe": "2025-01-20 21:34:06 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
-  "resource_farms:recipes/misc/snow_farm_enchant_upgrade_recipe": {
+  "resource_farms:recipes/misc/redstone_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_the_recipe": "2025-01-20 21:37:29 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
-  "resource_farms:recipes/misc/grass_farm_enchantment_removal_recipe": {
+  "resource_farms:recipes/misc/demerald_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_farm": "2025-01-20 21:43:08 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/calcite_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dlapis_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/basalt_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/stone_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
     },
     "done": true
   },
   "resource_farms:recipes/misc/grass_farm_enchant_upgrade_recipe": {
     "criteria": {
-      "has_the_recipe": "2025-01-20 21:50:31 -0800"
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dredstone_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gravel_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_gold_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dgold_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sstone_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/andesite_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/lapis_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherite_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dirt_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/deepslate_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcoal_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/iron_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/snow_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diamond_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/copper_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ddiamond_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/blackstone_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cpowder_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/emerald_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcopper_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/tuff_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/rsand_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_quartz_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cobblestone_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-01-26 20:14:11 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/lime_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/purple_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/blue_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/light_gray_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/orange_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/light_blue_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/green_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/pink_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/gray_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/black_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/yellow_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/brown_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/red_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/magenta_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/cyan_stained_glass_pane_from_glass_pane": {
+    "criteria": {
+      "has_glass_pane": "2025-01-26 20:14:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_bricks": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_bricks_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_slab": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_stairs_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/stone_button": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/stonecutter": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/stone_pressure_plate": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/smooth_stone": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/stone_brick_walls_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_brick_slab_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_brick_stairs_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_slab_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/stone_farm": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/chiseled_stone_bricks_stone_from_stonecutting": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_stairs": {
+    "criteria": {
+      "has_stone": "2025-01-26 20:14:24 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/root": {
+    "criteria": {
+      "crafting_table": "2025-01-26 20:14:31 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/stone_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-01-26 20:15:24 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diron_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ddiamond_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/diamond_leggings": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dlapis_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/snow_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sand_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/stone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/copper_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/diamond_sword": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/jukebox": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/diamond_chestplate": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/rsand_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/calcite_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gold_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/granite_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/grass_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cpowder_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/lapis_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/demerald_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/diamond_pickaxe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/iron_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diamond_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/diamond_hoe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/diamond_shovel": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/basalt_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dgold_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcoal_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dirt_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/tuff_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/diamond_boots": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/blackstone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssoil_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcopper_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssand_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sstone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/andesite_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dredstone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/coal_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/redstone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/emerald_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/diamond_helmet": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/deepslate_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gravel_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_gold_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherite_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/diamond_block": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_quartz_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/mine_diamond": {
+    "criteria": {
+      "diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cobblestone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/diamond_axe": {
+    "criteria": {
+      "has_diamond": "2025-01-26 20:26:26 -0500"
+    },
+    "done": true
+  },
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_by_something": "2025-01-26 20:34:53 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dirt_farm": {
+    "criteria": {
+      "has_dirt": "2025-01-26 20:36:57 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/charcoal": {
+    "criteria": {
+      "has_log": "2025-01-26 20:36:57 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oak_planks": {
+    "criteria": {
+      "has_logs": "2025-01-26 20:36:57 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oak_wood": {
+    "criteria": {
+      "has_log": "2025-01-26 20:36:57 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diron_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-01-27 20:48:51 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/lever": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/redstone_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/calcite_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/granite_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/andesite_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcoal_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/stone_sword": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/tuff_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/cobblestone_wall": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_axe": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/copper_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dirt_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diamond_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/mine_stone": {
+    "criteria": {
+      "get_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/furnace": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diron_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cpowder_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dlapis_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/emerald_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dgold_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_slab_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/basalt_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/stone_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/coal_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sstone_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssoil_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/blackstone_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dredstone_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gold_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_gold_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_quartz_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sand_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_pickaxe": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssand_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gravel_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/demerald_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/snow_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/deepslate_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/grass_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cobblestone_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ddiamond_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_slab": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cobblestone_farm": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/cobblestone_wall_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcopper_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_stairs_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/iron_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_stairs": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_hoe": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/lapis_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherite_farm_pickaxe_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_shovel": {
+    "criteria": {
+      "has_cobblestone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/rsand_farm_shovel_stone_upgrade_recipe": {
+    "criteria": {
+      "has_stone": "2025-01-27 22:25:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2025-01-27 22:28:30 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/iron_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-01-27 22:28:30 -0500"
     },
     "done": true
   },

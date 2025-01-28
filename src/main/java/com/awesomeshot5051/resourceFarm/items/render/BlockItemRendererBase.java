@@ -1,14 +1,16 @@
 package com.awesomeshot5051.resourceFarm.items.render;
 
+import com.awesomeshot5051.corelib.client.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.mojang.blaze3d.vertex.*;
-import de.maxhenkel.corelib.client.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.neoforged.neoforge.client.model.data.*;
 
+import java.util.*;
 import java.util.function.*;
 
 public class BlockItemRendererBase<T extends BlockEntityRenderer<U>, U extends FakeWorldTileentity> extends ItemRenderer {
@@ -29,6 +31,8 @@ public class BlockItemRendererBase<T extends BlockEntityRenderer<U>, U extends F
         }
         if (itemStack.getItem() instanceof BlockItem blockItem) {
             minecraft.getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), matrixStack, buffer, combinedLightIn, combinedOverlayIn, ModelData.builder().build(), RenderType.cutout());
+            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.STONE_PICKAXE)));
+            itemStack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType);
         }
         assert minecraft.level != null;
         U be = VillagerBlockEntityData.getAndStoreBlockEntity(itemStack, minecraft.level.registryAccess(), minecraft.level, tileEntitySupplier);

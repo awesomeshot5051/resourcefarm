@@ -1,16 +1,14 @@
 package com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.deepslate;
 
+import com.awesomeshot5051.corelib.block.*;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.client.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.veryRare.deepslate.*;
-import com.awesomeshot5051.resourceFarm.data.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.ores.veryrare.deepslate.*;
-import com.awesomeshot5051.resourceFarm.sounds.*;
-import de.maxhenkel.corelib.block.*;
-import de.maxhenkel.corelib.blockentity.*;
-import de.maxhenkel.corelib.client.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
@@ -78,7 +76,6 @@ public class DeepslateEmeraldOreFarmBlock extends BlockBase implements EntityBlo
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
         DeepslateEmeraldOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new DeepslateEmeraldOreFarmTileentity(BlockPos.ZERO, ModBlocks.DEMERALD_FARM.get().defaultBlockState()));
-        DeepslateEmeraldOreFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new DeepslateEmeraldOreFarmTileentity(BlockPos.ZERO, ModBlocks.DEMERALD_FARM.get().defaultBlockState()));
     }
 
     @Override

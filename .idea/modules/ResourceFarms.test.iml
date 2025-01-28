@@ -9,7 +9,7 @@
     <orderEntry type="module" module-name="ResourceFarms.main" />
     <orderEntry type="library" name="Gradle: mcjty.theoneprobe:theoneprobe:1.21_neo-12.0.0-1" level="project" />
     <orderEntry type="library" name="Gradle: curse.maven:jade-324717:5706149" level="project" />
-    <orderEntry type="library" name="Gradle: de.maxhenkel.corelib:corelib:1.21.1-2.1.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.awesomeshot5051.corelib:corelib:1.21-2.1.5" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="ResourceFarms.main" />
 </module>

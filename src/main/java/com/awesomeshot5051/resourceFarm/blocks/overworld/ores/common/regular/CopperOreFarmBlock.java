@@ -1,17 +1,16 @@
 package com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular;
 
 
+import com.awesomeshot5051.corelib.block.*;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.client.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.data.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.regular.*;
 import com.awesomeshot5051.resourceFarm.sounds.*;
-import de.maxhenkel.corelib.block.*;
-import de.maxhenkel.corelib.blockentity.*;
-import de.maxhenkel.corelib.client.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
@@ -69,7 +68,6 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         CopperOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CopperOreFarmTileentity(BlockPos.ZERO, ModBlocks.COPPER_FARM.get().defaultBlockState()));
-        CopperOreFarmTileentity trader2 = FarmBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CopperOreFarmTileentity(BlockPos.ZERO, ModBlocks.COPPER_FARM.get().defaultBlockState()));
         super.appendHoverText(stack, context, components, tooltipFlag);
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
