@@ -158,7 +158,7 @@ public class NetheriteOreFarmTileentity extends VillagerTileentity implements IT
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
-            pickType = new ItemStack(Items.STONE_PICKAXE);
+            pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
 
         timer = compound.getLong("Timer");

@@ -39,7 +39,7 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.STONE_PICKAXE);
+        pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
     public static double getPurpurGenerateTime(PurpurFarmTileentity tileEntity) {
@@ -162,7 +162,7 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
-            pickType = new ItemStack(Items.STONE_PICKAXE);
+            pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
 
         timer = compound.getLong("Timer");

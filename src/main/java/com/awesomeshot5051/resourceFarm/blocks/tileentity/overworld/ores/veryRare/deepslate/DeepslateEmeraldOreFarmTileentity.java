@@ -39,7 +39,7 @@ public class DeepslateEmeraldOreFarmTileentity extends VillagerTileentity implem
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.STONE_PICKAXE);
+        pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
     public static double getEmeraldGenerateTime(DeepslateEmeraldOreFarmTileentity tileEntity) {
@@ -167,7 +167,7 @@ public class DeepslateEmeraldOreFarmTileentity extends VillagerTileentity implem
         }
         if (pickType == null) {
             // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
-            pickType = new ItemStack(Items.STONE_PICKAXE);
+            pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
 
         timer = compound.getLong("Timer");

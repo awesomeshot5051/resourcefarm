@@ -117,9 +117,9 @@ public class UpgradeRecipe extends ShapedRecipe {
             if (craftingInput.getItem(4).get(ModDataComponents.PICK_TYPE) != null) {
                 pickStack = craftingInput.getItem(4).get(ModDataComponents.PICK_TYPE).copyOne();
             } else if (shovelFarms.contains(craftingInput.getItem(4).getItem())) {
-                pickStack = new ItemStack(Items.STONE_SHOVEL);
+                pickStack = new ItemStack(Items.WOODEN_SHOVEL);
             } else {
-                pickStack = new ItemStack(Items.STONE_PICKAXE);
+                pickStack = new ItemStack(Items.WOODEN_PICKAXE);
             }
             if (shovelFarms.contains(craftingInput.getItem(4).getItem())) {
                 if (isHigherShovelType(pickStack, modifer.getFirst())) {

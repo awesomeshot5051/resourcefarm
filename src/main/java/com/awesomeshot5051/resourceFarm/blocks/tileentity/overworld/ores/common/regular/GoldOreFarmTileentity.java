@@ -38,7 +38,7 @@ public class GoldOreFarmTileentity extends VillagerTileentity implements ITickab
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.STONE_PICKAXE);
+        pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
     public static double getGoldGenerateTime(GoldOreFarmTileentity tileEntity) {
@@ -168,7 +168,7 @@ public class GoldOreFarmTileentity extends VillagerTileentity implements ITickab
         }
         if (pickType == null) {
             // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
-            pickType = new ItemStack(Items.STONE_PICKAXE);
+            pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
 
         timer = compound.getLong("Timer");

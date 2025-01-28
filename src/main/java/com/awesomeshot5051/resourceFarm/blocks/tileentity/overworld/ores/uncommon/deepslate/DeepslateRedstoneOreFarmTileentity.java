@@ -38,7 +38,7 @@ public class DeepslateRedstoneOreFarmTileentity extends VillagerTileentity imple
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.STONE_PICKAXE);
+        pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
     public static double getRedstoneGenerateTime(DeepslateRedstoneOreFarmTileentity tileEntity) {
@@ -167,7 +167,7 @@ public class DeepslateRedstoneOreFarmTileentity extends VillagerTileentity imple
         }
         if (pickType == null) {
             // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
-            pickType = new ItemStack(Items.STONE_PICKAXE);
+            pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
 
         timer = compound.getLong("Timer");

@@ -39,7 +39,7 @@ public class SoulSandFarmTileentity extends VillagerTileentity implements ITicka
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        shovelType = new ItemStack(Items.STONE_SHOVEL);
+        shovelType = new ItemStack(Items.WOODEN_SHOVEL);
     }
 
     public static double getSoulSandGenerateTime(SoulSandFarmTileentity tileEntity) {
@@ -134,7 +134,7 @@ public class SoulSandFarmTileentity extends VillagerTileentity implements ITicka
             CompoundTag pickTypeTag = new CompoundTag();
             pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString()); // Save the item ID
             pickTypeTag.putInt("count", shovelType.getCount()); // Save the count
-            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+            compound.put("ShovelType", pickTypeTag); // Add the tag to the main compound
         }
         if (!shovelEnchantments.isEmpty()) {
             ListTag enchantmentsList = new ListTag(); // Create a ListTag to store enchantments
@@ -154,13 +154,12 @@ public class SoulSandFarmTileentity extends VillagerTileentity implements ITicka
     @Override
     protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         ContainerHelper.loadAllItems(compound, inventory, provider);
-        if (compound.contains("PickType")) {
+        if (compound.contains("ShovelType")) {
             SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.shovelType = stack);
-
         }
         if (shovelType == null) {
             // If no shovelType is saved, set a default one (e.g., Stone Shovel)
-            shovelType = new ItemStack(Items.STONE_SHOVEL);
+            shovelType = new ItemStack(Items.WOODEN_SHOVEL);
         }
         if (compound.contains("ShovelEnchantments")) {
             shovelEnchantments = SyncableTileentity.loadShovelEnchantments(compound, provider, this);

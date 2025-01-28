@@ -42,7 +42,7 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.STONE_PICKAXE);
+        pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
     public static double getCopperGenerateTime(CopperOreFarmTileentity tileEntity) {

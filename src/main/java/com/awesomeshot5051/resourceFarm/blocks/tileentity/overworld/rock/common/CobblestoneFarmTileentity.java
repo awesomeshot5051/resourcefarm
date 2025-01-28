@@ -38,7 +38,7 @@ public class CobblestoneFarmTileentity extends VillagerTileentity implements ITi
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.STONE_PICKAXE);
+        pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
     public static double getStoneGenerateTime(CobblestoneFarmTileentity tileEntity) {
@@ -162,7 +162,7 @@ public class CobblestoneFarmTileentity extends VillagerTileentity implements ITi
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
-            pickType = new ItemStack(Items.STONE_PICKAXE);
+            pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
 
         timer = compound.getLong("Timer");

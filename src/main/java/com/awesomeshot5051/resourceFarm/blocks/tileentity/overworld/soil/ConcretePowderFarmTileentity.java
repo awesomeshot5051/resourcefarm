@@ -1,40 +1,26 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.OutputItemHandler;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
-import com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments;
-import com.awesomeshot5051.resourceFarm.enums.ShovelType;
-import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
-import com.awesomeshot5051.corelib.inventory.ItemListInventory;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.inventory.*;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.items.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.getShovelEnchantmentStatus;
-import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.initializeShovelEnchantments;
+import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.*;
 
 @SuppressWarnings("ALL")
 public class ConcretePowderFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
@@ -53,7 +39,7 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        shovelType = new ItemStack(Items.STONE_SHOVEL);
+        shovelType = new ItemStack(Items.WOODEN_SHOVEL);
     }
 
     public static double getConcretePowderGenerateTime(ConcretePowderFarmTileentity tileEntity) {
@@ -171,10 +157,21 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
         // Save the shovelType as an NBT tag
         if (shovelType != null) {
-            CompoundTag shovelTypeTag = new CompoundTag();
-            shovelTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString()); // Save the item ID
-            shovelTypeTag.putInt("count", shovelType.getCount()); // Save the count
-            compound.put("ShovelType", shovelTypeTag); // Add the tag to the main compound
+            CompoundTag pickTypeTag = new CompoundTag();
+            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString()); // Save the item ID
+            pickTypeTag.putInt("count", shovelType.getCount()); // Save the count
+            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+        }
+        if (!shovelEnchantments.isEmpty()) {
+            ListTag enchantmentsList = new ListTag(); // Create a ListTag to store enchantments
+            for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : shovelEnchantments.entrySet()) {
+                if (entry.getValue()) { // Only include enchantments set to 'true'
+                    CompoundTag enchantmentTag = new CompoundTag();
+                    enchantmentTag.putString("id", entry.getKey().location().toString()); // Save the enchantment ID
+                    enchantmentsList.add(enchantmentTag); // Add the enchantment to the list
+                }
+            }
+            compound.put("ShovelEnchantments", enchantmentsList); // Save the list to the compound
         }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
@@ -184,12 +181,14 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
     protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         ContainerHelper.loadAllItems(compound, inventory, provider);
         if (compound.contains("ShovelType")) {
-            SyncableTileentity.loadShovelType(compound, provider).ifPresent(stack -> this.shovelType = stack);
-
+            SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.shovelType = stack);
+        }
+        if (compound.contains("ShovelEnchantments")) {
+            shovelEnchantments = SyncableTileentity.loadShovelEnchantments(compound, provider, this);
         }
         if (shovelType == null) {
             // If no shovelType is saved, set a default one (e.g., Stone Shovel)
-            shovelType = new ItemStack(Items.STONE_SHOVEL);
+            shovelType = new ItemStack(Items.WOODEN_SHOVEL);
         }
 
         timer = compound.getLong("Timer");
