@@ -1,0 +1,22 @@
+{
+  "type": "resource_farms:card_upgrade_serializer",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:blast_furnace"
+    },
+    {
+      "item": "minecraft:lava_bucket"
+    },
+    {
+      "item": "resource_farms:smelter_upgrade"
+    },
+    {
+      "item": "resource_farms:rsand_farm"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_farms:rsand_farm"
+  }
+}
