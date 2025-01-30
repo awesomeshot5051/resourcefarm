@@ -1,31 +1,8 @@
 {
   "stats": {
-    "minecraft:custom": {
-      "minecraft:time_since_rest": 89002,
-      "minecraft:sprint_one_cm": 5343,
-      "minecraft:damage_taken": 255,
-      "minecraft:walk_one_cm": 36281,
-      "minecraft:drop": 2,
-      "minecraft:interact_with_crafting_table": 45,
-      "minecraft:fly_one_cm": 10089,
-      "minecraft:crouch_one_cm": 385,
-      "minecraft:play_time": 105951,
-      "minecraft:deaths": 1,
-      "minecraft:sneak_time": 554,
-      "minecraft:jump": 119,
-      "minecraft:interact_with_blast_furnace": 1,
-      "minecraft:leave_game": 24,
-      "minecraft:time_since_death": 87375,
-      "minecraft:total_world_time": 152057,
-      "minecraft:fall_one_cm": 685
-    },
-    "minecraft:dropped": {
-      "minecraft:diamond": 64,
-      "minecraft:bucket": 1
-    },
     "minecraft:used": {
       "resource_farms:netherite_farm": 7,
-      "resource_farms:sand_farm": 15,
+      "resource_farms:sand_farm": 16,
       "resource_farms:nether_gold_farm": 1,
       "resource_farms:ssand_farm": 1,
       "resource_farms:redstone_farm": 2,
@@ -37,15 +14,12 @@
       "minecraft:blast_furnace": 1,
       "resource_farms:cpowder_farm": 1
     },
-    "minecraft:mined": {
-      "resource_farms:stone_farm": 29,
-      "resource_farms:diron_farm": 2,
-      "resource_farms:iron_farm": 1,
-      "minecraft:short_grass": 1,
-      "resource_farms:netherite_farm": 2
-    },
     "minecraft:killed_by": {
       "minecraft:skeleton": 1
+    },
+    "minecraft:dropped": {
+      "minecraft:diamond": 64,
+      "minecraft:bucket": 1
     },
     "minecraft:crafted": {
       "resource_farms:sand_farm": 8,
@@ -57,6 +31,32 @@
       "resource_farms:netherite_farm": 2,
       "minecraft:copper_ingot": 1,
       "resource_farms:basalt_farm": 1
+    },
+    "minecraft:mined": {
+      "resource_farms:stone_farm": 29,
+      "resource_farms:diron_farm": 2,
+      "resource_farms:iron_farm": 1,
+      "minecraft:short_grass": 1,
+      "resource_farms:netherite_farm": 2
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 89887,
+      "minecraft:sprint_one_cm": 5797,
+      "minecraft:damage_taken": 255,
+      "minecraft:walk_one_cm": 37747,
+      "minecraft:drop": 2,
+      "minecraft:interact_with_crafting_table": 45,
+      "minecraft:fly_one_cm": 11486,
+      "minecraft:crouch_one_cm": 385,
+      "minecraft:play_time": 106836,
+      "minecraft:deaths": 1,
+      "minecraft:sneak_time": 554,
+      "minecraft:jump": 139,
+      "minecraft:interact_with_blast_furnace": 1,
+      "minecraft:leave_game": 25,
+      "minecraft:time_since_death": 88260,
+      "minecraft:total_world_time": 152953,
+      "minecraft:fall_one_cm": 1939
     },
     "minecraft:picked_up": {
       "minecraft:crafting_table": 1,

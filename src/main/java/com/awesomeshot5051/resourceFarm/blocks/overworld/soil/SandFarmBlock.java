@@ -72,6 +72,18 @@ public class SandFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
             components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
                     .withStyle(ChatFormatting.RED));
+            if (stack.has(DataComponents.CUSTOM_DATA)) {
+                components.add(Component.literal(
+                        Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
+                                        .toString()
+                                        .replace("{}", " ")
+                                        .replace("{Upgrade:\"", "") // Remove the prefix
+                                        .replace("\"}", "") // Remove the suffix
+                                        .split("_")) // Split by underscores
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
+                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                ));
+            }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
