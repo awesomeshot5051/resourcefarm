@@ -10,9 +10,9 @@
     }
   },
   "pattern": [
-    " G ",
+    "GGG",
     "GFG",
-    " G "
+    "GGG"
   ],
   "result": {
     "count": 1,

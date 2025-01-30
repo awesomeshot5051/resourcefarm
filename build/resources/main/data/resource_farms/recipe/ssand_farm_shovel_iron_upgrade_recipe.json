@@ -10,9 +10,9 @@
     }
   },
   "pattern": [
-    " I ",
+    "III",
     "IFI",
-    " I "
+    "III"
   ],
   "result": {
     "count": 1,

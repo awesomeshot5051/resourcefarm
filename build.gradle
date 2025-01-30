@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'net.neoforged.moddev' version '2.0.76'
+    id 'com.gradleup.shadow' version '9.0.0-beta6'
 }
 version = mod_version
 group = mod_group_id
@@ -11,6 +12,14 @@ if (secretsFile.exists()) {
     properties.load(secretsFile.newDataInputStream())
     properties.each { key, value -> project.ext.set(key, value) }
 }
+shadowJar {
+    configurations = [project.configurations.shadow]
+    archiveClassifier = ''
+    relocate 'com.awesomeshot5051.corelib', "com.awesomeshot5051.resourceFarm.corelib"
+}
+
+assemble.dependsOn('shadowJar')
+
 repositories {
     mavenLocal()
     maven {
@@ -110,11 +119,11 @@ dependencies {
     implementation "mcjty.theoneprobe:theoneprobe:${top_version}"
     implementation "curse.maven:jade-324717:${jade_id}"
     localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
-
-    compileOnly "com.awesomeshot5051.corelib:corelib:1.21-2.1.5"
-    implementation("com.awesomeshot5051.corelib:corelib:1.21-2.1.5") {
-        exclude group: 'com.github.jitpack', module: 'gradle-simple'
-    }
+    shadow("com.awesomeshot5051.corelib:corelib:1.21-2.1.5")
+    runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-2.1.5"
+//    implementation("com.awesomeshot5051.corelib:corelib:1.21-2.1.5") {
+//        exclude group: 'com.github.jitpack', module: 'gradle-simple'
+//    }
 }
 
 tasks.register("generateModMetadata", ProcessResources) {

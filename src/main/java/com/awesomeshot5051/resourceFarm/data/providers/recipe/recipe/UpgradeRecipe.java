@@ -43,7 +43,8 @@ public class UpgradeRecipe extends ShapedRecipe {
             ModItems.SSOIL_FARM.get(), // Soul Soil Farm
             ModItems.SNOW_FARM.get()
     ));
-
+    List<Item> shovels = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
+    List<Item> pickaxes = List.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.GOLDEN_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE);
     private ItemContainerContents pickContents;
     private ItemStack result2;
 
@@ -137,7 +138,7 @@ public class UpgradeRecipe extends ShapedRecipe {
                     pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
                     result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
                 } else {
-                    pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
+                    return ItemStack.EMPTY;
                 }
             } else {
                 if (isHigherPickType(pickStack, modifer.getFirst())) {
@@ -156,7 +157,7 @@ public class UpgradeRecipe extends ShapedRecipe {
                     result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
                     result2.set(DataComponents.STORED_ENCHANTMENTS, itemenchantments);// Copy the result item to avoid modifying the original
                 } else {
-                    pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
+                    return ItemStack.EMPTY;
                 }
             }
         } else {
@@ -168,50 +169,60 @@ public class UpgradeRecipe extends ShapedRecipe {
         return result2;
     }
 
-    private boolean isHigherShovelType(ItemStack baseShovelType, ItemStack modifierShovelType) {
-        Map<Item, Ingredient> shovelToMaterialMap = Map.of(
-                Items.WOODEN_SHOVEL, Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS,
-                        Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS,
-                        Items.MANGROVE_PLANKS, Items.BAMBOO_PLANKS, Items.CHERRY_PLANKS),
-                Items.STONE_SHOVEL, Ingredient.of(Items.COBBLESTONE, Items.COBBLED_DEEPSLATE),
-                Items.IRON_SHOVEL, Ingredient.of(Items.IRON_INGOT),
-                Items.GOLDEN_SHOVEL, Ingredient.of(Items.GOLD_INGOT),
-                Items.DIAMOND_SHOVEL, Ingredient.of(Items.DIAMOND),
-                Items.NETHERITE_SHOVEL, Ingredient.of(Items.NETHERITE_INGOT)
-        );
-
+    private boolean isHigherPickType(ItemStack basePickaxeType, ItemStack modifierPickaxeType) {
+        Map<Item, Ingredient> PickaxeToMaterialMap = Map.of(Items.WOODEN_PICKAXE, Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS, Items.MANGROVE_PLANKS, Items.BAMBOO_PLANKS, Items.CHERRY_PLANKS), Items.GOLDEN_PICKAXE, Ingredient.of(Items.GOLD_INGOT), Items.STONE_PICKAXE, Ingredient.of(Items.COBBLESTONE, Items.COBBLED_DEEPSLATE), Items.IRON_PICKAXE, Ingredient.of(Items.IRON_INGOT), Items.DIAMOND_PICKAXE, Ingredient.of(Items.DIAMOND), Items.NETHERITE_PICKAXE, Ingredient.of(Items.NETHERITE_INGOT));
         Item modifierMaterialType = null;
+        for (Map.Entry<Item, Ingredient> entry : PickaxeToMaterialMap.entrySet()) {
+            if (entry.getValue().test(modifierPickaxeType)) {
+                modifierMaterialType = entry.getKey();
+            }
+        }
+        if (modifierMaterialType.getDefaultInstance().is(Items.NETHERITE_PICKAXE)) {
+            if (isNextPickaxeInRank(basePickaxeType, modifierMaterialType.getDefaultInstance())) {
+                return PickaxeType.getRank(modifierMaterialType) > PickaxeType.getRank(basePickaxeType.getItem());
+            }
+        } else {
+            return PickaxeType.getRank(modifierMaterialType) > PickaxeType.getRank(basePickaxeType.getItem());
+        }
+        return false;
+    }
 
-        for (Map.Entry<Item, Ingredient> entry : shovelToMaterialMap.entrySet()) {
+    private boolean isNextShovelInRank(ItemStack baseShovelType, ItemStack modifierShovelType) {
+        Item baseItem = baseShovelType.getItem();
+        Item modifierItem = modifierShovelType.getItem();
+        int baseIndex = shovels.indexOf(baseItem);
+        if (baseIndex != -1 && baseIndex < shovels.size() - 1) {
+            return shovels.get(baseIndex + 1).equals(modifierItem);
+        }
+        return false;
+    }
+
+    private boolean isNextPickaxeInRank(ItemStack basePickaxeType, ItemStack modifierPickaxeType) {
+        Item baseItem = basePickaxeType.getItem();
+        Item modifierItem = modifierPickaxeType.getItem();
+        int baseIndex = pickaxes.indexOf(baseItem);
+        if (baseIndex != -1 && baseIndex < pickaxes.size() - 1) {
+            return pickaxes.get(baseIndex + 1).equals(modifierItem);
+        }
+        return false;
+    }
+
+    private boolean isHigherShovelType(ItemStack baseShovelType, ItemStack modifierShovelType) {
+        Map<Item, Ingredient> ShovelToMaterialMap = Map.of(Items.WOODEN_SHOVEL, Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS, Items.MANGROVE_PLANKS, Items.BAMBOO_PLANKS, Items.CHERRY_PLANKS), Items.GOLDEN_SHOVEL, Ingredient.of(Items.GOLD_INGOT), Items.STONE_SHOVEL, Ingredient.of(Items.COBBLESTONE, Items.COBBLED_DEEPSLATE), Items.IRON_SHOVEL, Ingredient.of(Items.IRON_INGOT), Items.DIAMOND_SHOVEL, Ingredient.of(Items.DIAMOND), Items.NETHERITE_SHOVEL, Ingredient.of(Items.NETHERITE_INGOT));
+        Item modifierMaterialType = null;
+        for (Map.Entry<Item, Ingredient> entry : ShovelToMaterialMap.entrySet()) {
             if (entry.getValue().test(modifierShovelType)) {
                 modifierMaterialType = entry.getKey();
             }
         }
-        return ShovelType.getRank(modifierMaterialType) > ShovelType.getRank(baseShovelType.getItem());
-    }
-
-
-    private boolean isHigherPickType(ItemStack basePickType, ItemStack modifierPickType) {
-        Map<Item, Ingredient> pickaxeToMaterialMap = Map.of(
-                Items.WOODEN_PICKAXE, Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS,
-                        Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS,
-                        Items.MANGROVE_PLANKS, Items.BAMBOO_PLANKS, Items.CHERRY_PLANKS),
-                Items.STONE_PICKAXE, Ingredient.of(Items.COBBLESTONE, Items.COBBLED_DEEPSLATE),
-                Items.IRON_PICKAXE, Ingredient.of(Items.IRON_INGOT),
-                Items.GOLDEN_PICKAXE, Ingredient.of(Items.GOLD_INGOT),
-                Items.DIAMOND_PICKAXE, Ingredient.of(Items.DIAMOND),
-                Items.NETHERITE_PICKAXE, Ingredient.of(Items.NETHERITE_INGOT)
-        );
-
-        Item modifierMaterialType = null;
-
-        for (Map.Entry<Item, Ingredient> entry : pickaxeToMaterialMap.entrySet()) {
-            if (entry.getValue().test(modifierPickType)) {
-                modifierMaterialType = entry.getKey();
-                break;
+        if (modifierMaterialType.getDefaultInstance().is(Items.NETHERITE_SHOVEL)) {
+            if (isNextShovelInRank(baseShovelType, modifierMaterialType.getDefaultInstance())) {
+                return ShovelType.getRank(modifierMaterialType) > ShovelType.getRank(baseShovelType.getItem());
             }
+        } else {
+            return ShovelType.getRank(modifierMaterialType) > ShovelType.getRank(baseShovelType.getItem());
         }
-        return PickaxeType.getRank(modifierMaterialType) > PickaxeType.getRank(basePickType.getItem());
+        return false;
     }
 
 
@@ -239,11 +250,6 @@ public class UpgradeRecipe extends ShapedRecipe {
     public CraftingBookCategory category() {
         return category;
     }
-
-//    @Override
-//    public boolean isSpecial() {
-//        return true;
-//    }
 
 
     public static class Serializer implements RecipeSerializer<UpgradeRecipe> {

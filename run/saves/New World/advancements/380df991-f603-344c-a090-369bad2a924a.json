@@ -1109,5 +1109,323 @@
     },
     "done": true
   },
+  "resource_farms:recipes/misc/demerald_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ddiamond_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dredstone_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/netherite_chestplate_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/calcite_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/netherite_sword_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/tuff_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/rsand_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcopper_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sand_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sstone_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/netherite_leggings_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherite_farm": {
+    "criteria": {
+      "has_netherite_block": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/netherite_hoe_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gold_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssand_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/andesite_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cobblestone_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/copper_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/granite_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/lodestone": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/netherite_helmet_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssoil_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/netherite_block": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/netherite_boots_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/netherite_shovel_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dirt_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherite_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dgold_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/emerald_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcoal_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/snow_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/lapis_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/blackstone_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diamond_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/netherite_axe_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/iron_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diron_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_gold_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_quartz_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dlapis_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/stone_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/deepslate_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/redstone_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gravel_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/coal_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cpowder_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/grass_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/netherite_pickaxe_smithing": {
+    "criteria": {
+      "has_netherite_ingot": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/basalt_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-01-28 11:45:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/concrete_farm": {
+    "criteria": {
+      "has_cpowder_farm": "2025-01-28 11:54:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cpowder_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-01-28 11:54:04 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sand_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-01-28 11:55:21 -0500"
+    },
+    "done": true
+  },
   "DataVersion": 3955
 }

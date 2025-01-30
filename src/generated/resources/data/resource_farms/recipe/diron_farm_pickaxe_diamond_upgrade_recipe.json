@@ -10,9 +10,9 @@
     }
   },
   "pattern": [
-    " D ",
+    "DDD",
     "DFD",
-    " D "
+    "DDD"
   ],
   "result": {
     "count": 1,

@@ -35,6 +35,9 @@ public class TileInfoProvider implements IProbeInfoProvider {
         if (villager != null) {
             IProbeInfo info = iProbeInfo.horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
             ItemStack pickType = villager.getPickType();
+            if (villager.getPickType() == ItemStack.EMPTY) {
+                pickType = villager.getShovelType();
+            }
             info.item(pickType).text(convertToReadableName(pickType.getDescriptionId()));
         }
     }

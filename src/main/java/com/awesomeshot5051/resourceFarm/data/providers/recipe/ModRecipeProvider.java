@@ -476,9 +476,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
-                    .pattern(" S ")
+                    .pattern("SSS")
                     .pattern("SFS")
-                    .pattern(" S ")
+                    .pattern("SSS")
                     .define('S', Ingredient.of(Items.COBBLESTONE, Items.COBBLED_DEEPSLATE))
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_stone", has(Items.COBBLESTONE))
@@ -487,9 +487,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
-                    .pattern(" I ")
+                    .pattern("III")
                     .pattern("IFI")
-                    .pattern(" I ")
+                    .pattern("III")
                     .define('I', Items.IRON_INGOT)
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_iron", has(Items.IRON_INGOT))
@@ -498,9 +498,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
-                    .pattern(" G ")
+                    .pattern("GGG")
                     .pattern("GFG")
-                    .pattern(" G ")
+                    .pattern("GGG")
                     .define('G', Items.GOLD_INGOT)
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_gold", has(Items.GOLD_INGOT))
@@ -509,9 +509,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
-                    .pattern(" D ")
+                    .pattern("DDD")
                     .pattern("DFD")
-                    .pattern(" D ")
+                    .pattern("DDD")
                     .define('D', Items.DIAMOND)
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_diamond", has(Items.DIAMOND))
@@ -533,9 +533,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
-                    .pattern(" S ")
+                    .pattern("SSS")
                     .pattern("SFS")
-                    .pattern(" S ")
+                    .pattern("SSS")
                     .define('S', Ingredient.of(Items.COBBLESTONE, Items.COBBLED_DEEPSLATE))
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_stone", has(Items.COBBLESTONE))
@@ -544,9 +544,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
-                    .pattern(" I ")
+                    .pattern("III")
                     .pattern("IFI")
-                    .pattern(" I ")
+                    .pattern("III")
                     .define('I', Items.IRON_INGOT)
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_iron", has(Items.IRON_INGOT))
@@ -555,9 +555,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
-                    .pattern(" G ")
+                    .pattern("GGG")
                     .pattern("GFG")
-                    .pattern(" G ")
+                    .pattern("GGG")
                     .define('G', Items.GOLD_INGOT)
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_gold", has(Items.GOLD_INGOT))
@@ -566,9 +566,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
-                    .pattern(" D ")
+                    .pattern("DDD")
                     .pattern("DFD")
-                    .pattern(" D ")
+                    .pattern("DDD")
                     .define('D', Items.DIAMOND)
                     .define('F', farmBlock.asItem())
                     .unlockedBy("has_diamond", has(Items.DIAMOND))

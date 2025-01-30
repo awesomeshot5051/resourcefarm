@@ -29,6 +29,9 @@ public class HUDHandlerVillager implements IBlockComponentProvider {
     public void appendTooltip(ITooltip iTooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
         if (blockAccessor.getBlockEntity() instanceof VillagerTileentity blockEntity) {
             ItemStack pickType = blockEntity.getPickType();
+            if (blockEntity.getPickType() == ItemStack.EMPTY) {
+                pickType = blockEntity.getShovelType();
+            }
             if (pickType != ItemStack.EMPTY) {
                 iTooltip.add(Component.translatable(convertToReadableName(pickType.getDescriptionId())).withStyle(ChatFormatting.RED));
             }
