@@ -157,6 +157,13 @@ publishing {
     }
 }
 
+tasks.register("ReleaseJar") {
+    dependsOn("jar", "shadowJar")
+    doLast {
+        println("ReleaseJar task completed.")
+    }
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }

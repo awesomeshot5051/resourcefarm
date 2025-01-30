@@ -7,107 +7,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipeBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/smelter_upgrade.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/item/smelter_upgrade.png" afterDir="false" />
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1 V 2.0.3&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/7e8h6k3eiv86p3p961pgwvuuq/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/7e8h6k3eiv86p3p961pgwvuuq/buildfingerprint.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/7e8h6k3eiv86p3p961pgwvuuq/projectfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/7e8h6k3eiv86p3p961pgwvuuq/projectfingerprint.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/7e8h6k3eiv86p3p961pgwvuuq/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/7e8h6k3eiv86p3p961pgwvuuq/work.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/9pjt6gcia0k6rptcx8nq1itye/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/9pjt6gcia0k6rptcx8nq1itye/buildfingerprint.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/9pjt6gcia0k6rptcx8nq1itye/projectfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/9pjt6gcia0k6rptcx8nq1itye/projectfingerprint.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/9pjt6gcia0k6rptcx8nq1itye/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/9pjt6gcia0k6rptcx8nq1itye/work.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/b80olheloi77aq3hheu1ewss1/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/b80olheloi77aq3hheu1ewss1/buildfingerprint.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/b80olheloi77aq3hheu1ewss1/projectfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/b80olheloi77aq3hheu1ewss1/projectfingerprint.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/b80olheloi77aq3hheu1ewss1/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/b80olheloi77aq3hheu1ewss1/work.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/2pr912ylb8al2fe9rs0x98opx/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/2pr912ylb8al2fe9rs0x98opx/buildfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/2pr912ylb8al2fe9rs0x98opx/projectfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/2pr912ylb8al2fe9rs0x98opx/projectfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/2pr912ylb8al2fe9rs0x98opx/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/2pr912ylb8al2fe9rs0x98opx/work.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/ant4kjdppg9mt1nrf50gdpyxt/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/ant4kjdppg9mt1nrf50gdpyxt/buildfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/ant4kjdppg9mt1nrf50gdpyxt/projectfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/ant4kjdppg9mt1nrf50gdpyxt/projectfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/ant4kjdppg9mt1nrf50gdpyxt/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/ant4kjdppg9mt1nrf50gdpyxt/work.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/d873yec1py5w9659ptlyciini/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/d873yec1py5w9659ptlyciini/buildfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/d873yec1py5w9659ptlyciini/projectfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/d873yec1py5w9659ptlyciini/projectfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/d873yec1py5w9659ptlyciini/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/d873yec1py5w9659ptlyciini/work.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ResourceFarms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ResourceFarms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ResourceFarms.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ResourceFarms.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ResourceFarms.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ResourceFarms.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/ModCreativeTabs.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/ModCreativeTabs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/ModRecipes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/ModRecipes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/tags/BlockTagsProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/data/providers/tags/BlockTagsProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/items/ModItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/awesomeshot5051/resourceFarm/items/ModItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.114-merged.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.114-merged.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.114-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.114-sources.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.114.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.114.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/clientLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientLegacyClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/clientRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunProgramArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/clientRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/dataLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/dataLegacyClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/dataRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/dataRunProgramArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/dataRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/dataRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/gameTestServerLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/gameTestServerLegacyClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/gameTestServerRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/gameTestServerRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/serverLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/serverLegacyClasspath.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/serverRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/serverRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/.cache/8c2f866a17b6bf27d64c42581cefdd3deae60073" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/.cache/8c2f866a17b6bf27d64c42581cefdd3deae60073" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/command_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/command_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/session.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/8c2f866a17b6bf27d64c42581cefdd3deae60073" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/8c2f866a17b6bf27d64c42581cefdd3deae60073" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/ModCreativeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/ModCreativeTabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/nether/ores/common/regular/NetherGoldOreFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/nether/ores/common/regular/NetherGoldOreFarmBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCoalOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCoalOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCopperOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateCopperOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateGoldOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateGoldOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateIronOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/deepslate/DeepslateIronOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CopperOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CopperOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/GoldOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/GoldOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/IronOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/IronOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/deepslate/DeepslateDiamondOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/deepslate/DeepslateLapisOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/deepslate/DeepslateLapisOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/regular/DiamondOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/regular/DiamondOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/regular/LapisOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/rare/regular/LapisOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/uncommon/deepslate/DeepslateRedstoneOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/uncommon/deepslate/DeepslateRedstoneOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/uncommon/regular/RedstoneOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/uncommon/regular/RedstoneOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/veryRare/deepslate/DeepslateEmeraldOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/veryRare/deepslate/DeepslateEmeraldOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/veryRare/regular/EmeraldOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/veryRare/regular/EmeraldOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/ModRecipes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/ModRecipes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/tags/BlockTagsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/tags/BlockTagsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/generated/sources/modMetadata/neoforge.mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/build/generated/sources/modMetadata/neoforge.mods.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/neoforge.mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/neoforge.mods.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/item/smelter_upgrade.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/item/smelter_upgrade.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,18 +71,13 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ResourceFarms" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="shadow" type="c8890929:TasksNode$1" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ResourceFarms" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ResourceFarms" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -196,7 +115,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/awesomeshot5051/resourceFarm.git&quot;,
-    &quot;accountId&quot;: &quot;5e02f78d-ab5c-4917-ba11-8d401683db46&quot;
+    &quot;accountId&quot;: &quot;d125ac74-9389-4b3b-91dc-3cb5307b4960&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -227,48 +146,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.Build resourceFarm.executor": "Run",
-    "Gradle.D:/MCreatorWorkspaces/resourceFarm [clean].executor": "Run",
-    "Gradle.resourceFarm [:net.neoforged.devlaunch.Main.main()].executor": "Run",
-    "Gradle.resourceFarm [assemble].executor": "Run",
-    "Gradle.resourceFarm [buildDependents].executor": "Run",
-    "Gradle.resourceFarm [buildNeeded].executor": "Run",
-    "Gradle.resourceFarm [build].executor": "Run",
-    "Gradle.resourceFarm [classes].executor": "Debug",
-    "Gradle.resourceFarm [clean].executor": "Run",
-    "Gradle.resourceFarm [corelibShadowJar].executor": "Run",
-    "Gradle.resourceFarm [init].executor": "Run",
-    "Gradle.resourceFarm [jar].executor": "Run",
-    "Gradle.resourceFarm [runClient].executor": "Debug",
-    "Gradle.resourceFarm [runData].executor": "Run",
-    "Gradle.resourceFarm [shadowJar].executor": "Run",
-    "Gradle.resourceFarm [testClasses].executor": "Run",
-    "JavaMethodFindUsagesOptions.isSearchForTextOccurrences": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "main-1.21.1",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/MCreatorWorkspaces/resourceFarm/src/main/resources/assets/resource_farms/models/item",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "rearrange.code.on.save": "true",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "application.passwordSafe",
-    "two.files.diff.last.used.file": "D:/MCreatorWorkspaces/mobFarms/MobFarms/src/main/java/com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/CreeperFarmBlock.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.Build resourceFarm.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.D:/MCreatorWorkspaces/resourceFarm [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [:net.neoforged.devlaunch.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [ReleaseJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [assemble].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [buildNeeded].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [classes].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [corelibShadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [init].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [runClient].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.resourceFarm [runData].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [shadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [testClasses].executor&quot;: &quot;Run&quot;,
+    &quot;JavaMethodFindUsagesOptions.isSearchForTextOccurrences&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main-1.21.1&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MCreatorWorkspaces/resourceFarm/src/main/resources/assets/resource_farms/textures/item&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;D:/MCreatorWorkspaces/mobFarms/MobFarms/src/main/java/com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/CreeperFarmBlock.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\textures\item" />
+      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\java\com\awesomeshot5051\resourceFarm\corelib" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\data\resource_farms\loot_table\blocks\overworld" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\data\resource_farms\loot_table\blocks" />
@@ -300,7 +220,7 @@
       <command value="gradle clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.resourceFarm [runClient]">
+  <component name="RunManager" selected="Gradle.resourceFarm [ReleaseJar]">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="ResourceFarms.main" />
@@ -341,7 +261,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="resourceFarm [corelibShadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [ReleaseJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -352,7 +272,51 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="corelibShadowJar" />
+            <option value="ReleaseJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="resourceFarm [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildDependents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="resourceFarm [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="classes" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -407,57 +371,13 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="resourceFarm [runData]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runData" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="resourceFarm [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="shadowJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.resourceFarm [runClient]" />
-        <item itemvalue="Gradle.resourceFarm [runData]" />
-        <item itemvalue="Gradle.resourceFarm [shadowJar]" />
+        <item itemvalue="Gradle.resourceFarm [ReleaseJar]" />
         <item itemvalue="Gradle.resourceFarm [jar]" />
-        <item itemvalue="Gradle.resourceFarm [corelibShadowJar]" />
+        <item itemvalue="Gradle.resourceFarm [runClient]" />
+        <item itemvalue="Gradle.resourceFarm [classes]" />
+        <item itemvalue="Gradle.resourceFarm [buildDependents]" />
       </list>
     </recent_temporary>
   </component>
@@ -822,7 +742,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738200082851</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="1.21.1 V 2.0.3&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
+      <option name="closed" value="true" />
+      <created>1738260273783</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1738260273783</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -856,7 +784,8 @@
     <MESSAGE value="1.21.1 Release...JEI does NOT work yet" />
     <MESSAGE value="1.21.1 V 2.0.0" />
     <MESSAGE value="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging." />
-    <option name="LAST_COMMIT_MESSAGE" value="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging." />
+    <MESSAGE value="1.21.1 V 2.0.3&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging." />
+    <option name="LAST_COMMIT_MESSAGE" value="1.21.1 V 2.0.3&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -890,7 +819,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/EnchantmentAdditionRecipe.java</url>
-          <line>94</line>
+          <line>105</line>
           <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -901,23 +830,18 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="pickType==null" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.java</url>
-          <line>201</line>
+          <line>209</line>
           <option name="timeStamp" value="185" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/UpgradeRecipe.java</url>
-          <line>206</line>
+          <line>215</line>
           <option name="timeStamp" value="186" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/UpgradeRecipe.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="187" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="188" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipe.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="212" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
