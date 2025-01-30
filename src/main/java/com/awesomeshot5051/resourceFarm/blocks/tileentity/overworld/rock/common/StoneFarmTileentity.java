@@ -1,40 +1,27 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common;
 
-import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
-import com.awesomeshot5051.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.OutputItemHandler;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
-import com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments;
-import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.inventory.*;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
+import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.items.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.getPickaxeEnchantmentStatus;
-import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.initializePickaxeEnchantments;
+import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 @SuppressWarnings("ALL")
 public class StoneFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
@@ -43,6 +30,8 @@ public class StoneFarmTileentity extends VillagerTileentity implements ITickable
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
     public boolean soundOn;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -139,11 +128,20 @@ public class StoneFarmTileentity extends VillagerTileentity implements ITickable
             drops.clear();
             drops.add(new ItemStack(Items.STONE, dropCount));
         }
+        if (upgradeEnabled) {
+            drops.clear();
+            drops.add(new ItemStack(Items.SMOOTH_STONE, dropCount));
+        }
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     @Override
@@ -168,12 +166,19 @@ public class StoneFarmTileentity extends VillagerTileentity implements ITickable
             }
             compound.put("PickaxeEnchantments", enchantmentsList); // Save the list to the compound
         }
+        if (upgradeEnabled) {
+            CompoundTag upgrade = new CompoundTag();
+            upgrade.putString("Upgrade", "smelter_upgrade");
+            compound.put("upgrade", upgrade);
+        }
+
         CompoundTag soundOnTag = new CompoundTag();
         soundOnTag.putBoolean("soundOn", soundOn);
         compound.put("soundON", soundOnTag);
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
     }
+
 
     @Override
     protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
@@ -183,6 +188,9 @@ public class StoneFarmTileentity extends VillagerTileentity implements ITickable
         }
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
+        }
+        if (compound.contains("upgrade")) {
+            upgradeEnabled = true;
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)

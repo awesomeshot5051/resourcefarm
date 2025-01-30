@@ -67,7 +67,27 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     public static final List<Supplier<Block>> ALL_FARMS = Stream
             .concat(SHOVEL_BLOCKS.stream(), PICKAXE_BLOCKS.stream())
             .collect(Collectors.toList());
-
+    public static final List<Supplier<Block>> SMELTABLE_RESULTS = List.of(
+            ModBlocks.COPPER_FARM::get,          // Smelts to Copper Ingots
+            ModBlocks.DCOPPER_FARM::get,         // Smelts to Copper Ingots
+            ModBlocks.COAL_FARM::get,            // Smelts to Coal
+            ModBlocks.DCOAL_FARM::get,           // Smelts to Coal
+            ModBlocks.IRON_FARM::get,            // Smelts to Iron Ingots
+            ModBlocks.DIRON_FARM::get,           // Smelts to Iron Ingots
+            ModBlocks.GOLD_FARM::get,            // Smelts to Gold Ingots
+            ModBlocks.DGOLD_FARM::get,           // Smelts to Gold Ingots
+            ModBlocks.NETHER_GOLD_FARM::get,     // Smelts to Gold Nuggets
+            ModBlocks.NETHERITE_FARM::get,       // Smelts to Netherite Scrap (if applicable)
+            ModBlocks.NETHER_QUARTZ_FARM::get,   // Smelts to Quartz
+            ModBlocks.REDSTONE_FARM::get,        // Smelts to Redstone (if applicable)
+            ModBlocks.DREDSTONE_FARM::get,       // Smelts to Redstone (if applicable)
+            ModBlocks.LAPIS_FARM::get,           // Smelts to Lapis Lazuli (if applicable)
+            ModBlocks.DLAPIS_FARM::get,          // Smelts to Lapis Lazuli (if applicable)
+            ModBlocks.SAND_FARM::get,            // Smelts to Glass
+            ModBlocks.RSAND_FARM::get,           // Smelts to Glass
+            ModBlocks.COBBLESTONE_FARM::get,     // Smelts to Stone
+            ModBlocks.STONE_FARM::get            // Smelts to Smooth Stone
+    );
 
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
@@ -600,7 +620,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .unlockedBy("has_farm", has(farmBlock.asItem()))
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId() + "_enchantment_removal_recipe")));
         });
+        SMELTABLE_RESULTS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            CardUpgradeRecipeBuilder.shapeless(RecipeCategory.MISC, farmBlock)
+                    .requires(Items.BLAST_FURNACE)
+                    .requires(Items.LAVA_BUCKET)
+                    .requires(ModItems.SMELTER_UPGRADE)
+                    .requires(farmBlock.asItem())
+                    .unlockedBy("has_smelter_upgrade", has(ModItems.SMELTER_UPGRADE))
+                    .unlockedBy("has_lava_bucket", has(Items.LAVA_BUCKET))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId() + "_smelter_upgrade")));
+        });
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SMELTER_UPGRADE)
+                .pattern("IBI")
+                .pattern("IFI")
+                .pattern("INI")
+                .define('I', Items.IRON_INGOT)
+                .define('F', Items.FLINT_AND_STEEL)
+                .define('N', Items.NETHERRACK)
+                .define('B', Ingredient.of(Items.BLAZE_POWDER, Items.BLAZE_ROD))
+                .unlockedBy("has_netherrack", has(Items.NETHERRACK))
+                .unlockedBy("has_flint_and_steel", has(Items.FLINT_AND_STEEL))
+                .unlockedBy("has_netherrack", has(Items.NETHERRACK))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.SMELTER_UPGRADE.asItem().getDescriptionId())));
 
+    }
+
+    private String convertToItemRegistryName(String block) {
+        return block.toLowerCase().replace(' ', '_').replace("item.resource_farms.", "");
     }
 
     private String convertToRegistryName(String block) {

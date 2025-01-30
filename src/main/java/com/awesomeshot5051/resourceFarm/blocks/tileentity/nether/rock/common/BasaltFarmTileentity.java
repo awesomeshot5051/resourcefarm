@@ -14,6 +14,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -28,6 +29,8 @@ public class BasaltFarmTileentity extends VillagerTileentity implements ITickabl
     public ItemStack pickType;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -118,11 +121,20 @@ public class BasaltFarmTileentity extends VillagerTileentity implements ITickabl
         }
         List<ItemStack> drops = new ArrayList<>();
         drops.add(new ItemStack(Items.BASALT, dropCount)); // Change this as needed for custom loot
+        if (upgradeEnabled) {
+            drops.clear();
+            drops.add(new ItemStack(Items.SMOOTH_BASALT, dropCount));
+        }
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     @Override
@@ -159,6 +171,9 @@ public class BasaltFarmTileentity extends VillagerTileentity implements ITickabl
         }
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
+        }
+        if (compound.contains("upgrade")) {
+            upgradeEnabled = true;
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)

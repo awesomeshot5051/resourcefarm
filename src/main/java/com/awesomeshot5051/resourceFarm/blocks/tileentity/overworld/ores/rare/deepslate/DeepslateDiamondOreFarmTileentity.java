@@ -14,6 +14,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -26,6 +27,8 @@ public class DeepslateDiamondOreFarmTileentity extends VillagerTileentity implem
 
     private final boolean soundOn = true;
     public ItemStack pickType;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
@@ -117,16 +120,21 @@ public class DeepslateDiamondOreFarmTileentity extends VillagerTileentity implem
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.DIAMOND, dropCount)); // Change this as needed for custom loot
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
-            drops.clear();
-            drops.add(new ItemStack(Items.DEEPSLATE_DIAMOND_ORE));
-        }
+            if (upgradeEnabled) {
+                drops.add(new ItemStack(Items.DIAMOND));
+            } else drops.add(new ItemStack(Items.DEEPSLATE_DIAMOND_ORE));
+        } else drops.add(new ItemStack(Items.DIAMOND, dropCount));
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     @Override
@@ -151,6 +159,11 @@ public class DeepslateDiamondOreFarmTileentity extends VillagerTileentity implem
             }
             compound.put("PickaxeEnchantments", enchantmentsList); // Save the list to the compound
         }
+        if (upgradeEnabled) {
+            CompoundTag upgrade = new CompoundTag();
+            upgrade.putString("Upgrade", "smelter_upgrade");
+            compound.put("upgrade", upgrade);
+        }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
     }
@@ -163,6 +176,9 @@ public class DeepslateDiamondOreFarmTileentity extends VillagerTileentity implem
         }
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
+        }
+        if (compound.contains("upgrade")) {
+            upgradeEnabled = true;
         }
         if (pickType == null) {
             // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)

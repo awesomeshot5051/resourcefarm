@@ -1,1 +1,76 @@
-{"stats":{"minecraft:mined":{"minecraft:short_grass":1,"resource_farms:stone_farm":28,"resource_farms:iron_farm":1,"resource_farms:diron_farm":2},"minecraft:picked_up":{"minecraft:crafting_table":1,"minecraft:stone":63,"minecraft:glass_pane":57,"minecraft:diamond":56,"resource_farms:iron_farm":1,"minecraft:oak_log":1,"resource_farms:stone_farm":31,"minecraft:dirt":23,"resource_farms:diron_farm":2},"minecraft:used":{"resource_farms:diron_farm":2,"resource_farms:iron_farm":2,"minecraft:crafting_table":2,"resource_farms:stone_farm":30,"resource_farms:cpowder_farm":1,"resource_farms:sand_farm":4},"minecraft:killed_by":{"minecraft:skeleton":1},"minecraft:crafted":{"resource_farms:stone_farm":19,"resource_farms:iron_farm":2,"resource_farms:cpowder_farm":65,"resource_farms:diron_farm":1},"minecraft:custom":{"minecraft:time_since_rest":31428,"minecraft:crouch_one_cm":385,"minecraft:damage_taken":255,"minecraft:play_time":48377,"minecraft:sprint_one_cm":2005,"minecraft:walk_one_cm":18310,"minecraft:deaths":1,"minecraft:sneak_time":548,"minecraft:jump":21,"minecraft:leave_game":15,"minecraft:time_since_death":29801,"minecraft:total_world_time":77678,"minecraft:interact_with_crafting_table":27,"minecraft:fall_one_cm":209,"minecraft:fly_one_cm":1808}},"DataVersion":3955}
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 89002,
+      "minecraft:sprint_one_cm": 5343,
+      "minecraft:damage_taken": 255,
+      "minecraft:walk_one_cm": 36281,
+      "minecraft:drop": 2,
+      "minecraft:interact_with_crafting_table": 45,
+      "minecraft:fly_one_cm": 10089,
+      "minecraft:crouch_one_cm": 385,
+      "minecraft:play_time": 105951,
+      "minecraft:deaths": 1,
+      "minecraft:sneak_time": 554,
+      "minecraft:jump": 119,
+      "minecraft:interact_with_blast_furnace": 1,
+      "minecraft:leave_game": 24,
+      "minecraft:time_since_death": 87375,
+      "minecraft:total_world_time": 152057,
+      "minecraft:fall_one_cm": 685
+    },
+    "minecraft:dropped": {
+      "minecraft:diamond": 64,
+      "minecraft:bucket": 1
+    },
+    "minecraft:used": {
+      "resource_farms:netherite_farm": 7,
+      "resource_farms:sand_farm": 15,
+      "resource_farms:nether_gold_farm": 1,
+      "resource_farms:ssand_farm": 1,
+      "resource_farms:redstone_farm": 2,
+      "resource_farms:diron_farm": 2,
+      "resource_farms:basalt_farm": 2,
+      "resource_farms:iron_farm": 4,
+      "minecraft:crafting_table": 2,
+      "resource_farms:stone_farm": 39,
+      "minecraft:blast_furnace": 1,
+      "resource_farms:cpowder_farm": 1
+    },
+    "minecraft:mined": {
+      "resource_farms:stone_farm": 29,
+      "resource_farms:diron_farm": 2,
+      "resource_farms:iron_farm": 1,
+      "minecraft:short_grass": 1,
+      "resource_farms:netherite_farm": 2
+    },
+    "minecraft:killed_by": {
+      "minecraft:skeleton": 1
+    },
+    "minecraft:crafted": {
+      "resource_farms:sand_farm": 8,
+      "resource_farms:iron_farm": 4,
+      "resource_farms:redstone_farm": 2,
+      "resource_farms:cpowder_farm": 65,
+      "resource_farms:diron_farm": 1,
+      "resource_farms:stone_farm": 22,
+      "resource_farms:netherite_farm": 2,
+      "minecraft:copper_ingot": 1,
+      "resource_farms:basalt_farm": 1
+    },
+    "minecraft:picked_up": {
+      "minecraft:crafting_table": 1,
+      "minecraft:stone": 63,
+      "resource_farms:netherite_farm": 2,
+      "minecraft:oak_log": 1,
+      "minecraft:dirt": 23,
+      "minecraft:glass_pane": 57,
+      "minecraft:diamond": 120,
+      "minecraft:bucket": 2,
+      "resource_farms:iron_farm": 1,
+      "resource_farms:stone_farm": 32,
+      "resource_farms:diron_farm": 2
+    }
+  },
+  "DataVersion": 3955
+}

@@ -14,6 +14,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -26,6 +27,8 @@ import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments
 public class SandFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     public ItemStack shovelType;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> shovelEnchantments = initializeShovelEnchantments();
     public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
@@ -127,12 +130,18 @@ public class SandFarmTileentity extends VillagerTileentity implements ITickableB
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.SAND, dropCount)); // Change this as needed for custom loot
+        if (upgradeEnabled) drops.add(new ItemStack(Items.GLASS, dropCount));
+        else drops.add(new ItemStack(Items.SAND, dropCount)); // Change this as needed for custom loot
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     public boolean checkshovelType() {

@@ -3,6 +3,7 @@ package com.awesomeshot5051.resourceFarm.integration.theoneprobe;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import mcjty.theoneprobe.api.*;
+import net.minecraft.network.chat.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
@@ -37,6 +38,18 @@ public class TileInfoProvider implements IProbeInfoProvider {
             ItemStack pickType = villager.getPickType();
             if (villager.getPickType() == ItemStack.EMPTY) {
                 pickType = villager.getShovelType();
+            }
+            if (!villager.getCustomData().isEmpty()) {
+                info.text(Component.literal(
+                        Arrays.stream(villager.getCustomData()
+                                        .toString()
+                                        .replace("{}", " ")
+                                        .replace("{Upgrade:\"", "") // Remove the prefix
+                                        .replace("\"}", "") // Remove the suffix
+                                        .split("_")) // Split by underscores
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
+                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                ));
             }
             info.item(pickType).text(convertToReadableName(pickType.getDescriptionId()));
         }

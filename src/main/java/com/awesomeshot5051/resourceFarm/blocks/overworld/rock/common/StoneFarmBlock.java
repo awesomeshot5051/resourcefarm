@@ -12,6 +12,7 @@ import com.awesomeshot5051.resourceFarm.items.render.overworld.rock.common.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
+import net.minecraft.core.component.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
@@ -40,6 +41,11 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
     }
 
     @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+    }
+
+    @Override
     public Item toItem() {
         return new CustomRendererBlockItem(this, new Item.Properties()) {
             @OnlyIn(Dist.CLIENT)
@@ -55,6 +61,8 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof StoneFarmTileentity farmTileEntity) {
+            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
+            farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
@@ -62,6 +70,7 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
+
         }
     }
 
@@ -74,10 +83,21 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
             components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
                     .withStyle(ChatFormatting.RED));
-
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
+        components.add(Component.literal(
+                Arrays.stream(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
+                                .toString()
+                                .replace("{}", " ")
+                                .replace("{Upgrade:\"", "") // Remove the prefix
+                                .replace("\"}", "") // Remove the suffix
+                                .split("_")) // Split by underscores
+                        .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
+                        .collect(Collectors.joining(" ")) // Join words back with spaces
+        ));
+
+
     }
 
     private String convertToReadableName(String block) {

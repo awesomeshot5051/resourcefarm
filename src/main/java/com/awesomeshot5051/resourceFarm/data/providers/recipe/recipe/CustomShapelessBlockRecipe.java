@@ -1,6 +1,7 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import net.minecraft.core.*;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.util.*;
 
 import java.util.*;
@@ -25,6 +27,7 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
     final ItemStack result;
     final NonNullList<Ingredient> ingredients;
     private final boolean isSimple;
+    List<Item> ALL_FARMS = new ArrayList<>();
     private ItemContainerContents pickContents;
     private ItemStack result2;
 
@@ -41,7 +44,6 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
     public RecipeSerializer<CustomShapelessBlockRecipe> getSerializer() {
         return ModRecipes.SHAPELESS_SERIALIZER.get();
     }
-
 
     public ItemStack getResultItem(HolderLookup.Provider registries) {
         return this.result;
@@ -83,6 +85,13 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
 
         List<ItemStack> ingredients = input.items(); // Ingredients from the crafting input
         ItemStack resultItem = ItemStack.EMPTY;      // Default result
+        for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
+            ALL_FARMS.add(sidedBlock.get());
+        }
+        ItemStack farm = ingredients.stream()
+                .filter(item -> ALL_FARMS.contains(Block.byItem(item.getItem())))
+                .findFirst()
+                .orElse(ItemStack.EMPTY); // Default to EMPTY if no match is found
 
         ItemContainerContents pickContents = null;   // Placeholder for pick contents
 
@@ -111,8 +120,8 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
             resultItem = getResultItem(registries).copy();
             result2.set(DataComponents.STORED_ENCHANTMENTS, enchantments);
             resultItem.set(pickTypeComponent, pickContents);
+            resultItem.set(DataComponents.CUSTOM_DATA, farm.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY));
         }
-
         return resultItem;
     }
 

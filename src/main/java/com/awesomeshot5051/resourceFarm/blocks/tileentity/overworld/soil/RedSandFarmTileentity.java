@@ -14,6 +14,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -26,6 +27,8 @@ public class RedSandFarmTileentity extends VillagerTileentity implements ITickab
 
     private final boolean soundOn = true;
     public ItemStack shovelType;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> shovelEnchantments = initializeShovelEnchantments();
     public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
@@ -116,12 +119,18 @@ public class RedSandFarmTileentity extends VillagerTileentity implements ITickab
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.RED_SAND, dropCount)); // Change this as needed for custom loot
+        if (upgradeEnabled) drops.add(new ItemStack(Items.GLASS, dropCount));
+        else drops.add(new ItemStack(Items.RED_SAND, dropCount)); // Change this as needed for custom loot
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     @Override
@@ -146,6 +155,11 @@ public class RedSandFarmTileentity extends VillagerTileentity implements ITickab
             }
             compound.put("ShovelEnchantments", enchantmentsList); // Save the list to the compound
         }
+        if (upgradeEnabled) {
+            CompoundTag upgrade = new CompoundTag();
+            upgrade.putString("Upgrade", "smelter_upgrade");
+            compound.put("upgrade", upgrade);
+        }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
     }
@@ -163,7 +177,9 @@ public class RedSandFarmTileentity extends VillagerTileentity implements ITickab
             // If no shovelType is saved, set a default one (e.g., Stone Shovel)
             shovelType = new ItemStack(Items.WOODEN_SHOVEL);
         }
-
+        if (compound.contains("upgrade")) {
+            upgradeEnabled = true;
+        }
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }

@@ -1,6 +1,3 @@
-/kill @e[type=minecraft:ender_dragon]
-/summon ender_dragon ~ ~ ~ {CustomName:'[{"text":"Jimmy"}]'}
-/ride 81897b51-af1f-4fc0-b901-578347468b36 mount @e[type=minecraft:ender_dragon]
 /summon ender_dragon ~ ~ ~ {CustomName:'[{"text":"Jimmy"}]'}
 /kill @e[type=minecraft:ender_dragon]
 /time set day
@@ -48,3 +45,6 @@
 /gamerule doImmediateRespawn false
 /gamerule doWeatherCycle false
 /difficulty peaceful
+/give Dev resource_farms:smelter_upgrade_card
+/give Dev resource_farms:speed_upgrade
+/give Dev resource_farms:smelter_upgrade

@@ -36,6 +36,7 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
             ModItems.SSOIL_FARM.get(), // Soul Soil Farm
             ModItems.SNOW_FARM.get()
     ));
+    List<Item> ALL_FARMS = new ArrayList<>();
     private ItemContainerContents swordContents;
     private ItemStack result2;
 
@@ -67,9 +68,19 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
 
     public ItemStack assemble(CraftingInput input, HolderLookup.@NotNull Provider registries) {
         List<ItemStack> ingredients = input.items(); // Ingredients from the crafting input
-        ItemStack resultItem = ItemStack.EMPTY;      // Default result
+        ItemStack resultItem;      // Default result
         List<Item> farmBlocks = new ArrayList<>();
         ItemEnchantments enchantments = ItemEnchantments.EMPTY;
+        for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
+            ALL_FARMS.add(sidedBlock.get());
+        }
+
+        List<ItemStack> Ingredients = input.items();
+
+        ItemStack farm = Ingredients.stream()
+                .filter(item -> ALL_FARMS.contains(item.getItem()))
+                .findFirst()
+                .orElse(ItemStack.EMPTY); // Default to EMPTY if no match is found
         ItemEnchantments.Mutable storedEnchantments = new ItemEnchantments.Mutable(enchantments);
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             if (!shovelFarms.contains(sidedBlock.get())) {
@@ -117,6 +128,7 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
         resultItem.set(DataComponents.STORED_ENCHANTMENTS, enchantments2);
         resultItem.set(ModDataComponents.PICK_TYPE, pickContents);
+        resultItem.set(DataComponents.CUSTOM_DATA, farm.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY));
         return resultItem;
     }
 

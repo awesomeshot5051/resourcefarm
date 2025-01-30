@@ -14,6 +14,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -28,6 +29,8 @@ public class NetherGoldOreFarmTileentity extends VillagerTileentity implements I
     public ItemStack pickType;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -116,16 +119,25 @@ public class NetherGoldOreFarmTileentity extends VillagerTileentity implements I
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.GOLD_NUGGET, dropCount)); // Change this as needed for custom loot
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
-            drops.clear();
-            drops.add(new ItemStack(Items.NETHER_GOLD_ORE, 1));
-        }
+            if (upgradeEnabled) {
+                drops.add(new ItemStack(Items.GOLD_NUGGET));
+            } else {
+                drops.add(new ItemStack(Items.NETHER_GOLD_ORE, 1));
+            }
+        } else if (upgradeEnabled)
+            drops.add(new ItemStack(Items.GOLD_INGOT, dropCount)); // Change this as needed for custom loot
+        else drops.add(new ItemStack(Items.GOLD_NUGGET, dropCount)); // Change this as needed for custom loot
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     @Override
@@ -162,6 +174,9 @@ public class NetherGoldOreFarmTileentity extends VillagerTileentity implements I
         }
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
+        }
+        if (compound.contains("upgrade")) {
+            upgradeEnabled = true;
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)

@@ -45,6 +45,7 @@ public class UpgradeRecipe extends ShapedRecipe {
     ));
     List<Item> shovels = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
     List<Item> pickaxes = List.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.GOLDEN_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE);
+    List<Item> ALL_FARMS = new ArrayList<>();
     private ItemContainerContents pickContents;
     private ItemStack result2;
 
@@ -109,8 +110,15 @@ public class UpgradeRecipe extends ShapedRecipe {
                 Ingredient.of(Items.DIAMOND), Items.DIAMOND_SHOVEL,
                 Ingredient.of(Items.NETHERITE_INGOT), Items.NETHERITE_SHOVEL
         );
-
+        List<ItemStack> ingredients = craftingInput.items(); // Ingredients from the crafting input
         ItemStack pickStack;
+        for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
+            ALL_FARMS.add(sidedBlock.get());
+        }
+        ItemStack farm = ingredients.stream()
+                .filter(item -> ALL_FARMS.contains(item.getItem()))
+                .findFirst()
+                .orElse(ItemStack.EMPTY); // Default to EMPTY if no match is found
         List<ItemStack> modifer = new ArrayList<>(List.of(craftingInput.getItem(1), craftingInput.getItem(3), craftingInput.getItem(5), craftingInput.getItem(7)));
         if (areAllModifiersEqual(modifer)) {
             List<ItemStack> itemStacks = new ArrayList<>();
@@ -165,6 +173,7 @@ public class UpgradeRecipe extends ShapedRecipe {
         }
 
         result2.set(ModDataComponents.PICK_TYPE, pickContents);
+        result2.set(DataComponents.CUSTOM_DATA, farm.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY));
         super.assemble(craftingInput, registries);
         return result2;
     }

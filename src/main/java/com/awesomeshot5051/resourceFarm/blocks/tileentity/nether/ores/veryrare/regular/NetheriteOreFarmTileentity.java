@@ -14,6 +14,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -28,6 +29,8 @@ public class NetheriteOreFarmTileentity extends VillagerTileentity implements IT
     public ItemStack pickType;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -108,17 +111,26 @@ public class NetheriteOreFarmTileentity extends VillagerTileentity implements IT
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
+        List<ItemStack> drops = new ArrayList<>();
+        int dropCount = serverWorld.random.nextIntBetweenInclusive(0, 1);
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
-        List<ItemStack> drops = new ArrayList<>();
         drops.add(new ItemStack(Items.ANCIENT_DEBRIS, dropCount)); // Change this as needed for custom loot
+        if (upgradeEnabled) {
+            drops.clear();
+            drops.add(new ItemStack(Items.NETHERITE_SCRAP, dropCount));
+        }
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     @Override
@@ -155,6 +167,9 @@ public class NetheriteOreFarmTileentity extends VillagerTileentity implements IT
         }
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
+        }
+        if (compound.contains("upgrade")) {
+            upgradeEnabled = true;
         }
         if (pickType == null) {
 // If no shovelType is saved, set a default one (e.g., Stone Pickaxe)

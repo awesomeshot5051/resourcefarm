@@ -61,6 +61,7 @@ public class VillagerBlockEntityData {
         return nbt.copy();
     }
 
+    @SuppressWarnings(value = "unchecked")
     public <T extends FakeWorldTileentity> T getBlockEntity(HolderLookup.Provider provider, @Nullable Level level, Supplier<T> blockEntitySupplier) {
         if (level == null) {
             T te = (T) emptyCache.get();

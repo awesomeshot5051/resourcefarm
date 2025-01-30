@@ -69,6 +69,8 @@ public class ModItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
     public static final DeferredItem<Item> XP_UPGRADE = ITEMS.register("xp_upgrade_card",
             () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SMELTER_UPGRADE = ITEMS.register("smelter_upgrade",
+            () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SPEED_UPGRADE = ITEMS.register("speed_upgrade",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> FORTUNE_UPGRADE = ITEMS.register("fortune_upgrade",

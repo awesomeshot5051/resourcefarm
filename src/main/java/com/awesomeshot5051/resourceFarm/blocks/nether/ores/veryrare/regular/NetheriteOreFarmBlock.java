@@ -12,6 +12,7 @@ import com.awesomeshot5051.resourceFarm.items.render.nether.ores.veryrare.regula
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
+import net.minecraft.core.component.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -41,7 +42,7 @@ public class NetheriteOreFarmBlock extends BlockBase implements EntityBlock, IIt
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
 
     public NetheriteOreFarmBlock() {
-        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion());
+        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion().requiresCorrectToolForDrops());
     }
 
     @Override
@@ -82,6 +83,8 @@ public class NetheriteOreFarmBlock extends BlockBase implements EntityBlock, IIt
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof NetheriteOreFarmTileentity farmTileEntity) {
+            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
+            farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);

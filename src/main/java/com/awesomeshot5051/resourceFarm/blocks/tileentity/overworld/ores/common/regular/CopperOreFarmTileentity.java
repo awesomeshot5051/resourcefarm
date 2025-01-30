@@ -13,6 +13,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -29,6 +30,8 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
 
 
     public ItemStack pickType;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
@@ -127,17 +130,23 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.COPPER_INGOT, dropCount));
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
-            drops.clear();
-            drops.add(new ItemStack(Items.COPPER_ORE));
-        }
-
+            if (upgradeEnabled) {
+                drops.add(new ItemStack(Items.COPPER_INGOT));
+            } else drops.add(new ItemStack(Items.COPPER_ORE));
+        } else if (upgradeEnabled) {
+            drops.add(new ItemStack(Items.COPPER_INGOT));
+        } else drops.add(new ItemStack(Items.RAW_COPPER, dropCount));
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     @Override

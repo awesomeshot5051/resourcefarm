@@ -88,6 +88,7 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
                 pickaxeContents = ItemContainerContents.fromItems(Collections.singletonList(pickaxe));
                 farm.set(ModDataComponents.PICK_TYPE, pickaxeContents);
             }
+            farm.set(DataComponents.CUSTOM_DATA, farm.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY));
         }
         return farm;
     }

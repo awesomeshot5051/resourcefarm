@@ -14,6 +14,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -28,6 +29,8 @@ public class CobblestoneFarmTileentity extends VillagerTileentity implements ITi
     public ItemStack pickType;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
+    public boolean upgradeEnabled;
+    public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -112,17 +115,25 @@ public class CobblestoneFarmTileentity extends VillagerTileentity implements ITi
         if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
+        List<ItemStack> drops = new ArrayList<>();
         int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
-        List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.COBBLESTONE, dropCount)); // Change this as needed for custom loot
+        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
+            if (upgradeEnabled) drops.add(new ItemStack(Items.SMOOTH_STONE));
+            else drops.add(new ItemStack(Items.STONE));
+        } else drops.add(new ItemStack(Items.COBBLESTONE, dropCount)); // Change this as needed for custom loot
         return drops;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
+    }
+
+    @Override
+    public CustomData getCustomData() {
+        return customData;
     }
 
     @Override
@@ -147,6 +158,11 @@ public class CobblestoneFarmTileentity extends VillagerTileentity implements ITi
             }
             compound.put("PickaxeEnchantments", enchantmentsList); // Save the list to the compound
         }
+        if (upgradeEnabled) {
+            CompoundTag upgrade = new CompoundTag();
+            upgrade.putString("Upgrade", "smelter_upgrade");
+            compound.put("upgrade", upgrade);
+        }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
     }
@@ -161,10 +177,11 @@ public class CobblestoneFarmTileentity extends VillagerTileentity implements ITi
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (pickType == null) {
-// If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
-
+        if (compound.contains("upgrade")) {
+            upgradeEnabled = true;
+        }
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }

@@ -35,6 +35,18 @@ public class HUDHandlerVillager implements IBlockComponentProvider {
             if (pickType != ItemStack.EMPTY) {
                 iTooltip.add(Component.translatable(convertToReadableName(pickType.getDescriptionId())).withStyle(ChatFormatting.RED));
             }
+            if (!blockEntity.getCustomData().isEmpty()) {
+                iTooltip.add(Component.literal(
+                        Arrays.stream(blockEntity.getCustomData()
+                                        .toString()
+                                        .replace("{}", " ")
+                                        .replace("{Upgrade:\"", "") // Remove the prefix
+                                        .replace("\"}", "") // Remove the suffix
+                                        .split("_")) // Split by underscores
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
+                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                ));
+            }
         }
 
     }

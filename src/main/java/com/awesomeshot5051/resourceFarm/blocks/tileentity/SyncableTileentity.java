@@ -9,6 +9,7 @@ import net.minecraft.network.protocol.game.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
@@ -97,6 +98,10 @@ public class SyncableTileentity extends BlockEntity {
                 itemId.contains("minecraft:diamond_pickaxe") ||
                 itemId.contains("minecraft:golden_pickaxe") ||
                 itemId.contains("minecraft:netherite_pickaxe");
+    }
+
+    public CustomData getCustomData() {
+        return CustomData.EMPTY;
     }
 
     public void sync() {

@@ -12,6 +12,7 @@ import com.awesomeshot5051.resourceFarm.items.render.overworld.ores.uncommon.dee
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
+import net.minecraft.core.component.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -83,6 +84,8 @@ public class DeepslateRedstoneOreFarmBlock extends BlockBase implements EntityBl
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof DeepslateRedstoneOreFarmTileentity farmTileEntity) {
+            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
+            farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);

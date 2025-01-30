@@ -12,6 +12,7 @@ import com.awesomeshot5051.resourceFarm.items.render.nether.ores.common.regular.
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
+import net.minecraft.core.component.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -42,7 +43,7 @@ public class NetherGoldOreFarmBlock extends BlockBase implements EntityBlock, II
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
 
     public NetherGoldOreFarmBlock() {
-        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion());
+        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion().requiresCorrectToolForDrops());
     }
 
     private void playSound(@NotNull Level level, BlockState state, SoundEvent sound, NetherGoldOreFarmTileentity farm) {
@@ -71,6 +72,9 @@ public class NetherGoldOreFarmBlock extends BlockBase implements EntityBlock, II
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
             components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
                     .withStyle(ChatFormatting.RED));
+            if (stack.has(DataComponents.CUSTOM_DATA)) {
+                components.add(Component.literal(String.valueOf(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)) + " is enabled"));
+            }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
@@ -83,6 +87,8 @@ public class NetherGoldOreFarmBlock extends BlockBase implements EntityBlock, II
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof NetherGoldOreFarmTileentity farmTileEntity) {
+            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
+            farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
