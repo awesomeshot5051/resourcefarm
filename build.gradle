@@ -55,7 +55,7 @@ tasks.named("generateChangelog") {
     releaseTag = version
 
     //Repository to look for tickets, *no default*
-    repository = "awesomeshot5051/corelib"
+    repository = "awesomeshot5051/resourceFarm"
 
     //Token used for fetching tickets, *empty*
     githubToken = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
