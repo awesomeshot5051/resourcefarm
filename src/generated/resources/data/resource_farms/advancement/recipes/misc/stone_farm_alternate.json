@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cobblestone_farm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_farms:cobblestone_farm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_smelter_upgrade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_farms:smelter_upgrade"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "resource_farms:stone_farm_alternate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_smelter_upgrade",
+      "has_cobblestone_farm"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "resource_farms:stone_farm_alternate"
+    ]
+  }
+}
