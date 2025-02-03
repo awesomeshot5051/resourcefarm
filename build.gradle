@@ -18,11 +18,11 @@ if (secretsFile.exists()) {
 shadowJar {
     configurations = [project.configurations.shadow]
     archiveClassifier = ''
-    relocate 'com.awesomeshot5051.corelib', "com.awesomeshot5051.resourceFarm.corelib"
+    relocate 'com.awesomeshot5051.resourceFarm', "com.awesomeshot5051.resourceFarm.resourceFarm"
 }
 tasks.named("githubRelease") {
     dependsOn tasks.named("generateChangelog")
-    repository = "awesomeshot5051/corelib"
+    repository = "awesomeshot5051/resourceFarm"
     changelog = tasks.named("generateChangelog").get().outputFile
     githubToken = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
     // using env var to avoid checked-in secrets
