@@ -38,9 +38,9 @@ public class UpgradeRecipe extends ShapedRecipe {
             ModItems.GRASS_FARM.get(),
             ModItems.GRAVEL_FARM.get(),
             ModItems.SAND_FARM.get(),
-            ModItems.RSAND_FARM.get(),  // Red Sand Farm
-            ModItems.SSAND_FARM.get(), // Soul Sand Farm
-            ModItems.SSOIL_FARM.get(), // Soul Soil Farm
+            ModItems.RSAND_FARM.get(),
+            ModItems.SSAND_FARM.get(),
+            ModItems.SSOIL_FARM.get(),
             ModItems.SNOW_FARM.get()
     ));
     List<Item> shovels = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
@@ -65,7 +65,7 @@ public class UpgradeRecipe extends ShapedRecipe {
 
     public static List<Item> getPlanks() {
 
-        // Retrieve all items in the "planks" tag
+
         return BuiltInRegistries.ITEM.getTag(ItemTags.PLANKS)
                 .stream()
                 .flatMap(holderSet -> holderSet.stream().map(Holder::value))
@@ -110,7 +110,7 @@ public class UpgradeRecipe extends ShapedRecipe {
                 Ingredient.of(Items.DIAMOND), Items.DIAMOND_SHOVEL,
                 Ingredient.of(Items.NETHERITE_INGOT), Items.NETHERITE_SHOVEL
         );
-        List<ItemStack> ingredients = craftingInput.items(); // Ingredients from the crafting input
+        List<ItemStack> ingredients = craftingInput.items();
         ItemStack pickStack;
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             ALL_FARMS.add(sidedBlock.get());
@@ -118,7 +118,7 @@ public class UpgradeRecipe extends ShapedRecipe {
         ItemStack farm = ingredients.stream()
                 .filter(item -> ALL_FARMS.contains(item.getItem()))
                 .findFirst()
-                .orElse(ItemStack.EMPTY); // Default to EMPTY if no match is found
+                .orElse(ItemStack.EMPTY);
         List<ItemStack> modifer = new ArrayList<>(List.of(craftingInput.getItem(1), craftingInput.getItem(3), craftingInput.getItem(5), craftingInput.getItem(7)));
         if (areAllModifiersEqual(modifer)) {
             List<ItemStack> itemStacks = new ArrayList<>();
@@ -135,16 +135,16 @@ public class UpgradeRecipe extends ShapedRecipe {
                     itemStacks.add(getResultItem(registries));
                     for (Map.Entry<Ingredient, Item> entry : materialToShovelMap.entrySet()) {
                         if (entry.getKey().test(modifer.getFirst())) {
-                            // Convert the modifier into its corresponding pickaxe
+
                             itemenchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
                             pickStack = new ItemStack(entry.getValue());
                             pickStack.set(DataComponents.ENCHANTMENTS, itemenchantments);
-                            break; // Break since we found the corresponding pickaxe
+                            break;
                         }
                     }
-                    // Set the pick type in the result item's data
+
                     pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
-                    result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
+                    result2 = getResultItem(registries).copy();
                 } else {
                     return ItemStack.EMPTY;
                 }
@@ -153,17 +153,17 @@ public class UpgradeRecipe extends ShapedRecipe {
                     itemStacks.add(getResultItem(registries));
                     for (Map.Entry<Ingredient, Item> entry : materialToPickaxeMap.entrySet()) {
                         if (entry.getKey().test(modifer.getFirst())) {
-                            // Convert the modifier into its corresponding pickaxe
+
                             itemenchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
                             pickStack = new ItemStack(entry.getValue());
                             pickStack.set(DataComponents.ENCHANTMENTS, itemenchantments);
-                            break; // Break since we found the corresponding pickaxe
+                            break;
                         }
                     }
-                    // Set the pick type in the result item's data
+
                     pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
-                    result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
-                    result2.set(DataComponents.STORED_ENCHANTMENTS, itemenchantments);// Copy the result item to avoid modifying the original
+                    result2 = getResultItem(registries).copy();
+                    result2.set(DataComponents.STORED_ENCHANTMENTS, itemenchantments);
                 } else {
                     return ItemStack.EMPTY;
                 }

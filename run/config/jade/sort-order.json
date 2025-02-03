@@ -60,5 +60,6 @@
   "minecraft:waxed": null,
   "minecraft:zombie_villager": null,
   "railcraft:track_component": null,
+  "resource_farms:pick_type": null,
   "resource_farms:villager": null
 }

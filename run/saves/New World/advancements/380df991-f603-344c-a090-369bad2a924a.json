@@ -1625,5 +1625,77 @@
     },
     "done": true
   },
+  "minecraft:recipes/misc/iron_nugget_from_smelting": {
+    "criteria": {
+      "has_iron_pickaxe": "2025-02-02 15:27:21 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/iron_tools": {
+    "criteria": {
+      "iron_pickaxe": "2025-02-02 15:27:21 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/iron_nugget_from_blasting": {
+    "criteria": {
+      "has_iron_pickaxe": "2025-02-02 15:27:21 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/iron_farm": {
+    "criteria": {
+      "has_iron": "2025-02-02 15:27:38 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/iron_ingot_from_blasting_iron_ore": {
+    "criteria": {
+      "has_iron_ore": "2025-02-02 15:27:38 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/iron_ingot_from_smelting_iron_ore": {
+    "criteria": {
+      "has_iron_ore": "2025-02-02 15:27:38 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/iron_ingot_from_smelting_deepslate_iron_ore": {
+    "criteria": {
+      "has_deepslate_iron_ore": "2025-02-02 20:31:34 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diron_farm": {
+    "criteria": {
+      "has_deepslate_iron": "2025-02-02 20:31:34 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/iron_ingot_from_blasting_deepslate_iron_ore": {
+    "criteria": {
+      "has_deepslate_iron_ore": "2025-02-02 20:31:34 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/stone_farm_alternate": {
+    "criteria": {
+      "has_smelter_upgrade": "2025-02-02 21:06:41 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/basalt_farm_smelter_upgrade": {
+    "criteria": {
+      "has_smelter_upgrade": "2025-02-02 21:56:25 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/grass_farm": {
+    "criteria": {
+      "has_grass": "2025-02-02 22:04:45 -0500"
+    },
+    "done": true
+  },
   "DataVersion": 3955
 }

@@ -23,7 +23,7 @@ import java.util.*;
 import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.*;
 
 @SuppressWarnings("ALL")
-public class ConcretePowderFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
+public class ConcretePowderFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack shovelType;
     public Map<ResourceKey<Enchantment>, Boolean> shovelEnchantments = initializeShovelEnchantments();
@@ -48,7 +48,7 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
                         tileEntity.getShovelType().getItem().equals(Items.GOLDEN_SHOVEL) ? 20 :
                                 tileEntity.getShovelType().getItem().equals(Items.DIAMOND_SHOVEL) ? 25 :
                                         tileEntity.getShovelType().getItem().equals(Items.NETHERITE_SHOVEL) ? 30 :
-                                                1); // Default to Wooden SHOVEL divisor if none matches
+                                                1);
     }
 
     public static double getConcretePowderBreakTime(ConcretePowderFarmTileentity tileEntity) {
@@ -61,13 +61,13 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
         if (ShovelEnchantments.getShovelEnchantmentStatus(tileEntity.shovelEnchantments, Enchantments.EFFICIENCY)) {
             baseValue = 10;
         }
-//
+
         return getConcretePowderGenerateTime(tileEntity) + (shovel.equals(ShovelType.NETHERITE) ? (baseValue * 8) :
                 shovel.equals(ShovelType.DIAMOND) ? (baseValue * 4) :
                         shovel.equals(ShovelType.IRON) ? (baseValue * 2) :
                                 shovel.equals(ShovelType.STONE) ? (baseValue * 2) :
                                         shovel.equals(ShovelType.GOLDEN) ? (baseValue * 2) :
-                                                (baseValue * 10)); // Default to Wooden PICKAXE break time if none matches
+                                                (baseValue * 10));
     }
 
     public long getTimer() {
@@ -113,7 +113,7 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
             return Collections.emptyList();
         }
 
-        // Create a list of all concrete powder colors
+
         Item[] concretePowders = {
                 Items.WHITE_CONCRETE_POWDER,
                 Items.ORANGE_CONCRETE_POWDER,
@@ -133,10 +133,10 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
                 Items.BLACK_CONCRETE_POWDER
         };
 
-        // Pick a random color
+
         Item randomConcretePowder = concretePowders[serverWorld.random.nextInt(concretePowders.length)];
 
-        // Create a new ItemStack for the randomly chosen color
+
         int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
         if (getShovelEnchantmentStatus(shovelEnchantments, Enchantments.FORTUNE)) {
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
@@ -155,23 +155,23 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-        // Save the shovelType as an NBT tag
+
         if (shovelType != null) {
             CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString()); // Save the item ID
-            pickTypeTag.putInt("count", shovelType.getCount()); // Save the count
-            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString());
+            pickTypeTag.putInt("count", shovelType.getCount());
+            compound.put("PickType", pickTypeTag);
         }
         if (!shovelEnchantments.isEmpty()) {
-            ListTag enchantmentsList = new ListTag(); // Create a ListTag to store enchantments
+            ListTag enchantmentsList = new ListTag();
             for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : shovelEnchantments.entrySet()) {
-                if (entry.getValue()) { // Only include enchantments set to 'true'
+                if (entry.getValue()) {
                     CompoundTag enchantmentTag = new CompoundTag();
-                    enchantmentTag.putString("id", entry.getKey().location().toString()); // Save the enchantment ID
-                    enchantmentsList.add(enchantmentTag); // Add the enchantment to the list
+                    enchantmentTag.putString("id", entry.getKey().location().toString());
+                    enchantmentsList.add(enchantmentTag);
                 }
             }
-            compound.put("ShovelEnchantments", enchantmentsList); // Save the list to the compound
+            compound.put("ShovelEnchantments", enchantmentsList);
         }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
@@ -187,7 +187,7 @@ public class ConcretePowderFarmTileentity extends VillagerTileentity implements 
             shovelEnchantments = SyncableTileentity.loadShovelEnchantments(compound, provider, this);
         }
         if (shovelType == null) {
-            // If no shovelType is saved, set a default one (e.g., Stone Shovel)
+
             shovelType = new ItemStack(Items.WOODEN_SHOVEL);
         }
 

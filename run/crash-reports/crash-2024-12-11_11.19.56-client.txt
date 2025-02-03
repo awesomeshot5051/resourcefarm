@@ -9,11 +9,11 @@ java.lang.IllegalStateException: Invalid block entity resource_farms:gold_farm /
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.entity.BlockEntity.<init>(BlockEntity.java:46) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity.<init>(SyncableTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FakeWorldTileentity.<init>(FakeWorldTileentity.java:19) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.GoldOreFarmTileentity.<init>(GoldOreFarmTileentity.java:37) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.regular.GoldOreFarmItemRenderer.lambda$new$0(GoldOreFarmItemRenderer.java:12) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getBlockEntity(VillagerBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getBlockEntity(VillagerBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.BlockItemRendererBase.renderByItem(BlockItemRendererBase.java:37) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/corelib@1.21.1-2.1.4/de.maxhenkel.corelib.client.ItemRenderer$Renderer.renderByItem(ItemRenderer.java:38) ~[corelib-1.21.1-2.1.4.jar%23189!/:1.21.1-2.1.4] {re:classloading,pl:runtimedistcleaner:A}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java:156) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
@@ -62,11 +62,11 @@ Stacktrace:
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.entity.BlockEntity.<init>(BlockEntity.java:46) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity.<init>(SyncableTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FakeWorldTileentity.<init>(FakeWorldTileentity.java:19) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.GoldOreFarmTileentity.<init>(GoldOreFarmTileentity.java:37) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.regular.GoldOreFarmItemRenderer.lambda$new$0(GoldOreFarmItemRenderer.java:12) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getBlockEntity(VillagerBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getBlockEntity(VillagerBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.BlockItemRendererBase.renderByItem(BlockItemRendererBase.java:37) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/corelib@1.21.1-2.1.4/de.maxhenkel.corelib.client.ItemRenderer$Renderer.renderByItem(ItemRenderer.java:38) ~[corelib-1.21.1-2.1.4.jar%23189!/:1.21.1-2.1.4] {re:classloading,pl:runtimedistcleaner:A}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java:156) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
@@ -84,7 +84,7 @@ Stacktrace:
 -- Item being rendered --
 Details:
 	Item Type: resource_farms:gold_farm
-	Item Components: {resource_farms:block_entity=>com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData@0, resource_farms:farm_entity=>com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData@0, minecraft:max_stack_size=>64, minecraft:lore=>ItemLore[lines=[], styledLines=[]], minecraft:enchantments=>ItemEnchantments{enchantments={}, showInTooltip=true}, minecraft:repair_cost=>0, minecraft:attribute_modifiers=>ItemAttributeModifiers[modifiers=[], showInTooltip=true], minecraft:rarity=>COMMON}
+	Item Components: {resource_farms:block_entity=>com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData@0, resource_farms:farm_entity=>com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData@0, minecraft:max_stack_size=>64, minecraft:lore=>ItemLore[lines=[], styledLines=[]], minecraft:enchantments=>ItemEnchantments{enchantments={}, showInTooltip=true}, minecraft:repair_cost=>0, minecraft:attribute_modifiers=>ItemAttributeModifiers[modifiers=[], showInTooltip=true], minecraft:rarity=>COMMON}
 	Item Foil: false
 Stacktrace:
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.gui.GuiGraphics.renderItem(GuiGraphics.java:1295) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}

@@ -1,5 +1,5 @@
-// 1.21.1	2025-01-29T21:54:13.7432346	Tags for minecraft:block mod id resource_farms
-14113e092fb6ac4e41a5f156d1bc2d029b604057 data/minecraft/tags/block/mineable/pickaxe.json
-e92acba21f349218ef350e29d9e3037937e70c7e data/minecraft/tags/block/needs_diamond_tool.json
+// 1.21.1	2025-02-02T20:24:32.9225293	Tags for minecraft:block mod id resource_farms
+6cc7d31e257a267f2b7447b77f0d1faf98108d92 data/minecraft/tags/block/mineable/pickaxe.json
+469feab931341316675c626fdd2f7fc6fd38b3d7 data/minecraft/tags/block/needs_diamond_tool.json
 b8f465e509df876e6e66b15100cca1be2757f1bc data/minecraft/tags/block/needs_iron_tool.json
 c54fb1604e3c11d0c4edfd06e919079fd6c36cb1 data/resource_farms/tags/block/smeltable_results.json

@@ -33,9 +33,9 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
             ModItems.GRASS_FARM.get(),
             ModItems.GRAVEL_FARM.get(),
             ModItems.SAND_FARM.get(),
-            ModItems.RSAND_FARM.get(),  // Red Sand Farm
-            ModItems.SSAND_FARM.get(), // Soul Sand Farm
-            ModItems.SSOIL_FARM.get(), // Soul Soil Farm
+            ModItems.RSAND_FARM.get(),
+            ModItems.SSAND_FARM.get(),
+            ModItems.SSOIL_FARM.get(),
             ModItems.SNOW_FARM.get()
     ));
     List<Item> shovels = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
@@ -93,7 +93,7 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
         ItemStack farm = ingredients.stream()
                 .filter(item -> ALL_FARMS.contains(item.getItem()))
                 .findFirst()
-                .orElse(ItemStack.EMPTY); // Default to EMPTY if no match is found
+                .orElse(ItemStack.EMPTY);
 
         result2.set(ModDataComponents.PICK_TYPE, farm.get(ModDataComponents.PICK_TYPE));
         result2.set(DataComponents.STORED_ENCHANTMENTS, farm.get(DataComponents.STORED_ENCHANTMENTS));

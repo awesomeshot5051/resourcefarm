@@ -48,7 +48,7 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new CoalOreFarmItemRenderer(); // Custom creeper farm renderer
+                return new CoalOreFarmItemRenderer();
             }
         };
     }
@@ -65,16 +65,16 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
 
-        // Get the block entity
+
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof CoalOreFarmTileentity farmTileEntity) {
-            // Check for the pick type in the item stack
+
             farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
             farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
-                // Ensure the tile entity is marked as changed and synced
+
                 farmTileEntity.setChanged();
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
@@ -95,24 +95,24 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
                         Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
                                         .toString()
                                         .replace("{}", " ")
-                                        .replace("{Upgrade:\"", "") // Remove the prefix
-                                        .replace("\"}", "") // Remove the suffix
-                                        .split("_")) // Split by underscores
-                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
-                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                                        .replace("{Upgrade:\"", "")
+                                        .replace("\"}", "")
+                                        .split("_"))
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+                                .collect(Collectors.joining(" "))
                 ));
             }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
-        CoalOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CoalOreFarmTileentity(BlockPos.ZERO, ModBlocks.COAL_FARM.get().defaultBlockState()));
-        // Removed villager-related tooltip information
+        CoalOreFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CoalOreFarmTileentity(BlockPos.ZERO, ModBlocks.COAL_FARM.get().defaultBlockState()));
+
     }
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));
@@ -121,12 +121,12 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof CoalOreFarmTileentity farm)) { // Check for coalOreFarmTileentity
+        if (!(tileEntity instanceof CoalOreFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
         playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
 
-        // Directly open the container without villager checks
+
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -136,7 +136,7 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.COAL_FARM::get); // Adjust for acacia farm
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.COAL_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -145,13 +145,13 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> type) {
-        return new SimpleBlockEntityTicker<>(); // Keeps default behavior
+        return new SimpleBlockEntityTicker<>();
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new CoalOreFarmTileentity(blockPos, blockState); // Spawn coalOreFarmTileentity
+        return new CoalOreFarmTileentity(blockPos, blockState);
     }
 
     @Override

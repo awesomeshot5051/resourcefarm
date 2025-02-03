@@ -1,6 +1,5 @@
 {
   "values": [
-    "resource_farms:inventory_viewer",
     "resource_farms:basalt_farm",
     "resource_farms:blackstone_farm",
     "resource_farms:calcite_farm",
@@ -9,7 +8,6 @@
     "resource_farms:concrete_farm",
     "resource_farms:cpowder_farm",
     "resource_farms:copper_farm",
-    "resource_farms:emerald_farm",
     "resource_farms:estone_farm",
     "resource_farms:glowstone_farm",
     "resource_farms:gold_farm",
@@ -18,7 +16,6 @@
     "resource_farms:iron_farm",
     "resource_farms:lapis_farm",
     "resource_farms:nether_gold_farm",
-    "resource_farms:netherite_farm",
     "resource_farms:nether_quartz_farm",
     "resource_farms:netherrack_farm",
     "resource_farms:obsidian_farm",

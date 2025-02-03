@@ -15,7 +15,7 @@ import net.minecraft.world.item.crafting.*;
 import javax.annotation.*;
 import java.util.*;
 
-//@JeiPlugin
+
 @SuppressWarnings("ALL")
 public class JEIIntegration implements IModPlugin {
 
@@ -40,7 +40,7 @@ public class JEIIntegration implements IModPlugin {
         IJeiHelpers jeiHelpers = registration.getJeiHelpers();
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
 
-        // Register your custom recipe category
+
         registration.addRecipeCategories(
                 new FarmRecipeCategory(guiHelper)
         );
@@ -51,21 +51,14 @@ public class JEIIntegration implements IModPlugin {
         assert Minecraft.getInstance().level != null;
         RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
         List<RecipeHolder<CustomBlockRecipe>> recipes = recipeManager.getAllRecipesFor(ModRecipes.FARM_RECIPE.get());
-        // Extract all recipes of your custom type
+
         List<CustomBlockRecipe> customBlockRecipes = recipeManager.getAllRecipesFor(ModRecipes.FARM_RECIPE.get())
                 .stream()
-                .map(RecipeHolder::value) // Extract the CustomBlockRecipe
+                .map(RecipeHolder::value)
                 .toList();
-        // Register your custom recipes in JEI under your custom RecipeType
+
         registration.addRecipes(FarmRecipeCategory.TYPE, customBlockRecipes);
     }
 
-
-//    private CustomBlockRecipe toShapedRecipe(CustomBlockRecipe customRecipe, IRecipeRegistration registration) {
-//        List<ItemStack> list = convertIngredientsToItemStacks(customRecipe.getIngredients());
-//        IJeiShapedRecipeBuilder shapedRecipeBuilder = registration.getVanillaRecipeFactory().createShapedRecipeBuilder(customRecipe.category(), list);
-//        shapedRecipeBuilder.build();
-//        return customRecipe;
-//    }
 
 }

@@ -1,6 +1,6 @@
 package com.awesomeshot5051.resourceFarm.items;
 
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
@@ -19,8 +19,8 @@ public class ChiselItem extends Item {
         BlockEntity blockEntity = level.getBlockEntity(context.getClickedPos());
 
         if (!level.isClientSide()) {
-            if (blockEntity instanceof VillagerTileentity) {
-                ((VillagerTileentity) blockEntity).toggleSound();
+            if (blockEntity instanceof FarmTileentity) {
+                ((FarmTileentity) blockEntity).toggleSound();
             }
         }
 

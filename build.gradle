@@ -1,8 +1,11 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.76'
+    id 'net.neoforged.moddev' version '2.0.77'
     id 'com.gradleup.shadow' version '9.0.0-beta6'
+    id("org.shipkit.shipkit-github-release") version "2.0.1"
+    id("org.shipkit.shipkit-changelog") version "2.0.1"
+    id("org.shipkit.shipkit-auto-version") version "2.1.0"
 }
 version = mod_version
 group = mod_group_id
@@ -17,7 +20,47 @@ shadowJar {
     archiveClassifier = ''
     relocate 'com.awesomeshot5051.corelib', "com.awesomeshot5051.resourceFarm.corelib"
 }
+tasks.named("githubRelease") {
+    dependsOn tasks.named("generateChangelog")
+    repository = "awesomeshot5051/corelib"
+    changelog = tasks.named("generateChangelog").get().outputFile
+    githubToken = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+    // using env var to avoid checked-in secrets
+    newTagRevision = "main"   // using an env var automatically exported by Github Actions
+}
 
+tasks.named("generateChangelog") {
+    //file where the release notes are generated, default as below
+    outputFile = new File(getLayout().getBuildDirectory().get().asFile, "changelog.md")
+
+    //Working directory for running 'git' commands, default as below
+    workingDir = project.projectDir
+
+    //Github url, configure if you use Github Enterprise, default as below
+    githubUrl = "https://github.com"
+
+    //Github API url, configure if you use Github Enterprise, default as below
+    githubApiUrl = "https://api.github.com"
+
+    //Previous revision to generate changelog, *no default*
+    previousRevision = project.ext.'shipkit-auto-version.previous-tag'
+
+    //Current revision to generate changelog, default as below
+    revision = "HEAD"
+
+    //The release version, default as below
+    version = mod_version
+
+    //Release tag, by default it is "v" + project.version
+    releaseTag = version
+
+    //Repository to look for tickets, *no default*
+    repository = "awesomeshot5051/corelib"
+
+    //Token used for fetching tickets, *empty*
+    githubToken = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+    // using env var to avoid checked-in secrets
+}
 assemble.dependsOn('shadowJar')
 
 repositories {

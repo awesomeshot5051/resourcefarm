@@ -31,9 +31,9 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
             ModItems.GRASS_FARM.get(),
             ModItems.GRAVEL_FARM.get(),
             ModItems.SAND_FARM.get(),
-            ModItems.RSAND_FARM.get(),  // Red Sand Farm
-            ModItems.SSAND_FARM.get(), // Soul Sand Farm
-            ModItems.SSOIL_FARM.get(), // Soul Soil Farm
+            ModItems.RSAND_FARM.get(),
+            ModItems.SSAND_FARM.get(),
+            ModItems.SSOIL_FARM.get(),
             ModItems.SNOW_FARM.get()
     ));
     private ItemContainerContents swordContents;
@@ -66,9 +66,9 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
         }
         List<ItemStack> ingredient = input.items();
 
-        ItemContainerContents shovelContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_SHOVEL)));   // Placeholder for pick contents
-        ItemContainerContents pickaxeContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));   // Placeholder for pick contents
-        // Check the first and last ingredients for the PICK_TYPE component
+        ItemContainerContents shovelContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_SHOVEL)));
+        ItemContainerContents pickaxeContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
+
         farm = new ItemStack(Items.AIR);
         for (ItemStack ingrnt : ingredient) {
             if (shovelFarms.contains(ingrnt.getItem())) {

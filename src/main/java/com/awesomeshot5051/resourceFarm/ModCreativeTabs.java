@@ -14,11 +14,10 @@ public class ModCreativeTabs {
     private static final DeferredRegister<CreativeModeTab> TAB_REGISTER = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Main.MODID);
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB_RESOURCE_FARMS = TAB_REGISTER.register("assets/resource_farms", () -> CreativeModeTab.builder()
-            .icon(() -> new ItemStack(ModItems.COPPER_FARM.get())) // Use your custom item here
+            .icon(() -> new ItemStack(ModItems.COPPER_FARM.get()))
             .displayItems((features, output) -> {
 
 
-/// Common Regular
                 output.accept(new ItemStack(ModBlocks.BASALT_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.BLACKSTONE_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.CALCITE_FARM.get()));
@@ -32,39 +31,39 @@ public class ModCreativeTabs {
                 output.accept(new ItemStack(ModBlocks.STONE_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.IRON_FARM.get()));
 
-/// Uncommon Regular
+
                 output.accept(new ItemStack(ModBlocks.CONCRETE_POWDER_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.CONCRETE_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.REDSTONE_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.SSTONE_FARM.get()));
 
-/// Rare Regular
+
                 output.accept(new ItemStack(ModBlocks.LAPIS_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.DIAMOND_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.TERRACOTTA_FARM.get()));
 
-/// Very Rare Regular
+
                 output.accept(new ItemStack(ModBlocks.EMERALD_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.NETHERITE_FARM.get()));
 
-/// Common Deepslate
+
                 output.accept(new ItemStack(ModBlocks.DCOAL_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.DCOPPER_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.DGOLD_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.DIRON_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.DEEPSLATE_FARM.get()));
 
-/// Uncommon Deepslate
+
                 output.accept(new ItemStack(ModBlocks.DREDSTONE_FARM.get()));
 
-/// Rare Deepslate
+
                 output.accept(new ItemStack(ModBlocks.DDIAMOND_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.DLAPIS_FARM.get()));
 
-/// Very Rare Deepslate
+
                 output.accept(new ItemStack(ModBlocks.DEMERALD_FARM.get()));
 
-/// Nether Farms
+
                 output.accept(new ItemStack(ModBlocks.GLOWSTONE_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.NETHER_GOLD_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.NETHER_QUARTZ_FARM.get()));
@@ -72,11 +71,11 @@ public class ModCreativeTabs {
                 output.accept(new ItemStack(ModBlocks.SSAND_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.SSOIL_FARM.get()));
 
-/// End Farms
+
                 output.accept(new ItemStack(ModBlocks.ESTONE_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.PURPUR_FARM.get()));
 
-/// Miscellaneous Farms
+
                 output.accept(new ItemStack(ModBlocks.OBSIDIAN_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.ANDESITE_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.GRANITE_FARM.get()));

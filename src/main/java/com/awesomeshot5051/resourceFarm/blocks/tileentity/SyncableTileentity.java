@@ -23,7 +23,7 @@ public class SyncableTileentity extends BlockEntity {
         super(type, pos, state);
     }
 
-    // Utility method to validate and parse the pick type
+
     public static Optional<ItemStack> loadPickType(CompoundTag compound, HolderLookup.Provider provider) {
         if (compound.contains("PickType")) {
             Tag pickTypeTag = compound.get("PickType");
@@ -34,17 +34,17 @@ public class SyncableTileentity extends BlockEntity {
         return Optional.empty();
     }
 
-    public static Map<ResourceKey<Enchantment>, Boolean> loadPickaxeEnchantments(CompoundTag compound, HolderLookup.Provider provider, VillagerTileentity farm) {
+    public static Map<ResourceKey<Enchantment>, Boolean> loadPickaxeEnchantments(CompoundTag compound, HolderLookup.Provider provider, FarmTileentity farm) {
         ListTag enchantmentsList = compound.getList("PickaxeEnchantments", CompoundTag.TAG_COMPOUND);
         Map<ResourceKey<Enchantment>, Boolean> enchantments = farm.getPickaxeEnchantments();
         for (int i = 0; i < enchantmentsList.size(); i++) {
             CompoundTag enchantmentTag = enchantmentsList.getCompound(i);
 
-            // Retrieve the enchantment key and its status (enabled or not)
+
             String enchantmentId = enchantmentTag.getString("id");
             boolean enabled = enchantmentTag.getBoolean("enabled");
 
-            // Convert enchantment ID to a ResourceKey
+
             ResourceLocation enchantmentLocation = ResourceLocation.parse(enchantmentId);
             ResourceKey<Enchantment> enchantmentKey = ResourceKey.create(Registries.ENCHANTMENT, enchantmentLocation);
             PickaxeEnchantments.togglePickaxeEnchantment(enchantments, enchantmentKey, true);
@@ -52,17 +52,17 @@ public class SyncableTileentity extends BlockEntity {
         return enchantments;
     }
 
-    public static Map<ResourceKey<Enchantment>, Boolean> loadShovelEnchantments(CompoundTag compound, HolderLookup.Provider provider, VillagerTileentity farm) {
+    public static Map<ResourceKey<Enchantment>, Boolean> loadShovelEnchantments(CompoundTag compound, HolderLookup.Provider provider, FarmTileentity farm) {
         ListTag enchantmentsList = compound.getList("ShovelEnchantments", CompoundTag.TAG_COMPOUND);
         Map<ResourceKey<Enchantment>, Boolean> enchantments = farm.getShovelEnchantments();
         for (int i = 0; i < enchantmentsList.size(); i++) {
             CompoundTag enchantmentTag = enchantmentsList.getCompound(i);
 
-            // Retrieve the enchantment key and its status (enabled or not)
+
             String enchantmentId = enchantmentTag.getString("id");
             boolean enabled = enchantmentTag.getBoolean("enabled");
 
-            // Convert enchantment ID to a ResourceKey
+
             ResourceLocation enchantmentLocation = ResourceLocation.parse(enchantmentId);
             ResourceKey<Enchantment> enchantmentKey = ResourceKey.create(Registries.ENCHANTMENT, enchantmentLocation);
             ShovelEnchantments.toggleShovelEnchantment(enchantments, enchantmentKey, true);
@@ -70,7 +70,7 @@ public class SyncableTileentity extends BlockEntity {
         return enchantments;
     }
 
-    // Utility method to validate and parse the pick type
+
     public static Optional<ItemStack> loadShovelType(CompoundTag compound, HolderLookup.Provider provider) {
         if (compound.contains("ShovelType")) {
             Tag shovelTypeTag = compound.get("ShovelType");
@@ -90,7 +90,7 @@ public class SyncableTileentity extends BlockEntity {
                 itemId.contains("minecraft:netherite_shovel");
     }
 
-    // Helper method to check if an item is a valid pickaxe
+
     private static boolean isValidPickaxe(String itemId) {
         return itemId.contains("minecraft:wooden_pickaxe") ||
                 itemId.contains("minecraft:stone_pickaxe") ||

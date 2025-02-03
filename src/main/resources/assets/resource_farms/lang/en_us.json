@@ -58,7 +58,5 @@
   "sound.resource_farms.shovel_sound": "Shovel Digging",
   "itemGroup.resource_farms": "Resource Farms",
   "category.resource_farms": "Resource Farms",
-  "config.jade.plugin_resource_farms.villager": "Villager",
-  "config.jade.plugin_resource_farms.converter": "Converter",
-  "config.jade.plugin_resource_farms.breeder": "Breeder"
+  "config.jade.plugin_resource_farms.pick_type": "Pickaxe Type"
 }

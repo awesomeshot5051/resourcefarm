@@ -27,7 +27,7 @@ public class CoalOreFarmRenderer extends RendererBase<CoalOreFarmTileentity> {
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
-        // Render the Copper Ore Block
+
         if (farm.getTimer() >= CoalOreFarmTileentity.getCoalGenerateTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.COAL_ORE.defaultBlockState(),
@@ -52,7 +52,7 @@ public class CoalOreFarmRenderer extends RendererBase<CoalOreFarmTileentity> {
 
 
         matrixStack.popPose();
-        // Render the Pickaxe
+
         renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
     }
 

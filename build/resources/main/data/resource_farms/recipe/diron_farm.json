@@ -5,14 +5,12 @@
     "B": {
       "tag": "c:glass_panes"
     },
-    "C": [
-      {
-        "item": "minecraft:deepslate_iron_ore"
-      },
-      {
-        "item": "minecraft:iron_ingot"
-      }
-    ],
+    "C": {
+      "item": "minecraft:deepslate_iron_ore"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
     "P": [
       {
         "item": "minecraft:iron_pickaxe"
@@ -28,7 +26,7 @@
   "pattern": [
     "BBB",
     "BPB",
-    "BCB"
+    "ICI"
   ],
   "result": {
     "count": 1,

@@ -28,7 +28,7 @@ public class EnchantmentRemovalRecipeBuilder implements RecipeBuilder {
     }
 
     public EnchantmentRemovalRecipeBuilder(RecipeCategory p_250837_, ItemStack result) {
-//        super(p_250837_, result);
+
         this.ingredients = NonNullList.create();
         this.criteria = new LinkedHashMap<>();
         this.category = p_250837_;

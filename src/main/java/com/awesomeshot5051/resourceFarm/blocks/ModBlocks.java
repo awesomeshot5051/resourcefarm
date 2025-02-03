@@ -26,7 +26,6 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCK_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
 
 
-    public static final DeferredHolder<Block, InventoryViewerBlock> INVENTORY_VIEWER = BLOCK_REGISTER.register("inventory_viewer", InventoryViewerBlock::new);
     public static final DeferredHolder<Block, BasaltFarmBlock> BASALT_FARM = BLOCK_REGISTER.register("basalt_farm", BasaltFarmBlock::new);
     public static final DeferredHolder<Block, BlackstoneFarmBlock> BLACKSTONE_FARM = BLOCK_REGISTER.register("blackstone_farm", BlackstoneFarmBlock::new);
     public static final DeferredHolder<Block, CalciteFarmBlock> CALCITE_FARM = BLOCK_REGISTER.register("calcite_farm", CalciteFarmBlock::new);

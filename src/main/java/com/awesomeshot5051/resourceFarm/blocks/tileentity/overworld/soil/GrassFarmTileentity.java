@@ -22,7 +22,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.*;
 
-public class GrassFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
+public class GrassFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     private final boolean soundOn = true;
     public ItemStack shovelType;
@@ -47,7 +47,7 @@ public class GrassFarmTileentity extends VillagerTileentity implements ITickable
                         tileEntity.getShovelType().getItem().equals(Items.GOLDEN_SHOVEL) ? 20 :
                                 tileEntity.getShovelType().getItem().equals(Items.DIAMOND_SHOVEL) ? 25 :
                                         tileEntity.getShovelType().getItem().equals(Items.NETHERITE_SHOVEL) ? 30 :
-                                                1); // Default to Wooden SHOVEL divisor if none matches
+                                                1);
     }
 
     public static double getGrassBreakTime(GrassFarmTileentity tileEntity) {
@@ -60,13 +60,13 @@ public class GrassFarmTileentity extends VillagerTileentity implements ITickable
         if (ShovelEnchantments.getShovelEnchantmentStatus(tileEntity.shovelEnchantments, Enchantments.EFFICIENCY)) {
             baseValue = 10;
         }
-//
+
         return getGrassGenerateTime(tileEntity) + (shovel.equals(ShovelType.NETHERITE) ? (baseValue * 8) :
                 shovel.equals(ShovelType.DIAMOND) ? (baseValue * 4) :
                         shovel.equals(ShovelType.IRON) ? (baseValue * 2) :
                                 shovel.equals(ShovelType.STONE) ? (baseValue * 2) :
                                         shovel.equals(ShovelType.GOLDEN) ? (baseValue * 2) :
-                                                (baseValue * 10)); // Default to Wooden PICKAXE break time if none matches
+                                                (baseValue * 10));
     }
 
     public long getTimer() {
@@ -116,7 +116,7 @@ public class GrassFarmTileentity extends VillagerTileentity implements ITickable
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.DIRT, dropCount)); // Change this as needed for custom loot
+        drops.add(new ItemStack(Items.DIRT, dropCount));
         if (getShovelEnchantmentStatus(shovelEnchantments, Enchantments.SILK_TOUCH)) {
             drops.clear();
             drops.add(new ItemStack(Items.GRASS_BLOCK, dropCount));
@@ -133,23 +133,23 @@ public class GrassFarmTileentity extends VillagerTileentity implements ITickable
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-        // Save the shovelType as an NBT tag
+
         if (shovelType != null) {
             CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString()); // Save the item ID
-            pickTypeTag.putInt("count", shovelType.getCount()); // Save the count
-            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString());
+            pickTypeTag.putInt("count", shovelType.getCount());
+            compound.put("PickType", pickTypeTag);
         }
         if (!shovelEnchantments.isEmpty()) {
-            ListTag enchantmentsList = new ListTag(); // Create a ListTag to store enchantments
+            ListTag enchantmentsList = new ListTag();
             for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : shovelEnchantments.entrySet()) {
-                if (entry.getValue()) { // Only include enchantments set to 'true'
+                if (entry.getValue()) {
                     CompoundTag enchantmentTag = new CompoundTag();
-                    enchantmentTag.putString("id", entry.getKey().location().toString()); // Save the enchantment ID
-                    enchantmentsList.add(enchantmentTag); // Add the enchantment to the list
+                    enchantmentTag.putString("id", entry.getKey().location().toString());
+                    enchantmentsList.add(enchantmentTag);
                 }
             }
-            compound.put("ShovelEnchantments", enchantmentsList); // Save the list to the compound
+            compound.put("ShovelEnchantments", enchantmentsList);
         }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
@@ -165,7 +165,7 @@ public class GrassFarmTileentity extends VillagerTileentity implements ITickable
             shovelEnchantments = SyncableTileentity.loadShovelEnchantments(compound, provider, this);
         }
         if (shovelType == null) {
-            // If no shovelType is saved, set a default one (e.g., Stone Shovel)
+
             shovelType = new ItemStack(Items.WOODEN_SHOVEL);
         }
 

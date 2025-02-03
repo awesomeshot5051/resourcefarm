@@ -77,21 +77,18 @@ public class NetherGoldOreFarmBlock extends BlockBase implements EntityBlock, II
                         Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
                                         .toString()
                                         .replace("{}", " ")
-                                        .replace("{Upgrade:\"", "") // Remove the prefix
-                                        .replace("\"}", "") // Remove the suffix
-                                        .split("_")) // Split by underscores
-                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
-                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                                        .replace("{Upgrade:\"", "")
+                                        .replace("\"}", "")
+                                        .split("_"))
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+                                .collect(Collectors.joining(" "))
                 ));
-            }
-            if (stack.has(DataComponents.CUSTOM_DATA)) {
-                components.add(Component.literal(String.valueOf(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)) + " is enabled"));
             }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
-        NetherGoldOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new NetherGoldOreFarmTileentity(BlockPos.ZERO, ModBlocks.NETHER_GOLD_FARM.get().defaultBlockState()));
+        NetherGoldOreFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new NetherGoldOreFarmTileentity(BlockPos.ZERO, ModBlocks.NETHER_GOLD_FARM.get().defaultBlockState()));
     }
 
     @Override
@@ -137,7 +134,7 @@ public class NetherGoldOreFarmBlock extends BlockBase implements EntityBlock, II
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new NetherGoldOreFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
+        return new NetherGoldOreFarmTileentity(blockPos, blockState);
     }
 
     @Nullable
@@ -147,9 +144,9 @@ public class NetherGoldOreFarmBlock extends BlockBase implements EntityBlock, II
     }
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));

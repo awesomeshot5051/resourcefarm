@@ -35,7 +35,7 @@ public class BlockItemRendererBase<T extends BlockEntityRenderer<U>, U extends F
             itemStack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType);
         }
         assert minecraft.level != null;
-        U be = VillagerBlockEntityData.getAndStoreBlockEntity(itemStack, minecraft.level.registryAccess(), minecraft.level, tileEntitySupplier);
+        U be = BlockEntityData.getAndStoreBlockEntity(itemStack, minecraft.level.registryAccess(), minecraft.level, tileEntitySupplier);
         renderer.render(be, 0F, matrixStack, buffer, combinedLightIn, combinedOverlayIn);
     }
 

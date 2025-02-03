@@ -19,18 +19,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         ModBlocks.BLOCK_REGISTER.getEntries().forEach(blockEntry -> {
             Block block = blockEntry.get();
-            String blockName = blockEntry.getId().getPath(); // Extract block name from the registry ID
+            String blockName = blockEntry.getId().getPath();
 
-            // Exclude the inventory_viewer block
+
             if (blockName.equals("inventory_viewer")) {
-                return; // Skip processing this block
+                return;
             }
 
             if (block.defaultBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
-                // If the block has horizontal facing, use directional block state
+
                 directionalBlock(block, modLoc("block/" + blockName));
             } else {
-                // Otherwise, use a simple block model with an item
+
                 blockWithItem(blockEntry);
             }
         });

@@ -19,7 +19,7 @@ public enum PickaxeType implements StringRepresentable {
         if (item == Items.GOLDEN_PICKAXE) return GOLDEN;
         if (item == Items.DIAMOND_PICKAXE) return DIAMOND;
         if (item == Items.NETHERITE_PICKAXE) return NETHERITE;
-        return WOODEN;  // Default
+        return WOODEN;
     }
 
     public static int getRank(Item item) {
@@ -34,6 +34,6 @@ public enum PickaxeType implements StringRepresentable {
 
     @Override
     public @NotNull String getSerializedName() {
-        return this.name().toLowerCase();  // Returns the enum name in lowercase (e.g., "wooden", "stone", etc.)
+        return this.name().toLowerCase();
     }
 }

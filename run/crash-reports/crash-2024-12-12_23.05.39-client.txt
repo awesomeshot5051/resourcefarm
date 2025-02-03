@@ -7,8 +7,8 @@ Description: Unexpected error
 java.lang.NullPointerException: Cannot invoke "net.minecraft.world.level.Level.getBlockEntity(net.minecraft.core.BlockPos)" because "this.level" is null
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateCoalOreFarmTileentity.<init>(DeepslateCoalOreFarmTileentity.java:48) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.deepslate.DeepslateCoalOreFarmItemRenderer.lambda$new$0(DeepslateCoalOreFarmItemRenderer.java:12) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getBlockEntity(VillagerBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getBlockEntity(VillagerBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.BlockItemRendererBase.renderByItem(BlockItemRendererBase.java:37) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/corelib@1.21.1-2.1.4/de.maxhenkel.corelib.client.ItemRenderer$Renderer.renderByItem(ItemRenderer.java:38) ~[corelib-1.21.1-2.1.4.jar%23189!/:1.21.1-2.1.4] {re:classloading,pl:runtimedistcleaner:A}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java:156) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
@@ -50,8 +50,8 @@ Thread: Render thread
 Stacktrace:
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateCoalOreFarmTileentity.<init>(DeepslateCoalOreFarmTileentity.java:48) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.deepslate.DeepslateCoalOreFarmItemRenderer.lambda$new$0(DeepslateCoalOreFarmItemRenderer.java:12) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getBlockEntity(VillagerBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getBlockEntity(VillagerBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.items.render.BlockItemRendererBase.renderByItem(BlockItemRendererBase.java:37) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/corelib@1.21.1-2.1.4/de.maxhenkel.corelib.client.ItemRenderer$Renderer.renderByItem(ItemRenderer.java:38) ~[corelib-1.21.1-2.1.4.jar%23189!/:1.21.1-2.1.4] {re:classloading,pl:runtimedistcleaner:A}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java:156) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}

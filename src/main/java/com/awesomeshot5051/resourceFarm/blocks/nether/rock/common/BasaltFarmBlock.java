@@ -77,18 +77,18 @@ public class BasaltFarmBlock extends BlockBase implements EntityBlock, IItemBloc
                         Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
                                         .toString()
                                         .replace("{}", " ")
-                                        .replace("{Upgrade:\"", "") // Remove the prefix
-                                        .replace("\"}", "") // Remove the suffix
-                                        .split("_")) // Split by underscores
-                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
-                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                                        .replace("{Upgrade:\"", "")
+                                        .replace("\"}", "")
+                                        .split("_"))
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+                                .collect(Collectors.joining(" "))
                 ));
             }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
-        BasaltFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new BasaltFarmTileentity(BlockPos.ZERO, ModBlocks.BASALT_FARM.get().defaultBlockState()));
+        BasaltFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new BasaltFarmTileentity(BlockPos.ZERO, ModBlocks.BASALT_FARM.get().defaultBlockState()));
     }
 
     @Override
@@ -134,7 +134,7 @@ public class BasaltFarmBlock extends BlockBase implements EntityBlock, IItemBloc
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new BasaltFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
+        return new BasaltFarmTileentity(blockPos, blockState);
     }
 
     @Nullable
@@ -144,9 +144,9 @@ public class BasaltFarmBlock extends BlockBase implements EntityBlock, IItemBloc
     }
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));

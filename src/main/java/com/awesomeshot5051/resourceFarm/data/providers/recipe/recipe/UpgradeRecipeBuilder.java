@@ -20,7 +20,7 @@ public class UpgradeRecipeBuilder implements RecipeBuilder {
     private final RecipeCategory category;
     private final Item result;
     private final int count;
-    private final ItemStack resultStack; // Neo: add stack result support
+    private final ItemStack resultStack;
     private final List<String> rows = Lists.newArrayList();
     private final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
@@ -33,7 +33,7 @@ public class UpgradeRecipeBuilder implements RecipeBuilder {
     }
 
     public UpgradeRecipeBuilder(RecipeCategory p_249996_, ItemStack result) {
-//        this(p_249996_, result);
+
         this.category = p_249996_;
         this.result = result.getItem();
         this.count = result.getCount();

@@ -67,7 +67,7 @@ public class AndesiteFarmBlock extends BlockBase implements EntityBlock, IItemBl
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
-        AndesiteFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new AndesiteFarmTileentity(BlockPos.ZERO, ModBlocks.ANDESITE_FARM.get().defaultBlockState()));
+        AndesiteFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new AndesiteFarmTileentity(BlockPos.ZERO, ModBlocks.ANDESITE_FARM.get().defaultBlockState()));
     }
 
     @Override
@@ -118,7 +118,7 @@ public class AndesiteFarmBlock extends BlockBase implements EntityBlock, IItemBl
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new AndesiteFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
+        return new AndesiteFarmTileentity(blockPos, blockState);
     }
 
     @Nullable
@@ -128,9 +128,9 @@ public class AndesiteFarmBlock extends BlockBase implements EntityBlock, IItemBl
     }
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));

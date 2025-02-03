@@ -170,14 +170,15 @@ public class ModTileEntities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSAND_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSOIL_FARM.get(), (object, context) -> object.getItemHandler());
 
-    }    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GraniteFarmTileentity>> GRANITE_FARM = BLOCK_ENTITY_REGISTER.register(
-            "granite_farm", () -> BlockEntityType.Builder.of(GraniteFarmTileentity::new, ModBlocks.GRANITE_FARM.get()).build(null)
-    );
+    }
 
     public static void init(IEventBus eventBus) {
         BLOCK_ENTITY_REGISTER.register(eventBus);
     }
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GraniteFarmTileentity>> GRANITE_FARM = BLOCK_ENTITY_REGISTER.register(
+            "granite_farm", () -> BlockEntityType.Builder.of(GraniteFarmTileentity::new, ModBlocks.GRANITE_FARM.get()).build(null)
+    );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RedSandFarmTileentity>> RSAND_FARM = BLOCK_ENTITY_REGISTER.register(
@@ -307,11 +308,6 @@ public class ModTileEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RedstoneOreFarmTileentity>> REDSTONE_FARM = BLOCK_ENTITY_REGISTER.register("redstone_farm", () ->
             BlockEntityType.Builder.of(RedstoneOreFarmTileentity::new, ModBlocks.REDSTONE_FARM.get()).build(null)
-    );
-
-
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InventoryViewerTileentity>> INVENTORY_VIEWER = BLOCK_ENTITY_REGISTER.register("inventory_viewer", () ->
-            BlockEntityType.Builder.of(InventoryViewerTileentity::new, ModBlocks.INVENTORY_VIEWER.get()).build(null)
     );
 
 

@@ -13,7 +13,6 @@ import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.util.*;
 
 import java.util.*;
@@ -38,6 +37,7 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
         this.result = result;
         this.ingredients = ingredients;
         this.isSimple = ingredients.stream().allMatch(Ingredient::isSimple);
+        result2 = result.copy();
     }
 
     @Override
@@ -72,7 +72,7 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
     }
 
     public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
-        // Map to convert shovel tools to their respective pickaxe tools
+
 
         Map<Item, Item> shovelToPickaxeMap = Map.of(
                 Items.WOODEN_SHOVEL, Items.WOODEN_PICKAXE,
@@ -83,44 +83,52 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
                 Items.NETHERITE_SHOVEL, Items.NETHERITE_PICKAXE
         );
 
-        List<ItemStack> ingredients = input.items(); // Ingredients from the crafting input
-        ItemStack resultItem = ItemStack.EMPTY;      // Default result
+        List<ItemStack> ingredients = input.items();
+        ItemStack resultItem = ItemStack.EMPTY;
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             ALL_FARMS.add(sidedBlock.get());
         }
+        ItemContainerContents pickContents = null;
         ItemStack farm = ingredients.stream()
-                .filter(item -> ALL_FARMS.contains(Block.byItem(item.getItem())))
+                .filter(item -> ALL_FARMS.contains(item.getItem()))
                 .findFirst()
-                .orElse(ItemStack.EMPTY); // Default to EMPTY if no match is found
-
-        ItemContainerContents pickContents = null;   // Placeholder for pick contents
-
-        // Check the first and last ingredients for the PICK_TYPE component
-        if (ingredients.getFirst().get(ModDataComponents.PICK_TYPE) != null) {
-            pickContents = ItemContainerContents.fromItems(Collections.singletonList(
-                    Objects.requireNonNull(ingredients.getFirst().get(ModDataComponents.PICK_TYPE)).copyOne()
-            ));
-        } else if (ingredients.getLast().get(ModDataComponents.PICK_TYPE) != null) {
-            pickContents = ItemContainerContents.fromItems(Collections.singletonList(
-                    Objects.requireNonNull(ingredients.getLast().get(ModDataComponents.PICK_TYPE)).copyOne()
-            ));
+                .orElse(ItemStack.EMPTY);
+        if (farm.is(ModItems.COBBLESTONE_FARM) && ingredients.stream().anyMatch(itemStack -> itemStack.is(ModItems.SMELTER_UPGRADE))) {
+            ItemContainerContents defaultPick = ItemContainerContents.fromItems(Collections.singletonList(Items.STONE_PICKAXE.getDefaultInstance()));
+            pickContents = ItemContainerContents.fromItems(Collections.singletonList(farm.getOrDefault(ModDataComponents.PICK_TYPE, defaultPick).copyOne()));
         }
 
-        // If pickContents is set, proceed to process the result
+
+        if (pickContents == null) {
+
+            if (ingredients.getFirst().get(ModDataComponents.PICK_TYPE) != null) {
+                pickContents = ItemContainerContents.fromItems(Collections.singletonList(
+                        Objects.requireNonNull(ingredients.getFirst().get(ModDataComponents.PICK_TYPE)).copyOne()
+                ));
+            } else if (ingredients.getLast().get(ModDataComponents.PICK_TYPE) != null) {
+                pickContents = ItemContainerContents.fromItems(Collections.singletonList(
+                        Objects.requireNonNull(ingredients.getLast().get(ModDataComponents.PICK_TYPE)).copyOne()
+                ));
+            }
+        }
+
+
         if (pickContents != null) {
-            ItemStack pickStack = pickContents.getStackInSlot(0); // Extract the ItemStack from pickContents
+            ItemStack pickStack = pickContents.getStackInSlot(0);
             ItemEnchantments enchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
-            // Check if the pickContents holds a shovel, and map it to the respective pickaxe
+
             if (shovelToPickaxeMap.containsKey(pickStack.getItem())) {
-                Item newTool = shovelToPickaxeMap.get(pickStack.getItem()); // Get corresponding pickaxe
+                Item newTool = shovelToPickaxeMap.get(pickStack.getItem());
                 pickContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(newTool)));
             }
 
-            // Create and configure the result item
+
             resultItem = getResultItem(registries).copy();
-            result2.set(DataComponents.STORED_ENCHANTMENTS, enchantments);
+            resultItem.set(DataComponents.STORED_ENCHANTMENTS, enchantments);
             resultItem.set(pickTypeComponent, pickContents);
-            resultItem.set(DataComponents.CUSTOM_DATA, farm.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY));
+            if (!(farm.is(ModItems.COBBLESTONE_FARM) && resultItem.is(ModItems.STONE_FARM))) {
+                resultItem.set(DataComponents.CUSTOM_DATA, farm.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY));
+            }
         }
         return resultItem;
     }

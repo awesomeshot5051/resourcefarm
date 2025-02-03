@@ -27,28 +27,28 @@ public class TileInfoProvider implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player playerEntity, Level world, BlockState blockState, IProbeHitData iProbeHitData) {
         BlockEntity te = world.getBlockEntity(iProbeHitData.getPos());
 
-        if (te instanceof VillagerTileentity v) {
-            addVillager(v, iProbeInfo);
+        if (te instanceof FarmTileentity v) {
+            addFarm(v, iProbeInfo);
         }
     }
 
-    private void addVillager(VillagerTileentity villager, IProbeInfo iProbeInfo) {
-        if (villager != null) {
+    private void addFarm(FarmTileentity farmTileentity, IProbeInfo iProbeInfo) {
+        if (farmTileentity != null) {
             IProbeInfo info = iProbeInfo.horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
-            ItemStack pickType = villager.getPickType();
-            if (villager.getPickType() == ItemStack.EMPTY) {
-                pickType = villager.getShovelType();
+            ItemStack pickType = farmTileentity.getPickType();
+            if (farmTileentity.getPickType() == ItemStack.EMPTY) {
+                pickType = farmTileentity.getShovelType();
             }
-            if (!villager.getCustomData().isEmpty()) {
+            if (!farmTileentity.getCustomData().isEmpty()) {
                 info.text(Component.literal(
-                        Arrays.stream(villager.getCustomData()
+                        Arrays.stream(farmTileentity.getCustomData()
                                         .toString()
                                         .replace("{}", " ")
-                                        .replace("{Upgrade:\"", "") // Remove the prefix
-                                        .replace("\"}", "") // Remove the suffix
-                                        .split("_")) // Split by underscores
-                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
-                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                                        .replace("{Upgrade:\"", "")
+                                        .replace("\"}", "")
+                                        .split("_"))
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+                                .collect(Collectors.joining(" "))
                 ));
             }
             info.item(pickType).text(convertToReadableName(pickType.getDescriptionId()));
@@ -57,9 +57,9 @@ public class TileInfoProvider implements IProbeInfoProvider {
 
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));

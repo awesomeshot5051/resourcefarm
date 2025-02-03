@@ -47,8 +47,8 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
 
     public DeepslateCoalOreFarmBlock() {
-        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion()); // Adjusted for enderman farm
-//        Objects.requireNonNull(this.asItem().getDefaultInstance().get(ModDataComponents.PICK_TYPE)).getStackInSlot(0);
+        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion());
+
     }
 
     private void playSound(@NotNull Level level, BlockState state, SoundEvent sound, DeepslateCoalOreFarmTileentity farm) {
@@ -82,28 +82,28 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
                         Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
                                         .toString()
                                         .replace("{}", " ")
-                                        .replace("{Upgrade:\"", "") // Remove the prefix
-                                        .replace("\"}", "") // Remove the suffix
-                                        .split("_")) // Split by underscores
-                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
-                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                                        .replace("{Upgrade:\"", "")
+                                        .replace("\"}", "")
+                                        .split("_"))
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+                                .collect(Collectors.joining(" "))
                 ));
             }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
-        // Removed villager-related tooltip information
+
 
         super.appendHoverText(stack, context, components, tooltipFlag);
-        DeepslateCoalOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new DeepslateCoalOreFarmTileentity(BlockPos.ZERO, ModBlocks.DCOAL_FARM.get().defaultBlockState()));
-        // Removed villager-related tooltip information
+        DeepslateCoalOreFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new DeepslateCoalOreFarmTileentity(BlockPos.ZERO, ModBlocks.DCOAL_FARM.get().defaultBlockState()));
+
 
     }
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));
@@ -113,21 +113,21 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
 
-        // Get the block entity
+
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof DeepslateCoalOreFarmTileentity farmTileEntity) {
-            // Check for the pick type in the item stack
+
             farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
             farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
-//                DeepslateCoalOreFarmRenderer.setStaticFarmstack(shovelType.getStackInSlot(0));
-                // Ensure the tile entity is marked as changed and synced
+
+
                 farmTileEntity.setChanged();
                 CompoundTag compoundTag = new CompoundTag();
-                compoundTag.putString("id", BuiltInRegistries.ITEM.getKey(farmTileEntity.pickType.getItem()).toString()); // Save the item ID
-                compoundTag.putInt("count", farmTileEntity.pickType.getCount()); // Save the count
+                compoundTag.putString("id", BuiltInRegistries.ITEM.getKey(farmTileEntity.pickType.getItem()).toString());
+                compoundTag.putInt("count", farmTileEntity.pickType.getCount());
                 setBlockEntityData(stack, blockEntity.getType(), compoundTag);
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
@@ -139,11 +139,11 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
 
-        if (!(tileEntity instanceof DeepslateCoalOreFarmTileentity farm)) {// Check for EndermanFarmTileentity
+        if (!(tileEntity instanceof DeepslateCoalOreFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
         playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
-        // Directly open the container without villager checks
+
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -154,7 +154,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.DCOAL_FARM::get); // Adjust for enderman farm
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.DCOAL_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -163,16 +163,16 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> type) {
-        return new SimpleBlockEntityTicker<>(); // Keeps default behavior
+        return new SimpleBlockEntityTicker<>();
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-//        Objects.requireNonNull(this.asItem().getDefaultInstance().get(ModDataComponents.PICK_TYPE)).getStackInSlot(0);
-//        this.asItem().getDefaultInstance().get(ModDataComponents.PICK_TYPE).getStackInSlot(0);
+
+
         Main.LOGGER.info("Success!");
-        return new DeepslateCoalOreFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
+        return new DeepslateCoalOreFarmTileentity(blockPos, blockState);
     }
 
     @Override

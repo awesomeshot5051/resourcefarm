@@ -41,15 +41,8 @@ public class ConcreteFarmRenderer extends RendererBase<ConcreteFarmTileentity> {
                     buffer.getBuffer(RenderType.translucent()),
                     Blocks.WATER.defaultBlockState(),
                     Fluids.FLOWING_WATER.defaultFluidState());
-//            blockRenderDispatcher.renderSingleBlock(
-//                    Blocks.BLACK_CONCRETE_POWDER.defaultBlockState(),
-//                    matrixStack,
-//                    buffer,
-//                    combinedLight,
-//                    combinedOverlay,
-//                    ModelData.EMPTY,
-//                    RenderType.SOLID
-//            );
+
+
         } else if (farm.getTick() >= ConcreteFarmTileentity.getConcreteBreakTime(farm)) {
             blockRenderDispatcher.renderLiquid(farm.getBlockPos(),
                     Objects.requireNonNull(farm.getLevel()),
@@ -59,28 +52,28 @@ public class ConcreteFarmRenderer extends RendererBase<ConcreteFarmTileentity> {
             farm.setTick(0L);
         }
         matrixStack.popPose();
-        // Render the Pickaxe
-//        BucketRenderUtil.renderWaterSplash(farm, matrixStack, buffer, combinedLight, combinedOverlay, getDirection(), farm.getTimer());
+
+
         renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
     }
 
 
     public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {
-        if (breakStage < 0 || breakStage > 9) return; // Ensure valid stage
+        if (breakStage < 0 || breakStage > 9) return;
 
-        // Get breaking texture
+
         TextureAtlasSprite breakingSprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS)
                 .apply(ResourceLocation.fromNamespaceAndPath("minecraft", "block/destroy_stage_" + breakStage));
 
-        // Use RenderType for breaking overlay
+
         RenderType breakingRenderType = RenderType.crumbling(breakingSprite.atlasLocation());
-        // Render breaking texture over the block
+
         blockRenderDispatcher.getModelRenderer().renderModel(
                 matrixStack.last(),
                 buffer.getBuffer(breakingRenderType),
                 blockState,
                 blockRenderDispatcher.getBlockModel(blockState),
-                1.0F, 1.0F, 1.0F,  // Color
+                1.0F, 1.0F, 1.0F,
                 combinedLight,
                 combinedOverlay,
                 ModelData.EMPTY,

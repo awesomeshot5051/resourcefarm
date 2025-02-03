@@ -18,7 +18,7 @@ public class ModRecipes {
             RECIPE_SERIALIZERS.register("shapeless_serializer", CustomShapelessBlockRecipe.Serializer::new);
     public static final Supplier<RecipeSerializer<UpgradeRecipe>> UPGRADE_SERIALIZER =
             RECIPE_SERIALIZERS.register("upgrade_serializer", UpgradeRecipe.Serializer::new);
-    // Register the custom recipe serializer
+
     public static final Supplier<RecipeSerializer<EnchantmentAdditionRecipe>> ENCHANTING_SERIALIZER =
             RECIPE_SERIALIZERS.register("enchanting_serializer", EnchantmentAdditionRecipe.Serializer::new);
     public static final Supplier<RecipeSerializer<EnchantmentRemovalRecipe>> ENCHANTMENT_REMOVER_SERIALIZER =
@@ -30,13 +30,13 @@ public class ModRecipes {
     public static final Supplier<RecipeType<CustomBlockRecipe>> FARM_RECIPE =
             RECIPE_TYPES.register(
                     "farm_recipe",
-                    // We need the qualifying generic here due to generics being generics.
+
                     () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(Main.MODID, "farm_recipe"))
             );
     public static final Supplier<RecipeType<CustomShapelessBlockRecipe>> SHAPELESS_FARM_RECIPE =
             RECIPE_TYPES.register(
                     "shapeless_farm_recipe",
-                    // We need the qualifying generic here due to generics being generics.
+
                     () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(Main.MODID, "shapeless_farm_recipe"))
             );
     public static final Supplier<RecipeType<UpgradeRecipe>> UPGRADE_RECIPE =
@@ -45,7 +45,7 @@ public class ModRecipes {
                     () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(Main.MODID, "upgrade_recipe")));
 
     public static void registerRecipes(IEventBus eventBus) {
-        // Example of registering your custom recipe using a custom recipe serializer
+
         RECIPE_SERIALIZERS.register(eventBus);
     }
 

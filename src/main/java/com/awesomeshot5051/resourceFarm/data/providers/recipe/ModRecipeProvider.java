@@ -21,7 +21,7 @@ import java.util.function.*;
 import java.util.stream.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
-    // List of blocks that require a pickaxe to mine
+
     public static final List<Supplier<Block>> PICKAXE_BLOCKS = List.of(
             ModBlocks.ANDESITE_FARM::get,
             ModBlocks.COPPER_FARM::get,
@@ -59,34 +59,35 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.GRASS_FARM::get,
             ModBlocks.GRAVEL_FARM::get,
             ModBlocks.SAND_FARM::get,
-            ModBlocks.RSAND_FARM::get,  // Red Sand Farm
-            ModBlocks.SSAND_FARM::get, // Soul Sand Farm
-            ModBlocks.SSOIL_FARM::get, // Soul Soil Farm
+            ModBlocks.RSAND_FARM::get,
+            ModBlocks.SSAND_FARM::get,
+            ModBlocks.SSOIL_FARM::get,
             ModBlocks.SNOW_FARM::get
     );
     public static final List<Supplier<Block>> ALL_FARMS = Stream
             .concat(SHOVEL_BLOCKS.stream(), PICKAXE_BLOCKS.stream())
             .collect(Collectors.toList());
     public static final List<Supplier<Block>> SMELTABLE_RESULTS = List.of(
-            ModBlocks.COPPER_FARM::get,          // Smelts to Copper Ingots
-            ModBlocks.DCOPPER_FARM::get,         // Smelts to Copper Ingots
-            ModBlocks.COAL_FARM::get,            // Smelts to Coal
-            ModBlocks.DCOAL_FARM::get,           // Smelts to Coal
-            ModBlocks.IRON_FARM::get,            // Smelts to Iron Ingots
-            ModBlocks.DIRON_FARM::get,           // Smelts to Iron Ingots
-            ModBlocks.GOLD_FARM::get,            // Smelts to Gold Ingots
-            ModBlocks.DGOLD_FARM::get,           // Smelts to Gold Ingots
-            ModBlocks.NETHER_GOLD_FARM::get,     // Smelts to Gold Nuggets
-            ModBlocks.NETHERITE_FARM::get,       // Smelts to Netherite Scrap (if applicable)
-            ModBlocks.NETHER_QUARTZ_FARM::get,   // Smelts to Quartz
-            ModBlocks.REDSTONE_FARM::get,        // Smelts to Redstone (if applicable)
-            ModBlocks.DREDSTONE_FARM::get,       // Smelts to Redstone (if applicable)
-            ModBlocks.LAPIS_FARM::get,           // Smelts to Lapis Lazuli (if applicable)
-            ModBlocks.DLAPIS_FARM::get,          // Smelts to Lapis Lazuli (if applicable)
-            ModBlocks.SAND_FARM::get,            // Smelts to Glass
-            ModBlocks.RSAND_FARM::get,           // Smelts to Glass
-            ModBlocks.COBBLESTONE_FARM::get,     // Smelts to Stone
-            ModBlocks.STONE_FARM::get            // Smelts to Smooth Stone
+            ModBlocks.COPPER_FARM::get,
+            ModBlocks.BASALT_FARM::get,
+            ModBlocks.DCOPPER_FARM::get,
+            ModBlocks.COAL_FARM::get,
+            ModBlocks.DCOAL_FARM::get,
+            ModBlocks.IRON_FARM::get,
+            ModBlocks.DIRON_FARM::get,
+            ModBlocks.GOLD_FARM::get,
+            ModBlocks.DGOLD_FARM::get,
+            ModBlocks.NETHER_GOLD_FARM::get,
+            ModBlocks.NETHERITE_FARM::get,
+            ModBlocks.NETHER_QUARTZ_FARM::get,
+            ModBlocks.REDSTONE_FARM::get,
+            ModBlocks.DREDSTONE_FARM::get,
+            ModBlocks.LAPIS_FARM::get,
+            ModBlocks.DLAPIS_FARM::get,
+            ModBlocks.SAND_FARM::get,
+            ModBlocks.RSAND_FARM::get,
+            ModBlocks.COBBLESTONE_FARM::get,
+            ModBlocks.STONE_FARM::get
     );
 
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
@@ -130,19 +131,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.IRON_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
-                .pattern("BCB")
+                .pattern("ICI")
                 .define('B', Tags.Items.GLASS_PANES)
                 .define('P', Ingredient.of(Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
-                .define('C', Ingredient.of(Items.IRON_ORE, Items.IRON_INGOT))
+                .define('C', Items.IRON_ORE)
+                .define('I', Items.IRON_BLOCK)
                 .unlockedBy("has_iron", has(Items.IRON_ORE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "iron_farm"));
 
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DIRON_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
-                .pattern("BCB")
+                .pattern("ICI")
                 .define('B', Tags.Items.GLASS_PANES)
                 .define('P', Ingredient.of(Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
-                .define('C', Ingredient.of(Items.DEEPSLATE_IRON_ORE, Items.IRON_INGOT))
+                .define('C', Items.DEEPSLATE_IRON_ORE)
+                .define('I', Items.IRON_BLOCK)
                 .unlockedBy("has_deepslate_iron", has(Items.DEEPSLATE_IRON_ORE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "diron_farm"));
 
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GOLD_FARM.get())
@@ -157,10 +160,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DGOLD_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
-                .pattern("BCB")
+                .pattern("GCG")
                 .define('B', Tags.Items.GLASS_PANES)
                 .define('P', Ingredient.of(Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
-                .define('C', Ingredient.of(Items.DEEPSLATE_GOLD_ORE, Items.GOLD_INGOT))
+                .define('C', Ingredient.of(Items.DEEPSLATE_GOLD_ORE))
+                .define('G', Items.GOLD_BLOCK)
                 .unlockedBy("has_deepslate_gold", has(Items.DEEPSLATE_GOLD_ORE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "dgold_farm"));
 
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.REDSTONE_FARM.get())
@@ -256,8 +260,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_sand", has(Items.GREEN_CONCRETE_POWDER)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "cpowder_farm"));
         CustomShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CONCRETE_FARM.get(), 1)
                 .requires(ModBlocks.CONCRETE_POWDER_FARM.get())
-                .requires(Items.WATER_BUCKET)// Define what 'C' is
-                .unlockedBy("has_cpowder_farm", has(ModItems.CONCRETE_POWDER_FARM.get()))  // Unlock condition
+                .requires(Items.WATER_BUCKET)
+                .unlockedBy("has_cpowder_farm", has(ModItems.CONCRETE_POWDER_FARM.get()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "concrete_farm"));
 
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COBBLESTONE_FARM.get())
@@ -458,6 +462,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
                 .define('C', Items.STONE)
                 .unlockedBy("has_stone", has(Items.STONE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "stone_farm"));
+        CustomShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.STONE_FARM.get())
+                .requires(ModItems.SMELTER_UPGRADE)
+                .requires(ModItems.COBBLESTONE_FARM.get())
+                .unlockedBy("has_smelter_upgrade", has(ModItems.SMELTER_UPGRADE))
+                .unlockedBy("has_cobblestone_farm", has(ModItems.COBBLESTONE_FARM.get()))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "stone_farm_alternate"));
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.TERRACOTTA_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
@@ -549,7 +559,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_netherite_upgrade_recipe"));
         });
 
-// SHOVEL_BLOCKS
+
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)

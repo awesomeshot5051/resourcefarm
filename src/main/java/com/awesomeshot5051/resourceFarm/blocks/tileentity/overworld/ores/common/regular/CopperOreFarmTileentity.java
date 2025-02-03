@@ -23,10 +23,7 @@ import java.util.*;
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 @SuppressWarnings("ALL")
-public class CopperOreFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
-
-    // Update the loot table for endermans instead of iron golems
-//    private static final ResourceKey<LootTable> ENDERMAN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/enderman"));
+public class CopperOreFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
 
     public ItemStack pickType;
@@ -56,7 +53,7 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
                                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
                                                 tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
                                                         tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
-                                                                1); // Default to Wooden PICKAXE divisor if none matches
+                                                                1);
 
     }
 
@@ -69,13 +66,13 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
         if (PickaxeEnchantments.getPickaxeEnchantmentStatus(tileEntity.pickaxeEnchantments, Enchantments.EFFICIENCY)) {
             baseValue = 10;
         }
-//
+
         return getCopperGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
                 pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
                         pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
                                         pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
-                                                (baseValue * 10)); // Default to Wooden PICKAXE break time if none matches
+                                                (baseValue * 10));
 
     }
 
@@ -101,9 +98,9 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
 
     @Override
     public void tick() {
-        // Increment the main timer
+
         timer++;
-        // Handle reset and item drops
+
         if (timer >= getCopperBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -114,11 +111,11 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
                 }
             }
 
-            timer = 0L; // Reset the timer
-            sync(); // Sync to the client
+            timer = 0L;
+            sync();
         }
 
-        setChanged(); // Mark the tile entity as dirty
+        setChanged();
     }
 
     private List<ItemStack> getDrops() {
@@ -153,9 +150,9 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         super.saveAdditional(compound, provider);
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-//        if (Picktype != null) ContainerHelper.saveAllItems(compound, Picktype, false, provider);
+
         compound.putLong("Timer", timer);
-//        compound.putString("pick_type", Picktype.get(1).toString());
+
     }
 
     @Override
@@ -167,7 +164,7 @@ public class CopperOreFarmTileentity extends VillagerTileentity implements ITick
         }
         ContainerHelper.loadAllItems(compound, picktypes, provider);
         timer = compound.getLong("Timer");
-//        NonNullList<ItemStack> tempList = NonNullList.copyOf((java.util.Collection<? extends ItemStack>) compound.get("pick_type"));
+
         super.loadAdditional(compound, provider);
     }
 

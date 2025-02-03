@@ -31,9 +31,9 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
             ModItems.GRASS_FARM.get(),
             ModItems.GRAVEL_FARM.get(),
             ModItems.SAND_FARM.get(),
-            ModItems.RSAND_FARM.get(),  // Red Sand Farm
-            ModItems.SSAND_FARM.get(), // Soul Sand Farm
-            ModItems.SSOIL_FARM.get(), // Soul Soil Farm
+            ModItems.RSAND_FARM.get(),
+            ModItems.SSAND_FARM.get(),
+            ModItems.SSOIL_FARM.get(),
             ModItems.SNOW_FARM.get()
     ));
     List<Item> ALL_FARMS = new ArrayList<>();
@@ -67,8 +67,8 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
     }
 
     public ItemStack assemble(CraftingInput input, HolderLookup.@NotNull Provider registries) {
-        List<ItemStack> ingredients = input.items(); // Ingredients from the crafting input
-        ItemStack resultItem;      // Default result
+        List<ItemStack> ingredients = input.items();
+        ItemStack resultItem;
         List<Item> farmBlocks = new ArrayList<>();
         ItemEnchantments enchantments = ItemEnchantments.EMPTY;
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
@@ -80,7 +80,7 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         ItemStack farm = Ingredients.stream()
                 .filter(item -> ALL_FARMS.contains(item.getItem()))
                 .findFirst()
-                .orElse(ItemStack.EMPTY); // Default to EMPTY if no match is found
+                .orElse(ItemStack.EMPTY);
         ItemEnchantments.Mutable storedEnchantments = new ItemEnchantments.Mutable(enchantments);
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             if (!shovelFarms.contains(sidedBlock.get())) {
@@ -88,8 +88,8 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
             }
         }
 
-        ItemContainerContents pickContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));   // Placeholder for pick contents
-        // Check the first and last ingredients for the HOE_TYPE component
+        ItemContainerContents pickContents = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
+
         for (ItemStack ingredient : ingredients) {
             if (shovelFarms.contains(ingredient.getItem())) {
                 pickContents = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(ingredient.getOrDefault(ModDataComponents.PICK_TYPE, ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_SHOVEL))))).copyOne()));
@@ -103,26 +103,26 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         HolderLookup<Item> itemLookup = registries.lookup(Registries.ITEM).orElseThrow();
         HolderSet.Named<Item> pickEnchantables = itemLookup.get(ItemTags.MINING_ENCHANTABLE).orElseThrow();
 
-        // Retrieve the ItemStack (e.g., from pickContents)
+
         ItemStack pickStack = pickContents.getStackInSlot(0);
         ItemEnchantments enchantments2 = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
-//        Holder<Enchantment> holder = storedEnchantments.keySet().stream().toList().getFirst();
+
         boolean isCompatible = checkEnchantmentCompatibility(storedEnchantments.toImmutable(), pickEnchantables, pickStack) && isCompatible(storedEnchantments, pickStack);
 
         if (!isCompatible) {
             return new ItemStack(Items.AIR);
         }
         for (Holder<Enchantment> holder : storedEnchantments.keySet()) {
-            // Get the enchantment level
+
             int level = storedEnchantments.getLevel(holder);
 
-            // Apply the enchantment to the pickStack
+
             pickStack.enchant(holder, level);
         }
 
         enchantments2 = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
-//        Holder<Enchantment> holder = enchantments2.keySet().stream().toList().getFirst();
-//        storedEnchantments.keySet().add(holder);
+
+
         resultItem = getResultItem(registries).copy();
         pickStack.set(DataComponents.ENCHANTMENTS, enchantments2);
         pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
@@ -139,25 +139,23 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         return false;
     }
 
-    /**
-     * Checks if the enchantments in the enchanted book are compatible with swords.
-     */
+
     private boolean checkEnchantmentCompatibility(ItemEnchantments enchantments, HolderSet.Named<Item> swordEnchantables, ItemStack sword) {
         for (var enchantmentEntry : enchantments.entrySet()) {
             Holder<Enchantment> enchantmentHolder = enchantmentEntry.getKey();
 
-            // Check if the enchantment is valid for the SWORD_ENCHANTABLES tag
+
             boolean isValid = swordEnchantables.stream().anyMatch(itemHolder -> {
-                // Get the item and check if the enchantment is applicable
+
                 return enchantmentHolder.unwrap().map(enchantment -> EnchantmentHelper.canStoreEnchantments(sword), holder -> false);
             });
 
             if (!isValid) {
-                return false; // Incompatible enchantment found
+                return false;
             }
         }
 
-        return true; // All enchantments are compatible
+        return true;
     }
 
 

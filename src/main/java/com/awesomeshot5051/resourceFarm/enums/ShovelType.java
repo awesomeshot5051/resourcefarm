@@ -19,7 +19,7 @@ public enum ShovelType implements StringRepresentable {
         if (item == Items.GOLDEN_SHOVEL) return GOLDEN;
         if (item == Items.DIAMOND_SHOVEL) return DIAMOND;
         if (item == Items.NETHERITE_SHOVEL) return NETHERITE;
-        return WOODEN;  // Default
+        return WOODEN;
     }
 
     public static int getRank(Item item) {
@@ -34,6 +34,6 @@ public enum ShovelType implements StringRepresentable {
 
     @Override
     public @NotNull String getSerializedName() {
-        return this.name().toLowerCase();  // Returns the enum name in lowercase (e.g., "wooden", "stone", etc.)
+        return this.name().toLowerCase();
     }
 }

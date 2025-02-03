@@ -22,7 +22,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
-public class GlowstoneFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
+public class GlowstoneFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     private final boolean soundOn = true;
     public ItemStack pickType;
@@ -47,7 +47,7 @@ public class GlowstoneFarmTileentity extends VillagerTileentity implements ITick
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
                                 tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
                                         tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
-                                                1); // Default to Wooden PICKAXE divisor if none matches
+                                                1);
 
     }
 
@@ -62,13 +62,13 @@ public class GlowstoneFarmTileentity extends VillagerTileentity implements ITick
         if (PickaxeEnchantments.getPickaxeEnchantmentStatus(tileEntity.pickaxeEnchantments, Enchantments.EFFICIENCY)) {
             baseValue = 10;
         }
-//
+
         return getGlowstoneGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
                 pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
                         pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
                                         pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
-                                                (baseValue * 10)); // Default to Wooden PICKAXE break time if none matches
+                                                (baseValue * 10));
 
     }
 
@@ -118,7 +118,7 @@ public class GlowstoneFarmTileentity extends VillagerTileentity implements ITick
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.GLOWSTONE_DUST, dropCount)); // Change this as needed for custom loot
+        drops.add(new ItemStack(Items.GLOWSTONE_DUST, dropCount));
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
             drops.clear();
             drops.add(new ItemStack(Items.GLOWSTONE, 1));
@@ -134,23 +134,23 @@ public class GlowstoneFarmTileentity extends VillagerTileentity implements ITick
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-// Save the shovelType as an NBT tag
+
         if (pickType != null) {
             CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(pickType.getItem()).toString()); // Save the item ID
-            pickTypeTag.putInt("count", pickType.getCount()); // Save the count
-            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(pickType.getItem()).toString());
+            pickTypeTag.putInt("count", pickType.getCount());
+            compound.put("PickType", pickTypeTag);
         }
         if (!pickaxeEnchantments.isEmpty()) {
-            ListTag enchantmentsList = new ListTag(); // Create a ListTag to store enchantments
+            ListTag enchantmentsList = new ListTag();
             for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : pickaxeEnchantments.entrySet()) {
-                if (entry.getValue()) { // Only include enchantments set to 'true'
+                if (entry.getValue()) {
                     CompoundTag enchantmentTag = new CompoundTag();
-                    enchantmentTag.putString("id", entry.getKey().location().toString()); // Save the enchantment ID
-                    enchantmentsList.add(enchantmentTag); // Add the enchantment to the list
+                    enchantmentTag.putString("id", entry.getKey().location().toString());
+                    enchantmentsList.add(enchantmentTag);
                 }
             }
-            compound.put("PickaxeEnchantments", enchantmentsList); // Save the list to the compound
+            compound.put("PickaxeEnchantments", enchantmentsList);
         }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
@@ -166,7 +166,7 @@ public class GlowstoneFarmTileentity extends VillagerTileentity implements ITick
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (pickType == null) {
-// If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
+
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
 

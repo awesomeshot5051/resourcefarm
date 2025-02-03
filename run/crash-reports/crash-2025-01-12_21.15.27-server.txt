@@ -7,7 +7,7 @@ Description: Ticking block entity
 java.lang.NullPointerException: Cannot invoke "java.util.Map.containsKey(Object)" because "pickaxeEnchantments" is null
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.setPickaxeEnchantment(PickaxeEnchantments.java:25) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.togglePickaxeEnchantment(PickaxeEnchantments.java:42) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity.setPickaxeEnchantmentStatus(VillagerTileentity.java:56) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity.setPickaxeEnchantmentStatus(VillagerTileentity.java:56) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.StoneFarmTileentity.getStoneBreakTime(StoneFarmTileentity.java:55) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.StoneFarmTileentity.tick(StoneFarmTileentity.java:83) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/corelib@1.21.1-2.1.4/de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker.tick(SimpleBlockEntityTicker.java:14) ~[corelib-1.21.1-2.1.4.jar%23189!/:1.21.1-2.1.4] {re:classloading}
@@ -31,7 +31,7 @@ Thread: Server thread
 Stacktrace:
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.setPickaxeEnchantment(PickaxeEnchantments.java:25) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.togglePickaxeEnchantment(PickaxeEnchantments.java:42) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity.setPickaxeEnchantmentStatus(VillagerTileentity.java:56) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity.setPickaxeEnchantmentStatus(VillagerTileentity.java:56) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.StoneFarmTileentity.getStoneBreakTime(StoneFarmTileentity.java:55) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.StoneFarmTileentity.tick(StoneFarmTileentity.java:83) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/corelib@1.21.1-2.1.4/de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker.tick(SimpleBlockEntityTicker.java:14) ~[corelib-1.21.1-2.1.4.jar%23189!/:1.21.1-2.1.4] {re:classloading}

@@ -29,7 +29,7 @@ public class EnchantmentAdditionRecipeBuilder implements RecipeBuilder {
     }
 
     public EnchantmentAdditionRecipeBuilder(RecipeCategory p_250837_, ItemStack result) {
-//        super(p_250837_, result);
+
         this.ingredients = NonNullList.create();
         this.criteria = new LinkedHashMap<>();
         this.category = p_250837_;
@@ -68,9 +68,6 @@ public class EnchantmentAdditionRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
-//    public EnchantmentAdditionRecipeBuilder contains(Ingredient ingredient) {
-//
-//    }
 
     public EnchantmentAdditionRecipeBuilder requires(Ingredient ingredient) {
         return this.requires(ingredient, 1);

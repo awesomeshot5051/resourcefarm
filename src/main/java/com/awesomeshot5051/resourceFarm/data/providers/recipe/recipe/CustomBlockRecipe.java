@@ -6,9 +6,11 @@ import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import net.minecraft.core.*;
 import net.minecraft.core.component.*;
+import net.minecraft.core.registries.*;
 import net.minecraft.network.*;
 import net.minecraft.network.codec.*;
 import net.minecraft.resources.*;
+import net.minecraft.tags.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.crafting.*;
@@ -64,26 +66,26 @@ public class CustomBlockRecipe extends ShapedRecipe {
         ItemStack oreStack = craftingInput.getItem(7);
         ItemEnchantments enchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
         List<ItemStack> itemStacks = new ArrayList<>();
-        if (pickStack.isCorrectToolForDrops(Block.byItem(oreStack.getItem()).defaultBlockState())) {
+        if (isCorrectToolForDrop(pickStack, Block.byItem(oreStack.getItem()))) {
             itemStacks.add(getResultItem(registries));
-            // Set the pick type in the result item's data
+
             pickContents = ItemContainerContents.fromItems(Collections.singletonList(pickStack));
-//            BlockRendererBase.setPickaxeType(Block.byItem(result.getItem().getDefaultInstance().getItem()), pickStack);
 
-            result2 = getResultItem(registries).copy(); // Copy the result item to avoid modifying the original
 
-            // Example: Setting the pickaxe type
-//            NonNullList<ItemStack> p_00115 = NonNullList.withSize(1, pickStack);
-//            ContainerHelper.saveAllItems(new CompoundTag(), p_00115, registries);
-//            PickTypeData.getOrCreate(result);
+            result2 = getResultItem(registries).copy();
+
+            result2.set(DataComponents.STORED_ENCHANTMENTS, enchantments);
+            result2.set(pickTypeComponent, pickContents);
+
+
+            super.assemble(craftingInput, registries);
+            return result2;
         }
-        result2.set(DataComponents.STORED_ENCHANTMENTS, enchantments);
-        result2.set(pickTypeComponent, pickContents);
-//        result.set(ModDataComponents.PICK_TYPE, pickContents);
+        return ItemStack.EMPTY;
+    }
 
-//        Main.LOGGER.debug("The pick type is...: {}", Objects.requireNonNull(result.get(ModDataComponents.PICK_TYPE)).getStackInSlot(0));
-        super.assemble(craftingInput, registries);
-        return result2;
+    public boolean isCorrectToolForDrop(ItemStack pickStack, Block ore) {
+        return !ore.defaultBlockState().is(TagKey.create(BuiltInRegistries.BLOCK.key(), ResourceLocation.withDefaultNamespace("incorrect_for_" + convertToItemRegistryName(pickStack) + "_tool")));
     }
 
     @Override
@@ -96,6 +98,9 @@ public class CustomBlockRecipe extends ShapedRecipe {
         return this.result;
     }
 
+    public String convertToItemRegistryName(ItemStack pick) {
+        return pick.getDescriptionId().replace("item.minecraft.", "").replace("_pickaxe", "");
+    }
 
     public ItemStack getResult() {
         return result;
@@ -110,11 +115,6 @@ public class CustomBlockRecipe extends ShapedRecipe {
     public CraftingBookCategory category() {
         return category;
     }
-
-//    @Override
-//    public boolean isSpecial() {
-//        return true;
-//    }
 
 
     public static class Serializer implements RecipeSerializer<CustomBlockRecipe> {

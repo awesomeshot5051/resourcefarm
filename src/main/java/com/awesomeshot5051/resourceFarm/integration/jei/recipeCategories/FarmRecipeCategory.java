@@ -71,24 +71,24 @@ public class FarmRecipeCategory implements IRecipeCategory<CustomBlockRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CustomBlockRecipe recipe, @NotNull IFocusGroup focuses) {
-        int xStart = 10; // Starting x position
-        int yStart = 0; // Starting y position
-        int spacing = 20; // Space between slots
-        int gridSize = 3; // Number of slots per row and column
-        int i = 0; // Ingredient index
+        int xStart = 10;
+        int yStart = 0;
+        int spacing = 20;
+        int gridSize = 3;
+        int i = 0;
 
         for (int row = 0; row < gridSize; row++) {
             for (int col = 0; col < gridSize; col++) {
-                if (i < recipe.getIngredients().size()) { // Ensure we don't go out of bounds
+                if (i < recipe.getIngredients().size()) {
                     int x = xStart + col * spacing;
                     int y = yStart + row * spacing;
                     builder.addInputSlot(x, y).addIngredients(recipe.getIngredients().get(i));
-                    i++; // Move to the next ingredient
+                    i++;
                 }
             }
         }
-//        builder.addInputSlot(10, 10).addIngredients(recipe.getIngredients().get(1));
-//        builder.addInputSlot(20, 10).addIngredients(recipe.getIngredients().get(2));
+
+
         builder.addOutputSlot(90, 10).addItemStack(recipe.getResult());
     }
 }

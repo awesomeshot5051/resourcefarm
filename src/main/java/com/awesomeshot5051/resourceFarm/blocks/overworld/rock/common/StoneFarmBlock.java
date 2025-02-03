@@ -37,7 +37,7 @@ import static net.minecraft.world.item.BlockItem.*;
 public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
     public StoneFarmBlock() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion()); // Adjusted for stone farm
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
     }
 
     @Override
@@ -51,7 +51,7 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new StoneFarmItemRenderer(); // Custom stone farm renderer
+                return new StoneFarmItemRenderer();
             }
         };
     }
@@ -77,7 +77,7 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        StoneFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new StoneFarmTileentity(BlockPos.ZERO, ModBlocks.STONE_FARM.get().defaultBlockState()));
+        StoneFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new StoneFarmTileentity(BlockPos.ZERO, ModBlocks.STONE_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
@@ -88,34 +88,24 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
                         Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
                                         .toString()
                                         .replace("{}", " ")
-                                        .replace("{Upgrade:\"", "") // Remove the prefix
-                                        .replace("\"}", "") // Remove the suffix
-                                        .split("_")) // Split by underscores
-                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
-                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                                        .replace("{Upgrade:\"", "")
+                                        .replace("\"}", "")
+                                        .split("_"))
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+                                .collect(Collectors.joining(" "))
                 ));
             }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
-        components.add(Component.literal(
-                Arrays.stream(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
-                                .toString()
-                                .replace("{}", " ")
-                                .replace("{Upgrade:\"", "") // Remove the prefix
-                                .replace("\"}", "") // Remove the suffix
-                                .split("_")) // Split by underscores
-                        .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
-                        .collect(Collectors.joining(" ")) // Join words back with spaces
-        ));
 
 
     }
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));
@@ -124,11 +114,11 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof StoneFarmTileentity farm)) { // Check for StoneFarmTileentity
+        if (!(tileEntity instanceof StoneFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
 
-        // Directly open the container without villager checks
+
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -138,7 +128,7 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.STONE_FARM::get); // Adjust for stone farm
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.STONE_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -147,14 +137,14 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> type) {
-        return new SimpleBlockEntityTicker<>(); // Keeps default behavior
+        return new SimpleBlockEntityTicker<>();
     }
 
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new StoneFarmTileentity(blockPos, blockState); // Spawn StoneFarmTileentity
+        return new StoneFarmTileentity(blockPos, blockState);
     }
 
     @Override

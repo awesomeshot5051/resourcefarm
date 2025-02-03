@@ -69,6 +69,6 @@
     "mod_name": true
   },
   "resource_farms": {
-    "villager": true
+    "pick_type": true
   }
 }

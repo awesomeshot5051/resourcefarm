@@ -72,7 +72,7 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
-        ConcretePowderFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new ConcretePowderFarmTileentity(BlockPos.ZERO, ModBlocks.CONCRETE_POWDER_FARM.get().defaultBlockState()));
+        ConcretePowderFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new ConcretePowderFarmTileentity(BlockPos.ZERO, ModBlocks.CONCRETE_POWDER_FARM.get().defaultBlockState()));
     }
 
     @Override
@@ -99,7 +99,7 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new ConcretePowderFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
+        return new ConcretePowderFarmTileentity(blockPos, blockState);
     }
 
     @Nullable
@@ -109,9 +109,9 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
     }
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));

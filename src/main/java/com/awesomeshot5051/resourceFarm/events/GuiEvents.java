@@ -1,6 +1,5 @@
 package com.awesomeshot5051.resourceFarm.events;
 
-import com.awesomeshot5051.resourceFarm.*;
 import net.minecraft.client.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.client.gui.screens.inventory.*;
@@ -22,20 +21,6 @@ public class GuiEvents {
         if (Minecraft.getInstance().player == null) {
             return;
         }
-//        if (!Main.SERVER_CONFIG.tradeCycling.get()) {
-//            return;
-//        }
-
-        ClientConfig.CycleTradesButtonLocation loc = Main.CLIENT_CONFIG.cycleTradesButtonLocation.get();
-
-        if (loc.equals(ClientConfig.CycleTradesButtonLocation.NONE)) {
-            return;
-        }
-
-        int posX = switch (loc) {
-            case TOP_RIGHT -> merchantScreen.getGuiLeft() + 250;
-            default -> merchantScreen.getGuiLeft() + 107;
-        };
 
     }
 
@@ -46,9 +31,6 @@ public class GuiEvents {
         if (mc.player == null) {
             return;
         }
-//        if (event.getKey() != Main.CYCLE_TRADES_KEY.getKey().getValue() || event.getAction() != 0) {
-//            return;
-//        }
 
 
         Screen currentScreen = mc.screen;

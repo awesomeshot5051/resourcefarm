@@ -9,11 +9,11 @@ java.lang.IllegalStateException: Invalid block entity resource_farms:rsand_farm 
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.entity.BlockEntity.<init>(BlockEntity.java:46) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity.<init>(SyncableTileentity.java:24) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FakeWorldTileentity.<init>(FakeWorldTileentity.java:19) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil.RedSandFarmTileentity.<init>(RedSandFarmTileentity.java:28) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.overworld.soil.RedSandFarmBlock.lambda$appendHoverText$0(RedSandFarmBlock.java:63) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getBlockEntity(VillagerBlockEntityData.java:67) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.VillagerBlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getBlockEntity(VillagerBlockEntityData.java:67) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData.getAndStoreBlockEntity(VillagerBlockEntityData.java:56) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.overworld.soil.RedSandFarmBlock.appendHoverText(RedSandFarmBlock.java:63) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.BlockItem.appendHoverText(BlockItem.java:196) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.getTooltipLines(ItemStack.java:797) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}

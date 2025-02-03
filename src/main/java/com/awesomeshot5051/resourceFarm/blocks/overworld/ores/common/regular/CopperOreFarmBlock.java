@@ -44,7 +44,7 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
 
     public CopperOreFarmBlock() {
-        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.COPPER).noOcclusion()); // Adjusted for enderman farm
+        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.COPPER).noOcclusion());
     }
 
     @Override
@@ -68,7 +68,7 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
-        CopperOreFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CopperOreFarmTileentity(BlockPos.ZERO, ModBlocks.COPPER_FARM.get().defaultBlockState()));
+        CopperOreFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CopperOreFarmTileentity(BlockPos.ZERO, ModBlocks.COPPER_FARM.get().defaultBlockState()));
         super.appendHoverText(stack, context, components, tooltipFlag);
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
@@ -80,24 +80,24 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
                         Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
                                         .toString()
                                         .replace("{}", " ")
-                                        .replace("{Upgrade:\"", "") // Remove the prefix
-                                        .replace("\"}", "") // Remove the suffix
-                                        .split("_")) // Split by underscores
-                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1)) // Capitalize each word
-                                .collect(Collectors.joining(" ")) // Join words back with spaces
+                                        .replace("{Upgrade:\"", "")
+                                        .replace("\"}", "")
+                                        .split("_"))
+                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+                                .collect(Collectors.joining(" "))
                 ));
             }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
-        // Removed villager-related tooltip information
+
 
     }
 
     private String convertToReadableName(String block) {
-        // Remove "item.minecraft." and replace underscores with spaces
+
         String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
-        // Capitalize the first letter of each word
+
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.joining(" "));
@@ -107,16 +107,16 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
 
-        // Get the block entity
+
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof CopperOreFarmTileentity farmTileEntity) {
-            // Check for the pick type in the item stack
+
             farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
             farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
-                // Ensure the tile entity is marked as changed and synced
+
                 farmTileEntity.setChanged();
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
@@ -128,11 +128,11 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
 
-        if (!(tileEntity instanceof CopperOreFarmTileentity farm)) {// Check for EndermanFarmTileentity
+        if (!(tileEntity instanceof CopperOreFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
         playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
-        // Directly open the container without villager checks
+
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -143,7 +143,7 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.COPPER_FARM::get); // Adjust for enderman farm
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.COPPER_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -152,14 +152,14 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> type) {
-        return new SimpleBlockEntityTicker<>(); // Keeps default behavior
+        return new SimpleBlockEntityTicker<>();
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-//        Objects.requireNonNull(this.asItem().getDefaultInstance().get(ModDataComponents.PICK_TYPE)).getStackInSlot(0);
-        return new CopperOreFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
+
+        return new CopperOreFarmTileentity(blockPos, blockState);
     }
 
     @Override

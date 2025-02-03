@@ -33,7 +33,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../build/moddev/artifacts/neoforge-21.1.114-merged.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../build/moddev/artifacts/neoforge-21.1.115-merged.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -131,7 +131,7 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../build/moddev/artifacts/neoforge-21.1.114-client-extra-aka-minecraft-resources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../build/moddev/artifacts/neoforge-21.1.115-client-extra-aka-minecraft-resources.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

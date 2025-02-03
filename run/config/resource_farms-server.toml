@@ -1,8 +1,3 @@
-[villager]
-	#If the villager reputation should be the same for every player
-	#This affects the prices of cured/converted villagers and the prices of the auto trader
-	universal_reputation = true
-
 [copper_farm]
 	#The time in ticks the copper farm takes to generate resources
 	# Default: 600

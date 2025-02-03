@@ -22,7 +22,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
-public class CoalOreFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
+public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
     private final boolean soundOn = true;
     public ItemStack pickType;
     public boolean upgradeEnabled;
@@ -49,7 +49,7 @@ public class CoalOreFarmTileentity extends VillagerTileentity implements ITickab
                                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
                                                 tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
                                                         tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
-                                                                1); // Default to Wooden PICKAXE divisor if none matches
+                                                                1);
 
     }
 
@@ -62,16 +62,16 @@ public class CoalOreFarmTileentity extends VillagerTileentity implements ITickab
         if (PickaxeEnchantments.getPickaxeEnchantmentStatus(tileEntity.pickaxeEnchantments, Enchantments.EFFICIENCY)) {
             baseValue = 10;
         }
-//
+
         return getCoalGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
                 pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
                         pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
                                         pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
-                                                (baseValue * 10)); // Default to Wooden PICKAXE break time if none matches
+                                                (baseValue * 10));
     }
 
-    //private static final ResourceKey<LootTable> COAL_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/coal"));
+
     public ItemStack getPickType() {
         return pickType;
     }
@@ -92,10 +92,10 @@ public class CoalOreFarmTileentity extends VillagerTileentity implements ITickab
 
     @Override
     public void tick() {
-        // Increment the main timer
+
         timer++;
 
-        // Handle reset and item drops
+
         if (timer >= getCoalBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -106,11 +106,11 @@ public class CoalOreFarmTileentity extends VillagerTileentity implements ITickab
                 }
             }
 
-            timer = 0L; // Reset the timer
-            sync(); // Sync to the client
+            timer = 0L;
+            sync();
         }
 
-        setChanged(); // Mark the tile entity as dirty
+        setChanged();
 
     }
 

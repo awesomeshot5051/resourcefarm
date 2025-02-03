@@ -21,7 +21,7 @@ public abstract class BaseBlockModelProvider extends BlockModelProvider {
     }
 
     public BlockModelBuilder sideBottomTop(Item item) {
-        // Create the block model
+
         return withExistingParent(item.toString(), modLoc("block/farm"))
                 .texture("front", "minecraft:block/stone")
                 .texture("back", "minecraft:block/stone");

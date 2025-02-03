@@ -32,7 +32,7 @@ public class DeepslateEmeraldOreFarmRenderer extends RendererBase<DeepslateEmera
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
-        // Render the Emerald Ore Block
+
         if (farm.getTimer() >= DeepslateEmeraldOreFarmTileentity.getEmeraldGenerateTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.DEEPSLATE_EMERALD_ORE.defaultBlockState(),
@@ -56,26 +56,26 @@ public class DeepslateEmeraldOreFarmRenderer extends RendererBase<DeepslateEmera
         }
 
         matrixStack.popPose();
-        // Render the Pickaxe
+
         renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
     }
 
     public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {
-        if (breakStage < 0 || breakStage > 9) return; // Ensure valid stage
+        if (breakStage < 0 || breakStage > 9) return;
 
-        // Get breaking texture
+
         TextureAtlasSprite breakingSprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS)
                 .apply(ResourceLocation.fromNamespaceAndPath("minecraft", "block/destroy_stage_" + breakStage));
 
-        // Use RenderType for breaking overlay
+
         RenderType breakingRenderType = RenderType.crumbling(breakingSprite.atlasLocation());
-        // Render breaking texture over the block
+
         blockRenderDispatcher.getModelRenderer().renderModel(
                 matrixStack.last(),
                 buffer.getBuffer(breakingRenderType),
                 blockState,
                 blockRenderDispatcher.getBlockModel(blockState),
-                1.0F, 1.0F, 1.0F,  // Color
+                1.0F, 1.0F, 1.0F,
                 combinedLight,
                 combinedOverlay,
                 ModelData.EMPTY,

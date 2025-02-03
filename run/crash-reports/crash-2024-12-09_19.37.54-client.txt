@@ -9,7 +9,7 @@ java.lang.IllegalStateException: Invalid block entity resource_farms:dcopper_far
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.entity.BlockEntity.<init>(BlockEntity.java:46) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity.<init>(SyncableTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FakeWorldTileentity.<init>(FakeWorldTileentity.java:19) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateCopperOreFarmTileentity.<init>(DeepslateCopperOreFarmTileentity.java:41) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateCopperOreFarmBlock.lambda$appendHoverText$1(DeepslateCopperOreFarmBlock.java:84) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData.getBlockEntity(FarmBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}
@@ -57,7 +57,7 @@ Stacktrace:
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.entity.BlockEntity.<init>(BlockEntity.java:46) ~[neoforge-21.1.65-minecraft.jar%23183!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.SyncableTileentity.<init>(SyncableTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FakeWorldTileentity.<init>(FakeWorldTileentity.java:19) ~[%23185!/:?] {re:classloading}
-	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
+	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity.<init>(VillagerTileentity.java:20) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateCopperOreFarmTileentity.<init>(DeepslateCopperOreFarmTileentity.java:41) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateCopperOreFarmBlock.lambda$appendHoverText$1(DeepslateCopperOreFarmBlock.java:84) ~[%23185!/:?] {re:classloading}
 	at TRANSFORMER/resource_farms@1/com.awesomeshot5051.resourceFarm.datacomponents.FarmBlockEntityData.getBlockEntity(FarmBlockEntityData.java:74) ~[%23185!/:?] {re:classloading}

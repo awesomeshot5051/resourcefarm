@@ -1,8 +1,8 @@
 package com.awesomeshot5051.resourceFarm.BlockInternalRender;
 
 import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.FakeWorldTileentity;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.VillagerTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity;
 import com.awesomeshot5051.resourceFarm.sounds.ModSounds;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -24,26 +24,26 @@ import static com.mojang.math.Axis.YP;
 import static com.mojang.math.Axis.ZP;
 
 public class PickaxeRendererUtil {
-    private static VillagerTileentity Farm;
+    private static FarmTileentity Farm;
 
-    // Add a static variable to track when the sound has been played in the current swing
+
     private static boolean soundPlayedThisSwing = false;
 
-    public static <T extends VillagerTileentity> void renderSwingingPickaxe(T farm, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay, ItemStack pickaxeStack, Direction direction, long timer) {
+    public static <T extends FarmTileentity> void renderSwingingPickaxe(T farm, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay, ItemStack pickaxeStack, Direction direction, long timer) {
         Farm = farm;
 
-        // Item renderer
+
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
-        // Save matrix state
+
         matrixStack.pushPose();
 
-        // Translate the pickaxe above the block
+
         matrixStack.translate(0.2, .55, 0.5);
 
-        // Swing animation
-        float swingProgress = (timer % 20) / 20.0f; // Progress through one swing cycle
-        float angle = (float) Math.sin(swingProgress * Math.PI * 2) * 45; // Swing back and forth
+
+        float swingProgress = (timer % 20) / 20.0f;
+        float angle = (float) Math.sin(swingProgress * Math.PI * 2) * 45;
 
         switch (direction) {
             case EAST:
@@ -67,20 +67,18 @@ public class PickaxeRendererUtil {
 
         matrixStack.mulPose(ZP.rotationDegrees(angle));
 
-        // Play sound only once per swing
-//        if (farm.getSound()) {
+
         if (angle >= 45 && !soundPlayedThisSwing && Main.CLIENT_CONFIG.pickaxeSoundRendered.get()) {
             playSound(Objects.requireNonNull(farm.getLevel()), farm.getBlockState(), ModSounds.PICKAXE_SOUND.get());
             soundPlayedThisSwing = true;
-        } else if (swingProgress < 0.5) { // Reset the flag in the first half of the swing cycle
+        } else if (swingProgress < 0.5) {
             soundPlayedThisSwing = false;
         }
-//        }
 
-        // Scale the pickaxe
+
         matrixStack.scale(0.5f, 0.5f, 0.5f);
 
-        // Render the pickaxe
+
         itemRenderer.renderStatic(
                 pickaxeStack,
                 ItemDisplayContext.GROUND,
@@ -92,7 +90,7 @@ public class PickaxeRendererUtil {
                 0
         );
 
-        // Restore matrix state
+
         matrixStack.popPose();
     }
 

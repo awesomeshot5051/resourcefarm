@@ -5,55 +5,66 @@
 
 [copper_farm]
 	#The time in ticks the copper farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [coal_farm]
 	#The time in ticks the coal farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [iron_farm]
 	#The time in ticks the iron farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [gold_farm]
 	#The time in ticks the gold farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [diamond_farm]
 	#The time in ticks the diamond farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [emerald_farm]
 	#The time in ticks the emerald farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [redstone_farm]
 	#The time in ticks the redstone farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [lapis_farm]
 	#The time in ticks the lapis farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [quartz_farm]
 	#The time in ticks the quartz farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [netherite_farm]
 	#The time in ticks the netherite farm takes to generate resources
-	#Range: 600 ~ 600
+	# Default: 600
+	# Range: 600 ~ 600
 	generate_time = 600
 
 [sand_farm]
 	#The time in ticks the sand farm takes to generate resources
-	#Range: 400 ~ 400
+	# Default: 400
+	# Range: 400 ~ 400
 	generate_time = 400

@@ -5,7 +5,7 @@ import net.neoforged.neoforge.common.*;
 
 @SuppressWarnings("ALL")
 public class ServerConfig extends ConfigBase {
-    //meat dropping mobs
+
 
     public final ModConfigSpec.IntValue copperGenerateTime;
     public final ModConfigSpec.IntValue coalGenerateTime;
@@ -19,12 +19,11 @@ public class ServerConfig extends ConfigBase {
     public final ModConfigSpec.IntValue netheriteGenerateTime;
     public final ModConfigSpec.IntValue sandGenerateTime;
 
-    public final ModConfigSpec.BooleanValue universalReputation;
 
     public ServerConfig(ModConfigSpec.Builder builder) {
         super(builder);
 
-        //neutral mobs
+
         copperGenerateTime = builder
                 .comment("The time in ticks the copper farm takes to generate resources")
                 .defineInRange("copper_farm.generate_time", 20 * 30, 20 * 30, 20 * 30);
@@ -70,12 +69,5 @@ public class ServerConfig extends ConfigBase {
                 .comment("The time in ticks the sand farm takes to generate resources")
                 .defineInRange("sand_farm.generate_time", 20 * 20, 20 * 20, 20 * 20);
 
-
-        universalReputation = builder
-                .comment(
-                        "If the villager reputation should be the same for every player",
-                        "This affects the prices of cured/converted villagers and the prices of the auto trader"
-                )
-                .define("villager.universal_reputation", true);
     }
 }

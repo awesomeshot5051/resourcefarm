@@ -23,7 +23,7 @@ import java.util.*;
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 @SuppressWarnings("ALL")
-public class PurpurFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
+public class PurpurFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
@@ -48,7 +48,7 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
                                 tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
                                         tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
-                                                1); // Default to Wooden PICKAXE divisor if none matches
+                                                1);
 
     }
 
@@ -117,7 +117,7 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.PURPUR_BLOCK, dropCount)); // Change this as needed for custom loot
+        drops.add(new ItemStack(Items.PURPUR_BLOCK, dropCount));
         return drops;
     }
 
@@ -129,23 +129,23 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-// Save the shovelType as an NBT tag
+
         if (pickType != null) {
             CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(pickType.getItem()).toString()); // Save the item ID
-            pickTypeTag.putInt("count", pickType.getCount()); // Save the count
-            compound.put("PickType", pickTypeTag); // Add the tag to the main compound
+            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(pickType.getItem()).toString());
+            pickTypeTag.putInt("count", pickType.getCount());
+            compound.put("PickType", pickTypeTag);
         }
         if (!pickaxeEnchantments.isEmpty()) {
-            ListTag enchantmentsList = new ListTag(); // Create a ListTag to store enchantments
+            ListTag enchantmentsList = new ListTag();
             for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : pickaxeEnchantments.entrySet()) {
-                if (entry.getValue()) { // Only include enchantments set to 'true'
+                if (entry.getValue()) {
                     CompoundTag enchantmentTag = new CompoundTag();
-                    enchantmentTag.putString("id", entry.getKey().location().toString()); // Save the enchantment ID
-                    enchantmentsList.add(enchantmentTag); // Add the enchantment to the list
+                    enchantmentTag.putString("id", entry.getKey().location().toString());
+                    enchantmentsList.add(enchantmentTag);
                 }
             }
-            compound.put("PickaxeEnchantments", enchantmentsList); // Save the list to the compound
+            compound.put("PickaxeEnchantments", enchantmentsList);
         }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
@@ -161,7 +161,7 @@ public class PurpurFarmTileentity extends VillagerTileentity implements ITickabl
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (pickType == null) {
-// If no shovelType is saved, set a default one (e.g., Stone Pickaxe)
+
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
 
