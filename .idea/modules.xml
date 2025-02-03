@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ResourceFarms.iml" filepath="$PROJECT_DIR$/.idea/modules/ResourceFarms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ResourceFarms.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ResourceFarms.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ResourceFarms.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ResourceFarms.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ResourceFarms.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ResourceFarms.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/resourcefarm.iml" filepath="$PROJECT_DIR$/.idea/modules/resourcefarm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/resourcefarm.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/resourcefarm.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/resourcefarm.main.iml" filepath="$PROJECT_DIR$/.idea/modules/resourcefarm.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/resourcefarm.test.iml" filepath="$PROJECT_DIR$/.idea/modules/resourcefarm.test.iml" />
     </modules>
   </component>
 </project>
