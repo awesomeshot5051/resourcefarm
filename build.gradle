@@ -22,6 +22,7 @@ shadowJar {
 }
 tasks.named("githubRelease") {
     dependsOn tasks.named("generateChangelog")
+    depends on tasks . named("ReleaseJar")
     repository = "awesomeshot5051/resourcefarm"
     changelog = tasks.named("generateChangelog").get().outputFile
     githubToken = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
@@ -203,8 +204,8 @@ tasks.withType(JavaCompile).configureEach {
 }
 publishing {
     publications {
-        library(MavenPublication) {
-            from components.java
+        mavenJava(MavenPublication) {
+            artifact(tasks.named("jar")) // Only main JAR, no sources/javadoc
         }
     }
     repositories {

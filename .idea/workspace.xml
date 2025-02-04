@@ -7,7 +7,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1-2.1.3&#10;Fixed bug where putting in the correct tool wouldn't output the right tool&#10;Fixed bug where plugin showed wrong name&#10;Changed Stone farm to always drop stone, unless smelter upgrade is active. Then it drops Smooth Stone" />
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1-2.1.3&#10;Fixed bug where putting in the correct tool wouldn't output the right tool&#10;Fixed bug where plugin showed wrong name&#10;Changed Stone farm to always drop stone, unless smelter upgrade is active. Then it drops Smooth Stone">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +56,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="resourcefarm" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="resourcefarm" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -120,50 +138,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.Build resourceFarm.executor": "Run",
-    "Gradle.D:/MCreatorWorkspaces/resourceFarm [clean].executor": "Run",
-    "Gradle.D:/MCreatorWorkspaces/resourcefarm [githubRelease].executor": "Run",
-    "Gradle.D:/MCreatorWorkspaces/resourcefarm [publish].executor": "Run",
-    "Gradle.resourceFarm [:net.neoforged.devlaunch.Main.main()].executor": "Run",
-    "Gradle.resourceFarm [ReleaseJar].executor": "Run",
-    "Gradle.resourceFarm [assemble].executor": "Run",
-    "Gradle.resourceFarm [buildDependents].executor": "Run",
-    "Gradle.resourceFarm [buildNeeded].executor": "Run",
-    "Gradle.resourceFarm [build].executor": "Run",
-    "Gradle.resourceFarm [classes].executor": "Run",
-    "Gradle.resourceFarm [clean].executor": "Run",
-    "Gradle.resourceFarm [corelibShadowJar].executor": "Run",
-    "Gradle.resourceFarm [githubRelease].executor": "Run",
-    "Gradle.resourceFarm [init].executor": "Run",
-    "Gradle.resourceFarm [jar].executor": "Run",
-    "Gradle.resourceFarm [publish] (1).executor": "Run",
-    "Gradle.resourceFarm [publish].executor": "Run",
-    "Gradle.resourceFarm [runClient].executor": "Debug",
-    "Gradle.resourceFarm [runData].executor": "Run",
-    "Gradle.resourceFarm [shadowJar].executor": "Run",
-    "Gradle.resourceFarm [testClasses].executor": "Run",
-    "JavaMethodFindUsagesOptions.isSearchForTextOccurrences": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/MCreatorWorkspaces/resourceFarm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "rearrange.code.on.save": "true",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "two.files.diff.last.used.file": "D:/MCreatorWorkspaces/mobFarms/MobFarms/src/main/java/com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/CreeperFarmBlock.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.Build resourceFarm.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.D:/MCreatorWorkspaces/resourceFarm [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [githubRelease].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [publish].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [:net.neoforged.devlaunch.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [ReleaseJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [assemble].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [buildNeeded].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [classes].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [corelibShadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [githubRelease].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [init].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [publishGprPublicationToGitHubPackagesRepository].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [publish] (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [publish].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [runClient].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.resourceFarm [runData].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [shadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [testClasses].executor&quot;: &quot;Run&quot;,
+    &quot;JavaMethodFindUsagesOptions.isSearchForTextOccurrences&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MCreatorWorkspaces/resourceFarm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;D:/MCreatorWorkspaces/mobFarms/MobFarms/src/main/java/com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/CreeperFarmBlock.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\MCreatorWorkspaces\resourceFarm" />
@@ -201,7 +220,7 @@
       <command value="gradle -S publish --no-configuration-cache" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.D:/MCreatorWorkspaces/resourcefarm [publish]">
+  <component name="RunManager" selected="Gradle.D:/MCreatorWorkspaces/resourcefarm [ReleaseJar]">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="resourcefarm.main" />
@@ -242,6 +261,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="D:/MCreatorWorkspaces/resourcefarm [ReleaseJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="ReleaseJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="D:/MCreatorWorkspaces/resourcefarm [githubRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -269,7 +310,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -286,7 +327,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="resourceFarm [githubRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [ReleaseJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -297,7 +338,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="githubRelease" />
+            <option value="ReleaseJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -308,7 +349,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="resourceFarm [publish] (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [publishGprPublicationToGitHubPackagesRepository]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -319,29 +360,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="publish" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="resourceFarm [publish]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="publish" />
+            <option value="publishGprPublicationToGitHubPackagesRepository" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -354,11 +373,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [ReleaseJar]" />
         <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [publish]" />
+        <item itemvalue="Gradle.resourceFarm [publishGprPublicationToGitHubPackagesRepository]" />
+        <item itemvalue="Gradle.resourceFarm [ReleaseJar]" />
         <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [githubRelease]" />
-        <item itemvalue="Gradle.resourceFarm [publish] (1)" />
-        <item itemvalue="Gradle.resourceFarm [publish]" />
-        <item itemvalue="Gradle.resourceFarm [githubRelease]" />
       </list>
     </recent_temporary>
   </component>
@@ -370,22 +389,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733150288157</updated>
-    </task>
-    <task id="LOCAL-00019" summary="1.21.1 V 2.0.0">
-      <option name="closed" value="true" />
-      <created>1736809348082</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1736809348082</updated>
-    </task>
-    <task id="LOCAL-00020" summary="1.21.1 V 2.0.0">
-      <option name="closed" value="true" />
-      <created>1736809355221</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1736809355221</updated>
     </task>
     <task id="LOCAL-00021" summary="1.21.1 V 2.0.0">
       <option name="closed" value="true" />
@@ -763,7 +766,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738627277942</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="1.21.1-2.1.3&#10;Fixed bug where putting in the correct tool wouldn't output the right tool&#10;Fixed bug where plugin showed wrong name&#10;Changed Stone farm to always drop stone, unless smelter upgrade is active. Then it drops Smooth Stone">
+      <option name="closed" value="true" />
+      <created>1738627495953</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1738627495954</updated>
+    </task>
+    <task id="LOCAL-00069" summary="1.21.1-2.1.3&#10;Fixed bug where putting in the correct tool wouldn't output the right tool&#10;Fixed bug where plugin showed wrong name&#10;Changed Stone farm to always drop stone, unless smelter upgrade is active. Then it drops Smooth Stone">
+      <option name="closed" value="true" />
+      <created>1738627508596</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1738627508596</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
