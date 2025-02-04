@@ -1,8 +1,8 @@
 /secrets/secrets.properties
-/.gradle/
+.gradle/
 /.idea/
 /build/
 /gradle/
 /run/
 /secrets/
-/.gradle/
+.gradle/8.10/
