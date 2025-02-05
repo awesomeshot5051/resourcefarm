@@ -25,7 +25,7 @@ import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantment
 public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
     private final boolean soundOn = true;
     public ItemStack pickType;
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     protected NonNullList<ItemStack> inventory;
@@ -126,7 +126,7 @@ public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBl
         drops.add(new ItemStack(Items.COAL, dropCount));
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
             drops.clear();
-            if (upgradeEnabled) {
+            if (smelterUpgradeEnabled) {
                 drops.add(new ItemStack(Items.COAL, dropCount));
             } else {
                 drops.add(new ItemStack(Items.COAL_ORE));

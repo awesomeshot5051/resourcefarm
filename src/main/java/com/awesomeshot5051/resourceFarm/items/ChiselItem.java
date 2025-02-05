@@ -1,11 +1,11 @@
 package com.awesomeshot5051.resourceFarm.items;
 
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.FarmTileentity;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import com.awesomeshot5051.corelib.blockentity.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.context.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.entity.*;
 
 public class ChiselItem extends Item {
 

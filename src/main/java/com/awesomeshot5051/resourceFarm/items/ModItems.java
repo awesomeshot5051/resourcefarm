@@ -74,7 +74,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> FORTUNE_UPGRADE = ITEMS.register("fortune_upgrade",
             () -> new Item(new Item.Properties()));
-
+    public static final DeferredItem<Item> REDSTONE_UPGRADE = ITEMS.register("redstone_upgrade",
+            () -> new Item(new Item.Properties()));
 
     private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPE_REGISTER = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Main.MODID);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockEntityData>> BLOCK_ENTITY_DATA_COMPONENT = DATA_COMPONENT_TYPE_REGISTER.register("block_entity", () -> DataComponentType.<BlockEntityData>builder().networkSynchronized(BlockEntityData.STREAM_CODEC).build());

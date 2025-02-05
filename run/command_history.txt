@@ -1,5 +1,3 @@
-/time set day
-/gamerule doDaylightCycle false
 /gamerule doWeatherCycle false
 /weather clear
 /kill @e[type=!minecraft:player]
@@ -47,4 +45,6 @@
 /give Dev resource_farms:speed_upgrade
 /give Dev resource_farms:smelter_upgrade
 /give @a iron_pickaxe[damage=135]
+/reload
+/give Dev resource_farms:redstone_upgrade
 /reload

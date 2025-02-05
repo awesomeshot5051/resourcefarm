@@ -69,7 +69,7 @@ public class CoalOreFarmBlock extends BlockBase implements EntityBlock, IItemBlo
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof CoalOreFarmTileentity farmTileEntity) {
 
-            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
+            farmTileEntity.smelterUpgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
             farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {

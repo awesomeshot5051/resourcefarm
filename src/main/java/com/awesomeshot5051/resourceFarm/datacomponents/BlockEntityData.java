@@ -1,6 +1,6 @@
 package com.awesomeshot5051.resourceFarm.datacomponents;
 
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import net.minecraft.core.*;
 import net.minecraft.core.component.*;

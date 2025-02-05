@@ -7,7 +7,6 @@ import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import net.minecraft.core.*;
 import net.minecraft.core.component.*;
-import net.minecraft.nbt.*;
 import net.minecraft.network.*;
 import net.minecraft.network.codec.*;
 import net.minecraft.resources.*;
@@ -19,6 +18,7 @@ import net.neoforged.neoforge.common.util.*;
 import org.jetbrains.annotations.*;
 
 import java.util.*;
+import java.util.stream.*;
 
 @SuppressWarnings("ALL")
 public class CardUpgradeRecipe extends ShapelessRecipe {
@@ -41,6 +41,8 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
     List<Item> shovels = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
     List<Item> pickaxes = List.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.GOLDEN_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE);
     List<Item> ALL_FARMS = new ArrayList<>();
+    List<Item> upgrades = List.of(ModItems.REDSTONE_UPGRADE.get()
+            , ModItems.SMELTER_UPGRADE.get(), ModItems.XP_UPGRADE.get());
     private ItemContainerContents pickContents;
     private ItemStack result2;
 
@@ -83,7 +85,8 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
 
     @Override
     public @NotNull ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider registries) {
-        CustomData upgrade = CustomData.of(createSmeltingUpgrade());
+
+
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             ALL_FARMS.add(sidedBlock.get());
         }
@@ -94,18 +97,28 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
                 .filter(item -> ALL_FARMS.contains(item.getItem()))
                 .findFirst()
                 .orElse(ItemStack.EMPTY);
-
+        ItemStack upgradeCard = ingredients.stream()
+                .filter(item -> upgrades.contains(item.getItem()))
+                .findFirst()
+                .orElse(ItemStack.EMPTY);
+        ItemContainerContents upgrade = ItemContainerContents.EMPTY;
+        if (farm.has(ModDataComponents.UPGRADE)) {
+            upgrade = ItemContainerContents.fromItems(List.of(farm.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).copyOne(), upgradeCard));
+        } else {
+            upgrade = ItemContainerContents.fromItems(Collections.singletonList(upgradeCard));
+        }
         result2.set(ModDataComponents.PICK_TYPE, farm.get(ModDataComponents.PICK_TYPE));
         result2.set(DataComponents.STORED_ENCHANTMENTS, farm.get(DataComponents.STORED_ENCHANTMENTS));
-        result2.set(DataComponents.CUSTOM_DATA, upgrade);
+        result2.set(ModDataComponents.UPGRADE, upgrade);
         super.assemble(craftingInput, registries);
         return result2;
     }
 
-    public CompoundTag createSmeltingUpgrade() {
-        CompoundTag smelting_upgrade = new CompoundTag();
-        smelting_upgrade.putString("Upgrade", "smelting_upgrade");
-        return smelting_upgrade;
+
+    private String convertToReadableName(String block) {
+        String readableName = block.replace("item.plant_farms.", "").replace('_', ' ')
+                .replace("{}", "");
+        return Arrays.stream(readableName.split(" ")).map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase()).collect(Collectors.joining(" "));
     }
 
     public boolean canCraftInDimensions(int width, int height) {

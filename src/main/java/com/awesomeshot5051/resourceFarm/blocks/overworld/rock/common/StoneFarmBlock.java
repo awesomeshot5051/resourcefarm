@@ -61,8 +61,8 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof StoneFarmTileentity farmTileEntity) {
-            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
-            farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
+            farmTileEntity.smelterUpgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
+//            farmTileEntity.customData = ;
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
@@ -83,17 +83,9 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
             components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
                     .withStyle(ChatFormatting.RED));
-            if (stack.has(DataComponents.CUSTOM_DATA)) {
-                components.add(Component.literal(
-                        Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
-                                        .toString()
-                                        .replace("{}", " ")
-                                        .replace("{Upgrade:\"", "")
-                                        .replace("\"}", "")
-                                        .split("_"))
-                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
-                                .collect(Collectors.joining(" "))
-                ));
+            if (stack.has(ModDataComponents.UPGRADE)) {
+                ItemStack upgradeCard = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).copyOne();
+                components.add(Component.literal(convertToReadableName(upgradeCard.getDescriptionId())));
             }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
@@ -104,7 +96,7 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
 
     private String convertToReadableName(String block) {
 
-        String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
+        String readableName = block.replace("item.minecraft.", "").replace("item.resource_farms.", "").replace('_', ' ');
 
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())

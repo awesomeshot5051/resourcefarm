@@ -22,6 +22,12 @@ public class ModDataComponents {
 
                     .networkSynchronized(ItemContainerContents.STREAM_CODEC)
     );
+    public static Supplier<DataComponentType<ItemContainerContents>> UPGRADE = REGISTRAR.registerComponentType(
+            "upgrade",
+            builder ->
+                    builder.persistent(ItemContainerContents.CODEC)
+                            .networkSynchronized(ItemContainerContents.STREAM_CODEC)
+    );
 
     public static void register(IEventBus eventBus) {
         REGISTRAR.register(eventBus);

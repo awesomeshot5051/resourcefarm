@@ -1,7 +1,7 @@
 package com.awesomeshot5051.resourceFarm.integration.waila;
 
+import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import net.minecraft.*;
 import net.minecraft.core.component.*;
 import net.minecraft.nbt.*;

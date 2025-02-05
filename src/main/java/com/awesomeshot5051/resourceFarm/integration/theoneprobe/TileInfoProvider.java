@@ -1,7 +1,7 @@
 package com.awesomeshot5051.resourceFarm.integration.theoneprobe;
 
+import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.*;

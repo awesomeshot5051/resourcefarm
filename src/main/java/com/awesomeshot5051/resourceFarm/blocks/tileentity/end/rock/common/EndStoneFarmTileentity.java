@@ -1,5 +1,7 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.end.rock.common;
 
+import com.awesomeshot5051.corelib.blockentity.FarmTileentity;
+import com.awesomeshot5051.corelib.blockentity.SyncableTileentity;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;

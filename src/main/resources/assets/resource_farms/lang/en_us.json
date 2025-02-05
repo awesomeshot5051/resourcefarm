@@ -58,5 +58,6 @@
   "sound.resource_farms.shovel_sound": "Shovel Digging",
   "itemGroup.resource_farms": "Resource Farms",
   "category.resource_farms": "Resource Farms",
-  "config.jade.plugin_resource_farms.pick_type": "Pickaxe Type"
+  "config.jade.plugin_resource_farms.pick_type": "Pickaxe Type",
+  "item.resource_farms.redstone_upgrade": "Redstone Upgrade"
 }

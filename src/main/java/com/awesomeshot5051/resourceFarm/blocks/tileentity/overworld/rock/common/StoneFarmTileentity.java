@@ -14,7 +14,6 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -28,10 +27,11 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
 
     public ItemStack pickType;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
+    //    public Map<ItemStack, Boolean> upgrades = initializeUpgrades();
     public ItemStack pickaxeType;
     public boolean soundOn;
-    public boolean upgradeEnabled;
-    public CustomData customData = CustomData.EMPTY;
+    public boolean smelterUpgradeEnabled;
+    public boolean redstoneUpgradeEnabled;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -128,7 +128,7 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
             drops.clear();
             drops.add(new ItemStack(Items.STONE, dropCount));
         }
-        if (upgradeEnabled) {
+        if (smelterUpgradeEnabled) {
             drops.clear();
             drops.add(new ItemStack(Items.SMOOTH_STONE, dropCount));
         }
@@ -139,10 +139,10 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
         return new ItemListInventory(inventory, this::setChanged);
     }
 
-    @Override
-    public CustomData getCustomData() {
-        return customData;
-    }
+//    @Override
+//    public CustomData getCustomData() {
+//        return customData;
+//    }
 
     @Override
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
@@ -166,7 +166,7 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
             }
             compound.put("PickaxeEnchantments", enchantmentsList);
         }
-        if (upgradeEnabled) {
+        if (smelterUpgradeEnabled) {
             CompoundTag upgrade = new CompoundTag();
             upgrade.putString("Upgrade", "smelter_upgrade");
             compound.put("upgrade", upgrade);
@@ -190,7 +190,7 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (compound.contains("upgrade")) {
-            upgradeEnabled = true;
+            smelterUpgradeEnabled = true;
         }
         if (pickType == null) {
 
