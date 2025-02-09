@@ -163,8 +163,8 @@ dependencies {
     implementation "mcjty.theoneprobe:theoneprobe:${top_version}"
     implementation "curse.maven:jade-324717:${jade_id}"
     localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
-    shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.1")
-    runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.1"
+    shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.3")
+    runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.3"
 //    implementation("com.awesomeshot5051.corelib:corelib:1.21-2.1.5") {
 //        exclude group: 'com.github.jitpack', module: 'gradle-simple'
 //    }

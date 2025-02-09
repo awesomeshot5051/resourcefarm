@@ -26,6 +26,7 @@ public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBl
     private final boolean soundOn = true;
     public ItemStack pickType;
     public boolean smelterUpgradeEnabled;
+    public boolean redstoneUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     protected NonNullList<ItemStack> inventory;

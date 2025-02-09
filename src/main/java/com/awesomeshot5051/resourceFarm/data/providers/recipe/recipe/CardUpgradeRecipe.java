@@ -7,6 +7,7 @@ import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import net.minecraft.core.*;
 import net.minecraft.core.component.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.*;
 import net.minecraft.network.codec.*;
 import net.minecraft.resources.*;
@@ -101,19 +102,19 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
                 .filter(item -> upgrades.contains(item.getItem()))
                 .findFirst()
                 .orElse(ItemStack.EMPTY);
-        ItemContainerContents upgrade = ItemContainerContents.EMPTY;
-        if (farm.has(ModDataComponents.UPGRADE)) {
-            upgrade = ItemContainerContents.fromItems(List.of(farm.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).copyOne(), upgradeCard));
-        } else {
-            upgrade = ItemContainerContents.fromItems(Collections.singletonList(upgradeCard));
-        }
+        CustomData upgrade = CustomData.of(createUpgrade(upgradeCard));
         result2.set(ModDataComponents.PICK_TYPE, farm.get(ModDataComponents.PICK_TYPE));
         result2.set(DataComponents.STORED_ENCHANTMENTS, farm.get(DataComponents.STORED_ENCHANTMENTS));
-        result2.set(ModDataComponents.UPGRADE, upgrade);
+        result2.set(DataComponents.CUSTOM_DATA, upgrade);
         super.assemble(craftingInput, registries);
         return result2;
     }
 
+    public CompoundTag createUpgrade(ItemStack upgrade) {
+        CompoundTag upgrade_card = new CompoundTag();
+        upgrade_card.putString("Upgrade", convertToReadableName(upgrade.toString()));
+        return upgrade_card;
+    }
 
     private String convertToReadableName(String block) {
         String readableName = block.replace("item.plant_farms.", "").replace('_', ' ')
