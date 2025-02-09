@@ -42,8 +42,7 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
     List<Item> shovels = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
     List<Item> pickaxes = List.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.GOLDEN_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE);
     List<Item> ALL_FARMS = new ArrayList<>();
-    List<Item> upgrades = List.of(ModItems.REDSTONE_UPGRADE.get()
-            , ModItems.SMELTER_UPGRADE.get(), ModItems.XP_UPGRADE.get());
+    List<Item> upgrades = new ArrayList<>();
     private ItemContainerContents pickContents;
     private ItemStack result2;
 
@@ -87,7 +86,9 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
     @Override
     public @NotNull ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider registries) {
 
-
+        for (var sidedBlock : ModItems.ITEMS.getEntries()) {
+            upgrades.add(sidedBlock.get());
+        }
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             ALL_FARMS.add(sidedBlock.get());
         }

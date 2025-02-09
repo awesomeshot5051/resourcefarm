@@ -7,54 +7,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1&#10;making new upgrades">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1&#10;updated corelib to combine redundant code.">
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/advancement/recipes/misc/redstone_upgrade.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/redstone_upgrade.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/generated/sources/modMetadata/neoforge.mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/build/generated/sources/modMetadata/neoforge.mods.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/clientLegacyClasspath.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientLegacyClasspath.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/clientLog4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientLog4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/clientRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunProgramArgs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/moddev/clientRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/clientRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/moddev/minecraft_assets.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/moddev/minecraft_assets.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/resource_farms/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/neoforge.mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/neoforge.mods.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/downloadAssets/nfrt_artifact_manifest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/downloadAssets/nfrt_artifact_manifest.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,9 +51,6 @@
         <task path="$PROJECT_DIR$/app">
           <activation />
         </task>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -98,18 +68,6 @@
                 <item name="resourcefarm" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="resourcefarm" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="mod development" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="resourcefarm" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -133,7 +91,8 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="1.21.1-adding-new-upgrades" />
+        <entry key="$PROJECT_DIR$" value="7359f5aa9f037a766e3c3b5f5c1e64171f2ad16c" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -179,56 +138,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Client.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.Build resourceFarm.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.D:/MCreatorWorkspaces/resourceFarm [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [ReleaseJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [githubRelease].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [publish].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [runClient].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.resourceFarm [:net.neoforged.devlaunch.Main.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.resourceFarm [ReleaseJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [assemble].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [buildDependents] (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [buildDependents].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [buildNeeded].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [classes].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.resourceFarm [clean] (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [corelibShadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [githubRelease].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [init].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [publishGprPublicationToGitHubPackagesRepository].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [publish] (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [publish].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [runClient].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.resourceFarm [runData].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [shadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [testClasses].executor&quot;: &quot;Run&quot;,
-    &quot;JavaMethodFindUsagesOptions.isSearchForTextOccurrences&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Traee/Downloads/hotswap-agent-2.0.0-sources.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;D:/MCreatorWorkspaces/mobFarms/MobFarms/src/main/java/com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/CreeperFarmBlock.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.Build resourceFarm.executor": "Run",
+    "Gradle.D:/MCreatorWorkspaces/resourceFarm [clean].executor": "Run",
+    "Gradle.D:/MCreatorWorkspaces/resourcefarm [ReleaseJar].executor": "Run",
+    "Gradle.D:/MCreatorWorkspaces/resourcefarm [githubRelease].executor": "Run",
+    "Gradle.D:/MCreatorWorkspaces/resourcefarm [publish].executor": "Run",
+    "Gradle.resourceFarm [:net.neoforged.devlaunch.Main.main()].executor": "Run",
+    "Gradle.resourceFarm [ReleaseJar].executor": "Run",
+    "Gradle.resourceFarm [assemble].executor": "Run",
+    "Gradle.resourceFarm [buildDependents] (1).executor": "Run",
+    "Gradle.resourceFarm [buildDependents].executor": "Debug",
+    "Gradle.resourceFarm [buildNeeded].executor": "Run",
+    "Gradle.resourceFarm [build].executor": "Run",
+    "Gradle.resourceFarm [classes].executor": "Debug",
+    "Gradle.resourceFarm [clean] (1).executor": "Run",
+    "Gradle.resourceFarm [clean].executor": "Run",
+    "Gradle.resourceFarm [corelibShadowJar].executor": "Run",
+    "Gradle.resourceFarm [githubRelease].executor": "Run",
+    "Gradle.resourceFarm [init].executor": "Run",
+    "Gradle.resourceFarm [jar].executor": "Run",
+    "Gradle.resourceFarm [publishGprPublicationToGitHubPackagesRepository].executor": "Run",
+    "Gradle.resourceFarm [publish] (1).executor": "Run",
+    "Gradle.resourceFarm [publish].executor": "Run",
+    "Gradle.resourceFarm [runClient].executor": "Debug",
+    "Gradle.resourceFarm [runData].executor": "Run",
+    "Gradle.resourceFarm [shadowJar].executor": "Run",
+    "Gradle.resourceFarm [testClasses].executor": "Run",
+    "JavaMethodFindUsagesOptions.isSearchForTextOccurrences": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "1.21.1-adding-new-upgrades",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/MCreatorWorkspaces/resourcefarm/src/main/resources/assets/resource_farms/models/item",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "rearrange.code.on.save": "true",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "settings.sync",
+    "two.files.diff.last.used.file": "D:/MCreatorWorkspaces/mobFarms/MobFarms/src/main/java/com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/CreeperFarmBlock.java"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\resources\assets\resource_farms\models\item" />
@@ -266,7 +223,7 @@
       <command value="gradle -S publish --no-configuration-cache" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.resourceFarm [ReleaseJar]">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="resourcefarm.main" />
@@ -307,7 +264,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="resourceFarm [ReleaseJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [buildDependents] (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -318,7 +275,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="ReleaseJar" />
+            <option value="buildDependents" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -351,7 +308,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="resourceFarm [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -362,7 +319,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="buildNeeded" />
+            <option value="classes" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -417,24 +374,13 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Application.Client" />
-      <item itemvalue="Application.Data" />
-      <item itemvalue="Application.GameTestServer" />
-      <item itemvalue="Application.Server" />
-      <item itemvalue="Gradle.resourceFarm [ReleaseJar]" />
-      <item itemvalue="Gradle.resourceFarm [buildDependents]" />
-      <item itemvalue="Gradle.resourceFarm [buildNeeded]" />
-      <item itemvalue="Gradle.resourceFarm [clean]" />
-      <item itemvalue="Gradle.resourceFarm [clean] (1)" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.resourceFarm [ReleaseJar]" />
-        <item itemvalue="Gradle.resourceFarm [buildNeeded]" />
-        <item itemvalue="Gradle.resourceFarm [buildDependents]" />
-        <item itemvalue="Gradle.resourceFarm [clean]" />
         <item itemvalue="Gradle.resourceFarm [clean] (1)" />
+        <item itemvalue="Gradle.resourceFarm [clean]" />
+        <item itemvalue="Gradle.resourceFarm [classes]" />
+        <item itemvalue="Gradle.resourceFarm [buildDependents] (1)" />
+        <item itemvalue="Gradle.resourceFarm [buildDependents]" />
       </list>
     </recent_temporary>
   </component>
@@ -446,6 +392,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733150288157</updated>
+    </task>
+    <task id="LOCAL-00026" summary="1.21.1 V 2.0.0">
+      <option name="closed" value="true" />
+      <created>1736876421495</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1736876421495</updated>
+    </task>
+    <task id="LOCAL-00027" summary="1.21.1 V 2.0.0">
+      <option name="closed" value="true" />
+      <created>1736878366383</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1736878366383</updated>
+    </task>
+    <task id="LOCAL-00028" summary="1.21.1 V 2.0.0">
+      <option name="closed" value="true" />
+      <created>1737439489914</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1737439489914</updated>
     </task>
     <task id="LOCAL-00029" summary="1.21.1 V 2.0.0">
       <option name="closed" value="true" />
@@ -815,31 +785,7 @@
       <option name="project" value="LOCAL" />
       <updated>1739118058767</updated>
     </task>
-    <task id="LOCAL-00075" summary="1.21.1&#10;making new upgrades">
-      <option name="closed" value="true" />
-      <created>1739118165570</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1739118165570</updated>
-    </task>
-    <task id="LOCAL-00076" summary="1.21.1&#10;making new upgrades">
-      <option name="closed" value="true" />
-      <created>1739139835226</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1739139835226</updated>
-    </task>
-    <task id="LOCAL-00077" summary="1.21.1&#10;making new upgrades">
-      <option name="closed" value="true" />
-      <created>1739139905818</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1739139905818</updated>
-    </task>
-    <option name="localTasksCounter" value="78" />
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -879,8 +825,7 @@
     <MESSAGE value="1.21.1-2.1.3&#10;adding redstone upgrade that will make farms toggleable with redstone" />
     <MESSAGE value="1.21.1-2.1.3&#10;Fixed bug where putting in the correct tool wouldn't output the right tool&#10;Fixed bug where plugin showed wrong name&#10;Changed Stone farm to always drop stone, unless smelter upgrade is active. Then it drops Smooth Stone" />
     <MESSAGE value="1.21.1&#10;updated corelib to combine redundant code." />
-    <MESSAGE value="1.21.1&#10;making new upgrades" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.21.1&#10;making new upgrades" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.21.1&#10;updated corelib to combine redundant code." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -964,6 +909,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/StoneFarmBlock.java</url>
           <line>63</line>
           <option name="timeStamp" value="223" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="229" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
