@@ -12,7 +12,6 @@ import com.awesomeshot5051.resourceFarm.items.render.overworld.rock.common.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
-import net.minecraft.core.component.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
@@ -61,8 +60,10 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof StoneFarmTileentity farmTileEntity) {
-            farmTileEntity.smelterUpgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
-//            farmTileEntity.customData = ;
+            farmTileEntity.smelterUpgradeEnabled = stack.has(ModDataComponents.UPGRADE);
+            if (stack.has(ModDataComponents.UPGRADE)) {
+                farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
+            }
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);

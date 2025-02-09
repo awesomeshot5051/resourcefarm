@@ -65,9 +65,9 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> SSAND_FARM = ITEM_REGISTER.register("ssand_farm", () -> ModBlocks.SSAND_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TERRACOTTA_FARM = ITEM_REGISTER.register("terracotta_farm", () -> ModBlocks.TERRACOTTA_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TUFF_FARM = ITEM_REGISTER.register("tuff_farm", () -> ModBlocks.TUFF_FARM.get().toItem());
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
-    public static final DeferredItem<Item> XP_UPGRADE = ITEMS.register("xp_upgrade_card",
-            () -> new Item(new Item.Properties()));
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
+    //    public static final DeferredItem<Item> XP_UPGRADE = ITEMS.register("xp_upgrade_card",
+//            () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SMELTER_UPGRADE = ITEMS.register("smelter_upgrade",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SPEED_UPGRADE = ITEMS.register("speed_upgrade",
