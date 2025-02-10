@@ -79,7 +79,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
                     .withStyle(ChatFormatting.RED));
             if (stack.has(DataComponents.CUSTOM_DATA)) {
                 components.add(Component.literal(
-                        Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
+                        Arrays.stream(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
                                         .toString()
                                         .replace("{}", " ")
                                         .replace("{Upgrade:\"", "")
@@ -119,19 +119,17 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
 
             farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
             farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
-            if (pickType != null) {
-                farmTileEntity.pickType = pickType.getStackInSlot(0);
+            ItemContainerContents pickType = stack.getOrDefault(ModDataComponents.PICK_TYPE, ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE))));
+            farmTileEntity.pickType = pickType.getStackInSlot(0);
 
 
-                farmTileEntity.setChanged();
-                CompoundTag compoundTag = new CompoundTag();
-                compoundTag.putString("id", BuiltInRegistries.ITEM.getKey(farmTileEntity.pickType.getItem()).toString());
-                compoundTag.putInt("count", farmTileEntity.pickType.getCount());
-                setBlockEntityData(stack, blockEntity.getType(), compoundTag);
-                updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
-                level.sendBlockUpdated(pos, state, state, 3);
-            }
+            farmTileEntity.setChanged();
+            CompoundTag compoundTag = new CompoundTag();
+            compoundTag.putString("id", BuiltInRegistries.ITEM.getKey(farmTileEntity.pickType.getItem()).toString());
+            compoundTag.putInt("count", farmTileEntity.pickType.getCount());
+            setBlockEntityData(stack, blockEntity.getType(), compoundTag);
+            updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
+            level.sendBlockUpdated(pos, state, state, 3);
         }
     }
 
@@ -146,7 +144,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
 
         player.openMenu(new MenuProvider() {
             @Override
-            public Component getDisplayName() {
+            public @NotNull Component getDisplayName() {
 
                 return Component.translatable(state.getBlock().getDescriptionId());
             }

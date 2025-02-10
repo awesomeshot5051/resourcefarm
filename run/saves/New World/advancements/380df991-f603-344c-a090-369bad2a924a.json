@@ -2075,5 +2075,11 @@
     },
     "done": true
   },
+  "resource_farms:recipes/misc/dcoal_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-09 17:31:26 -0500"
+    },
+    "done": true
+  },
   "DataVersion": 3955
 }
