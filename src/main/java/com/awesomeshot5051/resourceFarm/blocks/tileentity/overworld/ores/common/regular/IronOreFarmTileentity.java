@@ -21,12 +21,16 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 @SuppressWarnings("ALL")
 public class IronOreFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
+    public List<ItemStack> upgradeList = Main.UPGRADES;
+    public boolean redstoneUpgradeEnabled;
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
     public boolean upgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
@@ -93,6 +97,11 @@ public class IronOreFarmTileentity extends FarmTileentity implements ITickableBl
 
     public ItemStack getPickType() {
         return pickType;
+    }
+
+    @Override
+    public Map<ItemStack, Boolean> getUpgrades() {
+        return upgrades;
     }
 
     @Override
@@ -182,8 +191,8 @@ public class IronOreFarmTileentity extends FarmTileentity implements ITickableBl
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
-        if (compound.contains("upgrade")) {
-            upgradeEnabled = true;
+        if (compound.contains("Upgrades")) {
+            upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
         }
         if (pickType == null) {
 

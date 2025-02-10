@@ -85,8 +85,8 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
             components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
                     .withStyle(ChatFormatting.RED));
             if (stack.has(ModDataComponents.UPGRADE)) {
-                ItemStack upgradeCard = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).copyOne();
-                components.add(Component.literal(convertToReadableName(upgradeCard.getDescriptionId())));
+                for (ItemStack upgrade : stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList())
+                    components.add(Component.literal(convertToReadableName(upgrade.getDescriptionId())));
             }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));

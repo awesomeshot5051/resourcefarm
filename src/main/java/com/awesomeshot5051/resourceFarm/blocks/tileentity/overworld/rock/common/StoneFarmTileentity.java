@@ -9,6 +9,7 @@ import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
+import com.mojang.serialization.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
@@ -29,13 +30,13 @@ import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantment
 public class StoneFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
-    public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
-    public List<ItemStack> upgradeList;
+    public List<ItemStack> upgradeList = Main.UPGRADES;
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
+    public boolean redstoneUpgradeEnabled;
+    public boolean smelterUpgradeEnabled;
+    public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
     public boolean soundOn;
-    public boolean smelterUpgradeEnabled;
-    public boolean redstoneUpgradeEnabled;
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -101,17 +102,34 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
     }
 
     @Override
+    public Map<ItemStack, Boolean> getUpgrades() {
+        return upgrades;
+    }
+
+    @Override
     public void tick() {
         timer++;
         for (ItemStack upgrade : upgradeList) {
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
-        if (upgrades.containsKey(ModItems.REDSTONE_UPGRADE)) {
-            if (upgrades.get(ModItems.REDSTONE_UPGRADE)) {
+        redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
+        if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
+            if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
+            } else if (timer >= getStoneBreakTime(this)) {
+                for (ItemStack drop : getDrops()) {
+                    for (int i = 0; i < itemHandler.getSlots(); i++) {
+                        drop = itemHandler.insertItem(i, drop, false);
+                        if (drop.isEmpty()) {
+                            break;
+                        }
+                    }
+                }
+                timer = 0L;
+                sync();
             }
-        }
-        if (timer >= getStoneBreakTime(this)) {
+        } else if (timer >= getStoneBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -179,10 +197,17 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
             }
             compound.put("PickaxeEnchantments", enchantmentsList);
         }
-        if (smelterUpgradeEnabled) {
-            CompoundTag upgrade = new CompoundTag();
-            upgrade.putString("Upgrade", "smelter_upgrade");
-            compound.put("upgrade", upgrade);
+        if (!upgrades.isEmpty()) {
+            ListTag upgradesList = new ListTag();
+            for (Map.Entry<ItemStack, Boolean> upgradeMap : upgrades.entrySet()) {
+                if (upgradeMap.getValue()) {
+                    CompoundTag upgradeTag = new CompoundTag();
+                    DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, upgradeMap.getKey());
+                    upgradeTag.put("id", tag.getOrThrow());
+                    upgradesList.add(upgradeTag);
+                }
+            }
+            compound.put("Upgrades", upgradesList);
         }
 
         CompoundTag soundOnTag = new CompoundTag();
@@ -202,8 +227,8 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
-        if (compound.contains("upgrade")) {
-            smelterUpgradeEnabled = true;
+        if (compound.contains("Upgrades")) {
+            upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
         }
         if (pickType == null) {
 
@@ -213,6 +238,7 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }
+
 
     public IItemHandler getItemHandler() {
         return outputItemHandler;

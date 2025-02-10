@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.client.model.data.*;
@@ -27,20 +28,24 @@ public class IronOreFarmRenderer extends RendererBase<IronOreFarmTileentity> {
 
     @Override
     public void render(IronOreFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        Level level = farm.getLevel();
+        assert level != null;
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
         if (farm.getTimer() >= IronOreFarmTileentity.getIronGenerateTime(farm)) {
-            blockRenderDispatcher.renderSingleBlock(
-                    Blocks.IRON_ORE.defaultBlockState(),
-                    matrixStack,
-                    buffer,
-                    combinedLight,
-                    combinedOverlay,
-                    ModelData.EMPTY,
-                    RenderType.SOLID
-            );
+            if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
+                blockRenderDispatcher.renderSingleBlock(
+                        Blocks.IRON_ORE.defaultBlockState(),
+                        matrixStack,
+                        buffer,
+                        combinedLight,
+                        combinedOverlay,
+                        ModelData.EMPTY,
+                        RenderType.SOLID
+                );
+            }
         } else if (farm.getTimer() >= IronOreFarmTileentity.getIronBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),
@@ -55,7 +60,12 @@ public class IronOreFarmRenderer extends RendererBase<IronOreFarmTileentity> {
 
         matrixStack.popPose();
 
-        renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+        if (farm.redstoneUpgradeEnabled) {
+            if (level.hasNeighborSignal(farm.getBlockPos())) {
+                renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+            }
+        } else
+            renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
     }
 
     public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {

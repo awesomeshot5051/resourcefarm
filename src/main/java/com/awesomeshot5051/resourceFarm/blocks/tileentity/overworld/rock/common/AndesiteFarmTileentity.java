@@ -7,6 +7,7 @@ import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.mojang.serialization.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
@@ -20,13 +21,17 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 public class AndesiteFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     private final boolean soundOn = true;
     public ItemStack pickType;
+    public List<ItemStack> upgradeList = Main.UPGRADES;
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
+    public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -89,6 +94,11 @@ public class AndesiteFarmTileentity extends FarmTileentity implements ITickableB
         return pickType;
     }
 
+    @Override
+    public Map<ItemStack, Boolean> getUpgrades() {
+        return upgrades;
+    }
+
 
     @Override
     public void tick() {
@@ -148,6 +158,22 @@ public class AndesiteFarmTileentity extends FarmTileentity implements ITickableB
             }
             compound.put("PickaxeEnchantments", enchantmentsList);
         }
+        if (!upgrades.isEmpty()) {
+            ListTag upgradesList = new ListTag();
+            for (Map.Entry<ItemStack, Boolean> upgradeMap : upgrades.entrySet()) {
+                if (upgradeMap.getValue()) {
+                    CompoundTag upgradeTag = new CompoundTag();
+                    DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, upgradeMap.getKey());
+                    upgradeTag.put("id", tag.getOrThrow());
+                    upgradesList.add(upgradeTag);
+                }
+            }
+            compound.put("Upgrades", upgradesList);
+        }
+
+        CompoundTag soundOnTag = new CompoundTag();
+        soundOnTag.putBoolean("soundOn", soundOn);
+        compound.put("soundON", soundOnTag);
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
     }

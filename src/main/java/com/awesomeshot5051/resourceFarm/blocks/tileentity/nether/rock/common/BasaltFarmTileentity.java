@@ -7,6 +7,7 @@ import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.mojang.serialization.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
@@ -21,13 +22,17 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 public class BasaltFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     private final boolean soundOn = true;
     public ItemStack pickType;
+    public List<ItemStack> upgradeList = Main.UPGRADES;
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
+    public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
     public boolean upgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
@@ -91,6 +96,11 @@ public class BasaltFarmTileentity extends FarmTileentity implements ITickableBlo
 
     public ItemStack getPickType() {
         return pickType;
+    }
+
+    @Override
+    public Map<ItemStack, Boolean> getUpgrades() {
+        return upgrades;
     }
 
     @Override
@@ -159,6 +169,22 @@ public class BasaltFarmTileentity extends FarmTileentity implements ITickableBlo
             }
             compound.put("PickaxeEnchantments", enchantmentsList);
         }
+        if (!upgrades.isEmpty()) {
+            ListTag upgradesList = new ListTag();
+            for (Map.Entry<ItemStack, Boolean> upgradeMap : upgrades.entrySet()) {
+                if (upgradeMap.getValue()) {
+                    CompoundTag upgradeTag = new CompoundTag();
+                    DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, upgradeMap.getKey());
+                    upgradeTag.put("id", tag.getOrThrow());
+                    upgradesList.add(upgradeTag);
+                }
+            }
+            compound.put("Upgrades", upgradesList);
+        }
+
+        CompoundTag soundOnTag = new CompoundTag();
+        soundOnTag.putBoolean("soundOn", soundOn);
+        compound.put("soundON", soundOnTag);
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
     }
@@ -172,14 +198,13 @@ public class BasaltFarmTileentity extends FarmTileentity implements ITickableBlo
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
-        if (compound.contains("upgrade")) {
-            upgradeEnabled = true;
+        if (compound.contains("Upgrades")) {
+            upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
         }
         if (pickType == null) {
 
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
-
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }

@@ -27,6 +27,8 @@ public class GrassFarmRenderer extends RendererBase<GrassFarmTileentity> {
 
     @Override
     public void render(GrassFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        Level level = farm.getLevel();
+        assert level != null;
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
