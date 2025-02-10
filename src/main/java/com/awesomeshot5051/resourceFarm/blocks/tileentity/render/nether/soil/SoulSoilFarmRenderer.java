@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.client.model.data.*;
@@ -26,6 +27,8 @@ public class SoulSoilFarmRenderer extends RendererBase<SoulSoilFarmTileentity> {
 
     @Override
     public void render(SoulSoilFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        Level level = farm.getLevel();
+        assert level != null;
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);

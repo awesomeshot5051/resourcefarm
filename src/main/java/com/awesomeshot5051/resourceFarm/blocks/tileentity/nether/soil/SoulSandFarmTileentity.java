@@ -20,13 +20,17 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.*;
 
 @SuppressWarnings("ALL")
 public class SoulSandFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack shovelType;
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
     public Map<ResourceKey<Enchantment>, Boolean> shovelEnchantments = initializeShovelEnchantments();
+    public List<ItemStack> upgradeList = Main.UPGRADES;
+    public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
     protected long timer;

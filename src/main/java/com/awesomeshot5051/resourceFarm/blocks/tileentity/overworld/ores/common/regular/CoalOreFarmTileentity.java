@@ -20,11 +20,15 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
     private final boolean soundOn = true;
     public ItemStack pickType;
+    public List<ItemStack> upgradeList = Main.UPGRADES;
+    public boolean redstoneUpgradeEnabled;
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
     public boolean smelterUpgradeEnabled;
     public boolean redstoneUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
@@ -75,6 +79,11 @@ public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBl
 
     public ItemStack getPickType() {
         return pickType;
+    }
+
+    @Override
+    public Map<ItemStack, Boolean> getUpgrades() {
+        return upgrades;
     }
 
     public long getTimer() {

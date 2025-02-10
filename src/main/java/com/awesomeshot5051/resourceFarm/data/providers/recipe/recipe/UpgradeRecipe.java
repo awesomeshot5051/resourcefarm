@@ -173,7 +173,7 @@ public class UpgradeRecipe extends ShapedRecipe {
         }
 
         result2.set(ModDataComponents.PICK_TYPE, pickContents);
-        result2.set(DataComponents.CUSTOM_DATA, farm.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY));
+        result2.set(ModDataComponents.UPGRADE, farm.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY));
         super.assemble(craftingInput, registries);
         return result2;
     }

@@ -14,7 +14,7 @@ import java.lang.Math;
 
 import static com.mojang.math.Axis.*;
 
-@SuppressWarnings("ALL")
+
 public class BucketRenderUtil {
     public static <T extends FarmTileentity> void renderWaterSplash(
             T farm,

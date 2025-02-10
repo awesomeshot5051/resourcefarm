@@ -1,21 +1,21 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.rare.regular;
 
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.regular.LapisOreFarmTileentity;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.RendererBase;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
-import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.client.model.data.ModelData;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.regular.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.*;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.block.*;
+import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.resources.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.client.model.data.*;
 
-import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.renderSwingingPickaxe;
+import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.*;
 
 public class LapisOreFarmRenderer extends RendererBase<LapisOreFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
@@ -27,21 +27,25 @@ public class LapisOreFarmRenderer extends RendererBase<LapisOreFarmTileentity> {
 
     @Override
     public void render(LapisOreFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        Level level = farm.getLevel();
+        assert level != null;
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
 
         if (farm.getTimer() >= LapisOreFarmTileentity.getLapisGenerateTime(farm)) {
-            blockRenderDispatcher.renderSingleBlock(
-                    Blocks.LAPIS_ORE.defaultBlockState(),
-                    matrixStack,
-                    buffer,
-                    combinedLight,
-                    combinedOverlay,
-                    ModelData.EMPTY,
-                    RenderType.SOLID
-            );
+            if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
+                blockRenderDispatcher.renderSingleBlock(
+                        Blocks.LAPIS_ORE.defaultBlockState(),
+                        matrixStack,
+                        buffer,
+                        combinedLight,
+                        combinedOverlay,
+                        ModelData.EMPTY,
+                        RenderType.SOLID
+                );
+            }
         } else if (farm.getTimer() >= LapisOreFarmTileentity.getLapisBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),
@@ -56,7 +60,12 @@ public class LapisOreFarmRenderer extends RendererBase<LapisOreFarmTileentity> {
 
         matrixStack.popPose();
 
-        renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+        if (farm.redstoneUpgradeEnabled) {
+            if (level.hasNeighborSignal(farm.getBlockPos())) {
+                renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+            }
+        } else
+            renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
     }
 
     public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {

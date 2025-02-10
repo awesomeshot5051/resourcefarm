@@ -1,7 +1,0 @@
-{
-  "credit": "Made with Blockbench",
-  "parent": "resource_farms:item/upgrade_parent",
-  "textures": {
-    "layer0": "resource_farms:item/upgrade_speed"
-  }
-}
