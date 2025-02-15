@@ -86,7 +86,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.SAND_FARM::get,
             ModBlocks.RSAND_FARM::get,
             ModBlocks.COBBLESTONE_FARM::get,
-            ModBlocks.STONE_FARM::get
+            ModBlocks.STONE_FARM::get,
+            ModBlocks.CLAY_FARM::get
     );
 
     static {
