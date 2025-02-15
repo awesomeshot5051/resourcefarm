@@ -16,6 +16,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
 
     public static final DeferredHolder<Item, Item> ANDESITE_FARM = ITEM_REGISTER.register("andesite_farm", () -> ModBlocks.ANDESITE_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CLAY_FARM = ITEM_REGISTER.register("clay_farm", () -> ModBlocks.CLAY_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> COPPER_FARM = ITEM_REGISTER.register("copper_farm", () -> ModBlocks.COPPER_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> COAL_FARM = ITEM_REGISTER.register("coal_farm", () -> ModBlocks.COAL_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> DCOPPER_FARM = ITEM_REGISTER.register("dcopper_farm", () -> ModBlocks.DCOPPER_FARM.get().toItem());
@@ -57,6 +58,7 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> NETHERRACK_FARM = ITEM_REGISTER.register("netherrack_farm", () -> ModBlocks.NETHERRACK_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> OBSIDIAN_FARM = ITEM_REGISTER.register("obsidian_farm", () -> ModBlocks.OBSIDIAN_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> PURPUR_FARM = ITEM_REGISTER.register("purpur_farm", () -> ModBlocks.PURPUR_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> MUD_FARM = ITEM_REGISTER.register("mud_farm", () -> ModBlocks.MUD_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> RSAND_FARM = ITEM_REGISTER.register("rsand_farm", () -> ModBlocks.RSAND_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> SNOW_FARM = ITEM_REGISTER.register("snow_farm", () -> ModBlocks.SNOW_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> STONE_FARM = ITEM_REGISTER.register("stone_farm", () -> ModBlocks.STONE_FARM.get().toItem());

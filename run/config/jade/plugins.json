@@ -63,7 +63,7 @@
     "block_states": false,
     "distance": false,
     "block_face": false,
-    "coordinates": false,
+    "coordinates": true,
     "registry_name": "OFF",
     "block_properties": false,
     "mod_name": true

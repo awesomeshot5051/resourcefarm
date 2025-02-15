@@ -1,0 +1,7 @@
+{
+  "parent": "resource_farms:block/farm",
+  "textures": {
+    "back": "minecraft:block/stone",
+    "front": "minecraft:block/stone"
+  }
+}

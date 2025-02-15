@@ -36,7 +36,6 @@ import java.util.stream.*;
 
 import static net.minecraft.world.item.BlockItem.*;
 
-@SuppressWarnings("ALL")
 public class SnowFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
@@ -71,6 +70,10 @@ public class SnowFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
             components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
                     .withStyle(ChatFormatting.RED));
+            if (stack.has(ModDataComponents.UPGRADE)) {
+                for (ItemStack upgrade : stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList())
+                    components.add(Component.literal(convertToReadableName(upgrade.getDescriptionId())));
+            }
         } else {
             components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
         }
@@ -84,6 +87,14 @@ public class SnowFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof SnowFarmTileentity farmTileEntity) {
             ItemContainerContents shovelType = stack.get(ModDataComponents.PICK_TYPE);
+            if (stack.has(ModDataComponents.UPGRADE)) {
+                farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
+                farmTileEntity.setChanged();
+                for (ItemStack upgrade : farmTileEntity.upgradeList) {
+                    updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, upgrade);
+                }
+                level.sendBlockUpdated(pos, state, state, 3);
+            }
             if (shovelType != null) {
                 farmTileEntity.shovelType = shovelType.getStackInSlot(0);
                 farmTileEntity.setChanged();
@@ -128,7 +139,7 @@ public class SnowFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
 
     private String convertToReadableName(String block) {
 
-        String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
+        String readableName = block.replace("item.minecraft.", "").replace("item.resource_farms.", "").replace('_', ' ');
 
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())

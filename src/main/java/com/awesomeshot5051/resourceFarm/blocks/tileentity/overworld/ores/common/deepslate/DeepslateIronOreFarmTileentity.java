@@ -1,12 +1,14 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate;
 
 import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.mojang.serialization.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
@@ -21,16 +23,17 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
-import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 public class DeepslateIronOreFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     private final boolean soundOn = true;
     public ItemStack pickType;
-    public List<ItemStack> upgradeList = Main.UPGRADES;
+    public List<ItemStack> upgradeList = new ArrayList<>();
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, upgradeList);
     public boolean redstoneUpgradeEnabled;
-    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
+
     public boolean upgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
@@ -106,6 +109,14 @@ public class DeepslateIronOreFarmTileentity extends FarmTileentity implements IT
     @Override
     public void tick() {
         timer++;
+        for (ItemStack upgrade : upgradeList) {
+            Upgrades.setUpgradeStatus(upgrades, upgrade, true);
+        }
+        redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        assert level != null;
+        if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
+            return;
+        }
 
         if (timer >= getIronBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
@@ -155,11 +166,13 @@ public class DeepslateIronOreFarmTileentity extends FarmTileentity implements IT
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
-        if (pickType != null) {
-            CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(pickType.getItem()).toString());
-            pickTypeTag.putInt("count", pickType.getCount());
-            compound.put("PickType", pickTypeTag);
+        try {
+            if (pickType != null) {
+                DataResult<Tag> tag = ItemStack.STRICT_SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
+                compound.put("PickType", tag.getOrThrow());
+            }
+        } catch (IllegalStateException e) {
+            System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
         }
         if (!pickaxeEnchantments.isEmpty()) {
             ListTag enchantmentsList = new ListTag();
@@ -172,10 +185,17 @@ public class DeepslateIronOreFarmTileentity extends FarmTileentity implements IT
             }
             compound.put("PickaxeEnchantments", enchantmentsList);
         }
-        if (upgradeEnabled) {
-            CompoundTag upgrade = new CompoundTag();
-            upgrade.putString("Upgrade", "smelter_upgrade");
-            compound.put("upgrade", upgrade);
+        if (!upgrades.isEmpty()) {
+            ListTag upgradesList = new ListTag();
+            for (Map.Entry<ItemStack, Boolean> upgradeMap : upgrades.entrySet()) {
+                if (upgradeMap.getValue()) {
+                    CompoundTag upgradeTag = new CompoundTag();
+                    DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, upgradeMap.getKey());
+                    upgradeTag.put("id", tag.getOrThrow());
+                    upgradesList.add(upgradeTag);
+                }
+            }
+            compound.put("Upgrades", upgradesList);
         }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);

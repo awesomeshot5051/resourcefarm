@@ -71,13 +71,10 @@ public class StoneFarmRenderer extends RendererBase<StoneFarmTileentity> {
         matrixStack.popPose();
         if (farm.redstoneUpgradeEnabled) {
             if (level.hasNeighborSignal(farm.getBlockPos())) {
-                if (farm.redstoneUpgradeEnabled) {
-                    if (level.hasNeighborSignal(farm.getBlockPos())) {
-                        renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
-                    }
-                } else
-                    renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+                renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
             }
+        } else {
+            renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
         }
     }
 

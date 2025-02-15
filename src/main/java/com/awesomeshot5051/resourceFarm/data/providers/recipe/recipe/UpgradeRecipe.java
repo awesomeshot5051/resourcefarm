@@ -1,6 +1,7 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
 import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.data.providers.recipe.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
@@ -32,17 +33,6 @@ public class UpgradeRecipe extends ShapedRecipe {
     final CraftingBookCategory category;
     final boolean showNotification;
     final ItemStack result;
-    List<Item> shovelFarms = new ArrayList<>(List.of(
-            ModItems.CONCRETE_POWDER_FARM.get(),
-            ModItems.DIRT_FARM.get(),
-            ModItems.GRASS_FARM.get(),
-            ModItems.GRAVEL_FARM.get(),
-            ModItems.SAND_FARM.get(),
-            ModItems.RSAND_FARM.get(),
-            ModItems.SSAND_FARM.get(),
-            ModItems.SSOIL_FARM.get(),
-            ModItems.SNOW_FARM.get()
-    ));
     List<Item> shovels = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
     List<Item> pickaxes = List.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.GOLDEN_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE);
     List<Item> ALL_FARMS = new ArrayList<>();
@@ -94,6 +84,8 @@ public class UpgradeRecipe extends ShapedRecipe {
 
     @Override
     public @NotNull ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider registries) {
+        List<Item> shovelFarms = new ArrayList<>();
+        ModRecipeProvider.SHOVEL_BLOCKS.forEach(item -> shovelFarms.add(item.get()));
         Map<Ingredient, Item> materialToPickaxeMap = Map.of(
                 Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS, Items.MANGROVE_PLANKS, Items.BAMBOO_PLANKS, Items.CHERRY_PLANKS), Items.WOODEN_PICKAXE,
                 Ingredient.of(Items.COBBLESTONE, Items.COBBLED_DEEPSLATE), Items.STONE_PICKAXE,

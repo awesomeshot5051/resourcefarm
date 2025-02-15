@@ -18,7 +18,6 @@ import net.neoforged.neoforge.common.conditions.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.*;
-import java.util.stream.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
@@ -53,20 +52,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.SSTONE_FARM::get,
             ModBlocks.TUFF_FARM::get
     );
-    public static final List<Supplier<Block>> SHOVEL_BLOCKS = List.of(
-            ModBlocks.CONCRETE_POWDER_FARM::get,
-            ModBlocks.DIRT_FARM::get,
-            ModBlocks.GRASS_FARM::get,
-            ModBlocks.GRAVEL_FARM::get,
-            ModBlocks.SAND_FARM::get,
-            ModBlocks.RSAND_FARM::get,
-            ModBlocks.SSAND_FARM::get,
-            ModBlocks.SSOIL_FARM::get,
-            ModBlocks.SNOW_FARM::get
+    public static final List<Supplier<Item>> SHOVEL_BLOCKS = List.of(
+            ModItems.CONCRETE_POWDER_FARM,
+            ModItems.CLAY_FARM,
+            ModItems.DIRT_FARM,
+            ModItems.GRASS_FARM,
+            ModItems.GRAVEL_FARM,
+            ModItems.SAND_FARM,
+            ModItems.RSAND_FARM,
+            ModItems.SSAND_FARM,
+            ModItems.SSOIL_FARM,
+            ModItems.SNOW_FARM,
+            ModItems.MUD_FARM
     );
-    public static final List<Supplier<Block>> ALL_FARMS = Stream
-            .concat(SHOVEL_BLOCKS.stream(), PICKAXE_BLOCKS.stream())
-            .collect(Collectors.toList());
+    public static final List<Supplier<Block>> ALL_FARMS = new ArrayList<>();
     public static final List<Supplier<Block>> SMELTABLE_RESULTS = List.of(
             ModBlocks.COPPER_FARM::get,
             ModBlocks.BASALT_FARM::get,
@@ -90,12 +89,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.STONE_FARM::get
     );
 
+    static {
+        for (var item : ModItems.ITEM_REGISTER.getEntries()) {
+            Item registeredItem = item.get(); // Get the Item instance
+
+            if (registeredItem instanceof BlockItem blockItem) {
+                // Convert to Supplier<Block> and add to the list
+                ALL_FARMS.add(blockItem::getBlock);
+            }
+        }
+    }
+
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
+
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
@@ -119,7 +130,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', Tags.Items.GLASS_PANES)
                 .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
                 .define('C', Ingredient.of(Items.COAL_ORE, Items.COAL_BLOCK))
-                .unlockedBy("has_coal", has(Items.COAL_ORE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "coal_farm"));
+                .unlockedBy("has_coal", has(Items.COAL_ORE))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "coal_farm"));
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CLAY_FARM.get())
+                .pattern("GGG")
+                .pattern("GSG")
+                .pattern("GCG")
+                .define('G', Tags.Items.GLASS_PANES)
+                .define('S', ItemTags.SHOVELS)
+                .define('C', Ingredient.of(Items.CLAY))
+                .unlockedBy("has_clay_block", has(Items.CLAY))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModBlocks.CLAY_FARM.get().getDescriptionId())));
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DCOAL_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
@@ -503,6 +524,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
                 .define('C', Items.GRANITE)
                 .unlockedBy("has_granite", has(Items.GRANITE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "granite_farm"));
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MUD_FARM.get())
+                .pattern("GGG")
+                .pattern("GSG")
+                .pattern("GMG")
+                .define('G', Tags.Items.GLASS_PANES)
+                .define('S', ItemTags.SHOVELS)
+                .define('M', Items.MUD)
+                .unlockedBy("has_mud", has(Items.MUD))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModBlocks.MUD_FARM.get().getDescriptionId())));
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
@@ -561,7 +591,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Block farmBlock = Block.byItem(farmBlockSupplier.get());
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern("SSS")
                     .pattern("SFS")
@@ -572,7 +602,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_shovel_stone_upgrade_recipe"));
         });
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern("III")
                     .pattern("IFI")
@@ -583,7 +613,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_shovel_iron_upgrade_recipe"));
         });
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern("GGG")
                     .pattern("GFG")
@@ -594,7 +624,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_shovel_gold_upgrade_recipe"));
         });
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern("DDD")
                     .pattern("DFD")
@@ -605,7 +635,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_shovel_diamond_upgrade_recipe"));
         });
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern(" N ")
                     .pattern("NFN")
@@ -653,12 +683,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_flint_and_steel", has(Items.FLINT_AND_STEEL))
                 .unlockedBy("has_netherrack", has(Items.NETHERRACK))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.SMELTER_UPGRADE.asItem().getDescriptionId())));
-        CardUpgradeRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STONE_FARM.get())
-                .requires(ModItems.REDSTONE_UPGRADE)
-                .requires(ModItems.STONE_FARM.get())
-                .requires(Items.REDSTONE)
-                .unlockedBy("has_redstone_upgrade", has(ModItems.REDSTONE_UPGRADE))
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.REDSTONE_UPGRADE.asItem().getDescriptionId())));
+        ALL_FARMS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            CardUpgradeRecipeBuilder.shapeless(RecipeCategory.MISC, farmBlock)
+                    .requires(ModItems.REDSTONE_UPGRADE)
+                    .requires(farmBlock)
+                    .requires(Items.REDSTONE)
+                    .unlockedBy("has_redstone_upgrade", has(ModItems.REDSTONE_UPGRADE))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_redstone_upgrade"));
+        });
+
     }
 
     private String convertToItemRegistryName(String block) {

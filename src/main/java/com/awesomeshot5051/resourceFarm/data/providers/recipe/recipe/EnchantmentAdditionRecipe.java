@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
+import com.awesomeshot5051.resourceFarm.data.providers.recipe.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
@@ -25,17 +26,7 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
     final CraftingBookCategory category;
     final ItemStack result;
     final NonNullList<Ingredient> ingredients;
-    List<Item> shovelFarms = new ArrayList<>(List.of(
-            ModItems.CONCRETE_POWDER_FARM.get(),
-            ModItems.DIRT_FARM.get(),
-            ModItems.GRASS_FARM.get(),
-            ModItems.GRAVEL_FARM.get(),
-            ModItems.SAND_FARM.get(),
-            ModItems.RSAND_FARM.get(),
-            ModItems.SSAND_FARM.get(),
-            ModItems.SSOIL_FARM.get(),
-            ModItems.SNOW_FARM.get()
-    ));
+    List<Item> shovelFarms = new ArrayList<>();
     List<Item> ALL_FARMS = new ArrayList<>();
     private ItemContainerContents swordContents;
     private ItemStack result2;
@@ -67,6 +58,7 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
     }
 
     public ItemStack assemble(CraftingInput input, HolderLookup.@NotNull Provider registries) {
+        ModRecipeProvider.SHOVEL_BLOCKS.forEach(item -> shovelFarms.add(item.get()));
         List<ItemStack> ingredients = input.items();
         ItemStack resultItem;
         List<Item> farmBlocks = new ArrayList<>();
@@ -107,7 +99,7 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         ItemStack pickStack = pickContents.getStackInSlot(0);
         ItemEnchantments enchantments2 = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
 
-        boolean isCompatible = checkEnchantmentCompatibility(storedEnchantments.toImmutable(), pickEnchantables, pickStack) && isCompatible(storedEnchantments, pickStack);
+        boolean isCompatible = checkEnchantmentCompatibility(storedEnchantments.toImmutable(), pickEnchantables, pickStack) || isCompatible(storedEnchantments, pickStack);
 
         if (!isCompatible) {
             return new ItemStack(Items.AIR);

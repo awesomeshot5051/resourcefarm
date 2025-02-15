@@ -1,6 +1,7 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.render;
 
 import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;

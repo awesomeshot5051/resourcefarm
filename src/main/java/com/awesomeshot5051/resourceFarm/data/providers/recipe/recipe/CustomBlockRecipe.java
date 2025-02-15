@@ -62,7 +62,9 @@ public class CustomBlockRecipe extends ShapedRecipe {
 
     @Override
     public @NotNull ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider registries) {
-        ItemStack pickStack = craftingInput.getItem(4);
+//        ItemStack pickStack = craftingInput.getItem(4);
+        List<ItemStack> ingredients = craftingInput.items();
+        ItemStack pickStack = ingredients.stream().filter(itemStack -> itemStack.is(ItemTags.SHOVELS) || itemStack.is(ItemTags.PICKAXES)).findFirst().get();
         ItemStack oreStack = craftingInput.getItem(7);
         ItemEnchantments enchantments = pickStack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
         List<ItemStack> itemStacks = new ArrayList<>();
