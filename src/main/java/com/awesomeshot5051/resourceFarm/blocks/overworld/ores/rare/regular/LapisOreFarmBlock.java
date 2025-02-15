@@ -71,6 +71,10 @@ public class LapisOreFarmBlock extends BlockBase implements EntityBlock, IItemBl
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
             components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
                     .withStyle(ChatFormatting.RED));
+            if (stack.has(ModDataComponents.UPGRADE)) {
+                for (ItemStack upgrade : stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList())
+                    components.add(Component.literal(convertToReadableName(upgrade.getDescriptionId())));
+            }
             if (stack.has(DataComponents.CUSTOM_DATA)) {
                 components.add(Component.literal(
                         Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
@@ -98,6 +102,9 @@ public class LapisOreFarmBlock extends BlockBase implements EntityBlock, IItemBl
             farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
             farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
+            if (stack.has(ModDataComponents.UPGRADE)) {
+                farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
+            }
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
                 farmTileEntity.setChanged();
@@ -145,7 +152,7 @@ public class LapisOreFarmBlock extends BlockBase implements EntityBlock, IItemBl
 
     private String convertToReadableName(String block) {
 
-        String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
+        String readableName = block.replace("item.minecraft.", "").replace("item.resource_farms.", "").replace('_', ' ');
 
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())

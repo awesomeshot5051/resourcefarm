@@ -33,8 +33,8 @@ public class Main {
     public static ServerConfig SERVER_CONFIG;
     public static ClientConfig CLIENT_CONFIG;
 
-    public static List<ItemStack> UPGRADES = new ArrayList<>();
-    public static Map<ItemStack, Boolean> upgradesMap = new HashMap<>();
+    public static List<ItemStack> upgrades = new ArrayList<>();
+    public static Map<ItemStack, Boolean> UPGRADES = new HashMap<>();
 
     public Main(IEventBus eventBus) {
         eventBus.addListener(this::commonSetup);
@@ -65,9 +65,9 @@ public class Main {
     public void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             for (var sidedBlock : ModItems.ITEMS.getEntries()) {
-                UPGRADES.add(sidedBlock.get().getDefaultInstance());
+                upgrades.add(sidedBlock.get().getDefaultInstance());
             }
-            Main.upgradesMap = Upgrades.initializeUpgrades(UPGRADES);
+            Main.UPGRADES = Upgrades.createUpgradesMap(upgrades);
         });
 
     }

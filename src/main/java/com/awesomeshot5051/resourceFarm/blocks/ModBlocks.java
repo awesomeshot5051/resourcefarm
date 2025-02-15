@@ -34,6 +34,7 @@ public class ModBlocks {
     public static final DeferredHolder<Block, ConcreteFarmBlock> CONCRETE_FARM = BLOCK_REGISTER.register("concrete_farm", ConcreteFarmBlock::new);
     public static final DeferredHolder<Block, ConcretePowderFarmBlock> CONCRETE_POWDER_FARM = BLOCK_REGISTER.register("cpowder_farm", ConcretePowderFarmBlock::new);
     public static final DeferredHolder<Block, CopperOreFarmBlock> COPPER_FARM = BLOCK_REGISTER.register("copper_farm", CopperOreFarmBlock::new);
+    public static final DeferredHolder<Block, ClayFarmBlock> CLAY_FARM = BLOCK_REGISTER.register("clay_farm", ClayFarmBlock::new);
     public static final DeferredHolder<Block, DeepslateCoalOreFarmBlock> DCOAL_FARM = BLOCK_REGISTER.register("dcoal_farm", DeepslateCoalOreFarmBlock::new);
 
     public static final DeferredHolder<Block, DeepslateFarmBlock> DEEPSLATE_FARM = BLOCK_REGISTER.register("deepslate_farm", DeepslateFarmBlock::new);
@@ -54,6 +55,7 @@ public class ModBlocks {
     public static final DeferredHolder<Block, GravelFarmBlock> GRAVEL_FARM = BLOCK_REGISTER.register("gravel_farm", GravelFarmBlock::new);
     public static final DeferredHolder<Block, IronOreFarmBlock> IRON_FARM = BLOCK_REGISTER.register("iron_farm", IronOreFarmBlock::new);
     public static final DeferredHolder<Block, LapisOreFarmBlock> LAPIS_FARM = BLOCK_REGISTER.register("lapis_farm", LapisOreFarmBlock::new);
+    public static final DeferredHolder<Block, MudFarmBlock> MUD_FARM = BLOCK_REGISTER.register("mud_farm", MudFarmBlock::new);
     public static final DeferredHolder<Block, NetherGoldOreFarmBlock> NETHER_GOLD_FARM = BLOCK_REGISTER.register("nether_gold_farm", NetherGoldOreFarmBlock::new);
     public static final DeferredHolder<Block, NetheriteOreFarmBlock> NETHERITE_FARM = BLOCK_REGISTER.register("netherite_farm", NetheriteOreFarmBlock::new);
     public static final DeferredHolder<Block, NetherQuartzOreFarmBlock> NETHER_QUARTZ_FARM = BLOCK_REGISTER.register("nether_quartz_farm", NetherQuartzOreFarmBlock::new);

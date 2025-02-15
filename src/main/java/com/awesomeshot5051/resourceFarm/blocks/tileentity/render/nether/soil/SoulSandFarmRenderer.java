@@ -34,15 +34,17 @@ public class SoulSandFarmRenderer extends RendererBase<SoulSandFarmTileentity> {
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
         if (farm.getTimer() >= SoulSandFarmTileentity.getSoulSandGenerateTime(farm)) {
-            blockRenderDispatcher.renderSingleBlock(
-                    Blocks.SOUL_SAND.defaultBlockState(),
-                    matrixStack,
-                    buffer,
-                    combinedLight,
-                    combinedOverlay,
-                    ModelData.EMPTY,
-                    RenderType.SOLID
-            );
+            if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
+                blockRenderDispatcher.renderSingleBlock(
+                        Blocks.SOUL_SAND.defaultBlockState(),
+                        matrixStack,
+                        buffer,
+                        combinedLight,
+                        combinedOverlay,
+                        ModelData.EMPTY,
+                        RenderType.SOLID
+                );
+            }
         } else if (farm.getTimer() >= SoulSandFarmTileentity.getSoulSandBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),
@@ -57,7 +59,13 @@ public class SoulSandFarmRenderer extends RendererBase<SoulSandFarmTileentity> {
 
         matrixStack.popPose();
 
-        renderSwingingShovel(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getShovelType(), getDirection(), farm.getTimer());
+        if (farm.redstoneUpgradeEnabled) {
+            if (level.hasNeighborSignal(farm.getBlockPos())) {
+                renderSwingingShovel(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getShovelType(), getDirection(), farm.getTimer());
+            }
+        } else {
+            renderSwingingShovel(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getShovelType(), getDirection(), farm.getTimer());
+        }
     }
 
     public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {

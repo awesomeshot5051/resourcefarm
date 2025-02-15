@@ -1,12 +1,13 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular;
 
 import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.items.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
@@ -20,17 +21,18 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
-import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 @SuppressWarnings("ALL")
 public class CopperOreFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
 
     public ItemStack pickType;
-    public List<ItemStack> upgradeList = Main.UPGRADES;
+    public List<ItemStack> upgradeList = new ArrayList<>();
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, upgradeList);
     public boolean redstoneUpgradeEnabled;
-    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
+
     public boolean upgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
@@ -109,6 +111,14 @@ public class CopperOreFarmTileentity extends FarmTileentity implements ITickable
     public void tick() {
 
         timer++;
+        for (ItemStack upgrade : upgradeList) {
+            Upgrades.setUpgradeStatus(upgrades, upgrade, true);
+        }
+        redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        assert level != null;
+        if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
+            return;
+        }
 
         if (timer >= getCopperBreakTime(this)) {
             for (ItemStack drop : getDrops()) {

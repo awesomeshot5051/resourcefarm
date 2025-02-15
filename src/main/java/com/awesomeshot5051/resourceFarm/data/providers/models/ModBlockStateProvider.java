@@ -20,17 +20,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ModBlocks.BLOCK_REGISTER.getEntries().forEach(blockEntry -> {
             Block block = blockEntry.get();
             String blockName = blockEntry.getId().getPath();
-
-
             if (blockName.equals("inventory_viewer")) {
                 return;
             }
-
             if (block.defaultBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
-
                 directionalBlock(block, modLoc("block/" + blockName));
             } else {
-
                 blockWithItem(blockEntry);
             }
         });

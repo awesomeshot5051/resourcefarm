@@ -1,15 +1,15 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common;
 
 import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -21,15 +21,15 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
-import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 public class AndesiteFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     private final boolean soundOn = true;
     public ItemStack pickType;
-    public List<ItemStack> upgradeList = Main.UPGRADES;
-    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
+    public List<ItemStack> upgradeList = new ArrayList<>();
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, upgradeList);
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
@@ -103,6 +103,22 @@ public class AndesiteFarmTileentity extends FarmTileentity implements ITickableB
     @Override
     public void tick() {
         timer++;
+        for (ItemStack upgrade : upgradeList) {
+            Upgrades.setUpgradeStatus(upgrades, upgrade, true);
+        }
+        redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        assert level != null;
+        if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
+            return;
+        }
+        for (ItemStack upgrade : upgradeList) {
+            Upgrades.setUpgradeStatus(upgrades, upgrade, true);
+        }
+        redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        assert level != null;
+        if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
+            return;
+        }
         if (timer >= getAndesiteBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -142,10 +158,8 @@ public class AndesiteFarmTileentity extends FarmTileentity implements ITickableB
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
         if (pickType != null) {
-            CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(pickType.getItem()).toString());
-            pickTypeTag.putInt("count", pickType.getCount());
-            compound.put("PickType", pickTypeTag);
+            DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
+            compound.put("PickType", tag.getOrThrow());
         }
         if (!pickaxeEnchantments.isEmpty()) {
             ListTag enchantmentsList = new ListTag();

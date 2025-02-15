@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.client.model.data.*;
@@ -34,15 +35,17 @@ public class RedSandFarmRenderer extends RendererBase<RedSandFarmTileentity> {
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
         if (farm.getTimer() >= RedSandFarmTileentity.getRedSandGenerateTime(farm)) {
-            blockRenderDispatcher.renderSingleBlock(
-                    Blocks.RED_SAND.defaultBlockState(),
-                    matrixStack,
-                    buffer,
-                    combinedLight,
-                    combinedOverlay,
-                    ModelData.EMPTY,
-                    RenderType.SOLID
-            );
+            if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
+                blockRenderDispatcher.renderSingleBlock(
+                        Blocks.RED_SAND.defaultBlockState(),
+                        matrixStack,
+                        buffer,
+                        combinedLight,
+                        combinedOverlay,
+                        ModelData.EMPTY,
+                        RenderType.SOLID
+                );
+            }
         } else if (farm.getTimer() >= RedSandFarmTileentity.getRedSandBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),
@@ -57,7 +60,13 @@ public class RedSandFarmRenderer extends RendererBase<RedSandFarmTileentity> {
 
         matrixStack.popPose();
 
-        renderSwingingShovel(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getShovelType(), getDirection(), farm.getTimer());
+        if (farm.redstoneUpgradeEnabled) {
+            if (level.hasNeighborSignal(farm.getBlockPos())) {
+                renderSwingingShovel(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getShovelType(), getDirection(), farm.getTimer());
+            }
+        } else {
+            renderSwingingShovel(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getShovelType(), getDirection(), farm.getTimer());
+        }
     }
 
     public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {

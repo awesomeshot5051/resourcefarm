@@ -6,10 +6,10 @@ import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.rock.
 import com.awesomeshot5051.resourceFarm.items.render.*;
 import net.minecraft.core.*;
 
-public class GraniteFarmItemRenderer extends BlockItemRendererBase<DeepslateFarmRenderer, GraniteFarmTileentity> {
+public class GraniteFarmItemRenderer extends BlockItemRendererBase<GraniteFarmRenderer, GraniteFarmTileentity> {
 
     public GraniteFarmItemRenderer() {
-        super(DeepslateFarmRenderer::new, () -> new GraniteFarmTileentity(BlockPos.ZERO, ModBlocks.GRANITE_FARM.get().defaultBlockState()));
+        super(GraniteFarmRenderer::new, () -> new GraniteFarmTileentity(BlockPos.ZERO, ModBlocks.GRANITE_FARM.get().defaultBlockState()));
     }
 
 }

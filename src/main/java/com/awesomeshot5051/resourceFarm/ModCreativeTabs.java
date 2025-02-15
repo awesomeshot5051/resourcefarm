@@ -6,6 +6,7 @@ import com.awesomeshot5051.resourceFarm.items.*;
 import net.minecraft.core.registries.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.*;
 import net.neoforged.bus.api.*;
 import net.neoforged.neoforge.registries.*;
 
@@ -82,7 +83,10 @@ public class ModCreativeTabs {
                 output.accept(new ItemStack(ModBlocks.RSAND_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.SNOW_FARM.get()));
                 output.accept(new ItemStack(ModBlocks.TUFF_FARM.get()));
-
+                ModBlocks.BLOCK_REGISTER.getEntries().forEach(blockEntry -> {
+                    Block block = blockEntry.get();
+                    output.accept(new ItemStack(block.asItem()));
+                });
 
                 output.accept(new ItemStack(ModItems.SMELTER_UPGRADE.get()));
             })

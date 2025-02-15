@@ -2075,12 +2075,6 @@
     },
     "done": true
   },
-  "resource_farms:recipes/misc/redstone_upgrade": {
-    "criteria": {
-      "has_redstone_upgrade": "2025-02-10 10:39:08 -0500"
-    },
-    "done": true
-  },
   "minecraft:recipes/redstone/redstone_torch": {
     "criteria": {
       "has_redstone": "2025-02-10 10:41:03 -0500"
@@ -2138,6 +2132,516 @@
   "minecraft:recipes/redstone/repeater": {
     "criteria": {
       "has_redstone_torch": "2025-02-10 14:41:58 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/tuff_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-10 17:47:12 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssoil_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-10 17:49:17 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/snow_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/grass_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dlapis_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/deepslate_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gravel_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssoil_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cpowder_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/rsand_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherite_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/demerald_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/calcite_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/redstone_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcoal_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dgold_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diron_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sstone_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/stone_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcopper_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/emerald_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/lapis_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cobblestone_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/granite_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/copper_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_gold_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sand_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ddiamond_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/andesite_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/basalt_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/tuff_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssand_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diamond_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dirt_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dredstone_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/nether_quartz_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/iron_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/blackstone_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/gold_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/coal_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 14:25:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/snow_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-14 14:36:35 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mud_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 17:47:00 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherrack_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 17:47:00 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/concrete_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 17:47:00 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/terracotta_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 17:47:00 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/estone_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 17:47:00 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/obsidian_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 17:47:00 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/purpur_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 17:47:00 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/glowstone_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-14 17:47:00 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mud_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-14 17:47:31 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/clay_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-15 12:32:36 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/clay_farm_redstone_upgrade": {
+    "criteria": {
+      "has_redstone_upgrade": "2025-02-15 12:32:36 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mud_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-02-15 12:32:36 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mud_farm_shovel_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-15 12:32:36 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/clay_farm_shovel_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-02-15 12:32:36 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/clay_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-15 12:38:40 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/snow_farm": {
+    "criteria": {
+      "has_snow": "2025-02-15 13:09:36 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/purpur_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mud_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherrack_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/clay_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/obsidian_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/estone_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/glowstone_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/terracotta_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/concrete_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-02-15 13:09:56 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/snow": {
+    "criteria": {
+      "has_snowball": "2025-02-15 13:10:03 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/snow_block": {
+    "criteria": {
+      "has_snowball": "2025-02-15 13:10:03 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/clay_farm_alternate_recipe": {
+    "criteria": {
+      "has_dripstone": "2025-02-15 14:30:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dripstone_block": {
+    "criteria": {
+      "has_pointed_dripstone": "2025-02-15 14:30:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/mud_bricks": {
+    "criteria": {
+      "has_packed_mud": "2025-02-15 14:31:39 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/packed_mud": {
+    "criteria": {
+      "has_mud": "2025-02-15 14:32:21 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/block.resource_farms.mud_farm": {
+    "criteria": {
+      "has_mud": "2025-02-15 14:32:21 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/mud_brick_slab_from_mud_bricks_stonecutting": {
+    "criteria": {
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/coal": {
+    "criteria": {
+      "has_coal_block": "2025-02-15 16:26:06 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/smoker": {
+    "criteria": {
+      "has_furnace": "2025-02-15 16:24:57 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/mud_brick_wall": {
+    "criteria": {
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/mud_brick_stairs_from_mud_bricks_stonecutting": {
+    "criteria": {
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/bread": {
+    "criteria": {
+      "has_wheat": "2025-02-15 16:25:38 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/hay_block": {
+    "criteria": {
+      "has_wheat": "2025-02-15 16:25:38 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/block.resource_farms.clay_farm": {
+    "criteria": {
+      "has_clay_block": "2025-02-15 16:24:19 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/mud_brick_slab": {
+    "criteria": {
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/mud_brick_stairs": {
+    "criteria": {
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/terracotta": {
+    "criteria": {
+      "has_clay_block": "2025-02-15 16:24:19 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/mud_brick_wall_from_mud_bricks_stonecutting": {
+    "criteria": {
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
     },
     "done": true
   },

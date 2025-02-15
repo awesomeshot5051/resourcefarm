@@ -6,7 +6,6 @@ import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
@@ -23,15 +22,15 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
-import static com.awesomeshot5051.resourceFarm.datacomponents.PickaxeEnchantments.*;
 
 @SuppressWarnings("ALL")
 public class StoneFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
-    public List<ItemStack> upgradeList = Main.UPGRADES;
-    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
+    public List<ItemStack> upgradeList = new ArrayList<>();
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, this.upgradeList);
     public boolean redstoneUpgradeEnabled;
     public boolean smelterUpgradeEnabled;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
@@ -103,17 +102,17 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
 
     @Override
     public Map<ItemStack, Boolean> getUpgrades() {
-        return upgrades;
+        return this.upgrades;
     }
 
     @Override
     public void tick() {
         timer++;
-        for (ItemStack upgrade : upgradeList) {
-            Upgrades.setUpgradeStatus(upgrades, upgrade, true);
+        for (ItemStack upgrade : this.upgradeList) {
+            Upgrades.setUpgradeStatus(this.upgrades, upgrade, true);
         }
-        redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
-        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
+        this.redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        this.smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
@@ -180,11 +179,13 @@ public class StoneFarmTileentity extends FarmTileentity implements ITickableBloc
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
-        if (pickType != null) {
-            CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(pickType.getItem()).toString());
-            pickTypeTag.putInt("count", pickType.getCount());
-            compound.put("PickType", pickTypeTag);
+        try {
+            if (pickType != null) {
+                DataResult<Tag> tag = ItemStack.STRICT_SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
+                compound.put("PickType", tag.getOrThrow());
+            }
+        } catch (IllegalStateException e) {
+            System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
         }
         if (!pickaxeEnchantments.isEmpty()) {
             ListTag enchantmentsList = new ListTag();

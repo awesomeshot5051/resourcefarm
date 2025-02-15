@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
+import com.awesomeshot5051.resourceFarm.data.providers.recipe.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
@@ -25,17 +26,8 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
     final ItemStack result;
     final NonNullList<Ingredient> ingredients;
     ItemStack farm;
-    List<Item> shovelFarms = new ArrayList<>(List.of(
-            ModItems.CONCRETE_POWDER_FARM.get(),
-            ModItems.DIRT_FARM.get(),
-            ModItems.GRASS_FARM.get(),
-            ModItems.GRAVEL_FARM.get(),
-            ModItems.SAND_FARM.get(),
-            ModItems.RSAND_FARM.get(),
-            ModItems.SSAND_FARM.get(),
-            ModItems.SSOIL_FARM.get(),
-            ModItems.SNOW_FARM.get()
-    ));
+    List<Item> shovelFarms = new ArrayList<>();
+
     private ItemContainerContents swordContents;
     private ItemStack result2;
 
@@ -55,7 +47,7 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
 
     @Override
     public @NotNull ItemStack assemble(CraftingInput input, HolderLookup.@NotNull Provider registries) {
-
+        ModRecipeProvider.SHOVEL_BLOCKS.forEach(item -> shovelFarms.add(item.get()));
         List<Item> farmBlocks = new ArrayList<>();
         ItemEnchantments enchantments = ItemEnchantments.EMPTY;
         ItemEnchantments.Mutable storedEnchantments = new ItemEnchantments.Mutable(enchantments);

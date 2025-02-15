@@ -77,9 +77,13 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
             components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
                     .withStyle(ChatFormatting.RED));
+            if (stack.has(ModDataComponents.UPGRADE)) {
+                for (ItemStack upgrade : stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList())
+                    components.add(Component.literal(convertToReadableName(upgrade.getDescriptionId())));
+            }
             if (stack.has(DataComponents.CUSTOM_DATA)) {
                 components.add(Component.literal(
-                        Arrays.stream(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
+                        Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
                                         .toString()
                                         .replace("{}", " ")
                                         .replace("{Upgrade:\"", "")
@@ -102,7 +106,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
 
     private String convertToReadableName(String block) {
 
-        String readableName = block.replace("item.minecraft.", "").replace('_', ' ');
+        String readableName = block.replace("item.minecraft.", "").replace("item.resource_farms.", "").replace('_', ' ');
 
         return Arrays.stream(readableName.split(" "))
                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
@@ -119,17 +123,22 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
 
             farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
             farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-            ItemContainerContents pickType = stack.getOrDefault(ModDataComponents.PICK_TYPE, ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE))));
-            farmTileEntity.pickType = pickType.getStackInSlot(0);
+            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
+            if (stack.has(ModDataComponents.UPGRADE)) {
+                farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
+            }
+            if (pickType != null) {
+                farmTileEntity.pickType = pickType.getStackInSlot(0);
 
 
-            farmTileEntity.setChanged();
-            CompoundTag compoundTag = new CompoundTag();
-            compoundTag.putString("id", BuiltInRegistries.ITEM.getKey(farmTileEntity.pickType.getItem()).toString());
-            compoundTag.putInt("count", farmTileEntity.pickType.getCount());
-            setBlockEntityData(stack, blockEntity.getType(), compoundTag);
-            updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
-            level.sendBlockUpdated(pos, state, state, 3);
+                farmTileEntity.setChanged();
+                CompoundTag compoundTag = new CompoundTag();
+                compoundTag.putString("id", BuiltInRegistries.ITEM.getKey(farmTileEntity.pickType.getItem()).toString());
+                compoundTag.putInt("count", farmTileEntity.pickType.getCount());
+                setBlockEntityData(stack, blockEntity.getType(), compoundTag);
+                updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
+                level.sendBlockUpdated(pos, state, state, 3);
+            }
         }
     }
 
@@ -144,7 +153,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
 
         player.openMenu(new MenuProvider() {
             @Override
-            public @NotNull Component getDisplayName() {
+            public Component getDisplayName() {
 
                 return Component.translatable(state.getBlock().getDescriptionId());
             }

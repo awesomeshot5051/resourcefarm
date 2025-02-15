@@ -60,11 +60,16 @@ public class StoneFarmBlock extends BlockBase implements EntityBlock, IItemBlock
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof StoneFarmTileentity farmTileEntity) {
-            farmTileEntity.smelterUpgradeEnabled = stack.has(ModDataComponents.UPGRADE);
+            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
+                farmTileEntity.setChanged();
+                for (ItemStack upgrade : farmTileEntity.upgradeList) {
+                    updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, upgrade);
+                }
+                level.sendBlockUpdated(pos, state, state, 3);
             }
-            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
+
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
                 farmTileEntity.setChanged();

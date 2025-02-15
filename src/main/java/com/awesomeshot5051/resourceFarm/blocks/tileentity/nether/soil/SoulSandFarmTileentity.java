@@ -1,14 +1,15 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.soil;
 
 import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -20,16 +21,16 @@ import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
+import static com.awesomeshot5051.corelib.datacomponents.ShovelEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
-import static com.awesomeshot5051.resourceFarm.datacomponents.ShovelEnchantments.*;
 
 @SuppressWarnings("ALL")
 public class SoulSandFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack shovelType;
-    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES);
     public Map<ResourceKey<Enchantment>, Boolean> shovelEnchantments = initializeShovelEnchantments();
-    public List<ItemStack> upgradeList = Main.UPGRADES;
+    public List<ItemStack> upgradeList = new ArrayList<>();
+    public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, upgradeList);
     public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
     protected NonNullList<ItemStack> inventory;
@@ -96,6 +97,14 @@ public class SoulSandFarmTileentity extends FarmTileentity implements ITickableB
     @Override
     public void tick() {
         timer++;
+        for (ItemStack upgrade : upgradeList) {
+            Upgrades.setUpgradeStatus(upgrades, upgrade, true);
+        }
+        redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        assert level != null;
+        if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
+            return;
+        }
 
         if (timer >= getSoulSandBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
@@ -135,10 +144,8 @@ public class SoulSandFarmTileentity extends FarmTileentity implements ITickableB
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
         if (shovelType != null) {
-            CompoundTag pickTypeTag = new CompoundTag();
-            pickTypeTag.putString("id", BuiltInRegistries.ITEM.getKey(shovelType.getItem()).toString());
-            pickTypeTag.putInt("count", shovelType.getCount());
-            compound.put("ShovelType", pickTypeTag);
+            DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, shovelType.getItem().getDefaultInstance());
+            compound.put("ShovelType", tag.getOrThrow());
         }
         if (!shovelEnchantments.isEmpty()) {
             ListTag enchantmentsList = new ListTag();
@@ -151,6 +158,18 @@ public class SoulSandFarmTileentity extends FarmTileentity implements ITickableB
             }
             compound.put("ShovelEnchantments", enchantmentsList);
         }
+        if (!upgrades.isEmpty()) {
+            ListTag upgradesList = new ListTag();
+            for (Map.Entry<ItemStack, Boolean> upgradeMap : upgrades.entrySet()) {
+                if (upgradeMap.getValue()) {
+                    CompoundTag upgradeTag = new CompoundTag();
+                    DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, upgradeMap.getKey());
+                    upgradeTag.put("id", tag.getOrThrow());
+                    upgradesList.add(upgradeTag);
+                }
+            }
+            compound.put("Upgrades", upgradesList);
+        }
         compound.putLong("Timer", timer);
         super.saveAdditional(compound, provider);
     }
@@ -161,14 +180,15 @@ public class SoulSandFarmTileentity extends FarmTileentity implements ITickableB
         if (compound.contains("ShovelType")) {
             SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.shovelType = stack);
         }
-        if (shovelType == null) {
-
-            shovelType = new ItemStack(Items.WOODEN_SHOVEL);
-        }
         if (compound.contains("ShovelEnchantments")) {
             shovelEnchantments = SyncableTileentity.loadShovelEnchantments(compound, provider, this);
         }
-
+        if (shovelType == null) {
+            shovelType = new ItemStack(Items.WOODEN_SHOVEL);
+        }
+        if (compound.contains("Upgrades")) {
+            upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
+        }
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }
