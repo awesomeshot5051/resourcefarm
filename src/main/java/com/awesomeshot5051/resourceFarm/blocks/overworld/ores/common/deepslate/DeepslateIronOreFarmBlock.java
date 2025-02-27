@@ -99,8 +99,7 @@ public class DeepslateIronOreFarmBlock extends BlockBase implements EntityBlock,
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof DeepslateIronOreFarmTileentity farmTileEntity) {
-            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
-            farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
+
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();

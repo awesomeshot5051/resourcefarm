@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.rock.common;
 
+import com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
 import com.mojang.blaze3d.vertex.*;
@@ -8,15 +9,14 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
+import net.minecraft.core.registries.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.*;
 import net.neoforged.neoforge.client.model.data.*;
-
-import java.util.*;
 
 import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.*;
 
@@ -34,35 +34,64 @@ public class ConcreteFarmRenderer extends RendererBase<ConcreteFarmTileentity> {
         Level level = farm.getLevel();
         assert level != null;
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
+
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
-        LiquidBlockRenderer liquidBlockRenderer = renderer.getBlockRenderDispatcher().getLiquidBlockRenderer();
-        if (farm.getTick() >= ConcreteFarmTileentity.getConcreteGenerateTime(farm)) {
-            blockRenderDispatcher.renderLiquid(farm.getBlockPos(),
-                    Objects.requireNonNull(farm.getLevel()),
-                    buffer.getBuffer(RenderType.translucent()),
-                    Blocks.WATER.defaultBlockState(),
-                    Fluids.FLOWING_WATER.defaultFluidState());
 
+        // Get the block color property
+        DyeColor blockColor = farm.getBlockState().getValue(ConcreteFarmBlock.COLOR);
 
-        } else if (farm.getTick() >= ConcreteFarmTileentity.getConcreteBreakTime(farm)) {
-            blockRenderDispatcher.renderLiquid(farm.getBlockPos(),
-                    Objects.requireNonNull(farm.getLevel()),
-                    buffer.getBuffer(RenderType.translucent()),
-                    Blocks.WATER.defaultBlockState(),
-                    Fluids.FLOWING_WATER.defaultFluidState());
-            farm.setTick(0L);
+        // Construct the ResourceLocation for the concrete block
+        ResourceLocation concreteBlockRL = ResourceLocation.withDefaultNamespace(blockColor.getSerializedName() + "_concrete");
+
+        // Retrieve the actual Block instance
+        Block concreteBlock = BuiltInRegistries.BLOCK.get(concreteBlockRL);
+        if (concreteBlock == Blocks.AIR) {
+            concreteBlock = Blocks.BLACK_CONCRETE;
         }
-        matrixStack.popPose();
 
+        if (farm.getTimer() >= ConcreteFarmTileentity.getConcreteGenerateTime(farm)) {
+            if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
+                blockRenderDispatcher.renderSingleBlock(
+                        concreteBlock.defaultBlockState(),
+                        matrixStack,
+                        buffer,
+                        combinedLight,
+                        combinedOverlay,
+                        ModelData.EMPTY,
+                        RenderType.SOLID
+                );
+            } else blockRenderDispatcher.renderSingleBlock(
+                    concreteBlock.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        } else if (farm.getTimer() >= ConcreteFarmTileentity.getConcreteBreakTime(farm)) {
+            blockRenderDispatcher.renderSingleBlock(
+                    Blocks.AIR.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+        }
+
+        matrixStack.popPose();
 
         if (farm.redstoneUpgradeEnabled) {
             if (level.hasNeighborSignal(farm.getBlockPos())) {
                 renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
             }
-        } else
+        } else {
             renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+        }
     }
 
 

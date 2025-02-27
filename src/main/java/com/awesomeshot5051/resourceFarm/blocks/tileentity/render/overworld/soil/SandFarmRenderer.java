@@ -46,7 +46,15 @@ public class SandFarmRenderer extends RendererBase<SandFarmTileentity> {
                         ModelData.EMPTY,
                         RenderType.SOLID
                 );
-            }
+            } else blockRenderDispatcher.renderSingleBlock(
+                    Blocks.SAND.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
         } else if (farm.getTimer() >= SandFarmTileentity.getSandBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),

@@ -48,7 +48,15 @@ public class CopperOreFarmRenderer extends RendererBase<CopperOreFarmTileentity>
                         ModelData.EMPTY,
                         RenderType.SOLID
                 );
-            }
+            } else blockRenderDispatcher.renderSingleBlock(
+                    Blocks.COPPER_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
         } else if (farm.getTimer() >= CopperOreFarmTileentity.getCopperBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),

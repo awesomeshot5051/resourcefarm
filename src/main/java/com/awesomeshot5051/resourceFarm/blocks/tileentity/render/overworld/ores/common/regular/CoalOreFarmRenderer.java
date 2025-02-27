@@ -41,7 +41,15 @@ public class CoalOreFarmRenderer extends RendererBase<CoalOreFarmTileentity> {
                         ModelData.EMPTY,
                         RenderType.SOLID
                 );
-            }
+            } else blockRenderDispatcher.renderSingleBlock(
+                    Blocks.COAL_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
         } else if (farm.getTimer() >= CoalOreFarmTileentity.getCoalBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),

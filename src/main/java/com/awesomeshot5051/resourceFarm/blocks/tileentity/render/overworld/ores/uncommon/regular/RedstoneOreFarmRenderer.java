@@ -46,7 +46,15 @@ public class RedstoneOreFarmRenderer extends RendererBase<RedstoneOreFarmTileent
                         ModelData.EMPTY,
                         RenderType.SOLID
                 );
-            }
+            } else blockRenderDispatcher.renderSingleBlock(
+                    Blocks.REDSTONE_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
         } else if (farm.getTimer() >= RedstoneOreFarmTileentity.getRedstoneBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),

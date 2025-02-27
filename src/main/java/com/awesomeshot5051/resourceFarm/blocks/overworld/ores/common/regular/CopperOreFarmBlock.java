@@ -115,8 +115,7 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof CopperOreFarmTileentity farmTileEntity) {
 
-            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
-            farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
+
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();

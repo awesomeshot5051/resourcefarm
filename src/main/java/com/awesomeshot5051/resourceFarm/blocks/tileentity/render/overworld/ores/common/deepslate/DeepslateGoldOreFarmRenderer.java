@@ -45,7 +45,15 @@ public class DeepslateGoldOreFarmRenderer extends RendererBase<DeepslateGoldOreF
                         ModelData.EMPTY,
                         RenderType.SOLID
                 );
-            }
+            } else blockRenderDispatcher.renderSingleBlock(
+                    Blocks.DEEPSLATE_GOLD_ORE.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
         } else if (farm.getTimer() >= DeepslateGoldOreFarmTileentity.getGoldBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),

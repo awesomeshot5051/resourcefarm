@@ -35,7 +35,7 @@ public class NetheriteOreFarmTileentity extends FarmTileentity implements ITicka
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -107,6 +107,7 @@ public class NetheriteOreFarmTileentity extends FarmTileentity implements ITicka
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -136,7 +137,7 @@ public class NetheriteOreFarmTileentity extends FarmTileentity implements ITicka
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         drops.add(new ItemStack(Items.ANCIENT_DEBRIS, dropCount));
-        if (upgradeEnabled) {
+        if (smelterUpgradeEnabled) {
             drops.clear();
             drops.add(new ItemStack(Items.NETHERITE_SCRAP, dropCount));
         }

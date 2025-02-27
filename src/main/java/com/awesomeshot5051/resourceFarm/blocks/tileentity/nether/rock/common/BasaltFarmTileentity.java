@@ -35,7 +35,7 @@ public class BasaltFarmTileentity extends FarmTileentity implements ITickableBlo
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -111,6 +111,7 @@ public class BasaltFarmTileentity extends FarmTileentity implements ITickableBlo
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -140,7 +141,7 @@ public class BasaltFarmTileentity extends FarmTileentity implements ITickableBlo
         }
         List<ItemStack> drops = new ArrayList<>();
         drops.add(new ItemStack(Items.BASALT, dropCount));
-        if (upgradeEnabled) {
+        if (smelterUpgradeEnabled) {
             drops.clear();
             drops.add(new ItemStack(Items.SMOOTH_BASALT, dropCount));
         }

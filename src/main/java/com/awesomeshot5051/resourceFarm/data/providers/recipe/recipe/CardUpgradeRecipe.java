@@ -7,7 +7,6 @@ import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import net.minecraft.core.*;
 import net.minecraft.core.component.*;
-import net.minecraft.nbt.*;
 import net.minecraft.network.*;
 import net.minecraft.network.codec.*;
 import net.minecraft.resources.*;
@@ -103,19 +102,28 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
                 .filter(item -> upgrades.contains(item.getItem()))
                 .findFirst()
                 .orElse(ItemStack.EMPTY);
-        CustomData upgrade = CustomData.of(createUpgrade(upgradeCard));
+        ItemContainerContents upgrade = ItemContainerContents.EMPTY;
+
+        if (farm.has(ModDataComponents.UPGRADE)) {
+            List<ItemStack> upgradesList = new ArrayList<>();
+            for (ItemStack item : farm.get(ModDataComponents.UPGRADE).stream().toList()) {
+                if (item.is(Items.AIR)) {
+                    continue;
+                } else upgradesList.add(item);
+            }
+            upgradesList.add(upgradeCard);
+            upgrade = ItemContainerContents.fromItems(upgradesList);
+        } else {
+            upgrade = ItemContainerContents.fromItems(Collections.singletonList(upgradeCard));
+        }
+//        upgrade.stream().toList().remove(Items.AIR);
         result2.set(ModDataComponents.PICK_TYPE, farm.get(ModDataComponents.PICK_TYPE));
         result2.set(DataComponents.STORED_ENCHANTMENTS, farm.get(DataComponents.STORED_ENCHANTMENTS));
-        result2.set(DataComponents.CUSTOM_DATA, upgrade);
+        result2.set(ModDataComponents.UPGRADE, upgrade);
         super.assemble(craftingInput, registries);
         return result2;
     }
 
-    public CompoundTag createUpgrade(ItemStack upgrade) {
-        CompoundTag upgrade_card = new CompoundTag();
-        upgrade_card.putString("Upgrade", convertToReadableName(upgrade.toString()));
-        return upgrade_card;
-    }
 
     private String convertToReadableName(String block) {
         String readableName = block.replace("item.plant_farms.", "").replace('_', ' ')

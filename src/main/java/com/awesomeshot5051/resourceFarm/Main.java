@@ -63,6 +63,7 @@ public class Main {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
+        NeoForge.EVENT_BUS.register(new BlockEvents());
         event.enqueueWork(() -> {
             for (var sidedBlock : ModItems.ITEMS.getEntries()) {
                 upgrades.add(sidedBlock.get().getDefaultInstance());

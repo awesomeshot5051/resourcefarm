@@ -10,7 +10,6 @@ import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -35,7 +34,7 @@ public class DeepslateCopperOreFarmTileentity extends FarmTileentity implements 
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, upgradeList);
     public boolean redstoneUpgradeEnabled;
 
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
@@ -115,6 +114,7 @@ public class DeepslateCopperOreFarmTileentity extends FarmTileentity implements 
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -122,8 +122,6 @@ public class DeepslateCopperOreFarmTileentity extends FarmTileentity implements 
         if (pickType.isEnchanted()) {
             Main.LOGGER.info("{}has {}", pickType.toString(), pickType.getTagEnchantments());
         }
-
-
         if (timer >= getCopperBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -151,10 +149,10 @@ public class DeepslateCopperOreFarmTileentity extends FarmTileentity implements 
         }
         List<ItemStack> drops = new ArrayList<>();
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
-            if (upgradeEnabled) {
+            if (smelterUpgradeEnabled) {
                 drops.add(new ItemStack(Items.COPPER_INGOT));
             } else drops.add(new ItemStack(Items.DEEPSLATE_COPPER_ORE));
-        } else if (upgradeEnabled) {
+        } else if (smelterUpgradeEnabled) {
             drops.add(new ItemStack(Items.COPPER_INGOT));
         } else drops.add(new ItemStack(Items.RAW_COPPER, dropCount));
 

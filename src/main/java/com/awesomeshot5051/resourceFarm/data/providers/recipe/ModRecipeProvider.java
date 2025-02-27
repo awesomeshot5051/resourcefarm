@@ -21,37 +21,6 @@ import java.util.function.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
-    public static final List<Supplier<Block>> PICKAXE_BLOCKS = List.of(
-            ModBlocks.ANDESITE_FARM::get,
-            ModBlocks.COPPER_FARM::get,
-            ModBlocks.COAL_FARM::get,
-            ModBlocks.DCOPPER_FARM::get,
-            ModBlocks.DCOAL_FARM::get,
-            ModBlocks.IRON_FARM::get,
-            ModBlocks.GOLD_FARM::get,
-            ModBlocks.DIAMOND_FARM::get,
-            ModBlocks.EMERALD_FARM::get,
-            ModBlocks.LAPIS_FARM::get,
-            ModBlocks.REDSTONE_FARM::get,
-            ModBlocks.DIRON_FARM::get,
-            ModBlocks.DGOLD_FARM::get,
-            ModBlocks.DDIAMOND_FARM::get,
-            ModBlocks.DEMERALD_FARM::get,
-            ModBlocks.DLAPIS_FARM::get,
-            ModBlocks.DREDSTONE_FARM::get,
-            ModBlocks.NETHERITE_FARM::get,
-            ModBlocks.NETHER_QUARTZ_FARM::get,
-            ModBlocks.NETHER_GOLD_FARM::get,
-            ModBlocks.DEEPSLATE_FARM::get,
-            ModBlocks.BASALT_FARM::get,
-            ModBlocks.BLACKSTONE_FARM::get,
-            ModBlocks.CALCITE_FARM::get,
-            ModBlocks.COBBLESTONE_FARM::get,
-            ModBlocks.GRANITE_FARM::get,
-            ModBlocks.STONE_FARM::get,
-            ModBlocks.SSTONE_FARM::get,
-            ModBlocks.TUFF_FARM::get
-    );
     public static final List<Supplier<Item>> SHOVEL_BLOCKS = List.of(
             ModItems.CONCRETE_POWDER_FARM,
             ModItems.CLAY_FARM,
@@ -89,6 +58,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.STONE_FARM::get,
             ModBlocks.CLAY_FARM::get
     );
+    public static List<Supplier<Item>> PICKAXE_BLOCKS = new ArrayList<>();
 
     static {
         for (var item : ModItems.ITEM_REGISTER.getEntries()) {
@@ -97,6 +67,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             if (registeredItem instanceof BlockItem blockItem) {
                 // Convert to Supplier<Block> and add to the list
                 ALL_FARMS.add(blockItem::getBlock);
+            }
+        }
+        for (var item : ModItems.ITEM_REGISTER.getEntries()) {
+
+            if (!SHOVEL_BLOCKS.contains(item)) {
+                PICKAXE_BLOCKS.add(item::get);
             }
         }
     }
@@ -535,7 +511,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_mud", has(Items.MUD))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModBlocks.MUD_FARM.get().getDescriptionId())));
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern("SSS")
                     .pattern("SFS")
@@ -546,7 +522,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_stone_upgrade_recipe"));
         });
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern("III")
                     .pattern("IFI")
@@ -557,7 +533,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_iron_upgrade_recipe"));
         });
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern("GGG")
                     .pattern("GFG")
@@ -568,7 +544,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_gold_upgrade_recipe"));
         });
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern("DDD")
                     .pattern("DFD")
@@ -579,7 +555,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_diamond_upgrade_recipe"));
         });
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
-            Block farmBlock = farmBlockSupplier.get();
+            Item farmBlock = farmBlockSupplier.get();
             UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
                     .pattern(" N ")
                     .pattern("NFN")

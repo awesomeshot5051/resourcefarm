@@ -121,6 +121,7 @@ public class SandFarmTileentity extends FarmTileentity implements ITickableBlock
         }
         smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;

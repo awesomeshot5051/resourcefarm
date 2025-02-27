@@ -39,9 +39,15 @@ import static net.minecraft.world.item.BlockItem.*;
 public class TerracottaFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
+    public static final EnumProperty<DyeColor> COLOR = EnumProperty.create("color", DyeColor.class);
 
     public TerracottaFarmBlock() {
         super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion());
+    }
+
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(COLOR);
     }
 
     private void playSound(@NotNull Level level, BlockState state, SoundEvent sound, TerracottaFarmTileentity farm) {
@@ -81,6 +87,11 @@ public class TerracottaFarmBlock extends BlockBase implements EntityBlock, IItem
         TerracottaFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new TerracottaFarmTileentity(BlockPos.ZERO, ModBlocks.TERRACOTTA_FARM.get().defaultBlockState()));
     }
 
+    public void dyeBlock(BlockState state, Level worldIn, DyeColor dyeColor, BlockPos pos) {
+        BlockState newState = state.setValue(TerracottaFarmBlock.COLOR, dyeColor);
+        worldIn.setBlock(pos, newState, 3);
+    }
+
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
@@ -100,13 +111,57 @@ public class TerracottaFarmBlock extends BlockBase implements EntityBlock, IItem
         }
     }
 
+    private DyeColor getDyeColor(ItemStack stack) {
+        if (stack.isEmpty()) {
+            return null;
+        }
+        if (stack.getItem().equals(Items.WHITE_DYE)) {
+            return DyeColor.WHITE;
+        } else if (stack.getItem().equals(Items.ORANGE_DYE)) {
+            return DyeColor.ORANGE;
+        } else if (stack.getItem().equals(Items.MAGENTA_DYE)) {
+            return DyeColor.MAGENTA;
+        } else if (stack.getItem().equals(Items.LIGHT_BLUE_DYE)) {
+            return DyeColor.LIGHT_BLUE;
+        } else if (stack.getItem().equals(Items.YELLOW_DYE)) {
+            return DyeColor.YELLOW;
+        } else if (stack.getItem().equals(Items.LIME_DYE)) {
+            return DyeColor.LIME;
+        } else if (stack.getItem().equals(Items.PINK_DYE)) {
+            return DyeColor.PINK;
+        } else if (stack.getItem().equals(Items.GRAY_DYE)) {
+            return DyeColor.GRAY;
+        } else if (stack.getItem().equals(Items.LIGHT_GRAY_DYE)) {
+            return DyeColor.LIGHT_GRAY;
+        } else if (stack.getItem().equals(Items.CYAN_DYE)) {
+            return DyeColor.CYAN;
+        } else if (stack.getItem().equals(Items.PURPLE_DYE)) {
+            return DyeColor.PURPLE;
+        } else if (stack.getItem().equals(Items.BLUE_DYE)) {
+            return DyeColor.BLUE;
+        } else if (stack.getItem().equals(Items.BROWN_DYE)) {
+            return DyeColor.BROWN;
+        } else if (stack.getItem().equals(Items.GREEN_DYE)) {
+            return DyeColor.GREEN;
+        } else if (stack.getItem().equals(Items.RED_DYE)) {
+            return DyeColor.RED;
+        } else if (stack.getItem().equals(Items.BLACK_DYE)) {
+            return DyeColor.BLACK;
+        }
+        return null;
+    }
+
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
         if (!(tileEntity instanceof TerracottaFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-
+        DyeColor dyeColor = getDyeColor(heldItem);
+        if (dyeColor != null) {
+            dyeBlock(state, worldIn, dyeColor, pos);
+            return ItemInteractionResult.SUCCESS;
+        }
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {

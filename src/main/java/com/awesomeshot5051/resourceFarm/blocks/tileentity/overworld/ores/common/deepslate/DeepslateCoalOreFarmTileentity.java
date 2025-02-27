@@ -10,7 +10,6 @@ import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -35,7 +34,7 @@ public class DeepslateCoalOreFarmTileentity extends FarmTileentity implements IT
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, upgradeList);
     public boolean redstoneUpgradeEnabled;
 
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
 
@@ -49,7 +48,7 @@ public class DeepslateCoalOreFarmTileentity extends FarmTileentity implements IT
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-
+        pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
     public static double getCoalGenerateTime(DeepslateCoalOreFarmTileentity tileEntity) {
@@ -116,6 +115,7 @@ public class DeepslateCoalOreFarmTileentity extends FarmTileentity implements IT
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -151,7 +151,7 @@ public class DeepslateCoalOreFarmTileentity extends FarmTileentity implements IT
         drops.add(new ItemStack(Items.COAL, dropCount));
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
             drops.clear();
-            if (upgradeEnabled) {
+            if (smelterUpgradeEnabled) {
                 drops.add(new ItemStack(Items.COAL, dropCount));
             } else {
                 drops.add(new ItemStack(Items.DEEPSLATE_COAL_ORE));

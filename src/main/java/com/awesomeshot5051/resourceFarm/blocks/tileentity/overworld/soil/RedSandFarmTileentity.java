@@ -29,7 +29,7 @@ public class RedSandFarmTileentity extends FarmTileentity implements ITickableBl
 
     private final boolean soundOn = true;
 
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public ItemStack shovelType;
 
@@ -110,6 +110,7 @@ public class RedSandFarmTileentity extends FarmTileentity implements ITickableBl
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -139,7 +140,7 @@ public class RedSandFarmTileentity extends FarmTileentity implements ITickableBl
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        if (upgradeEnabled) drops.add(new ItemStack(Items.GLASS, dropCount));
+        if (smelterUpgradeEnabled) drops.add(new ItemStack(Items.GLASS, dropCount));
         else drops.add(new ItemStack(Items.RED_SAND, dropCount));
         return drops;
     }
@@ -173,7 +174,7 @@ public class RedSandFarmTileentity extends FarmTileentity implements ITickableBl
             }
             compound.put("ShovelEnchantments", enchantmentsList);
         }
-        if (upgradeEnabled) {
+        if (smelterUpgradeEnabled) {
             CompoundTag upgrade = new CompoundTag();
             upgrade.putString("Upgrade", "smelter_upgrade");
             compound.put("upgrade", upgrade);

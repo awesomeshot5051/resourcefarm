@@ -16,8 +16,6 @@ import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
 import net.minecraft.core.component.*;
-import net.minecraft.core.registries.*;
-import net.minecraft.nbt.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -121,8 +119,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof DeepslateCoalOreFarmTileentity farmTileEntity) {
 
-            farmTileEntity.upgradeEnabled = stack.has(DataComponents.CUSTOM_DATA);
-            farmTileEntity.customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
+
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
@@ -132,10 +129,6 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
 
 
                 farmTileEntity.setChanged();
-                CompoundTag compoundTag = new CompoundTag();
-                compoundTag.putString("id", BuiltInRegistries.ITEM.getKey(farmTileEntity.pickType.getItem()).toString());
-                compoundTag.putInt("count", farmTileEntity.pickType.getCount());
-                setBlockEntityData(stack, blockEntity.getType(), compoundTag);
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }

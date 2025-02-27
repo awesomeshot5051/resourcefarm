@@ -7,6 +7,7 @@ import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.soil.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
@@ -16,6 +17,7 @@ import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.*;
 import net.minecraft.world.level.*;
@@ -37,9 +39,15 @@ import static net.minecraft.world.item.BlockItem.*;
 public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
+    public static final EnumProperty<DyeColor> COLOR = EnumProperty.create("color", DyeColor.class);
 
     public ConcretePowderFarmBlock() {
         super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion());
+    }
+
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(COLOR);
     }
 
     @Override
@@ -53,12 +61,57 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
         };
     }
 
+    public void dyeBlock(BlockState state, Level worldIn, DyeColor dyeColor, BlockPos pos) {
+        BlockState newState = state.setValue(COLOR, dyeColor);
+        worldIn.setBlock(pos, newState, 3);
+    }
+
     private void playSound(@NotNull Level level, BlockState state, SoundEvent sound, ConcretePowderFarmTileentity farm) {
         Vec3i vec3i = state.getValue(FACING).getNormal();
         double d0 = farm.getBlockPos().getX() + 0.5D + (double) vec3i.getX() / 2.0D;
         double d1 = farm.getBlockPos().getY() + 0.5D + (double) vec3i.getY() / 2.0D;
         double d2 = farm.getBlockPos().getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
         level.playSound(null, d0, d1, d2, sound, SoundSource.BLOCKS, 5F, 10 * 0.1F + 0.9F);
+    }
+
+    private DyeColor getDyeColor(ItemStack stack) {
+        if (stack.isEmpty()) {
+            return null;
+        }
+        if (stack.getItem().equals(Items.WHITE_DYE)) {
+            return DyeColor.WHITE;
+        } else if (stack.getItem().equals(Items.ORANGE_DYE)) {
+            return DyeColor.ORANGE;
+        } else if (stack.getItem().equals(Items.MAGENTA_DYE)) {
+            return DyeColor.MAGENTA;
+        } else if (stack.getItem().equals(Items.LIGHT_BLUE_DYE)) {
+            return DyeColor.LIGHT_BLUE;
+        } else if (stack.getItem().equals(Items.YELLOW_DYE)) {
+            return DyeColor.YELLOW;
+        } else if (stack.getItem().equals(Items.LIME_DYE)) {
+            return DyeColor.LIME;
+        } else if (stack.getItem().equals(Items.PINK_DYE)) {
+            return DyeColor.PINK;
+        } else if (stack.getItem().equals(Items.GRAY_DYE)) {
+            return DyeColor.GRAY;
+        } else if (stack.getItem().equals(Items.LIGHT_GRAY_DYE)) {
+            return DyeColor.LIGHT_GRAY;
+        } else if (stack.getItem().equals(Items.CYAN_DYE)) {
+            return DyeColor.CYAN;
+        } else if (stack.getItem().equals(Items.PURPLE_DYE)) {
+            return DyeColor.PURPLE;
+        } else if (stack.getItem().equals(Items.BLUE_DYE)) {
+            return DyeColor.BLUE;
+        } else if (stack.getItem().equals(Items.BROWN_DYE)) {
+            return DyeColor.BROWN;
+        } else if (stack.getItem().equals(Items.GREEN_DYE)) {
+            return DyeColor.GREEN;
+        } else if (stack.getItem().equals(Items.RED_DYE)) {
+            return DyeColor.RED;
+        } else if (stack.getItem().equals(Items.BLACK_DYE)) {
+            return DyeColor.BLACK;
+        }
+        return null;
     }
 
     @Override
@@ -100,7 +153,27 @@ public class ConcretePowderFarmBlock extends BlockBase implements EntityBlock, I
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
+        if (!(tileEntity instanceof ConcretePowderFarmTileentity farm)) {
+            return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
+        }
+        DyeColor dyeColor = getDyeColor(heldItem);
+        if (dyeColor != null) {
+            dyeBlock(state, worldIn, dyeColor, pos);
+            return ItemInteractionResult.SUCCESS;
+        }
+        player.openMenu(new MenuProvider() {
+            @Override
+            public Component getDisplayName() {
+                return Component.translatable(state.getBlock().getDescriptionId());
+            }
+
+            @Nullable
+            @Override
+            public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CONCRETE_POWDER_FARM::get);
+            }
+        });
+        return ItemInteractionResult.SUCCESS;
     }
 
     @Nullable

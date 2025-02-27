@@ -35,7 +35,7 @@ public class NetherGoldOreFarmTileentity extends FarmTileentity implements ITick
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -110,6 +110,7 @@ public class NetherGoldOreFarmTileentity extends FarmTileentity implements ITick
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -139,12 +140,12 @@ public class NetherGoldOreFarmTileentity extends FarmTileentity implements ITick
         }
         List<ItemStack> drops = new ArrayList<>();
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
-            if (upgradeEnabled) {
+            if (smelterUpgradeEnabled) {
                 drops.add(new ItemStack(Items.GOLD_NUGGET));
             } else {
                 drops.add(new ItemStack(Items.NETHER_GOLD_ORE, 1));
             }
-        } else if (upgradeEnabled)
+        } else if (smelterUpgradeEnabled)
             drops.add(new ItemStack(Items.GOLD_INGOT, dropCount));
         else drops.add(new ItemStack(Items.GOLD_NUGGET, dropCount));
         return drops;
