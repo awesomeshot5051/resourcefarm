@@ -34,7 +34,7 @@ public class DeepslateRedstoneOreFarmTileentity extends FarmTileentity implement
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, upgradeList);
     public boolean redstoneUpgradeEnabled;
 
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
@@ -111,6 +111,7 @@ public class DeepslateRedstoneOreFarmTileentity extends FarmTileentity implement
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -144,7 +145,7 @@ public class DeepslateRedstoneOreFarmTileentity extends FarmTileentity implement
         drops.add(new ItemStack(Items.REDSTONE, dropCount));
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
             drops.clear();
-            if (upgradeEnabled) drops.add(new ItemStack(Items.REDSTONE));
+            if (smelterUpgradeEnabled) drops.add(new ItemStack(Items.REDSTONE));
             else drops.add(new ItemStack(Items.DEEPSLATE_REDSTONE_ORE, 1));
         }
         return drops;

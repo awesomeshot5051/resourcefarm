@@ -35,7 +35,7 @@ public class NetherQuartzOreFarmTileentity extends FarmTileentity implements ITi
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -110,6 +110,7 @@ public class NetherQuartzOreFarmTileentity extends FarmTileentity implements ITi
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -139,9 +140,9 @@ public class NetherQuartzOreFarmTileentity extends FarmTileentity implements ITi
         }
         List<ItemStack> drops = new ArrayList<>();
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
-            if (upgradeEnabled) drops.add(new ItemStack(Items.QUARTZ));
+            if (smelterUpgradeEnabled) drops.add(new ItemStack(Items.QUARTZ));
             else drops.add(new ItemStack(Items.NETHER_QUARTZ_ORE, 1));
-        } else if (upgradeEnabled) drops.add(new ItemStack(Items.QUARTZ));
+        } else if (smelterUpgradeEnabled) drops.add(new ItemStack(Items.QUARTZ));
         else drops.add(new ItemStack(Items.QUARTZ, dropCount));
         return drops;
     }

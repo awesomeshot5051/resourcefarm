@@ -34,7 +34,7 @@ public class EmeraldOreFarmTileentity extends FarmTileentity implements ITickabl
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, upgradeList);
     public boolean redstoneUpgradeEnabled;
 
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
@@ -112,6 +112,7 @@ public class EmeraldOreFarmTileentity extends FarmTileentity implements ITickabl
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -144,7 +145,7 @@ public class EmeraldOreFarmTileentity extends FarmTileentity implements ITickabl
         drops.add(new ItemStack(Items.EMERALD, dropCount));
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
             drops.clear();
-            if (upgradeEnabled) drops.add(new ItemStack(Items.EMERALD));
+            if (smelterUpgradeEnabled) drops.add(new ItemStack(Items.EMERALD));
             else drops.add(new ItemStack(Items.EMERALD_ORE, 1));
         }
         return drops;
@@ -209,7 +210,7 @@ public class EmeraldOreFarmTileentity extends FarmTileentity implements ITickabl
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (compound.contains("upgrade")) {
-            upgradeEnabled = true;
+            smelterUpgradeEnabled = true;
         }
         if (pickType == null) {
 

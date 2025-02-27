@@ -5,12 +5,12 @@ import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.*;
@@ -25,6 +25,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
+import static com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.ConcreteFarmBlock.*;
 
 @SuppressWarnings("ALL")
 public class ConcreteFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
@@ -56,7 +57,7 @@ public class ConcreteFarmTileentity extends FarmTileentity implements ITickableB
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
                                 tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
                                         tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
-                                                15);
+                                                1);
     }
 
     public static double getConcreteBreakTime(ConcreteFarmTileentity tileEntity) {
@@ -77,6 +78,43 @@ public class ConcreteFarmTileentity extends FarmTileentity implements ITickableB
                                                 (baseValue * 10));
     }
 
+    public DyeColor getBlockColor() {
+        BlockState state = this.getBlockState();
+        if (state.hasProperty(COLOR)) {
+            return state.getValue(COLOR);
+        }
+        return DyeColor.WHITE;
+    }
+
+    private void setBlockColor(DyeColor color) {
+        assert level != null;
+        BlockState state = getBlockState(); // Replace with how you get the block state
+        if (state.hasProperty(ConcreteFarmBlock.COLOR)) {
+            setBlockState(state.setValue(ConcreteFarmBlock.COLOR, color));
+        }
+    }
+
+    private ItemStack setBlockColor(DyeColor concreteColor, int dropCount) {
+        return switch (concreteColor) {
+            case ORANGE -> new ItemStack(Items.ORANGE_CONCRETE, dropCount);
+            case MAGENTA -> new ItemStack(Items.MAGENTA_CONCRETE, dropCount);
+            case LIGHT_BLUE -> new ItemStack(Items.LIGHT_BLUE_CONCRETE, dropCount);
+            case YELLOW -> new ItemStack(Items.YELLOW_CONCRETE, dropCount);
+            case LIME -> new ItemStack(Items.LIME_CONCRETE, dropCount);
+            case PINK -> new ItemStack(Items.PINK_CONCRETE, dropCount);
+            case GRAY -> new ItemStack(Items.GRAY_CONCRETE, dropCount);
+            case LIGHT_GRAY -> new ItemStack(Items.LIGHT_GRAY_CONCRETE, dropCount);
+            case CYAN -> new ItemStack(Items.CYAN_CONCRETE, dropCount);
+            case PURPLE -> new ItemStack(Items.PURPLE_CONCRETE, dropCount);
+            case BLUE -> new ItemStack(Items.BLUE_CONCRETE, dropCount);
+            case BROWN -> new ItemStack(Items.BROWN_CONCRETE, dropCount);
+            case GREEN -> new ItemStack(Items.GREEN_CONCRETE, dropCount);
+            case RED -> new ItemStack(Items.RED_CONCRETE, dropCount);
+            case BLACK -> new ItemStack(Items.BLACK_CONCRETE, dropCount);
+            default -> new ItemStack(Items.WHITE_CONCRETE, dropCount);
+        };
+    }
+
     public long getTimer() {
         return timer;
     }
@@ -90,7 +128,6 @@ public class ConcreteFarmTileentity extends FarmTileentity implements ITickableB
     public boolean getSound() {
         return soundOn;
     }
-
 
     public ItemStack getPickType() {
         return pickType;
@@ -146,7 +183,9 @@ public class ConcreteFarmTileentity extends FarmTileentity implements ITickableB
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.BLACK_CONCRETE, dropCount));
+        DyeColor blockColor = getBlockColor();
+        ItemStack BlockColor = setBlockColor(blockColor, dropCount);
+        drops.add(BlockColor);
         return drops;
     }
 
@@ -190,7 +229,7 @@ public class ConcreteFarmTileentity extends FarmTileentity implements ITickableB
             }
             compound.put("Upgrades", upgradesList);
         }
-
+        compound.putString("Color", getBlockColor().getName());
         CompoundTag soundOnTag = new CompoundTag();
         soundOnTag.putBoolean("soundOn", soundOn);
         compound.put("soundON", soundOnTag);
@@ -206,10 +245,11 @@ public class ConcreteFarmTileentity extends FarmTileentity implements ITickableB
             Main.LOGGER.info("{} uses {}", this.getType(), Component.translatable(String.valueOf(pickType.getItem())));
         }
         if (pickType == null) {
-
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
-
+        if (compound.contains("Color", Tag.TAG_STRING)) {
+            setBlockColor(DyeColor.valueOf(compound.getString("Color").toUpperCase()));
+        }
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }

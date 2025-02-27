@@ -103,11 +103,20 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
                 .findFirst()
                 .orElse(ItemStack.EMPTY);
         ItemContainerContents upgrade = ItemContainerContents.EMPTY;
+
         if (farm.has(ModDataComponents.UPGRADE)) {
-            upgrade = ItemContainerContents.fromItems(List.of(farm.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).copyOne(), upgradeCard));
+            List<ItemStack> upgradesList = new ArrayList<>();
+            for (ItemStack item : farm.get(ModDataComponents.UPGRADE).stream().toList()) {
+                if (item.is(Items.AIR)) {
+                    continue;
+                } else upgradesList.add(item);
+            }
+            upgradesList.add(upgradeCard);
+            upgrade = ItemContainerContents.fromItems(upgradesList);
         } else {
             upgrade = ItemContainerContents.fromItems(Collections.singletonList(upgradeCard));
         }
+//        upgrade.stream().toList().remove(Items.AIR);
         result2.set(ModDataComponents.PICK_TYPE, farm.get(ModDataComponents.PICK_TYPE));
         result2.set(DataComponents.STORED_ENCHANTMENTS, farm.get(DataComponents.STORED_ENCHANTMENTS));
         result2.set(ModDataComponents.UPGRADE, upgrade);

@@ -35,7 +35,7 @@ public class CobblestoneFarmTileentity extends FarmTileentity implements ITickab
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public boolean redstoneUpgradeEnabled;
     public ItemStack pickaxeType;
-    public boolean upgradeEnabled;
+    public boolean smelterUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -111,6 +111,7 @@ public class CobblestoneFarmTileentity extends FarmTileentity implements ITickab
             Upgrades.setUpgradeStatus(upgrades, upgrade, true);
         }
         redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
+        smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         assert level != null;
         if (redstoneUpgradeEnabled && !level.hasNeighborSignal(getBlockPos())) {
             return;
@@ -140,7 +141,7 @@ public class CobblestoneFarmTileentity extends FarmTileentity implements ITickab
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
-            if (upgradeEnabled) drops.add(new ItemStack(Items.SMOOTH_STONE));
+            if (smelterUpgradeEnabled) drops.add(new ItemStack(Items.SMOOTH_STONE));
             else drops.add(new ItemStack(Items.STONE));
         } else drops.add(new ItemStack(Items.COBBLESTONE, dropCount));
         return drops;

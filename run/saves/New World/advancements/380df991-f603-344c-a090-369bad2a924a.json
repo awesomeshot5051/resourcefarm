@@ -2543,12 +2543,6 @@
     },
     "done": true
   },
-  "resource_farms:recipes/misc/clay_farm_alternate_recipe": {
-    "criteria": {
-      "has_dripstone": "2025-02-15 14:30:43 -0500"
-    },
-    "done": true
-  },
   "minecraft:recipes/building_blocks/dripstone_block": {
     "criteria": {
       "has_pointed_dripstone": "2025-02-15 14:30:43 -0500"
@@ -2573,33 +2567,21 @@
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/mud_brick_slab_from_mud_bricks_stonecutting": {
+  "resource_farms:recipes/misc/block.resource_farms.clay_farm": {
     "criteria": {
-      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+      "has_clay_block": "2025-02-15 16:24:19 -0500"
     },
     "done": true
   },
-  "minecraft:recipes/misc/coal": {
+  "minecraft:recipes/building_blocks/terracotta": {
     "criteria": {
-      "has_coal_block": "2025-02-15 16:26:06 -0500"
+      "has_clay_block": "2025-02-15 16:24:19 -0500"
     },
     "done": true
   },
   "minecraft:recipes/decorations/smoker": {
     "criteria": {
       "has_furnace": "2025-02-15 16:24:57 -0500"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/mud_brick_wall": {
-    "criteria": {
-      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/mud_brick_stairs_from_mud_bricks_stonecutting": {
-    "criteria": {
-      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
     },
     "done": true
   },
@@ -2615,9 +2597,21 @@
     },
     "done": true
   },
-  "resource_farms:recipes/misc/block.resource_farms.clay_farm": {
+  "minecraft:recipes/building_blocks/mud_brick_slab_from_mud_bricks_stonecutting": {
     "criteria": {
-      "has_clay_block": "2025-02-15 16:24:19 -0500"
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/mud_brick_wall": {
+    "criteria": {
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/mud_brick_stairs_from_mud_bricks_stonecutting": {
+    "criteria": {
+      "has_mud_bricks": "2025-02-15 16:25:55 -0500"
     },
     "done": true
   },
@@ -2633,15 +2627,297 @@
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/terracotta": {
-    "criteria": {
-      "has_clay_block": "2025-02-15 16:24:19 -0500"
-    },
-    "done": true
-  },
   "minecraft:recipes/decorations/mud_brick_wall_from_mud_bricks_stonecutting": {
     "criteria": {
       "has_mud_bricks": "2025-02-15 16:25:55 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/coal": {
+    "criteria": {
+      "has_coal_block": "2025-02-15 16:26:06 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcoal_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-16 12:54:57 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/deepslate_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-16 12:58:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/dcopper_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-16 12:58:54 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/clay_farm_smelter_upgrade": {
+    "criteria": {
+      "has_smelter_upgrade": "2025-02-16 13:02:31 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/concrete_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-16 17:37:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/orange_candle": {
+    "criteria": {
+      "has_orange_dye": "2025-02-16 17:41:16 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_orange_carpet": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:41:16 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_orange_bed": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:41:16 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_orange_wool": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:41:16 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_black_carpet": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:46:31 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_black_bed": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:46:31 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/gray_dye": {
+    "criteria": {
+      "has_black_dye": "2025-02-16 17:46:31 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/light_gray_dye_from_black_white_dye": {
+    "criteria": {
+      "has_black_dye": "2025-02-16 17:46:31 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/black_candle": {
+    "criteria": {
+      "has_black_dye": "2025-02-16 17:46:31 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_black_wool": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:46:31 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/yellow_candle": {
+    "criteria": {
+      "has_yellow_dye": "2025-02-16 17:52:06 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_yellow_wool": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:52:06 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/orange_dye_from_red_yellow": {
+    "criteria": {
+      "has_yellow_dye": "2025-02-16 17:52:06 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_yellow_carpet": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:52:06 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dye_yellow_bed": {
+    "criteria": {
+      "has_needed_dye": "2025-02-16 17:52:06 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/terracotta_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-02-16 19:58:48 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/terracotta_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-16 20:00:33 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/lime_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/light_gray_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/terracotta_farm": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/red_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/black_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/pink_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/blue_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/light_blue_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/yellow_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/purple_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/white_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/orange_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/magenta_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cyan_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/gray_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/green_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/brown_terracotta": {
+    "criteria": {
+      "has_terracotta": "2025-02-16 20:01:43 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_glazed_terracotta": {
+    "criteria": {
+      "has_white_terracotta": "2025-02-16 20:02:57 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/purpur_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-27 09:38:03 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/obsidian_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-27 09:38:03 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/glowstone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-27 09:38:03 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/concrete_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-27 09:38:03 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherrack_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-27 09:38:03 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/item.resource_farms.icon_item_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-27 09:38:03 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/estone_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-02-27 09:38:03 -0500"
     },
     "done": true
   },

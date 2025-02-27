@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.rock.common;
 
+import com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
 import com.mojang.blaze3d.vertex.*;
@@ -8,8 +9,10 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
+import net.minecraft.core.registries.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -34,6 +37,18 @@ public class TerracottaFarmRenderer extends RendererBase<TerracottaFarmTileentit
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
+        // Get the block color property
+        DyeColor blockColor = farm.getBlockState().getValue(TerracottaFarmBlock.COLOR);
+
+        // Construct the ResourceLocation for the concrete block
+        ResourceLocation terracottaBlockRL = ResourceLocation.withDefaultNamespace(blockColor.getSerializedName() + "_terracotta");
+
+        // Retrieve the actual Block instance
+        Block terracottaBlock = BuiltInRegistries.BLOCK.get(terracottaBlockRL);
+        if (terracottaBlock == Blocks.AIR) {
+            terracottaBlock = Blocks.BLACK_TERRACOTTA;
+        }
+
         if (farm.getTimer() >= TerracottaFarmTileentity.getTerracottaGenerateTime(farm)) {
             if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
                 blockRenderDispatcher.renderSingleBlock(
@@ -47,7 +62,7 @@ public class TerracottaFarmRenderer extends RendererBase<TerracottaFarmTileentit
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        Blocks.TERRACOTTA.defaultBlockState(),
+                        terracottaBlock.defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,

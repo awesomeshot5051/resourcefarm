@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.soil;
 
+import com.awesomeshot5051.resourceFarm.blocks.overworld.soil.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
 import com.mojang.blaze3d.vertex.*;
@@ -8,8 +9,10 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
+import net.minecraft.core.registries.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -33,11 +36,21 @@ public class ConcretePowderFarmRenderer extends RendererBase<ConcretePowderFarmT
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
+        DyeColor blockColor = farm.getBlockState().getValue(ConcretePowderFarmBlock.COLOR);
 
+        // Construct the ResourceLocation for the concrete block
+        ResourceLocation powderBlockRL = ResourceLocation.withDefaultNamespace(blockColor.getSerializedName() + "_concrete_powder");
+
+        // Retrieve the actual Block instance
+        Block powderBlock = BuiltInRegistries.BLOCK.get(powderBlockRL);
+
+        if (powderBlock == Blocks.AIR) {
+            powderBlock = Blocks.BLACK_CONCRETE_POWDER;
+        }
         if (farm.getTimer() >= ConcretePowderFarmTileentity.getConcretePowderGenerateTime(farm)) {
             if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
                 blockRenderDispatcher.renderSingleBlock(
-                        Blocks.GREEN_CONCRETE_POWDER.defaultBlockState(),
+                        powderBlock.defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,
@@ -45,7 +58,15 @@ public class ConcretePowderFarmRenderer extends RendererBase<ConcretePowderFarmT
                         ModelData.EMPTY,
                         RenderType.SOLID
                 );
-            }
+            } else blockRenderDispatcher.renderSingleBlock(
+                    powderBlock.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
         } else if (farm.getTimer() >= ConcretePowderFarmTileentity.getConcretePowderBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),

@@ -5,12 +5,12 @@ import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -24,6 +24,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
+import static com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.ConcreteFarmBlock.*;
 
 public class TerracottaFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
@@ -73,6 +74,43 @@ public class TerracottaFarmTileentity extends FarmTileentity implements ITickabl
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
                                         pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
                                                 (baseValue * 10));
+    }
+
+    public DyeColor getBlockColor() {
+        BlockState state = this.getBlockState();
+        if (state.hasProperty(COLOR)) {
+            return state.getValue(COLOR);
+        }
+        return DyeColor.WHITE;
+    }
+
+    private void setBlockColor(DyeColor color) {
+        assert level != null;
+        BlockState state = getBlockState(); // Replace with how you get the block state
+        if (state.hasProperty(TerracottaFarmBlock.COLOR)) {
+            setBlockState(state.setValue(TerracottaFarmBlock.COLOR, color));
+        }
+    }
+
+    private ItemStack setBlockColor(DyeColor terracottaColor, int dropCount) {
+        return switch (terracottaColor) {
+            case ORANGE -> new ItemStack(Items.ORANGE_TERRACOTTA, dropCount);
+            case MAGENTA -> new ItemStack(Items.MAGENTA_TERRACOTTA, dropCount);
+            case LIGHT_BLUE -> new ItemStack(Items.LIGHT_BLUE_TERRACOTTA, dropCount);
+            case YELLOW -> new ItemStack(Items.YELLOW_TERRACOTTA, dropCount);
+            case LIME -> new ItemStack(Items.LIME_TERRACOTTA, dropCount);
+            case PINK -> new ItemStack(Items.PINK_TERRACOTTA, dropCount);
+            case GRAY -> new ItemStack(Items.GRAY_TERRACOTTA, dropCount);
+            case LIGHT_GRAY -> new ItemStack(Items.LIGHT_GRAY_TERRACOTTA, dropCount);
+            case CYAN -> new ItemStack(Items.CYAN_TERRACOTTA, dropCount);
+            case PURPLE -> new ItemStack(Items.PURPLE_TERRACOTTA, dropCount);
+            case BLUE -> new ItemStack(Items.BLUE_TERRACOTTA, dropCount);
+            case BROWN -> new ItemStack(Items.BROWN_TERRACOTTA, dropCount);
+            case GREEN -> new ItemStack(Items.GREEN_TERRACOTTA, dropCount);
+            case RED -> new ItemStack(Items.RED_TERRACOTTA, dropCount);
+            case BLACK -> new ItemStack(Items.BLACK_TERRACOTTA, dropCount);
+            default -> new ItemStack(Items.WHITE_TERRACOTTA, dropCount);
+        };
     }
 
     public long getTimer() {
@@ -134,7 +172,9 @@ public class TerracottaFarmTileentity extends FarmTileentity implements ITickabl
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(Items.TERRACOTTA, dropCount));
+        DyeColor blockColor = getBlockColor();
+        ItemStack BlockColor = setBlockColor(blockColor, dropCount);
+        drops.add(BlockColor);
         return drops;
     }
 
@@ -178,7 +218,7 @@ public class TerracottaFarmTileentity extends FarmTileentity implements ITickabl
             }
             compound.put("Upgrades", upgradesList);
         }
-
+        compound.putString("Color", getBlockColor().getName());
         CompoundTag soundOnTag = new CompoundTag();
         soundOnTag.putBoolean("soundOn", soundOn);
         compound.put("soundON", soundOnTag);
@@ -199,7 +239,9 @@ public class TerracottaFarmTileentity extends FarmTileentity implements ITickabl
 
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
-
+        if (compound.contains("Color", Tag.TAG_STRING)) {
+            setBlockColor(DyeColor.valueOf(compound.getString("Color").toUpperCase()));
+        }
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }
