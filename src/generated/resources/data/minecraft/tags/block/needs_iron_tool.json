@@ -1,6 +1,7 @@
 {
   "values": [
     "resource_farms:dcoal_farm",
+    "resource_farms:diorite_farm",
     "resource_farms:deepslate_farm",
     "resource_farms:dcopper_farm",
     "resource_farms:dgold_farm",

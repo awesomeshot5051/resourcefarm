@@ -2921,5 +2921,167 @@
     },
     "done": true
   },
+  "resource_farms:recipes/misc/coal_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-06 09:19:42 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/glowstone_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-06 09:19:47 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/copper_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-06 09:20:42 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/obsidian_farm": {
+    "criteria": {
+      "has_obsidian": "2025-03-06 09:21:13 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/flint_and_steel": {
+    "criteria": {
+      "has_obsidian": "2025-03-06 09:21:13 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/form_obsidian": {
+    "criteria": {
+      "obsidian": "2025-03-06 09:21:13 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/enchanting_table": {
+    "criteria": {
+      "has_obsidian": "2025-03-06 09:21:13 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/smelter_upgrade": {
+    "criteria": {
+      "has_flint_and_steel": "2025-03-06 09:21:16 -0500"
+    },
+    "done": true
+  },
+  "minecraft:nether/explore_nether": {
+    "criteria": {
+      "minecraft:basalt_deltas": "2025-03-06 09:21:28 -0500"
+    },
+    "done": false
+  },
+  "minecraft:story/enter_the_nether": {
+    "criteria": {
+      "entered_nether": "2025-03-06 09:21:28 -0500"
+    },
+    "done": true
+  },
+  "minecraft:nether/root": {
+    "criteria": {
+      "entered_nether": "2025-03-06 09:21:28 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diorite_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-06 09:55:15 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diorite_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-06 09:56:58 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/purpur_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/netherrack_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/terracotta_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/glowstone_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/obsidian_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diorite_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/concrete_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/estone_farm_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/item.resource_farms.icon_item_pickaxe_netherite_upgrade_recipe": {
+    "criteria": {
+      "has_netherite": "2025-03-06 10:13:20 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/netherite_scrap_from_blasting": {
+    "criteria": {
+      "has_ancient_debris": "2025-03-06 10:13:28 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/netherite_scrap": {
+    "criteria": {
+      "has_ancient_debris": "2025-03-06 10:13:28 -0500"
+    },
+    "done": true
+  },
+  "minecraft:nether/obtain_ancient_debris": {
+    "criteria": {
+      "ancient_debris": "2025-03-06 10:13:28 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/diorite_farm_enchant_upgrade_recipe": {
+    "criteria": {
+      "has_enchanted_book": "2025-03-06 10:13:37 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:unlimited_netherite": {
+    "criteria": {
+      "craft_netherite_farm": "2025-03-06 10:17:15 -0500"
+    },
+    "done": true
+  },
   "DataVersion": 3955
 }

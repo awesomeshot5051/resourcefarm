@@ -24,7 +24,6 @@ import java.util.*;
 
 import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
-import static com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.ConcreteFarmBlock.*;
 
 public class TerracottaFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
@@ -78,8 +77,8 @@ public class TerracottaFarmTileentity extends FarmTileentity implements ITickabl
 
     public DyeColor getBlockColor() {
         BlockState state = this.getBlockState();
-        if (state.hasProperty(COLOR)) {
-            return state.getValue(COLOR);
+        if (state.hasProperty(TerracottaFarmBlock.COLOR)) {
+            return state.getValue(TerracottaFarmBlock.COLOR);
         }
         return DyeColor.WHITE;
     }

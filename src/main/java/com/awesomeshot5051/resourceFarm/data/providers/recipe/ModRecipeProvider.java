@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe;
 
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
@@ -316,6 +317,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
                 .define('C', Items.DEEPSLATE)
                 .unlockedBy("has_deepslate", has(Items.DEEPSLATE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "deepslate_farm"));
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DIORITE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('C', Items.DIORITE)
+                .unlockedBy("has_diorite", has(Items.DIORITE)).save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "diorite_farm"));
 
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DIRT_FARM.get())
                 .pattern("BBB")

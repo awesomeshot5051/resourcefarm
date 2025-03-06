@@ -160,14 +160,12 @@ configurations {
 dependencies {
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
-    implementation "mcjty.theoneprobe:theoneprobe:${top_version}"
+    implementation "curse.maven:theoneprobe-245211:${top_id}"
     implementation "curse.maven:jade-324717:${jade_id}"
     localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    localRuntime("curse.maven:configured-457570:${configuredid}")
     shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.5")
     runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.5"
-//    implementation("com.awesomeshot5051.corelib:corelib:1.21-2.1.5") {
-//        exclude group: 'com.github.jitpack', module: 'gradle-simple'
-//    }
 }
 
 tasks.register("generateModMetadata", ProcessResources) {

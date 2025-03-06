@@ -8,6 +8,7 @@ import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
+import com.mojang.serialization.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
@@ -168,15 +169,61 @@ public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBl
 
     @Override
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
-        super.saveAdditional(compound, provider);
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
+
+        try {
+            if (pickType != null) {
+                DataResult<Tag> tag = ItemStack.STRICT_SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
+                compound.put("PickType", tag.getOrThrow());
+            }
+        } catch (IllegalStateException e) {
+            System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
+        }
+        if (!pickaxeEnchantments.isEmpty()) {
+            ListTag enchantmentsList = new ListTag();
+            for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : pickaxeEnchantments.entrySet()) {
+                if (entry.getValue()) {
+                    CompoundTag enchantmentTag = new CompoundTag();
+                    enchantmentTag.putString("id", entry.getKey().location().toString());
+                    enchantmentsList.add(enchantmentTag);
+                }
+            }
+            compound.put("PickaxeEnchantments", enchantmentsList);
+        }
+        if (!upgrades.isEmpty()) {
+            ListTag upgradesList = new ListTag();
+            for (Map.Entry<ItemStack, Boolean> upgradeMap : upgrades.entrySet()) {
+                if (upgradeMap.getValue()) {
+                    CompoundTag upgradeTag = new CompoundTag();
+                    DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, upgradeMap.getKey());
+                    upgradeTag.put("id", tag.getOrThrow());
+                    upgradesList.add(upgradeTag);
+                }
+            }
+            compound.put("Upgrades", upgradesList);
+        }
         compound.putLong("Timer", timer);
+        super.saveAdditional(compound, provider);
     }
 
     @Override
     protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         ContainerHelper.loadAllItems(compound, inventory, provider);
+        if (compound.contains("PickType")) {
+            SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
+        }
+        if (compound.contains("PickaxeEnchantments")) {
+            pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
+        }
+        if (compound.contains("Upgrades")) {
+            upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
+        }
+        if (pickType == null) {
+
+            pickType = new ItemStack(Items.WOODEN_PICKAXE);
+        }
+
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
     }
