@@ -11,7 +11,7 @@
               "function": "resource_farms:copy_block_entity"
             }
           ],
-          "name": "resource_farms:cpowder"
+          "name": "resource_farms:cpowder_farm"
         }
       ]
     }

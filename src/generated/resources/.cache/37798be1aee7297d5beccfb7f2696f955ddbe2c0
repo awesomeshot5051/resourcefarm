@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-15T12:29:50.8281717	Block model provider: resource_farms
+// 1.21.1	2025-03-06T09:52:31.934383	Block model provider: resource_farms
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/andesite_farm.json
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/basalt_farm.json
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/blackstone_farm.json
@@ -16,6 +16,7 @@
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/demerald_farm.json
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/dgold_farm.json
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/diamond_farm.json
+2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/diorite_farm.json
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/diron_farm.json
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/dirt_farm.json
 2bdd1b5608f46b50c5829e718a513eb94d617c75 assets/resource_farms/models/block/dlapis_farm.json

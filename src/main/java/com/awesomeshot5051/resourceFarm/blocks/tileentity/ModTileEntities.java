@@ -69,6 +69,7 @@ public class ModTileEntities {
         BlockEntityRenderers.register(ModTileEntities.DEMERALD_FARM.get(), DeepslateEmeraldOreFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.DGOLD_FARM.get(), DeepslateGoldOreFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.DIAMOND_FARM.get(), DiamondOreFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.DIORITE_FARM.get(), DioriteFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.DEEPSLATE_FARM.get(), DeepslateFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.DIRON_FARM.get(), DeepslateIronOreFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.DIRT_FARM.get(), DirtFarmRenderer::new);
@@ -111,6 +112,7 @@ public class ModTileEntities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SAND_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GOLD_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, DIAMOND_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, DIORITE_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, EMERALD_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, LAPIS_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, REDSTONE_FARM.get(), (object, context) -> object.getItemHandler());
@@ -178,12 +180,16 @@ public class ModTileEntities {
 
     public static void init(IEventBus eventBus) {
         BLOCK_ENTITY_REGISTER.register(eventBus);
-    }    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClayFarmTileentity>> CLAY_FARM = BLOCK_ENTITY_REGISTER.register("clay_farm", () ->
-            BlockEntityType.Builder.of(ClayFarmTileentity::new, ModBlocks.CLAY_FARM.get()).build(null)
+    }
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DioriteFarmTileentity>> DIORITE_FARM = BLOCK_ENTITY_REGISTER.register("diorite_farm", () ->
+            BlockEntityType.Builder.of(DioriteFarmTileentity::new, ModBlocks.DIORITE_FARM.get()).build(null)
     );
 
 
-
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClayFarmTileentity>> CLAY_FARM = BLOCK_ENTITY_REGISTER.register("clay_farm", () ->
+            BlockEntityType.Builder.of(ClayFarmTileentity::new, ModBlocks.CLAY_FARM.get()).build(null)
+    );
 
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GraniteFarmTileentity>> GRANITE_FARM = BLOCK_ENTITY_REGISTER.register(

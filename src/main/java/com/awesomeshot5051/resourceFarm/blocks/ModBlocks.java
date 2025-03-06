@@ -36,6 +36,7 @@ public class ModBlocks {
     public static final DeferredHolder<Block, CopperOreFarmBlock> COPPER_FARM = BLOCK_REGISTER.register("copper_farm", CopperOreFarmBlock::new);
     public static final DeferredHolder<Block, ClayFarmBlock> CLAY_FARM = BLOCK_REGISTER.register("clay_farm", ClayFarmBlock::new);
     public static final DeferredHolder<Block, DeepslateCoalOreFarmBlock> DCOAL_FARM = BLOCK_REGISTER.register("dcoal_farm", DeepslateCoalOreFarmBlock::new);
+    public static final DeferredHolder<Block, DioriteFarmBlock> DIORITE_FARM = BLOCK_REGISTER.register("diorite_farm", DioriteFarmBlock::new);
 
     public static final DeferredHolder<Block, DeepslateFarmBlock> DEEPSLATE_FARM = BLOCK_REGISTER.register("deepslate_farm", DeepslateFarmBlock::new);
     public static final DeferredHolder<Block, DeepslateCopperOreFarmBlock> DCOPPER_FARM = BLOCK_REGISTER.register("dcopper_farm", DeepslateCopperOreFarmBlock::new);

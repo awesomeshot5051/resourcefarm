@@ -25,6 +25,7 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> IRON_FARM = ITEM_REGISTER.register("iron_farm", () -> ModBlocks.IRON_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> GOLD_FARM = ITEM_REGISTER.register("gold_farm", () -> ModBlocks.GOLD_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> DIAMOND_FARM = ITEM_REGISTER.register("diamond_farm", () -> ModBlocks.DIAMOND_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> DIORITE_FARM = ITEM_REGISTER.register("diorite_farm", () -> ModBlocks.DIORITE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> EMERALD_FARM = ITEM_REGISTER.register("emerald_farm", () -> ModBlocks.EMERALD_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> LAPIS_FARM = ITEM_REGISTER.register("lapis_farm", () -> ModBlocks.LAPIS_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> REDSTONE_FARM = ITEM_REGISTER.register("redstone_farm", () -> ModBlocks.REDSTONE_FARM.get().toItem());
