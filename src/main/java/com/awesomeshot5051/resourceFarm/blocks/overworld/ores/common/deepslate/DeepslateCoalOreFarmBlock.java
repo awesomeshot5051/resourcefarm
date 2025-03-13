@@ -34,6 +34,7 @@ import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
 import org.jetbrains.annotations.*;
 
+import javax.annotation.*;
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
@@ -81,7 +82,7 @@ public class DeepslateCoalOreFarmBlock extends BlockBase implements EntityBlock,
             }
             if (stack.has(DataComponents.CUSTOM_DATA)) {
                 components.add(Component.literal(
-                        Arrays.stream(stack.get(DataComponents.CUSTOM_DATA)
+                        Arrays.stream(Objects.requireNonNull(stack.get(DataComponents.CUSTOM_DATA))
                                         .toString()
                                         .replace("{}", " ")
                                         .replace("{Upgrade:\"", "")

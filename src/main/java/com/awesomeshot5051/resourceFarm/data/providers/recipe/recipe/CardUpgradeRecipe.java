@@ -116,7 +116,6 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
         } else {
             upgrade = ItemContainerContents.fromItems(Collections.singletonList(upgradeCard));
         }
-//        upgrade.stream().toList().remove(Items.AIR);
         result2.set(ModDataComponents.PICK_TYPE, farm.get(ModDataComponents.PICK_TYPE));
         result2.set(DataComponents.STORED_ENCHANTMENTS, farm.get(DataComponents.STORED_ENCHANTMENTS));
         result2.set(ModDataComponents.UPGRADE, upgrade);

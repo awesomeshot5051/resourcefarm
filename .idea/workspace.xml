@@ -7,20 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1&#10;created two new blocks: Clay farm and Mud Farm. Updated corelib. Bumped Neoforge version.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/diorite_farm.json" afterDir="false" />
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1&#10;    created Diorite farm&#10;    fixed bug in Coal Farm and Copper farm. Pickaxe would reset on dimension change and/or relog.&#10;    Added achievement for Netherite Farm&#10;    Bumped NeoForge version.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jade/jade.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jade/jade.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jade/plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jade/plugins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jei-server-1.toml.bak" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei-server-1.toml.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jei-server-2.toml.bak" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei-server-2.toml.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jei-server.toml" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei-server.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jei/jei-client.ini" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei/jei-client.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jei/jei-colors.ini" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei/jei-colors.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jei/jei-debug.ini" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei/jei-debug.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jei/jei-mod-id-format.ini" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei/jei-mod-id-format.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
@@ -28,40 +18,10 @@
       <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/options.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/session.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/37798be1aee7297d5beccfb7f2696f955ddbe2c0" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/37798be1aee7297d5beccfb7f2696f955ddbe2c0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/8442ce1ed960c25242a3d151449161d44c303481" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/8442ce1ed960c25242a3d151449161d44c303481" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/8c2f866a17b6bf27d64c42581cefdd3deae60073" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/8c2f866a17b6bf27d64c42581cefdd3deae60073" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/needs_iron_tool.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/needs_iron_tool.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/ModBlocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/TerracottaFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/rock/common/TerracottaFarmBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CoalOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CopperOreFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/ores/common/regular/CopperOreFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/TerracottaFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/TerracottaFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/overworld/ores/common/deepslate/DeepslateCoalOreFarmBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/cpowder_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/cpowder_farm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/inventory_viewer.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/diorite_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,9 +51,6 @@
         <task path="$PROJECT_DIR$/../corelib">
           <activation />
         </task>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -110,7 +67,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="resourcefarm" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="mod development" type="c8890929:TasksNode$1" />
+                <item name="other" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -248,9 +205,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MCreatorWorkspaces\resourcefarm\src\generated\resources\assets\resource_farms\models\block" />
       <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\resources\data\resource_farms\loot_table\blocks" />
       <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\resources\assets\resource_farms\models\item" />
+      <recent name="D:\MCreatorWorkspaces\resourcefarm\src\generated\resources\assets\resource_farms\models\block" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\textures\item" />
     </key>
@@ -286,8 +243,6 @@
   </component>
   <component name="RunManager" selected="Gradle.resourceFarm [runClient]">
     <configuration name="Client" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="resourcefarm.main" />
       <option name="PROGRAM_PARAMETERS" value="@D:\\MCreatorWorkspaces\\resourcefarm\\build\\moddev\\clientRunProgramArgs.txt" />
@@ -298,8 +253,6 @@
       </method>
     </configuration>
     <configuration name="Data" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="resourcefarm.main" />
       <option name="PROGRAM_PARAMETERS" value="@D:\\MCreatorWorkspaces\\resourcefarm\\build\\moddev\\dataRunProgramArgs.txt" />
@@ -310,8 +263,6 @@
       </method>
     </configuration>
     <configuration name="GameTestServer" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="resourcefarm.main" />
       <option name="PROGRAM_PARAMETERS" value="@D:\\MCreatorWorkspaces\\resourcefarm\\build\\moddev\\gameTestServerRunProgramArgs.txt" />
@@ -322,8 +273,6 @@
       </method>
     </configuration>
     <configuration name="Server" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="resourcefarm.main" />
       <option name="PROGRAM_PARAMETERS" value="@D:\\MCreatorWorkspaces\\resourcefarm\\build\\moddev\\serverRunProgramArgs.txt" />
@@ -333,7 +282,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="resourceFarm [createLaunchScripts]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [ReleaseJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -344,7 +293,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="createLaunchScripts" />
+            <option value="ReleaseJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -448,11 +397,11 @@
       <item itemvalue="Application.Data" />
       <item itemvalue="Application.GameTestServer" />
       <item itemvalue="Application.Server" />
-      <item itemvalue="Gradle.resourceFarm [runData]" />
-      <item itemvalue="Gradle.resourceFarm [createLaunchScripts]" />
+      <item itemvalue="Gradle.resourceFarm [ReleaseJar]" />
       <item itemvalue="Gradle.resourceFarm [downloadAssets]" />
       <item itemvalue="Gradle.resourceFarm [githubRelease]" />
       <item itemvalue="Gradle.resourceFarm [runClient]" />
+      <item itemvalue="Gradle.resourceFarm [runData]" />
     </list>
     <recent_temporary>
       <list>
@@ -460,7 +409,7 @@
         <item itemvalue="Gradle.resourceFarm [runData]" />
         <item itemvalue="Gradle.resourceFarm [githubRelease]" />
         <item itemvalue="Gradle.resourceFarm [downloadAssets]" />
-        <item itemvalue="Gradle.resourceFarm [createLaunchScripts]" />
+        <item itemvalue="Gradle.resourceFarm [ReleaseJar]" />
       </list>
     </recent_temporary>
   </component>
@@ -472,22 +421,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733150288157</updated>
-    </task>
-    <task id="LOCAL-00035" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <option name="closed" value="true" />
-      <created>1738036036850</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1738036036850</updated>
-    </task>
-    <task id="LOCAL-00036" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <option name="closed" value="true" />
-      <created>1738036104607</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1738036104607</updated>
     </task>
     <task id="LOCAL-00037" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
       <option name="closed" value="true" />
@@ -865,7 +798,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739728339111</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="1.21.1&#10;    created Diorite farm&#10;    fixed bug in Coal Farm and Copper farm. Pickaxe would reset on dimension change and/or relog.&#10;    Added achievement for Netherite Farm&#10;    Bumped NeoForge version.">
+      <option name="closed" value="true" />
+      <created>1741274516277</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1741274516277</updated>
+    </task>
+    <task id="LOCAL-00085" summary="1.21.1&#10;    created Diorite farm&#10;    fixed bug in Coal Farm and Copper farm. Pickaxe would reset on dimension change and/or relog.&#10;    Added achievement for Netherite Farm&#10;    Bumped NeoForge version.">
+      <option name="closed" value="true" />
+      <created>1741274532705</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1741274532705</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -907,7 +856,8 @@
     <MESSAGE value="1.21.1&#10;updated corelib to combine redundant code." />
     <MESSAGE value="1.21.1&#10;making new upgrades" />
     <MESSAGE value="1.21.1&#10;created two new blocks: Clay farm and Mud Farm. Updated corelib. Bumped Neoforge version." />
-    <option name="LAST_COMMIT_MESSAGE" value="1.21.1&#10;created two new blocks: Clay farm and Mud Farm. Updated corelib. Bumped Neoforge version." />
+    <MESSAGE value="1.21.1&#10;    created Diorite farm&#10;    fixed bug in Coal Farm and Copper farm. Pickaxe would reset on dimension change and/or relog.&#10;    Added achievement for Netherite Farm&#10;    Bumped NeoForge version." />
+    <option name="LAST_COMMIT_MESSAGE" value="1.21.1&#10;    created Diorite farm&#10;    fixed bug in Coal Farm and Copper farm. Pickaxe would reset on dimension change and/or relog.&#10;    Added achievement for Netherite Farm&#10;    Bumped NeoForge version." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1047,16 +997,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/EnchantmentAdditionRecipe.java</url>
           <line>120</line>
           <option name="timeStamp" value="321" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipe.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="326" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/recipe/CardUpgradeRecipe.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="328" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/ConcreteFarmTileentity.java</url>
