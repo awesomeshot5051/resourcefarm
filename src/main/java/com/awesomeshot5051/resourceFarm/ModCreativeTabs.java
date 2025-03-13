@@ -89,6 +89,7 @@ public class ModCreativeTabs {
                 });
 
                 output.accept(new ItemStack(ModItems.SMELTER_UPGRADE.get()));
+                output.accept(new ItemStack(ModItems.REDSTONE_UPGRADE.get()));
             })
             .title(Component.translatable("itemGroup.resource_farms"))
             .build());

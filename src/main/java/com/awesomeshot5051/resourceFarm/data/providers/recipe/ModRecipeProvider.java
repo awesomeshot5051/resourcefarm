@@ -669,6 +669,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_flint_and_steel", has(Items.FLINT_AND_STEEL))
                 .unlockedBy("has_netherrack", has(Items.NETHERRACK))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.SMELTER_UPGRADE.asItem().getDescriptionId())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REDSTONE_UPGRADE)
+                .pattern("RRR")
+                .pattern("OLO")
+                .pattern("RRR")
+                .define('O', Items.OBSERVER)
+                .define('R', Items.REDSTONE)
+                .define('L', Items.LEVER)
+                .unlockedBy("has_observer", has(Items.OBSERVER))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.REDSTONE_UPGRADE.asItem().getDescriptionId())));
         ALL_FARMS.forEach(farmBlockSupplier -> {
             Block farmBlock = farmBlockSupplier.get();
             CardUpgradeRecipeBuilder.shapeless(RecipeCategory.MISC, farmBlock)
