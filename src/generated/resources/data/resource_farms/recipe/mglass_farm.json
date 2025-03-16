@@ -1,0 +1,24 @@
+{
+  "type": "resource_farms:shaped_serializer",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "integratedterminals:menril_glass"
+    },
+    "G": {
+      "tag": "c:glass_panes"
+    },
+    "P": {
+      "tag": "minecraft:pickaxes"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GPG",
+    "GCG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_farms:mglass_farm"
+  }
+}
