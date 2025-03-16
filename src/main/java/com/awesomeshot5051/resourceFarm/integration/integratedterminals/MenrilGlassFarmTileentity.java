@@ -153,15 +153,8 @@ public class MenrilGlassFarmTileentity extends FarmTileentity implements ITickab
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("integrateddynamics", "crystalized_chorus_chunk")), dropCount));
-        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
-            drops.clear();
-            drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integrateddynamics", "crystalized_chorus_block")).asItem(), dropCount));
-        }
-        if (serverWorld.random.nextFloat() < 0.05) {
-            drops.clear();
-            drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integrateddynamics", "crystalized_chorus_block")), dropCount));
-        }
+        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "menril_glass")).asItem(), dropCount));
+
         return drops;
     }
 

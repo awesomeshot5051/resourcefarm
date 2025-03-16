@@ -124,7 +124,7 @@ public class MenrilBrickFarmBlock extends BlockBase implements EntityBlock, IIte
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CCHORUS_FARM::get);
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.MBRICK_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;

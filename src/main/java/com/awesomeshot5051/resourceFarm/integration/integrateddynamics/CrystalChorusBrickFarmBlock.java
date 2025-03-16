@@ -81,7 +81,7 @@ public class CrystalChorusBrickFarmBlock extends BlockBase implements EntityBloc
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        CrystalChorusBrickFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CrystalChorusBrickFarmTileentity(BlockPos.ZERO, ModBlocks.CCHORUS_FARM.get().defaultBlockState()));
+        CrystalChorusBrickFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CrystalChorusBrickFarmTileentity(BlockPos.ZERO, ModBlocks.CCBRICK_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
@@ -124,7 +124,7 @@ public class CrystalChorusBrickFarmBlock extends BlockBase implements EntityBloc
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CCHORUS_FARM::get);
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CCBRICK_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;

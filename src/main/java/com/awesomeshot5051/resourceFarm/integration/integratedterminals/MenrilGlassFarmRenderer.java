@@ -47,7 +47,7 @@ public class MenrilGlassFarmRenderer extends RendererBase<MenrilGlassFarmTileent
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integrateddynamics", "menril_glass")).defaultBlockState(),
+                        BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "menril_glass")).defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,

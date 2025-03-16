@@ -169,6 +169,12 @@ dependencies {
     implementation "curse.maven:integrated-tunnels-251389:${tunnels_id}"
     localRuntime "curse.maven:cyclops-core-232758:${cyclops_id}"
     localRuntime "curse.maven:common-capabilities-247007:${capabilities_id}"
+    implementation "curse.maven:applied-energistics-223794:${ae_id}"
+    implementation "curse.maven:ex-pattern-provider-892005:${eae_id}"
+    implementation "curse.maven:adm2-1063220:${adm_id}"
+    localRuntime "curse.maven:architectury-api-419699:${architecture_id}"
+    localRuntime "curse.maven:glodium-957920:${glodium_id}"
+    localRuntime "curse.maven:guideme-1173950:${guideme_id}"
     shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.5")
     runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.5"
 }
