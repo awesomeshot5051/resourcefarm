@@ -7,7 +7,7 @@ import net.minecraft.core.*;
 public class CrystalChorusBrickFarmItemRenderer extends BlockItemRendererBase<CrystalChorusBrickFarmRenderer, CrystalChorusBrickFarmTileentity> {
 
     public CrystalChorusBrickFarmItemRenderer() {
-        super(CrystalChorusBrickFarmRenderer::new, () -> new CrystalChorusBrickFarmTileentity(BlockPos.ZERO, ModBlocks.CCHORUS_FARM.get().defaultBlockState()));
+        super(CrystalChorusBrickFarmRenderer::new, () -> new CrystalChorusBrickFarmTileentity(BlockPos.ZERO, ModBlocks.CCBRICK_FARM.get().defaultBlockState()));
     }
 
 }

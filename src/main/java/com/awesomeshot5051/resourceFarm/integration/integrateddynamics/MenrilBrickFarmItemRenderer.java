@@ -7,7 +7,7 @@ import net.minecraft.core.*;
 public class MenrilBrickFarmItemRenderer extends BlockItemRendererBase<MenrilBrickFarmRenderer, MenrilBrickFarmTileentity> {
 
     public MenrilBrickFarmItemRenderer() {
-        super(MenrilBrickFarmRenderer::new, () -> new MenrilBrickFarmTileentity(BlockPos.ZERO, ModBlocks.CCHORUS_FARM.get().defaultBlockState()));
+        super(MenrilBrickFarmRenderer::new, () -> new MenrilBrickFarmTileentity(BlockPos.ZERO, ModBlocks.MBRICK_FARM.get().defaultBlockState()));
     }
 
 }

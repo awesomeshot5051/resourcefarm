@@ -47,7 +47,7 @@ public class CrystalChorusGlassFarmRenderer extends RendererBase<CrystalChorusGl
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integrateddynamics", "chorus_glass")).defaultBlockState(),
+                        BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,

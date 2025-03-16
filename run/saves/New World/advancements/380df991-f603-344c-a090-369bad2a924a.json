@@ -3215,5 +3215,161 @@
     },
     "done": true
   },
+  "resource_farms:recipes/misc/cmenril_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-16 13:33:59 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ccbrick_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-16 13:33:59 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mbrick_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-16 13:33:59 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ccglass_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-16 13:33:59 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mglass_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-16 13:33:59 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cmenril_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-16 14:19:47 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ccbrick_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-16 14:19:51 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mbrick_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-16 14:19:53 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mglass_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-16 14:19:54 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ccglass_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-16 14:19:56 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mbrick_farm": {
+    "criteria": {
+      "has_crystal_menril_brick": "2025-03-16 16:06:29 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ccbrick_farm": {
+    "criteria": {
+      "has_crystal_chorus_brick": "2025-03-16 16:06:44 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ccglass_farm": {
+    "criteria": {
+      "has_chorus_glass": "2025-03-16 16:09:11 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/decorative/quartz_fixture": {
+    "criteria": {
+      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/certus_quartz_pickaxe": {
+    "criteria": {
+      "has_certus_quartz": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/certus_quartz_axe": {
+    "criteria": {
+      "has_certus_quartz": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/misctools_charged_staff": {
+    "criteria": {
+      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/decorative/quartz_block": {
+    "criteria": {
+      "has_certus_quartz_crystal": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/certus_quartz_sword": {
+    "criteria": {
+      "has_certus_quartz": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/decorative/quartz_fixture_from_anchors": {
+    "criteria": {
+      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/certus_quartz_wrench": {
+    "criteria": {
+      "has_certus_quartz": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:main/charged_quartz": {
+    "criteria": {
+      "certus": "2025-03-16 17:46:02 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/certus_quartz_cutting_knife": {
+    "criteria": {
+      "has_certus_quartz": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/network/blocks/energy_energy_cell": {
+    "criteria": {
+      "has_crystals/certus": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/certus_quartz_spade": {
+    "criteria": {
+      "has_certus_quartz": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/certus_quartz_hoe": {
+    "criteria": {
+      "has_certus_quartz": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
   "DataVersion": 3955
 }
