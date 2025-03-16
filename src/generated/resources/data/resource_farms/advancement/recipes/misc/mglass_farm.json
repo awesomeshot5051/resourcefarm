@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_menril_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "integratedterminals:menril_glass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "resource_farms:mglass_farm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_menril_glass"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "resource_farms:mglass_farm"
+    ]
+  }
+}
