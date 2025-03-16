@@ -17,77 +17,22 @@ public class ModCreativeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB_RESOURCE_FARMS = TAB_REGISTER.register("assets/resource_farms", () -> CreativeModeTab.builder()
             .icon(() -> new ItemStack(ModItems.COPPER_FARM.get()))
             .displayItems((features, output) -> {
-
-
-                output.accept(new ItemStack(ModBlocks.BASALT_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.BLACKSTONE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.CALCITE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.COAL_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.COBBLESTONE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.COPPER_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.DIRT_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.GRASS_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.GRAVEL_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.SAND_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.STONE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.IRON_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.CONCRETE_POWDER_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.CONCRETE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.REDSTONE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.SSTONE_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.LAPIS_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.DIAMOND_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.TERRACOTTA_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.EMERALD_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.NETHERITE_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.DCOAL_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.DCOPPER_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.DGOLD_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.DIRON_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.DEEPSLATE_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.DREDSTONE_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.DDIAMOND_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.DLAPIS_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.DEMERALD_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.GLOWSTONE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.NETHER_GOLD_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.NETHER_QUARTZ_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.NETHERRACK_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.SSAND_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.SSOIL_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.ESTONE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.PURPUR_FARM.get()));
-
-
-                output.accept(new ItemStack(ModBlocks.OBSIDIAN_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.ANDESITE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.GRANITE_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.RSAND_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.SNOW_FARM.get()));
-                output.accept(new ItemStack(ModBlocks.TUFF_FARM.get()));
                 ModBlocks.BLOCK_REGISTER.getEntries().forEach(blockEntry -> {
                     Block block = blockEntry.get();
                     output.accept(new ItemStack(block.asItem()));
                 });
-
+                if (Main.dynamic_installed) {
+                    ModBlocks.DYNAMIC_REGISTER.getEntries().forEach(blockEntry -> {
+                        Block block = blockEntry.get();
+                        output.accept(new ItemStack(block.asItem()));
+                    });
+                }
+                if (Main.terminals_installed) {
+                    ModBlocks.TERMINALS_REGISTER.getEntries().forEach(blockEntry -> {
+                        Block block = blockEntry.get();
+                        output.accept(new ItemStack(block.asItem()));
+                    });
+                }
                 output.accept(new ItemStack(ModItems.SMELTER_UPGRADE.get()));
                 output.accept(new ItemStack(ModItems.REDSTONE_UPGRADE.get()));
             })

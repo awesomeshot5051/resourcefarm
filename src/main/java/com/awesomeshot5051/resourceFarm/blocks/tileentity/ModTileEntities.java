@@ -32,6 +32,8 @@ import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.veryrare.regular.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.soil.*;
+import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.*;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.core.registries.*;
 import net.minecraft.world.level.block.entity.*;
@@ -44,10 +46,11 @@ import net.neoforged.neoforge.registries.*;
 public class ModTileEntities {
 
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
+    private static final DeferredRegister<BlockEntityType<?>> TERMINALS_BLOCK_ENTITY_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
+    private static final DeferredRegister<BlockEntityType<?>> DYNAMIC_BLOCK_ENTITY_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
 
     @OnlyIn(Dist.CLIENT)
     public static void clientSetup() {
-
         BlockEntityRenderers.register(ModTileEntities.ANDESITE_FARM.get(), AndesiteFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.ESTONE_FARM.get(), EndStoneFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.NETHERRACK_FARM.get(), NetherrackFarmRenderer::new);
@@ -95,12 +98,19 @@ public class ModTileEntities {
         BlockEntityRenderers.register(ModTileEntities.SNOW_FARM.get(), SnowFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.TERRACOTTA_FARM.get(), TerracottaFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.TUFF_FARM.get(), TuffFarmRenderer::new);
-
-
+        if (Main.dynamic_installed) {
+            BlockEntityRenderers.register(ModTileEntities.MBRICK_FARM.get(), MenrilBrickFarmRenderer::new);
+            BlockEntityRenderers.register(ModTileEntities.CCBRICK_FARM.get(), CrystalChorusBrickFarmRenderer::new);
+            BlockEntityRenderers.register(ModTileEntities.CMENRIL_FARM.get(), CrystalMenrilFarmRenderer::new);
+            BlockEntityRenderers.register(ModTileEntities.CCHORUS_FARM.get(), CrystalChorusFarmRenderer::new);
+        }
+        if (Main.terminals_installed) {
+            BlockEntityRenderers.register(ModTileEntities.MGLASS_FARM.get(), MenrilGlassFarmRenderer::new);
+            BlockEntityRenderers.register(ModTileEntities.CCGLASS_FARM.get(), CrystalChorusGlassFarmRenderer::new);
+        }
     }
 
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
-
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ANDESITE_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, COPPER_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, DCOPPER_FARM.get(), (object, context) -> object.getItemHandler());
@@ -175,12 +185,56 @@ public class ModTileEntities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PURPUR_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSAND_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSOIL_FARM.get(), (object, context) -> object.getItemHandler());
-
-    }
+        if (Main.dynamic_installed) {
+            event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, CCHORUS_FARM.get(), (object, context) -> object.getItemHandler());
+            event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, CMENRIL_FARM.get(), (object, context) -> object.getItemHandler());
+            event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, MBRICK_FARM.get(), (object, context) -> object.getItemHandler());
+            event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, CCBRICK_FARM.get(), (object, context) -> object.getItemHandler());
+        }
+        if (Main.terminals_installed) {
+            event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, MGLASS_FARM.get(), (object, context) -> object.getItemHandler());
+            event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, CCGLASS_FARM.get(), (object, context) -> object.getItemHandler());
+        }
+    }    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrystalChorusGlassFarmTileentity>> CCGLASS_FARM = TERMINALS_BLOCK_ENTITY_REGISTER.register("ccglass_farm", () ->
+            BlockEntityType.Builder.of(CrystalChorusGlassFarmTileentity::new, ModBlocks.CCGLASS_FARM.get()).build(null)
+    );
 
     public static void init(IEventBus eventBus) {
         BLOCK_ENTITY_REGISTER.register(eventBus);
+        if (Main.dynamic_installed) {
+            DYNAMIC_BLOCK_ENTITY_REGISTER.register(eventBus);
+        }
+        if (Main.terminals_installed) {
+            TERMINALS_BLOCK_ENTITY_REGISTER.register(eventBus);
+        }
     }
+
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MenrilGlassFarmTileentity>> MGLASS_FARM = TERMINALS_BLOCK_ENTITY_REGISTER.register("mglass_farm", () ->
+            BlockEntityType.Builder.of(MenrilGlassFarmTileentity::new, ModBlocks.MGLASS_FARM.get()).build(null)
+    );
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MenrilBrickFarmTileentity>> MBRICK_FARM = DYNAMIC_BLOCK_ENTITY_REGISTER.register("mbrick_farm", () ->
+            BlockEntityType.Builder.of(MenrilBrickFarmTileentity::new, ModBlocks.MBRICK_FARM.get()).build(null)
+    );
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrystalChorusBrickFarmTileentity>> CCBRICK_FARM = DYNAMIC_BLOCK_ENTITY_REGISTER.register("ccbrick_farm", () ->
+            BlockEntityType.Builder.of(CrystalChorusBrickFarmTileentity::new, ModBlocks.CCBRICK_FARM.get()).build(null)
+    );
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrystalMenrilFarmTileentity>> CMENRIL_FARM = DYNAMIC_BLOCK_ENTITY_REGISTER.register("cmenril_farm", () ->
+            BlockEntityType.Builder.of(CrystalMenrilFarmTileentity::new, ModBlocks.CMENRIL_FARM.get()).build(null)
+    );
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrystalChorusFarmTileentity>> CCHORUS_FARM = DYNAMIC_BLOCK_ENTITY_REGISTER.register("cchorus_farm", () ->
+            BlockEntityType.Builder.of(CrystalChorusFarmTileentity::new, ModBlocks.CCHORUS_FARM.get()).build(null)
+    );
+
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DioriteFarmTileentity>> DIORITE_FARM = BLOCK_ENTITY_REGISTER.register("diorite_farm", () ->
             BlockEntityType.Builder.of(DioriteFarmTileentity::new, ModBlocks.DIORITE_FARM.get()).build(null)
@@ -368,7 +422,6 @@ public class ModTileEntities {
             "blackstone_farm",
             () -> BlockEntityType.Builder.of(BlackstoneFarmTileentity::new, ModBlocks.BLACKSTONE_FARM.get()).build(null)
     );
-
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NetherrackFarmTileentity>> NETHERRACK_FARM = BLOCK_ENTITY_REGISTER.register(
             "netherrack_farm",
             () -> BlockEntityType.Builder.of(NetherrackFarmTileentity::new, ModBlocks.NETHERRACK_FARM.get()).build(null)

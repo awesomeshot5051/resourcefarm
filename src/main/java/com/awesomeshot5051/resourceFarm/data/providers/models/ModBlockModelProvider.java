@@ -1,6 +1,7 @@
 package com.awesomeshot5051.resourceFarm.data.providers.models;
 
 
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import net.minecraft.data.*;
@@ -19,5 +20,17 @@ public class ModBlockModelProvider extends BaseBlockModelProvider {
             Block block = blockEntry.get();
             sideBottomTop(block.asItem());
         });
+        if (Main.dynamic_installed) {
+            ModBlocks.DYNAMIC_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                sideBottomTop(block.asItem());
+            });
+        }
+        if (Main.terminals_installed) {
+            ModBlocks.TERMINALS_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                sideBottomTop(block.asItem());
+            });
+        }
     }
 }

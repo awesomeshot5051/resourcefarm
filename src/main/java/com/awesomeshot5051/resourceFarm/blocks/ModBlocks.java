@@ -16,6 +16,8 @@ import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.deepslate
 import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.regular.*;
 import com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.overworld.soil.*;
+import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.*;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.*;
 import net.minecraft.core.registries.*;
 import net.minecraft.world.level.block.*;
 import net.neoforged.bus.api.*;
@@ -24,7 +26,8 @@ import net.neoforged.neoforge.registries.*;
 public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCK_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
-
+    public static final DeferredRegister<Block> DYNAMIC_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
+    public static final DeferredRegister<Block> TERMINALS_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
 
     public static final DeferredHolder<Block, BasaltFarmBlock> BASALT_FARM = BLOCK_REGISTER.register("basalt_farm", BasaltFarmBlock::new);
     public static final DeferredHolder<Block, BlackstoneFarmBlock> BLACKSTONE_FARM = BLOCK_REGISTER.register("blackstone_farm", BlackstoneFarmBlock::new);
@@ -76,8 +79,22 @@ public class ModBlocks {
     public static final DeferredHolder<Block, AndesiteFarmBlock> ANDESITE_FARM = BLOCK_REGISTER.register("andesite_farm", AndesiteFarmBlock::new);
     public static final DeferredHolder<Block, GraniteFarmBlock> GRANITE_FARM = BLOCK_REGISTER.register("granite_farm", GraniteFarmBlock::new);
 
+
+    public static final DeferredHolder<Block, CrystalChorusFarmBlock> CCHORUS_FARM = DYNAMIC_REGISTER.register("cchorus_farm", CrystalChorusFarmBlock::new);
+    public static final DeferredHolder<Block, CrystalMenrilFarmBlock> CMENRIL_FARM = DYNAMIC_REGISTER.register("cmenril_farm", CrystalMenrilFarmBlock::new);
+    public static final DeferredHolder<Block, CrystalChorusBrickFarmBlock> CCBRICK_FARM = DYNAMIC_REGISTER.register("ccbrick_farm", CrystalChorusBrickFarmBlock::new);
+    public static final DeferredHolder<Block, MenrilBrickFarmBlock> MBRICK_FARM = DYNAMIC_REGISTER.register("mbrick_farm", MenrilBrickFarmBlock::new);
+    public static final DeferredHolder<Block, MenrilGlassFarmBlock> MGLASS_FARM = TERMINALS_REGISTER.register("mglass_farm", MenrilGlassFarmBlock::new);
+    public static final DeferredHolder<Block, CrystalChorusGlassFarmBlock> CCGLASS_FARM = TERMINALS_REGISTER.register("ccglass_farm", CrystalChorusGlassFarmBlock::new);
+
     public static void init(IEventBus eventBus) {
         BLOCK_REGISTER.register(eventBus);
+        if (Main.dynamic_installed) {
+            DYNAMIC_REGISTER.register(eventBus);
+        }
+        if (Main.terminals_installed) {
+            TERMINALS_REGISTER.register(eventBus);
+        }
     }
 
 }

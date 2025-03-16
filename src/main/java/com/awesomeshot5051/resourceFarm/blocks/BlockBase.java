@@ -4,7 +4,6 @@ import com.awesomeshot5051.corelib.block.*;
 import net.minecraft.core.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -20,7 +19,7 @@ public class BlockBase extends HorizontalRotatableBlock {
             Block.box(0D, 0D, 0D, 16D, 16D, 1D),
             Block.box(0D, 0D, 15D, 16D, 16D, 16D)
     );
-    public static NonNullList<ItemStack> Picktype;
+
 
     public BlockBase(Properties properties) {
         super(properties);

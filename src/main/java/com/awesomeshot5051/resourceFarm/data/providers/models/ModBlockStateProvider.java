@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.models;
 
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import net.minecraft.data.*;
@@ -29,6 +30,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 blockWithItem(blockEntry);
             }
         });
+        if (Main.dynamic_installed) {
+            ModBlocks.DYNAMIC_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                String blockName = blockEntry.getId().getPath();
+                if (block.defaultBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
+                    directionalBlock(block, modLoc("block/" + blockName));
+                } else {
+                    blockWithItem(blockEntry);
+                }
+            });
+        }
+        if (Main.terminals_installed) {
+            ModBlocks.TERMINALS_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                String blockName = blockEntry.getId().getPath();
+                if (block.defaultBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
+                    directionalBlock(block, modLoc("block/" + blockName));
+                } else {
+                    blockWithItem(blockEntry);
+                }
+            });
+        }
     }
 
 
