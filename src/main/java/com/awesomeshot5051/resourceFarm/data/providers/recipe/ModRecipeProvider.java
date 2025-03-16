@@ -70,10 +70,47 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ALL_FARMS.add(blockItem::getBlock);
             }
         }
+        if (Main.dynamic_installed) {
+            for (var item : ModItems.DYNAMIC_REGISTER.getEntries()) {
+                Item registeredItem = item.get(); // Get the Item instance
+
+                if (registeredItem instanceof BlockItem blockItem) {
+                    // Convert to Supplier<Block> and add to the list
+                    ALL_FARMS.add(blockItem::getBlock);
+                }
+            }
+        }
+        if (Main.terminals_installed) {
+            for (var item : ModItems.TERMINAL_REGISTER.getEntries()) {
+                Item registeredItem = item.get(); // Get the Item instance
+
+                if (registeredItem instanceof BlockItem blockItem) {
+                    // Convert to Supplier<Block> and add to the list
+                    ALL_FARMS.add(blockItem::getBlock);
+                }
+            }
+        }
+
         for (var item : ModItems.ITEM_REGISTER.getEntries()) {
 
             if (!SHOVEL_BLOCKS.contains(item)) {
                 PICKAXE_BLOCKS.add(item::get);
+            }
+        }
+        if (Main.dynamic_installed) {
+            for (var item : ModItems.DYNAMIC_REGISTER.getEntries()) {
+
+                if (!SHOVEL_BLOCKS.contains(item)) {
+                    PICKAXE_BLOCKS.add(item::get);
+                }
+            }
+        }
+        if (Main.terminals_installed) {
+            for (var item : ModItems.TERMINAL_REGISTER.getEntries()) {
+
+                if (!SHOVEL_BLOCKS.contains(item)) {
+                    PICKAXE_BLOCKS.add(item::get);
+                }
             }
         }
     }

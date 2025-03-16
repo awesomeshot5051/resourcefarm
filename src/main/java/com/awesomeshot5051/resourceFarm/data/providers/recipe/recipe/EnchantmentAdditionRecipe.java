@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.items.*;
@@ -66,7 +67,16 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             ALL_FARMS.add(sidedBlock.get());
         }
-
+        if (Main.terminals_installed) {
+            for (var sidedBlock : ModItems.TERMINAL_REGISTER.getEntries()) {
+                ALL_FARMS.add(sidedBlock.get());
+            }
+        }
+        if (Main.dynamic_installed) {
+            for (var sidedBlock : ModItems.DYNAMIC_REGISTER.getEntries()) {
+                ALL_FARMS.add(sidedBlock.get());
+            }
+        }
         List<ItemStack> Ingredients = input.items();
 
         ItemStack farm = Ingredients.stream()

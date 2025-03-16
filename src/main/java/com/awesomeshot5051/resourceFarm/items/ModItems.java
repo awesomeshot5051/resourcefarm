@@ -14,7 +14,8 @@ import net.neoforged.neoforge.registries.*;
 public class ModItems {
     public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(Registries.MENU, Main.MODID);
     public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
-
+    public static final DeferredRegister<Item> TERMINAL_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
+    public static final DeferredRegister<Item> DYNAMIC_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredHolder<Item, Item> ANDESITE_FARM = ITEM_REGISTER.register("andesite_farm", () -> ModBlocks.ANDESITE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> CLAY_FARM = ITEM_REGISTER.register("clay_farm", () -> ModBlocks.CLAY_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> COPPER_FARM = ITEM_REGISTER.register("copper_farm", () -> ModBlocks.COPPER_FARM.get().toItem());
@@ -69,6 +70,13 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> TERRACOTTA_FARM = ITEM_REGISTER.register("terracotta_farm", () -> ModBlocks.TERRACOTTA_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TUFF_FARM = ITEM_REGISTER.register("tuff_farm", () -> ModBlocks.TUFF_FARM.get().toItem());
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
+    public static final DeferredHolder<Item, Item> CCHORUS_FARM = DYNAMIC_REGISTER.register("cchorus_farm", () -> ModBlocks.CCHORUS_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CMENRIL_FARM = DYNAMIC_REGISTER.register("cmenril_farm", () -> ModBlocks.CMENRIL_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> MBRICK_FARM = DYNAMIC_REGISTER.register("mbrick_farm", () -> ModBlocks.MBRICK_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CCBRICK_FARM = DYNAMIC_REGISTER.register("ccbrick_farm", () -> ModBlocks.CCBRICK_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> MGLASS_FARM = TERMINAL_REGISTER.register("mglass_farm", () -> ModBlocks.MGLASS_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CCGLASS_FARM = TERMINAL_REGISTER.register("ccglass_farm", () -> ModBlocks.CCGLASS_FARM.get().toItem());
+
     //    public static final DeferredItem<Item> XP_UPGRADE = ITEMS.register("xp_upgrade_card",
 //            () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SMELTER_UPGRADE = ITEMS.register("smelter_upgrade",
@@ -86,6 +94,13 @@ public class ModItems {
     public static void init(IEventBus eventBus) {
         ITEM_REGISTER.register(eventBus);
         DATA_COMPONENT_TYPE_REGISTER.register(eventBus);
+        if (Main.dynamic_installed) {
+            DYNAMIC_REGISTER.register(eventBus);
+        }
+        if (Main.terminals_installed) {
+            if (!TERMINAL_REGISTER.getEntries().isEmpty())
+                TERMINAL_REGISTER.register(eventBus);
+        }
         REGISTRY.register(eventBus);
         ITEMS.register(eventBus);
     }
