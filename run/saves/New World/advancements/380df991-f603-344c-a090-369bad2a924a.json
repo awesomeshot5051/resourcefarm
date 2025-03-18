@@ -7,7 +7,8 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "minecraft:forest": "2025-01-26 19:13:58 -0600"
+      "minecraft:forest": "2025-01-26 19:13:58 -0600",
+      "minecraft:birch_forest": "2025-03-16 19:05:00 -0500"
     },
     "done": false
   },
@@ -1031,12 +1032,6 @@
     },
     "done": true
   },
-  "resource_farms:recipes/misc/cobblestone_farm": {
-    "criteria": {
-      "has_cobblestone": "2025-01-27 21:25:41 -0600"
-    },
-    "done": true
-  },
   "minecraft:recipes/decorations/cobblestone_wall_from_cobblestone_stonecutting": {
     "criteria": {
       "has_cobblestone": "2025-01-27 21:25:41 -0600"
@@ -1676,12 +1671,6 @@
   "minecraft:recipes/misc/iron_ingot_from_blasting_deepslate_iron_ore": {
     "criteria": {
       "has_deepslate_iron_ore": "2025-02-02 19:31:34 -0600"
-    },
-    "done": true
-  },
-  "resource_farms:recipes/misc/stone_farm_alternate": {
-    "criteria": {
-      "has_smelter_upgrade": "2025-02-02 20:06:41 -0600"
     },
     "done": true
   },
@@ -3293,12 +3282,6 @@
     },
     "done": true
   },
-  "ae2:recipes/misc/decorative/quartz_fixture": {
-    "criteria": {
-      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
-    },
-    "done": true
-  },
   "ae2:recipes/misc/tools/certus_quartz_pickaxe": {
     "criteria": {
       "has_certus_quartz": "2025-03-16 17:46:01 -0500"
@@ -3308,12 +3291,6 @@
   "ae2:recipes/misc/tools/certus_quartz_axe": {
     "criteria": {
       "has_certus_quartz": "2025-03-16 17:46:01 -0500"
-    },
-    "done": true
-  },
-  "ae2:recipes/misc/tools/misctools_charged_staff": {
-    "criteria": {
-      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
     },
     "done": true
   },
@@ -3329,21 +3306,9 @@
     },
     "done": true
   },
-  "ae2:recipes/misc/decorative/quartz_fixture_from_anchors": {
-    "criteria": {
-      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
-    },
-    "done": true
-  },
   "ae2:recipes/misc/tools/certus_quartz_wrench": {
     "criteria": {
       "has_certus_quartz": "2025-03-16 17:46:01 -0500"
-    },
-    "done": true
-  },
-  "ae2:main/charged_quartz": {
-    "criteria": {
-      "certus": "2025-03-16 17:46:02 -0500"
     },
     "done": true
   },
@@ -3368,6 +3333,180 @@
   "ae2:recipes/misc/tools/certus_quartz_hoe": {
     "criteria": {
       "has_certus_quartz": "2025-03-16 17:46:01 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/decorative/quartz_fixture": {
+    "criteria": {
+      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/tools/misctools_charged_staff": {
+    "criteria": {
+      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/decorative/quartz_fixture_from_anchors": {
+    "criteria": {
+      "has_charged_certus_quartz_crystal": "2025-03-16 17:46:02 -0500"
+    },
+    "done": true
+  },
+  "ae2:main/charged_quartz": {
+    "criteria": {
+      "certus": "2025-03-16 17:46:02 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/cherry_boat": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/bamboo_raft": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/spruce_boat": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/birch_boat": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/oak_boat": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/mangrove_boat": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/acacia_boat": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/jungle_boat": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/dark_oak_boat": {
+    "criteria": {
+      "in_water": "2025-03-16 19:04:17 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sil_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/fldu_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/qc_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/sib_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/entb_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/entd_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/fbq_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/cqc_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/qg_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/entc_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/flbq_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/mc_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ssb_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/flcr_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/ccqc_farm_pickaxe_diamond_upgrade_recipe": {
+    "criteria": {
+      "has_diamond": "2025-03-17 20:04:52 -0500"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/qc_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-17 20:04:52 -0500"
     },
     "done": true
   },

@@ -33,6 +33,18 @@ public class ModCreativeTabs {
                         output.accept(new ItemStack(block.asItem()));
                     });
                 }
+                if (Main.ae2_installed) {
+                    ModBlocks.AE2_REGISTER.getEntries().forEach(blockEntry -> {
+                        Block block = blockEntry.get();
+                        output.accept(new ItemStack(block.asItem()));
+                    });
+                }
+                if (Main.eae2_installed) {
+                    ModBlocks.EAE2_REGISTER.getEntries().forEach(blockEntry -> {
+                        Block block = blockEntry.get();
+                        output.accept(new ItemStack(block.asItem()));
+                    });
+                }
                 output.accept(new ItemStack(ModItems.SMELTER_UPGRADE.get()));
                 output.accept(new ItemStack(ModItems.REDSTONE_UPGRADE.get()));
             })

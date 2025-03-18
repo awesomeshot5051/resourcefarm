@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.level.*;
@@ -47,7 +46,7 @@ public class CrystalChorusFarmRenderer extends RendererBase<CrystalChorusFarmTil
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integrateddynamics", "crystalized_chorus_block")).defaultBlockState(),
+                        IDBlocks.CRYSTAL_CHORUS_BLOCK.get().defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,

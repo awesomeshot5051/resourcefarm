@@ -10,19 +10,19 @@
     },
     "P": [
       {
-        "item": "minecraft:wooden_shovel"
+        "item": "minecraft:wooden_pickaxe"
       },
       {
-        "item": "minecraft:stone_shovel"
+        "item": "minecraft:stone_pickaxe"
       },
       {
-        "item": "minecraft:iron_shovel"
+        "item": "minecraft:iron_pickaxe"
       },
       {
-        "item": "minecraft:diamond_shovel"
+        "item": "minecraft:diamond_pickaxe"
       },
       {
-        "item": "minecraft:netherite_shovel"
+        "item": "minecraft:netherite_pickaxe"
       }
     ]
   },

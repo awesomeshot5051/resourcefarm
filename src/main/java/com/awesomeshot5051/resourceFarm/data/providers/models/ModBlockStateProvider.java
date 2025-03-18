@@ -52,6 +52,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 }
             });
         }
+        if (Main.ae2_installed) {
+            ModBlocks.AE2_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                String blockName = blockEntry.getId().getPath();
+                if (block.defaultBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
+                    directionalBlock(block, modLoc("block/" + blockName));
+                } else {
+                    blockWithItem(blockEntry);
+                }
+            });
+        }
+        if (Main.eae2_installed) {
+            ModBlocks.EAE2_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                String blockName = blockEntry.getId().getPath();
+                if (block.defaultBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
+                    directionalBlock(block, modLoc("block/" + blockName));
+                } else {
+                    blockWithItem(blockEntry);
+                }
+            });
+        }
     }
 
 

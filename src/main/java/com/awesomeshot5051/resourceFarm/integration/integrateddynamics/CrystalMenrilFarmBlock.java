@@ -81,7 +81,7 @@ public class CrystalMenrilFarmBlock extends BlockBase implements EntityBlock, II
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        CrystalMenrilFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CrystalMenrilFarmTileentity(BlockPos.ZERO, ModBlocks.CCHORUS_FARM.get().defaultBlockState()));
+        CrystalMenrilFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CrystalMenrilFarmTileentity(BlockPos.ZERO, ModBlocks.CMENRIL_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();

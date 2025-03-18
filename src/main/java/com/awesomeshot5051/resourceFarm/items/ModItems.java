@@ -16,6 +16,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredRegister<Item> TERMINAL_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredRegister<Item> DYNAMIC_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
+    public static final DeferredRegister<Item> AE2_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
+    public static final DeferredRegister<Item> EAE2_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredHolder<Item, Item> ANDESITE_FARM = ITEM_REGISTER.register("andesite_farm", () -> ModBlocks.ANDESITE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> CLAY_FARM = ITEM_REGISTER.register("clay_farm", () -> ModBlocks.CLAY_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> COPPER_FARM = ITEM_REGISTER.register("copper_farm", () -> ModBlocks.COPPER_FARM.get().toItem());
@@ -77,6 +79,34 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> MGLASS_FARM = TERMINAL_REGISTER.register("mglass_farm", () -> ModBlocks.MGLASS_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> CCGLASS_FARM = TERMINAL_REGISTER.register("ccglass_farm", () -> ModBlocks.CCGLASS_FARM.get().toItem());
 
+
+    // ----------------------------
+// AE2 Item Registrations
+// ----------------------------
+
+    public static final DeferredHolder<Item, Item> FBQ_FARM = AE2_REGISTER.register("fbq_farm", () -> ModBlocks.FBQ_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> FLBQ_FARM = AE2_REGISTER.register("flbq_farm", () -> ModBlocks.FLBQ_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CCQC_FARM = AE2_REGISTER.register("ccqc_farm", () -> ModBlocks.CCQC_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> CQC_FARM = AE2_REGISTER.register("cqc_farm", () -> ModBlocks.CQC_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> FLCR_FARM = AE2_REGISTER.register("flcr_farm", () -> ModBlocks.FLCR_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> FLDU_FARM = AE2_REGISTER.register("fldu_farm", () -> ModBlocks.FLDU_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> QC_FARM = AE2_REGISTER.register("qc_farm", () -> ModBlocks.QC_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> QG_FARM = AE2_REGISTER.register("qg_farm", () -> ModBlocks.QG_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> SSB_FARM = AE2_REGISTER.register("ssb_farm", () -> ModBlocks.SSB_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> MC_FARM = AE2_REGISTER.register("mc_farm", () -> ModBlocks.MC_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> SIL_FARM = AE2_REGISTER.register("sil_farm", () -> ModBlocks.SIL_FARM.get().toItem());
+
+
+// ----------------------------
+// Extended AE (EAE2) Item Registrations
+// ----------------------------
+
+    public static final DeferredHolder<Item, Item> ENTC_FARM = EAE2_REGISTER.register("entc_farm", () -> ModBlocks.ENTC_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> ENTD_FARM = EAE2_REGISTER.register("entd_farm", () -> ModBlocks.ENTD_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> ENTB_FARM = EAE2_REGISTER.register("entb_farm", () -> ModBlocks.ENTB_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> SIB_FARM = EAE2_REGISTER.register("sib_farm", () -> ModBlocks.SIB_FARM.get().toItem());
+
+
     //    public static final DeferredItem<Item> XP_UPGRADE = ITEMS.register("xp_upgrade_card",
 //            () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SMELTER_UPGRADE = ITEMS.register("smelter_upgrade",
@@ -100,6 +130,12 @@ public class ModItems {
         if (Main.terminals_installed) {
             if (!TERMINAL_REGISTER.getEntries().isEmpty())
                 TERMINAL_REGISTER.register(eventBus);
+        }
+        if (Main.ae2_installed) {
+            AE2_REGISTER.register(eventBus);
+        }
+        if (Main.eae2_installed) {
+            EAE2_REGISTER.register(eventBus);
         }
         REGISTRY.register(eventBus);
         ITEMS.register(eventBus);
