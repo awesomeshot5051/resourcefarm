@@ -1,0 +1,21 @@
+{
+  "type": "resource_farms:upgrade_serializer",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "resource_farms:fbq_farm"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GFG",
+    "GGG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_farms:fbq_farm"
+  }
+}
