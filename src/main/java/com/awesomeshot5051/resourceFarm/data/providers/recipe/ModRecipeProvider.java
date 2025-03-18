@@ -99,6 +99,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 }
             }
         }
+        if (Main.eae2_installed) {
+            for (var item : ModItems.EAE2_REGISTER.getEntries()) {
+                Item registeredItem = item.get(); // Get the Item instance
+
+                if (registeredItem instanceof BlockItem blockItem) {
+                    // Convert to Supplier<Block> and add to the list
+                    ALL_FARMS.add(blockItem::getBlock);
+                }
+            }
+        }
+        if (Main.ae2_installed) {
+            for (var item : ModItems.AE2_REGISTER.getEntries()) {
+                Item registeredItem = item.get(); // Get the Item instance
+
+                if (registeredItem instanceof BlockItem blockItem) {
+                    // Convert to Supplier<Block> and add to the list
+                    ALL_FARMS.add(blockItem::getBlock);
+                }
+            }
+        }
 
         for (var item : ModItems.ITEM_REGISTER.getEntries()) {
 
@@ -116,6 +136,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         }
         if (Main.terminals_installed) {
             for (var item : ModItems.TERMINAL_REGISTER.getEntries()) {
+
+                if (!SHOVEL_BLOCKS.contains(item)) {
+                    PICKAXE_BLOCKS.add(item::get);
+                }
+            }
+        }
+        if (Main.ae2_installed) {
+            for (var item : ModItems.AE2_REGISTER.getEntries()) {
+
+                if (!SHOVEL_BLOCKS.contains(item)) {
+                    PICKAXE_BLOCKS.add(item::get);
+                }
+            }
+        }
+        if (Main.eae2_installed) {
+            for (var item : ModItems.EAE2_REGISTER.getEntries()) {
 
                 if (!SHOVEL_BLOCKS.contains(item)) {
                     PICKAXE_BLOCKS.add(item::get);

@@ -1,13 +1,13 @@
 package com.awesomeshot5051.resourceFarm.integration.integratedterminals;
 
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
+import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.*;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.level.*;
@@ -47,7 +47,7 @@ public class CrystalChorusGlassFarmRenderer extends RendererBase<CrystalChorusGl
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).defaultBlockState(),
+                        IDBlocks.CHORUS_GLASS.get().defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,

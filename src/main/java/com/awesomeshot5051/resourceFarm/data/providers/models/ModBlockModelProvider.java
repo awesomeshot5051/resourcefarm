@@ -32,5 +32,17 @@ public class ModBlockModelProvider extends BaseBlockModelProvider {
                 sideBottomTop(block.asItem());
             });
         }
+        if (Main.ae2_installed) {
+            ModBlocks.AE2_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                sideBottomTop(block.asItem());
+            });
+        }
+        if (Main.eae2_installed) {
+            ModBlocks.EAE2_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                sideBottomTop(block.asItem());
+            });
+        }
     }
 }

@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.level.*;
@@ -47,7 +46,7 @@ public class MenrilBrickFarmRenderer extends RendererBase<MenrilBrickFarmTileent
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integrateddynamics", "crystalized_menril_brick")).defaultBlockState(),
+                        IDBlocks.MENRIL_BRICK.get().defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,

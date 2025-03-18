@@ -81,7 +81,7 @@ public class MenrilBrickFarmBlock extends BlockBase implements EntityBlock, IIte
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        MenrilBrickFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new MenrilBrickFarmTileentity(BlockPos.ZERO, ModBlocks.CCHORUS_FARM.get().defaultBlockState()));
+        MenrilBrickFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new MenrilBrickFarmTileentity(BlockPos.ZERO, ModBlocks.MBRICK_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();

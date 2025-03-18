@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_mud": {
+    "has_crystalized_menril_block": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:mud"
+            "items": "integrateddynamics:crystalized_menril_block"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_mud"
+      "has_crystalized_menril_block"
     ]
   ],
   "rewards": {
