@@ -1,0 +1,18 @@
+✅FlawedBuddingQuartzFarmBlock
+✅FlawlessBuddingQuartzFarmBlock
+✅ChargedCertusQuartzCrystalFarmBlock
+✅CertusQuartzCrystalFarmBlock
+✅FluixCrystalFarmBlock
+✅FluixDustFarmBlock
+✅QuartzClusterFarmBlock
+✅QuartzGlassFarmBlock
+✅SkyStoneFarmBlock
+✅MysteriousCubeFarmBlock
+✅SiliconFarmBlock
+
+✅EntroCrystalFarmBlock
+//not needed EntroSeedFarmBlock
+✅EntroDustFarmBlock
+✅EntroBlockFarmBlock
+//not needed EntroBuddingFullyFarmBlock
+✅SiliconBlockFarmBlock
