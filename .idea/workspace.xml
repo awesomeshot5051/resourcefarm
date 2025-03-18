@@ -8,159 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1&#10;Finished adding Integrated Dynamics Integration.&#10;Started adding AE integration">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/AE2Blocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Meteorite/MysteriousCubeFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Meteorite/MysteriousCubeFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Meteorite/MysteriousCubeFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Meteorite/MysteriousCubeFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Meteorite/SkyStoneFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Meteorite/SkyStoneFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Meteorite/SkyStoneFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Meteorite/SkyStoneFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/CertusQuartzCrystalFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/CertusQuartzCrystalFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/CertusQuartzCrystalFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/CertusQuartzCrystalFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/ChargedCertusQuartzCrystalFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/ChargedCertusQuartzCrystalFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/ChargedCertusQuartzCrystalFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/ChargedCertusQuartzCrystalItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawedBuddingQuartzFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawedBuddingQuartzFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawedBuddingQuartzFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawedBuddingQuartzFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawlessBuddingQuartzFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawlessBuddingQuartzFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawlessBuddingQuartzFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawlessBuddingQuartzFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/QuartzClusterFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/QuartzClusterFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/QuartzClusterFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/QuartzClusterFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/QuartzGlassFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/QuartzGlassFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/QuartzGlassFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/QuartzGlassFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/SiliconFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/SiliconFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/SiliconFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/SiliconFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroBlockFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroBlockFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroBlockFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroBlockFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroCrystalFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroCrystalFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroCrystalFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroCrystalFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroDustFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroDustFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroDustFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/EntroDustFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/SiliconBlockFarmBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/SiliconBlockFarmItemRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/SiliconBlockFarmRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/extendedae/SiliconBlockFarmTileentity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/IDBlocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/ccqc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/cqc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/entb_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/entc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/entd_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/fbq_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/flbq_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/flcr_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/fldu_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/qc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/qg_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/sib_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/sil_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/models/item/ssb_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/ccqc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/cqc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/entb_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/entc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/entd_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/fbq_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/flcr_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/fldu_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/mc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/qc_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/qg_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/sib_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/sil_farm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/resource_farms/loot_table/blocks/ssb_farm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/jei/ingredient-list-mod-sort-order.ini" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/jei/ingredient-list-mod-sort-order.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/37798be1aee7297d5beccfb7f2696f955ddbe2c0" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/37798be1aee7297d5beccfb7f2696f955ddbe2c0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/8442ce1ed960c25242a3d151449161d44c303481" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/8442ce1ed960c25242a3d151449161d44c303481" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/advancement/recipes/misc/block.resource_farms.cchorus_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/advancement/recipes/misc/block.resource_farms.cchorus_farm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/advancement/recipes/misc/block.resource_farms.cmenril_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/advancement/recipes/misc/block.resource_farms.cmenril_farm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/advancement/recipes/misc/cobblestone_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/advancement/recipes/misc/estone_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/advancement/recipes/misc/stone_farm_alternate.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/cobblestone_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/estone_farm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/grass_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/grass_farm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/gravel_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/gravel_farm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/sand_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/sand_farm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/resource_farms/recipe/stone_farm_alternate.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/ModCreativeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/ModCreativeTabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/ModBlocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/ModTileEntities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/models/ModBlockModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/models/ModBlockModelProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/models/ModBlockStateProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/models/ModBlockStateProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/CrystalChorusBrickFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/CrystalChorusBrickFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/CrystalChorusFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/CrystalChorusFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/CrystalMenrilFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/CrystalMenrilFarmBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/CrystalMenrilFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/CrystalMenrilFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/MenrilBrickFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/MenrilBrickFarmBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/MenrilBrickFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integrateddynamics/MenrilBrickFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integratedterminals/CrystalChorusGlassFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integratedterminals/CrystalChorusGlassFarmBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integratedterminals/CrystalChorusGlassFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integratedterminals/CrystalChorusGlassFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integratedterminals/MenrilGlassFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/integratedterminals/MenrilGlassFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/items/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/neoforge.mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/neoforge.mods.toml" afterDir="false" />
-    </list>
+    <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.&#10;Recipes still need to be made" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -258,7 +106,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.119-merged.jar!/net/minecraft/client/multiplayer/MultiPlayerGameMode.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.119-merged.jar!/net/minecraft/world/level/block/state/BlockBehaviour.class" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KotlinScriptingSettings">
     <option name="suppressDefinitionsCheck" value="true" />
@@ -637,22 +485,6 @@
       <option name="presentableId" value="Default" />
       <updated>1733150288157</updated>
     </task>
-    <task id="LOCAL-00043" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <option name="closed" value="true" />
-      <created>1738075660669</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1738075660669</updated>
-    </task>
-    <task id="LOCAL-00044" summary="1.21.1 V 2.0.2&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <option name="closed" value="true" />
-      <created>1738200082851</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1738200082851</updated>
-    </task>
     <task id="LOCAL-00045" summary="1.21.1 V 2.0.3&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
       <option name="closed" value="true" />
       <created>1738260273783</created>
@@ -1029,7 +861,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742167160348</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.">
+      <option name="closed" value="true" />
+      <created>1742262884054</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1742262884054</updated>
+    </task>
+    <task id="LOCAL-00093" summary="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.&#10;Recipes still need to be made">
+      <option name="closed" value="true" />
+      <created>1742262902225</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1742262902225</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1075,7 +923,9 @@
     <MESSAGE value="1.21.1&#10;    created Diorite farm&#10;    fixed bug in Coal Farm and Copper farm. Pickaxe would reset on dimension change and/or relog.&#10;    Added achievement for Netherite Farm&#10;    Bumped NeoForge version.&#10;    Redstone Upgrade card recipe officially created and Released." />
     <MESSAGE value="1.21.1&#10;adding Integrated Dynamics Integration." />
     <MESSAGE value="1.21.1&#10;Finished adding Integrated Dynamics Integration.&#10;Started adding AE integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.21.1&#10;Finished adding Integrated Dynamics Integration.&#10;Started adding AE integration" />
+    <MESSAGE value="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted." />
+    <MESSAGE value="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.&#10;Recipes still need to be made" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.&#10;Recipes still need to be made" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
