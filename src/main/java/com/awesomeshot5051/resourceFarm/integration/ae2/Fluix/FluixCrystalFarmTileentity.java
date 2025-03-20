@@ -7,15 +7,16 @@ import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
@@ -36,7 +37,8 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
     public boolean soundOn;
-
+    public ItemContainerContents ae2Items;
+    public List<ItemStack> ae2ItemsList = new ArrayList<>();
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -48,9 +50,10 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
         pickType = new ItemStack(Items.WOODEN_PICKAXE);
+        ae2Items = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.AIR)));
     }
 
-    public static double getCGlassGenerateTime(FluixCrystalFarmTileentity tileEntity) {
+    public static double getFluixCrystalGenerateTime(FluixCrystalFarmTileentity tileEntity) {
         return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
                 (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
@@ -60,7 +63,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
 
     }
 
-    public static double getCGlassBreakTime(FluixCrystalFarmTileentity tileEntity) {
+    public static double getFluixCrystalBreakTime(FluixCrystalFarmTileentity tileEntity) {
         PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
         if (tileEntity.getPickType().isEnchanted()) {
             tileEntity.setPickaxeEnchantmentStatus(tileEntity);
@@ -70,7 +73,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
             baseValue = 10;
         }
 
-        return getCGlassGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
+        return getFluixCrystalGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
                 pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
                         pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
@@ -116,7 +119,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
-            } else if (timer >= getCGlassBreakTime(this)) {
+            } else if (timer >= getFluixCrystalBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
                         drop = itemHandler.insertItem(i, drop, false);
@@ -128,7 +131,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getCGlassBreakTime(this)) {
+        } else if (timer >= getFluixCrystalBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -153,7 +156,8 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).asItem(), dropCount));
+        if ()
+            drops.add(new ItemStack(AE2Blocks.FLUIX_CRYSTAL.get()));
         return drops;
     }
 
@@ -164,7 +168,6 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
 
     @Override
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
-
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
         try {
@@ -175,6 +178,13 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         } catch (IllegalStateException e) {
             System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
         }
+
+        // Saving ae2ItemsList correctly
+        if (ae2ItemsList != null && !ae2ItemsList.isEmpty()) {
+            DataResult<Tag> tagResult = ItemStack.CODEC.listOf().encodeStart(NbtOps.INSTANCE, ae2ItemsList);
+            compound.put("ae2Items", tagResult.result().orElse(new ListTag())); // Ensure it's saved correctly
+        }
+
         if (!pickaxeEnchantments.isEmpty()) {
             ListTag enchantmentsList = new ListTag();
             for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : pickaxeEnchantments.entrySet()) {
@@ -186,6 +196,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
             }
             compound.put("PickaxeEnchantments", enchantmentsList);
         }
+
         if (!upgrades.isEmpty()) {
             ListTag upgradesList = new ListTag();
             for (Map.Entry<ItemStack, Boolean> upgradeMap : upgrades.entrySet()) {
@@ -203,13 +214,16 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         soundOnTag.putBoolean("soundOn", soundOn);
         compound.put("soundON", soundOnTag);
         compound.putLong("Timer", timer);
+
         super.saveAdditional(compound, provider);
     }
 
 
     @Override
     protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
+        super.loadAdditional(compound, provider);
         ContainerHelper.loadAllItems(compound, inventory, provider);
+
         if (compound.contains("PickType")) {
             SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
         }
@@ -220,11 +234,20 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
             upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
         }
         if (pickType == null) {
-
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
+
+        // Fix: Ensure "ae2Items" exists before decoding
+        if (compound.contains("ae2Items")) {
+            DataResult<List<ItemStack>> decodedResult = ItemStack.CODEC.listOf().parse(NbtOps.INSTANCE, compound.get("ae2Items"));
+            ae2ItemsList = decodedResult.result().orElse(List.of()); // Default to empty list if decoding fails
+        } else {
+            ae2ItemsList = List.of(); // Ensure it's never null
+        }
+
         soundOn = compound.getBoolean("soundON");
         timer = compound.getLong("Timer");
+
         super.loadAdditional(compound, provider);
     }
 

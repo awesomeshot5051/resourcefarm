@@ -6,14 +6,20 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.neoforged.fml.*;
 
+import java.util.*;
 import java.util.function.*;
 
 public class AE2Blocks {
     public static final Supplier<Block> FLAWED_BUDDING_QUARTZ = lazyBlockGet("ae2:flawed_budding_quartz");
     public static final Supplier<Block> FLAWLESS_BUDDING_QUARTZ = lazyBlockGet("ae2:flawless_budding_quartz");
-    public static final Supplier<Block> CHARGED_CERTUS_QUARTZ_CRYSTAL = lazyBlockGet("ae2:charged_certus_quartz_crystal");
+    public static final Supplier<Item> CHARGED_CERTUS_QUARTZ_CRYSTAL = lazyItemGet("ae2:charged_certus_quartz_crystal");
     public static final Supplier<Block> CERTUS_QUARTZ_CRYSTAL = lazyBlockGet("ae2:certus_quartz_crystal");
-    public static final Supplier<Block> FLUIX_CRYSTAL = lazyBlockGet("ae2:fluix_crystal");
+    public static final Supplier<Item> FLUIX_CRYSTAL = lazyItemGet("ae2:fluix_crystal");
+    public static final List<ItemStack> itemsRequiredForFC = List.of(
+            new ItemStack(CHARGED_CERTUS_QUARTZ_CRYSTAL.get()),
+            new ItemStack(Items.REDSTONE),
+            new ItemStack(Items.WATER_BUCKET),
+            new ItemStack(Items.QUARTZ));
     public static final Supplier<Item> FLUIX_DUST = lazyItemGet("ae2:fluix_dust");
     public static final Supplier<Block> SMALL_QUARTZ_BUD = lazyBlockGet("ae2:small_quartz_bud");
     //    public static final Supplier<Block> MEDIUM_QUARTZ_BUD = lazyBlockGet("ae2:medium_quartz_bud");

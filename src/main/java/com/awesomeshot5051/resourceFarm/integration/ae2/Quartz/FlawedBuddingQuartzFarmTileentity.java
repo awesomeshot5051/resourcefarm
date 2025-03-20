@@ -50,7 +50,7 @@ public class FlawedBuddingQuartzFarmTileentity extends FarmTileentity implements
         pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
-    public static double getCGlassGenerateTime(FlawedBuddingQuartzFarmTileentity tileEntity) {
+    public static double getFBQGenerateTime(FlawedBuddingQuartzFarmTileentity tileEntity) {
         return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
                 (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
@@ -60,7 +60,7 @@ public class FlawedBuddingQuartzFarmTileentity extends FarmTileentity implements
 
     }
 
-    public static double getCGlassBreakTime(FlawedBuddingQuartzFarmTileentity tileEntity) {
+    public static double getFBQBreakTime(FlawedBuddingQuartzFarmTileentity tileEntity) {
         PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
         if (tileEntity.getPickType().isEnchanted()) {
             tileEntity.setPickaxeEnchantmentStatus(tileEntity);
@@ -70,7 +70,7 @@ public class FlawedBuddingQuartzFarmTileentity extends FarmTileentity implements
             baseValue = 10;
         }
 
-        return getCGlassGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
+        return getFBQGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
                 pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
                         pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
@@ -116,7 +116,7 @@ public class FlawedBuddingQuartzFarmTileentity extends FarmTileentity implements
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
-            } else if (timer >= getCGlassBreakTime(this)) {
+            } else if (timer >= getFBQBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
                         drop = itemHandler.insertItem(i, drop, false);
@@ -128,7 +128,7 @@ public class FlawedBuddingQuartzFarmTileentity extends FarmTileentity implements
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getCGlassBreakTime(this)) {
+        } else if (timer >= getFBQBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);

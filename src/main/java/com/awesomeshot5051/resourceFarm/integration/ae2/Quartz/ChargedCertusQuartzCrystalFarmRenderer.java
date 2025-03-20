@@ -47,7 +47,7 @@ public class ChargedCertusQuartzCrystalFarmRenderer extends RendererBase<Charged
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get().defaultBlockState(),
+                        AE2Blocks.ENTRO_BLOCK.get().defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,
