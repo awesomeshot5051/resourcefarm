@@ -34,7 +34,7 @@ public class FlawedBuddingQuartzFarmRenderer extends RendererBase<FlawedBuddingQ
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
-        if (farm.getTimer() >= FlawedBuddingQuartzFarmTileentity.getCGlassGenerateTime(farm)) {
+        if (farm.getTimer() >= FlawedBuddingQuartzFarmTileentity.getFBQGenerateTime(farm)) {
             if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
                 blockRenderDispatcher.renderSingleBlock(
                         Blocks.AIR.defaultBlockState(),
@@ -56,7 +56,7 @@ public class FlawedBuddingQuartzFarmRenderer extends RendererBase<FlawedBuddingQ
                         RenderType.SOLID
                 );
             }
-        } else if (farm.getTimer() >= FlawedBuddingQuartzFarmTileentity.getCGlassBreakTime(farm)) {
+        } else if (farm.getTimer() >= FlawedBuddingQuartzFarmTileentity.getFBQBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),
                     matrixStack,

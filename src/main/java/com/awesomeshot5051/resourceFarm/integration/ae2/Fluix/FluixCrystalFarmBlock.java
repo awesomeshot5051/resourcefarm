@@ -7,6 +7,7 @@ import com.awesomeshot5051.corelib.client.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
@@ -24,8 +25,10 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
+import org.jetbrains.annotations.*;
 
 import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
 
@@ -36,6 +39,7 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
     public FluixCrystalFarmBlock() {
         super(Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
     }
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -67,14 +71,12 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
                 }
                 level.sendBlockUpdated(pos, state, state, 3);
             }
-
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
                 farmTileEntity.setChanged();
                 updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
-
         }
     }
 
@@ -108,10 +110,35 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+    protected @NotNull ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
         if (!(tileEntity instanceof FluixCrystalFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
+        }
+        List<ItemStack> itemsNeeded = new ArrayList<>(farm.ae2ItemsList);
+        if (!itemsNeeded.contains(heldItem) && itemsNeeded.size() < 4) {
+            if (heldItem.is(Items.WATER_BUCKET) &&
+                    itemsNeeded.stream().noneMatch(stack -> stack.is(Items.WATER_BUCKET))) {
+                itemsNeeded.add(heldItem);
+            } else if (heldItem.is(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()) &&
+                    itemsNeeded.stream().noneMatch(stack -> stack.is(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()))) {
+                itemsNeeded.add(heldItem);
+            } else if (heldItem.is(Items.REDSTONE) &&
+                    itemsNeeded.stream().noneMatch(stack -> stack.is(Items.REDSTONE))) {
+                itemsNeeded.add(heldItem);
+            } else if (heldItem.is(Items.QUARTZ) &&
+                    itemsNeeded.stream().noneMatch(stack -> stack.is(Items.QUARTZ))) {
+                itemsNeeded.add(heldItem);
+            }
+            if (itemsNeeded.size() == 4 && containsAllItems(AE2Blocks.itemsRequiredForFC, itemsNeeded)) {
+                farm.ae2Items = ItemContainerContents.fromItems(itemsNeeded);
+                farm.ae2ItemsList = itemsNeeded;
+                return ItemInteractionResult.SUCCESS;
+            }
+            return ItemInteractionResult.CONSUME;
+        }
+        if (itemsNeeded.size() == 4 && containsAllItems(AE2Blocks.itemsRequiredForFC, itemsNeeded)) {
+            farm.ae2ItemsList = itemsNeeded;
         }
 
 

@@ -34,7 +34,7 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
-        if (farm.getTimer() >= FluixCrystalFarmTileentity.getCGlassGenerateTime(farm)) {
+        if (farm.getTimer() >= FluixCrystalFarmTileentity.getFluixCrystalGenerateTime(farm)) {
             if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
                 blockRenderDispatcher.renderSingleBlock(
                         Blocks.AIR.defaultBlockState(),
@@ -47,7 +47,7 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        AE2Blocks.FLUIX_CRYSTAL.get().defaultBlockState(),
+                        AE2Blocks.FLAWLESS_BUDDING_QUARTZ.get().defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,
@@ -56,7 +56,7 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
                         RenderType.SOLID
                 );
             }
-        } else if (farm.getTimer() >= FluixCrystalFarmTileentity.getCGlassBreakTime(farm)) {
+        } else if (farm.getTimer() >= FluixCrystalFarmTileentity.getFluixCrystalBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),
                     matrixStack,
