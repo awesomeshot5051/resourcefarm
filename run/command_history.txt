@@ -1,7 +1,3 @@
-/enchant Dev minecraft:efficiency
-/enchant Dev minecraft:efficiency 5
-/enchant Dev minecraft:unbreaking 4
-/enchant Dev minecraft:unbreaking 3
 /tick rate 1
 /tick rate 10
 /tick rate 10000
@@ -48,3 +44,7 @@
 /tick sprint 3d
 /tick rate 20
 /advancement revoke Dev only resource_farms:unlimited_netherite craft_netherite_farm
+/gamerule commandBlockOutput false
+/gamerule doDaylightCycle false
+/time set noon
+/gamerule doWeatherCycle false

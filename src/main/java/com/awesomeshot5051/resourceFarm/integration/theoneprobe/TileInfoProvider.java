@@ -30,7 +30,42 @@ public class TileInfoProvider implements IProbeInfoProvider {
         if (te instanceof FarmTileentity v) {
             addFarm(v, iProbeInfo);
         }
+//        if (te instanceof FluidFarmTileentity v) {
+//            addFarm(v, iProbeInfo);
+//        }
     }
+
+//    private void addFarm(FluidFarmTileentity farmTileentity, IProbeInfo iProbeInfo) {
+//        if (farmTileentity != null) {
+//            IProbeInfo info = iProbeInfo.horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
+//            ItemStack pickType = farmTileentity.getPickType();
+//            if (farmTileentity.getPickType() == ItemStack.EMPTY) {
+//                pickType = farmTileentity.getShovelType();
+//            }
+//            if (!farmTileentity.getCustomData().isEmpty()) {
+//                info.text(Component.literal(
+//                        Arrays.stream(farmTileentity.getCustomData()
+//                                        .toString()
+//                                        .replace("{}", " ")
+//                                        .replace("{Upgrade:\"", "")
+//                                        .replace("\"}", "")
+//                                        .split("_"))
+//                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+//                                .collect(Collectors.joining(" "))
+//                ));
+//            }
+//            if (!farmTileentity.checkPasses(farmTileentity)) {
+//                if (Screen.hasShiftDown() && farmTileentity instanceof FluixCrystalFarmTileentity blockEntity) {
+//                    for (ItemStack item : blockEntity.getAE2ItemsList()) {
+//                        info.item(item).text(convertToReadableName(item.getDescriptionId()));
+//                    }
+//                } else {
+//                    info.text("Items Missing!").text("Hold Shift for more info");
+//                }
+//            }
+//            info.item(pickType).text(convertToReadableName(pickType.getDescriptionId()));
+//        }
+//    }
 
     private void addFarm(FarmTileentity farmTileentity, IProbeInfo iProbeInfo) {
         if (farmTileentity != null) {
@@ -54,7 +89,6 @@ public class TileInfoProvider implements IProbeInfoProvider {
             info.item(pickType).text(convertToReadableName(pickType.getDescriptionId()));
         }
     }
-
 
     private String convertToReadableName(String block) {
 

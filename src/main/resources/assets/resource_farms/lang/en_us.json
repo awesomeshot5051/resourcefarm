@@ -58,6 +58,7 @@
   "item.resource_farms.speed_upgrade": "Speed Upgrade",
   "item.resource_farms.fortune_upgrade": "Fortune Upgrade",
   "item.resource_farms.smelter_upgrade": "Smelter Upgrade",
+  "block.resource_farms.flcr_farm": "Fluix Crystal Farm",
   "gui.resource_farms.upgrade_items": "Upgrade Items",
   "gui.resource_farms.output_items": "Output",
   "gui.resource_farms.input": "Input Items",

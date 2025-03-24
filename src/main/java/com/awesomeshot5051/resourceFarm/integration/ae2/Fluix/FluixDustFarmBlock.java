@@ -4,7 +4,9 @@ package com.awesomeshot5051.resourceFarm.integration.ae2.Fluix;
 import com.awesomeshot5051.corelib.block.*;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.client.*;
+import com.awesomeshot5051.corelib.integration.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.data.providers.tags.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import net.minecraft.*;
@@ -58,20 +60,12 @@ public class FluixDustFarmBlock extends BlockBase implements EntityBlock, IItemB
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof FluixDustFarmTileentity farmTileEntity) {
-            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
                 farmTileEntity.setChanged();
                 for (ItemStack upgrade : farmTileEntity.upgradeList) {
                     updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, upgrade);
                 }
-                level.sendBlockUpdated(pos, state, state, 3);
-            }
-
-            if (pickType != null) {
-                farmTileEntity.pickType = pickType.getStackInSlot(0);
-                farmTileEntity.setChanged();
-                updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
                 level.sendBlockUpdated(pos, state, state, 3);
             }
 
@@ -113,7 +107,16 @@ public class FluixDustFarmBlock extends BlockBase implements EntityBlock, IItemB
         if (!(tileEntity instanceof FluixDustFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-
+        List<ItemStack> fluixDust = new ArrayList<>(farm.fluixDustList);
+        if (heldItem.is(ModItemTags.SLABS_AND_FLUX_CRYSTAL) && fluixDust.size() < 2) {
+            fluixDust.add(heldItem.copyWithCount(1));
+            heldItem.shrink(1);
+            return ItemInteractionResult.CONSUME;
+        }
+        if (fluixDust.size() == 2 && AE2Check.containsAllItems(fluixDust, ModItemTags.SLABS_AND_FLUX_CRYSTAL, Objects.requireNonNull(tileEntity.getLevel()))) {
+            ((FluixDustFarmTileentity) tileEntity).fluixDustList = fluixDust;
+            return ItemInteractionResult.CONSUME;
+        }
 
         player.openMenu(new MenuProvider() {
             @Override

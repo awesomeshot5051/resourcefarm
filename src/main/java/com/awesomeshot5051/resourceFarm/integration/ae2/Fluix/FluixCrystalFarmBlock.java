@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
 
+import static com.awesomeshot5051.corelib.integration.AE2Check.*;
 import static net.minecraft.world.item.BlockItem.*;
 
 public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
@@ -116,19 +117,41 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
         List<ItemStack> itemsNeeded = new ArrayList<>(farm.ae2ItemsList);
-        if (!itemsNeeded.contains(heldItem) && itemsNeeded.size() < 4) {
+
+        if (!itemsNeeded.contains(heldItem) && itemsNeeded.size() < 4 && (!heldItem.is(Items.AIR))) {
             if (heldItem.is(Items.WATER_BUCKET) &&
                     itemsNeeded.stream().noneMatch(stack -> stack.is(Items.WATER_BUCKET))) {
-                itemsNeeded.add(heldItem);
+                itemsNeeded.add(heldItem.copyWithCount(1));
+
+                int slotIndex = player.getInventory().findSlotMatchingItem(heldItem);
+
+                if (slotIndex != -1) {
+                    // Shrink the item count in the specific slot
+                    heldItem.shrink(1);
+                    // Place an empty bucket in the same slot
+                    ItemStack emptyBucket = new ItemStack(Items.BUCKET);
+                    player.getInventory().setItem(slotIndex, emptyBucket);  // Set the empty bucket in the same slot
+                }
+
+                // Optional: Add the empty bucket back into the player's inventory (to make sure they have one)
+                if (!player.getInventory().contains(new ItemStack(Items.BUCKET))) {
+                    player.getInventory().add(new ItemStack(Items.BUCKET));
+                }
             } else if (heldItem.is(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()) &&
                     itemsNeeded.stream().noneMatch(stack -> stack.is(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()))) {
-                itemsNeeded.add(heldItem);
+                itemsNeeded.add(heldItem.copyWithCount(1));
+                heldItem.shrink(1);
             } else if (heldItem.is(Items.REDSTONE) &&
                     itemsNeeded.stream().noneMatch(stack -> stack.is(Items.REDSTONE))) {
-                itemsNeeded.add(heldItem);
+                itemsNeeded.add(heldItem.copyWithCount(1));
+                heldItem.shrink(1);
             } else if (heldItem.is(Items.QUARTZ) &&
                     itemsNeeded.stream().noneMatch(stack -> stack.is(Items.QUARTZ))) {
-                itemsNeeded.add(heldItem);
+                itemsNeeded.add(heldItem.copyWithCount(1));
+                heldItem.shrink(1);
+            }
+            if (itemsNeeded.size() != 4) {
+                farm.ae2ItemsList = itemsNeeded;
             }
             if (itemsNeeded.size() == 4 && containsAllItems(AE2Blocks.itemsRequiredForFC, itemsNeeded)) {
                 farm.ae2Items = ItemContainerContents.fromItems(itemsNeeded);
@@ -180,4 +203,6 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
     public float getShadeBrightness(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return 1F;
     }
+
+
 }

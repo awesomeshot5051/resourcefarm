@@ -1,23 +1,27 @@
 {
   "stats": {
-    "minecraft:mined": {
-      "minecraft:snow_block": 5,
-      "resource_farms:cpowder_farm": 3,
-      "resource_farms:iron_farm": 1,
-      "minecraft:short_grass": 1,
-      "minecraft:grass_block": 1,
-      "resource_farms:ssoil_farm": 1,
-      "resource_farms:concrete_farm": 5,
-      "resource_farms:stone_farm": 29,
-      "resource_farms:diron_farm": 2,
-      "resource_farms:netherite_farm": 2
-    },
-    "minecraft:dropped": {
-      "minecraft:diamond": 128,
-      "minecraft:snow": 3,
-      "minecraft:dirt": 1,
-      "integrateddynamics:crystalized_chorus_chunk": 52,
-      "minecraft:bucket": 1
+    "minecraft:custom": {
+      "minecraft:interact_with_furnace": 2,
+      "minecraft:interact_with_crafting_table": 118,
+      "minecraft:leave_game": 105,
+      "minecraft:time_since_death": 25268,
+      "minecraft:time_since_rest": 25300,
+      "minecraft:sprint_one_cm": 78471,
+      "minecraft:damage_taken": 575,
+      "minecraft:walk_one_cm": 188205,
+      "minecraft:drop": 6,
+      "minecraft:swim_one_cm": 10252,
+      "minecraft:fly_one_cm": 194736,
+      "minecraft:crouch_one_cm": 1407,
+      "minecraft:play_time": 785685,
+      "minecraft:deaths": 2,
+      "minecraft:sneak_time": 7223,
+      "minecraft:walk_under_water_one_cm": 3388,
+      "minecraft:jump": 1293,
+      "minecraft:interact_with_blast_furnace": 1,
+      "minecraft:walk_on_water_one_cm": 397,
+      "minecraft:total_world_time": 910872,
+      "minecraft:fall_one_cm": 7373
     },
     "minecraft:crafted": {
       "resource_farms:sand_farm": 8,
@@ -109,7 +113,7 @@
       "resource_farms:mud_farm": 18,
       "minecraft:furnace": 1,
       "adm2:any_dimensional_random_wand": 1,
-      "resource_farms:flcr_farm": 1,
+      "resource_farms:flcr_farm": 2,
       "minecraft:bubble_coral_block": 2,
       "resource_farms:terracotta_farm": 8,
       "resource_farms:mglass_farm": 4,
@@ -118,8 +122,12 @@
       "resource_farms:snow_farm": 30,
       "resource_farms:glowstone_farm": 2
     },
-    "minecraft:killed_by": {
-      "minecraft:skeleton": 1
+    "minecraft:dropped": {
+      "minecraft:diamond": 128,
+      "minecraft:snow": 3,
+      "minecraft:dirt": 1,
+      "integrateddynamics:crystalized_chorus_chunk": 52,
+      "minecraft:bucket": 1
     },
     "minecraft:picked_up": {
       "minecraft:crafting_table": 1,
@@ -145,28 +153,20 @@
       "minecraft:snowball": 20,
       "minecraft:diamond_pickaxe": 1
     },
-    "minecraft:custom": {
-      "minecraft:interact_with_furnace": 2,
-      "minecraft:interact_with_crafting_table": 118,
-      "minecraft:leave_game": 103,
-      "minecraft:time_since_death": 20752,
-      "minecraft:time_since_rest": 20784,
-      "minecraft:sprint_one_cm": 78471,
-      "minecraft:damage_taken": 575,
-      "minecraft:walk_one_cm": 183184,
-      "minecraft:drop": 6,
-      "minecraft:swim_one_cm": 10252,
-      "minecraft:fly_one_cm": 194736,
-      "minecraft:crouch_one_cm": 1388,
-      "minecraft:play_time": 781169,
-      "minecraft:deaths": 2,
-      "minecraft:sneak_time": 7129,
-      "minecraft:walk_under_water_one_cm": 3388,
-      "minecraft:jump": 1290,
-      "minecraft:interact_with_blast_furnace": 1,
-      "minecraft:walk_on_water_one_cm": 397,
-      "minecraft:total_world_time": 906337,
-      "minecraft:fall_one_cm": 7373
+    "minecraft:killed_by": {
+      "minecraft:skeleton": 1
+    },
+    "minecraft:mined": {
+      "minecraft:snow_block": 5,
+      "resource_farms:cpowder_farm": 3,
+      "resource_farms:iron_farm": 1,
+      "minecraft:short_grass": 1,
+      "minecraft:grass_block": 1,
+      "resource_farms:ssoil_farm": 1,
+      "resource_farms:concrete_farm": 5,
+      "resource_farms:stone_farm": 29,
+      "resource_farms:diron_farm": 2,
+      "resource_farms:netherite_farm": 2
     }
   },
   "DataVersion": 3955

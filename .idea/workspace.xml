@@ -9,9 +9,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08f1d1cd-a1c7-4928-8d11-ef4017544ba0" name="Changes" comment="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.&#10;Recipes still need to be made">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/FluixCrystalDispenseBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/tags/ItemTagsProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/tags/ModItemTags.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/fluid/water_still.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/fluid/waterflow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/fluid/waterflow.png.mcmeta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/fluid/waterstill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/fluid/waterstill.png.mcmeta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/fluid/waterstill2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/textures/fluid/waterstill2.png.mcmeta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/command_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/command_history.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
@@ -19,7 +29,6 @@
       <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/options.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/advancements/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
@@ -36,14 +45,27 @@
       <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/stats/380df991-f603-344c-a090-369bad2a924a.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/datacomponents/ModDataComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/datacomponents/ModDataComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/resource_farms/models/block/fldu_farm.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/assets/resource_farms/models/block/fldu_farm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/BlockBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/BlockBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/overworld/rock/common/StoneFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/RendererBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/blocks/tileentity/render/RendererBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/DataGenerators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/DataGenerators.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/models/BaseBlockModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/models/BaseBlockModelProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/models/ModBlockModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/models/ModBlockModelProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/tags/BlockTagsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/tags/BlockTagsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/events/BlockEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/events/BlockEvents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/AE2Blocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/AE2Blocks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmTileentity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/ChargedCertusQuartzCrystalFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/ChargedCertusQuartzCrystalFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawedBuddingQuartzFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawedBuddingQuartzFarmRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawedBuddingQuartzFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Quartz/FlawedBuddingQuartzFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmTileentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmTileentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/theoneprobe/TileInfoProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/theoneprobe/TileInfoProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/waila/HUDHandlerFarms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/waila/HUDHandlerFarms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/waila/PluginFarms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/waila/PluginFarms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/resource_farms/lang/en_us.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +95,9 @@
         <task path="$PROJECT_DIR$/../corelib">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -90,12 +115,6 @@
                 <item name="resourcefarm" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="resourcefarm" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -119,7 +138,8 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="1.21.1-adding-fluid-rendering" />
+        <entry key="$PROJECT_DIR$" value="1.21.1-adding-new-upgrades" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -137,8 +157,10 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.awesomeshot5051.corelib/corelib/1.21-3.0.7/d1d7bc9eddffe55b93ebc15010d2590db39c7ed6/corelib-1.21-3.0.7.jar!/com/awesomeshot5051/corelib/block/IItemBlock.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.119-merged.jar!/net/minecraft/client/multiplayer/MultiPlayerGameMode.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.119-merged.jar!/net/minecraft/world/level/block/state/BlockBehaviour.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/build/moddev/artifacts/neoforge-21.1.133-merged.jar!/net/minecraft/world/level/block/EntityBlock.class" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/providers/recipe/ModRecipeProvider.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KotlinScriptingSettings">
@@ -176,6 +198,7 @@
     &quot;Gradle.D:/MCreatorWorkspaces/resourceFarm [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [ReleaseJar].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [classes] (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [classes].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [createLaunchScripts].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.D:/MCreatorWorkspaces/resourcefarm [githubRelease].executor&quot;: &quot;Run&quot;,
@@ -193,18 +216,19 @@
     &quot;Gradle.resourceFarm [assemble].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [buildDependents] (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [buildDependents] (2).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [buildDependents].executor&quot;: &quot;Debug&quot;,
     &quot;Gradle.resourceFarm [buildNeeded] (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [buildNeeded].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [build].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [classes] (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [classes].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [classes].executor&quot;: &quot;Debug&quot;,
     &quot;Gradle.resourceFarm [clean] (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [clean] (2).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [corelibShadowJar].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [createLaunchScripts].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.resourceFarm [downloadAssets].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.resourceFarm [downloadAssets] (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.resourceFarm [downloadAssets].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [githubRelease].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [init].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.resourceFarm [jar].executor&quot;: &quot;Run&quot;,
@@ -222,33 +246,36 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;1.21.1-adding-new-upgrades&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;1.21.1-adding-fluid-rendering&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Traee/.gradle/caches/modules-2/files-2.1/net.neoforged&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MCreatorWorkspaces/resourcefarm/src/main/resources/assets/resource_farms/textures/block&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;D:/MCreatorWorkspaces/mobFarms/MobFarms/src/main/java/com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/CreeperFarmBlock.java&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.awesomeshot5051.resourceFarm.integration.ae2.Fluix" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\resources\assets\resource_farms\textures\block" />
       <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\resources\assets\resource_farms\models\item" />
       <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\resources\data\resource_farms\loot_table\blocks" />
       <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\java\com\awesomeshot5051\resourceFarm\integration\ae2\extendedae" />
       <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\java\com\awesomeshot5051\resourceFarm\integration\ae2" />
-      <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\java\com\awesomeshot5051\resourceFarm\integration\integratedterminals" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MCreatorWorkspaces\resourcefarm\src\main\resources\assets\resource_farms\textures\fluid" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\data\resource_farms\loot_table\blocks" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item" />
       <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\overworld\soil" />
-      <recent name="D:\MCreatorWorkspaces\resourceFarm\src\main\resources\assets\resource_farms\models\item\overworld\gravel_farm.json" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.awesomeshot5051.resourceFarm.items.render.nether.ores.veryrare.regular" />
@@ -258,11 +285,11 @@
       <recent name="com.awesomeshot5051.resourceFarm.data.providers" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.awesomeshot5051.resourceFarm.data.providers.tags" />
+      <recent name="com.awesomeshot5051.resourceFarm.items.render" />
       <recent name="com.awesomeshot5051.resourceFarm.integration.ae2" />
       <recent name="com.awesomeshot5051.resourceFarm.integration.integratedterminals" />
       <recent name="com.awesomeshot5051.resourceFarm.integration.integrateddynamics" />
-      <recent name="com.awesomeshot5051.resourceFarm.blocks" />
-      <recent name="com.awesomeshot5051.resourceFarm.events" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -314,7 +341,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="D:/MCreatorWorkspaces/resourcefarm [ReleaseJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -325,7 +352,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="ReleaseJar" />
+            <option value="buildDependents" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -336,7 +363,29 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="D:/MCreatorWorkspaces/resourcefarm [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="resourceFarm [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -358,7 +407,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="D:/MCreatorWorkspaces/resourcefarm [runData]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="resourceFarm [downloadAssets]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -369,7 +418,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="runData" />
+            <option value="downloadAssets" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -392,28 +441,6 @@
         <option name="taskNames">
           <list>
             <option value="runClient" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="resourceFarm [runData]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runData" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -493,19 +520,19 @@
       <item itemvalue="Application.Data" />
       <item itemvalue="Application.GameTestServer" />
       <item itemvalue="Application.Server" />
-      <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [ReleaseJar]" />
-      <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [classes]" />
-      <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [runData]" />
+      <item itemvalue="Gradle.resourceFarm [classes]" />
+      <item itemvalue="Gradle.resourceFarm [buildDependents]" />
+      <item itemvalue="Gradle.resourceFarm [build]" />
+      <item itemvalue="Gradle.resourceFarm [downloadAssets]" />
       <item itemvalue="Gradle.resourceFarm [runClient]" />
-      <item itemvalue="Gradle.resourceFarm [runData]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.resourceFarm [runClient]" />
-        <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [runData]" />
-        <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [ReleaseJar]" />
-        <item itemvalue="Gradle.D:/MCreatorWorkspaces/resourcefarm [classes]" />
-        <item itemvalue="Gradle.resourceFarm [runData]" />
+        <item itemvalue="Gradle.resourceFarm [classes]" />
+        <item itemvalue="Gradle.resourceFarm [downloadAssets]" />
+        <item itemvalue="Gradle.resourceFarm [build]" />
+        <item itemvalue="Gradle.resourceFarm [buildDependents]" />
       </list>
     </recent_temporary>
   </component>
@@ -517,30 +544,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733150288157</updated>
-    </task>
-    <task id="LOCAL-00046" summary="1.21.1 V 2.0.3&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <option name="closed" value="true" />
-      <created>1738278562255</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1738278562255</updated>
-    </task>
-    <task id="LOCAL-00047" summary="1.21.1 V 2.0.3&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <option name="closed" value="true" />
-      <created>1738278571128</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1738278571128</updated>
-    </task>
-    <task id="LOCAL-00048" summary="1.21.1 V 2.0.3&#10;Fixed enchantments not being kept when relogging. Fixed Picktype not being kept when relogging or minging.">
-      <option name="closed" value="true" />
-      <created>1738279587531</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1738279587531</updated>
     </task>
     <task id="LOCAL-00049" summary="1.21.1-2.1.3&#10;Fixed bug where putting in the correct tool wouldn't output the right tool&#10;Fixed bug where plugin showed wrong name&#10;Changed Stone farm to always drop stone, unless smelter upgrade is active. Then it drops Smooth Stone">
       <option name="closed" value="true" />
@@ -910,7 +913,31 @@
       <option name="project" value="LOCAL" />
       <updated>1742262924138</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.&#10;Recipes still need to be made">
+      <option name="closed" value="true" />
+      <created>1742430615884</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1742430615884</updated>
+    </task>
+    <task id="LOCAL-00096" summary="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.&#10;Recipes still need to be made">
+      <option name="closed" value="true" />
+      <created>1742436457525</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1742436457525</updated>
+    </task>
+    <task id="LOCAL-00097" summary="1.21.1&#10;Added AE2 Integration plus Extended AE2 Integration&#10;Drops still need to be adjusted.&#10;Recipes still need to be made">
+      <option name="closed" value="true" />
+      <created>1742778913268</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1742778913269</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1132,17 +1159,6 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmTileentity.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="366" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <condition expression="itemsNeeded.contains(heldItem) &amp;&amp; itemsNeeded.size() == 4" language="JAVA" />
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmBlock.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="369" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmTileentity.java</url>
           <line>182</line>
           <option name="timeStamp" value="377" />
         </line-breakpoint>
@@ -1151,10 +1167,60 @@
           <line>242</line>
           <option name="timeStamp" value="380" />
         </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/waila/HUDHandlerFarms.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="410" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition expression="Screen.hasShiftDown() &amp;&amp; blockEntity instanceof FluixCrystalFarmTileentity blockEntity2" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/waila/HUDHandlerFarms.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="412" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmRenderer.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="415" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition disabled="true" expression="!farm.fluixDustList.isEmpty() &amp;&amp; AE2Check.containsAllItems(farm.fluixDustList, ModItemTags.SLABS_AND_FLUX_CRYSTAL, farm.getLevel())" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmRenderer.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="418" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixDustFarmTileentity.java</url>
+          <line>213</line>
+          <option name="timeStamp" value="423" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/data/DataGenerators.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="424" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.awesomeshot5051.corelib/corelib/1.21-3.0.10/32276bc1043bf471a644aac8c6881ed52dc6aab1/corelib-1.21-3.0.10.jar!/com/awesomeshot5051/corelib/integration/AE2Check.class</url>
+          <line>25</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="426" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/resourceFarm/integration/ae2/Fluix/FluixCrystalFarmRenderer.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="440" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint log-message="true" type="java-exception" />
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="item" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
