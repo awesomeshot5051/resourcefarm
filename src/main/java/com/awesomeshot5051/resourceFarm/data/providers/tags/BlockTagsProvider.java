@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.tags;
 
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import net.minecraft.core.*;
@@ -23,7 +24,6 @@ public class BlockTagsProvider extends IntrinsicHolderTagsProvider<Block> implem
 
             ResourceLocation.fromNamespaceAndPath(Main.MODID, "smeltable_results")
     );
-
     private static List<Block> deepslateFarms;
     private static List<Block> regularFarms;
     private static List<Block> DiamondToolNeeded;

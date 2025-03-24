@@ -2,6 +2,7 @@ package com.awesomeshot5051.resourceFarm.integration.ae2.Fluix;
 
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.corelib.integration.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
@@ -19,16 +20,19 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.fluids.*;
+import net.neoforged.neoforge.fluids.capability.*;
+import net.neoforged.neoforge.fluids.capability.templates.*;
 import net.neoforged.neoforge.items.*;
+import org.jetbrains.annotations.*;
 
 import java.util.*;
 
 import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 
-@SuppressWarnings("ALL")
 public class FluixCrystalFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
-
+    private final FluidTank fluidTank;
     public ItemStack pickType;
     public List<ItemStack> upgradeList = new ArrayList<>();
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, this.upgradeList);
@@ -38,7 +42,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     public ItemStack pickaxeType;
     public boolean soundOn;
     public ItemContainerContents ae2Items;
-    public List<ItemStack> ae2ItemsList = new ArrayList<>();
+    public List<ItemStack> ae2ItemsList = new ArrayList<>(4);
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -51,6 +55,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         outputItemHandler = new OutputItemHandler(inventory);
         pickType = new ItemStack(Items.WOODEN_PICKAXE);
         ae2Items = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.AIR)));
+        this.fluidTank = new FluidTank(Integer.MAX_VALUE);
     }
 
     public static double getFluixCrystalGenerateTime(FluixCrystalFarmTileentity tileEntity) {
@@ -82,6 +87,64 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
 
     }
 
+    // Delegate methods to fluidTank
+    public FluidStack getFluid() {
+        return fluidTank.getFluid();
+    }
+
+    public int getCapacity() {
+        return fluidTank.getCapacity();
+    }
+
+    public int getFluidAmount() {
+        return this.fluidTank.getFluidAmount();
+    }
+
+    public int getSpaceLeftInStorage() {
+        return this.fluidTank.getSpace();
+    }
+
+    public boolean isTankEmpty() {
+        return this.fluidTank.isEmpty();
+    }
+
+    public FluidTank readFluidTankNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
+        return this.fluidTank.readFromNBT(lookupProvider, nbt);
+    }
+
+    public CompoundTag writeFluidTankNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
+        return this.fluidTank.writeToNBT(lookupProvider, nbt);
+    }
+
+    public boolean isFluidValid(int tank, FluidStack stack) {
+        return fluidTank.isFluidValid(tank, stack);
+    }
+
+    public int fill(FluidStack resource, IFluidHandler.FluidAction action) {
+        return fluidTank.fill(resource, action);
+    }
+
+    public FluidStack drain(FluidStack resource, IFluidHandler.FluidAction action) {
+        return fluidTank.drain(resource, action);
+    }
+
+    public FluidStack drain(int maxDrain, IFluidHandler.FluidAction action) {
+        return fluidTank.drain(maxDrain, action);
+    }
+
+    public @Nullable IFluidHandler getFluidHandler() {
+        return this.fluidTank;
+    }
+
+    @Override
+    public <T extends FarmTileentity> boolean checkPasses(T farm) {
+        return AE2Check.containsAllItems(this.ae2ItemsList, AE2Blocks.itemsRequiredForFC);
+    }
+
+    public FluidTank getFluidTank() {
+        return fluidTank;
+    }
+
     public long getTimer() {
         return timer;
     }
@@ -97,7 +160,6 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     public boolean getSound() {
         return this.soundOn;
     }
-
 
     public ItemStack getPickType() {
         return pickType;
@@ -116,7 +178,10 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         }
         this.redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
         this.smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
-        if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
+        if ((!ae2ItemsList.isEmpty()) && !(ae2ItemsList.size() < 4) && !this.checkPasses(this)) {
+            return;
+        } else if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
+            assert level != null;
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
             } else if (timer >= getFluixCrystalBreakTime(this)) {
@@ -156,18 +221,27 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        if ()
-            drops.add(new ItemStack(AE2Blocks.FLUIX_CRYSTAL.get()));
+        if (!ae2ItemsList.isEmpty() && AE2Check.containsAllItems(AE2Blocks.itemsRequiredForFC, ae2ItemsList)) {
+            drops.add(new ItemStack(AE2Blocks.FLUIX_CRYSTAL.get(), dropCount));
+        }
+        if (serverWorld.random.nextFloat() < 0.05f) {
+            if (!ae2ItemsList.isEmpty()) {
+                ae2ItemsList.remove(serverWorld.getRandom().nextIntBetweenInclusive(0, 3));
+            }
+        }
         return drops;
+    }
+
+    public List<ItemStack> getAE2ItemsList() {
+        return ae2ItemsList;
     }
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
     }
 
-
     @Override
-    protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
+    protected void saveAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
         try {
@@ -220,7 +294,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
 
 
     @Override
-    protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
+    protected void loadAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
         super.loadAdditional(compound, provider);
         ContainerHelper.loadAllItems(compound, inventory, provider);
 
@@ -259,5 +333,4 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     protected Map<ResourceKey<Enchantment>, Boolean> getPickaxeEnchantments() {
         return pickaxeEnchantments;
     }
-
 }

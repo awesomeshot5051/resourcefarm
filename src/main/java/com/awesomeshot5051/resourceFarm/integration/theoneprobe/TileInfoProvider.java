@@ -2,7 +2,9 @@ package com.awesomeshot5051.resourceFarm.integration.theoneprobe;
 
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.*;
 import mcjty.theoneprobe.api.*;
+import net.minecraft.client.gui.screens.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.entity.player.*;
@@ -50,6 +52,15 @@ public class TileInfoProvider implements IProbeInfoProvider {
                                 .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
                                 .collect(Collectors.joining(" "))
                 ));
+            }
+            if (!farmTileentity.checkPasses(farmTileentity)) {
+                if (Screen.hasShiftDown() && farmTileentity instanceof FluixCrystalFarmTileentity blockEntity) {
+                    for (ItemStack item : blockEntity.getAE2ItemsList()) {
+                        info.item(item).text(convertToReadableName(item.getDescriptionId()));
+                    }
+                } else {
+                    info.text("Items Missing!").text("Hold Shift for more info");
+                }
             }
             info.item(pickType).text(convertToReadableName(pickType.getDescriptionId()));
         }

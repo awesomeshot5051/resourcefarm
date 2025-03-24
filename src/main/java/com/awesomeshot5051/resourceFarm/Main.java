@@ -35,7 +35,6 @@ public class Main {
     public static ServerConfig SERVER_CONFIG;
     public static ClientConfig CLIENT_CONFIG;
     public static boolean dynamic_installed = ModList.get().isLoaded("integrateddynamics");
-    public static boolean tunnels_installed = ModList.get().isLoaded("integratedtunnels");
     public static boolean terminals_installed = ModList.get().isLoaded("integratedterminals");
     public static boolean ae2_installed = ModList.get().isLoaded("ae2");
     public static boolean eae2_installed = ModList.get().isLoaded("extendedae");

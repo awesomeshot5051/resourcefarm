@@ -12,6 +12,7 @@ import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
+import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.*;
@@ -25,6 +26,9 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
+import net.neoforged.neoforge.common.*;
+import net.neoforged.neoforge.fluids.*;
+import net.neoforged.neoforge.fluids.capability.*;
 import org.jetbrains.annotations.*;
 
 import javax.annotation.*;
@@ -32,6 +36,7 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
 
+import static com.awesomeshot5051.corelib.integration.AE2Check.*;
 import static net.minecraft.world.item.BlockItem.*;
 
 public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
@@ -116,19 +121,54 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
         List<ItemStack> itemsNeeded = new ArrayList<>(farm.ae2ItemsList);
-        if (!itemsNeeded.contains(heldItem) && itemsNeeded.size() < 4) {
-            if (heldItem.is(Items.WATER_BUCKET) &&
-                    itemsNeeded.stream().noneMatch(stack -> stack.is(Items.WATER_BUCKET))) {
-                itemsNeeded.add(heldItem);
-            } else if (heldItem.is(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()) &&
+
+        // IMPLEMENT: Handle water buckets by inserting fluid into the tank.
+        if (heldItem.getItem() instanceof BucketItem bucketItem && !(heldItem.getItem() instanceof MobBucketItem)) {
+            Fluid fluidInBucket = bucketItem.content;
+            // Only process if the bucket is filled (not empty)
+            if (fluidInBucket != Fluids.EMPTY) {
+                FluidStack fluidStack = new FluidStack(fluidInBucket, 1000); // Buckets contain 1000 mB
+                int filledAmount = farm.fill(fluidStack, IFluidHandler.FluidAction.EXECUTE);
+                if (filledAmount > 0) {
+                    if (!worldIn.isClientSide) {
+                        // Replace filled bucket with an empty bucket, unless in creative mode
+                        if (!player.getAbilities().instabuild) {
+                            heldItem.shrink(1);
+                            ItemStack emptyBucket = new ItemStack(Items.BUCKET);
+                            if (!player.addItem(emptyBucket)) {
+                                player.drop(emptyBucket, false);
+                            }
+                        }
+                    }
+                    var sound = bucketItem.content.getFluidType().getSound(player, worldIn, pos, SoundActions.BUCKET_EMPTY);
+                    var soundSource = SoundSource.BLOCKS;
+                    if (sound != null) {
+                        worldIn.playSound(player, pos, sound, soundSource, 1.0F, 1.0F);
+                    }
+                    itemsNeeded.add(heldItem.copyWithCount(1));
+                    return ItemInteractionResult.sidedSuccess(worldIn.isClientSide);
+                }
+            }
+        }
+
+        // Process other items (except water buckets, which are handled above)
+        if (!itemsNeeded.contains(heldItem) && itemsNeeded.size() < 4 && !heldItem.is(Items.AIR)) {
+            if (heldItem.is(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()) &&
                     itemsNeeded.stream().noneMatch(stack -> stack.is(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()))) {
-                itemsNeeded.add(heldItem);
+                itemsNeeded.add(heldItem.copyWithCount(1));
+                heldItem.shrink(1);
             } else if (heldItem.is(Items.REDSTONE) &&
                     itemsNeeded.stream().noneMatch(stack -> stack.is(Items.REDSTONE))) {
-                itemsNeeded.add(heldItem);
+                itemsNeeded.add(heldItem.copyWithCount(1));
+                heldItem.shrink(1);
             } else if (heldItem.is(Items.QUARTZ) &&
                     itemsNeeded.stream().noneMatch(stack -> stack.is(Items.QUARTZ))) {
-                itemsNeeded.add(heldItem);
+                itemsNeeded.add(heldItem.copyWithCount(1));
+                heldItem.shrink(1);
+            }
+            // Only update the farm list if we haven't reached 4 items
+            if (itemsNeeded.size() != 4) {
+                farm.ae2ItemsList = itemsNeeded;
             }
             if (itemsNeeded.size() == 4 && containsAllItems(AE2Blocks.itemsRequiredForFC, itemsNeeded)) {
                 farm.ae2Items = ItemContainerContents.fromItems(itemsNeeded);
@@ -140,7 +180,6 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
         if (itemsNeeded.size() == 4 && containsAllItems(AE2Blocks.itemsRequiredForFC, itemsNeeded)) {
             farm.ae2ItemsList = itemsNeeded;
         }
-
 
         player.openMenu(new MenuProvider() {
             @Override
@@ -156,6 +195,7 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
         });
         return ItemInteractionResult.SUCCESS;
     }
+
 
     @Nullable
     @Override
@@ -180,4 +220,6 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
     public float getShadeBrightness(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return 1F;
     }
+
+
 }

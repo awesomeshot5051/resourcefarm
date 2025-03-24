@@ -3726,5 +3726,47 @@
     },
     "done": true
   },
+  "integratedtunnels:root": {
+    "criteria": {
+      "criteria_0": "2025-03-21 14:38:33 -0400"
+    },
+    "done": true
+  },
+  "integrateddynamics:logic_operations/logic_programming": {
+    "criteria": {
+      "criteria_0": "2025-03-21 14:38:39 -0400"
+    },
+    "done": true
+  },
+  "ae2:main/facade": {
+    "criteria": {
+      "facade": "2025-03-21 14:45:06 -0400"
+    },
+    "done": true
+  },
+  "ae2:recipes/misc/network/cables/smart_fluix_clean": {
+    "criteria": {
+      "has_smart_cable": "2025-03-21 15:57:18 -0400"
+    },
+    "done": true
+  },
+  "resource_farms:recipes/misc/fldu_farm_enchantment_removal_recipe": {
+    "criteria": {
+      "has_farm": "2025-03-22 15:44:32 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/composter": {
+    "criteria": {
+      "has_wood_slab": "2025-03-22 16:51:37 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/barrel": {
+    "criteria": {
+      "has_wood_slab": "2025-03-22 16:51:37 -0400"
+    },
+    "done": true
+  },
   "DataVersion": 3955
 }

@@ -6,11 +6,10 @@ import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -28,6 +27,7 @@ import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 @SuppressWarnings("ALL")
 public class FluixDustFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
+
     public ItemStack pickType;
     public List<ItemStack> upgradeList = new ArrayList<>();
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, this.upgradeList);
@@ -36,11 +36,12 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
     public boolean soundOn;
-
+    public List<ItemStack> fluixDustList = new ArrayList<>();
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
     protected OutputItemHandler outputItemHandler;
+
 
     public FluixDustFarmTileentity(BlockPos pos, BlockState state) {
         super(ModTileEntities.FLDU_FARM.get(), ModBlocks.FLDU_FARM.get().defaultBlockState(), pos, state);
@@ -48,34 +49,17 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
         pickType = new ItemStack(Items.WOODEN_PICKAXE);
-    }
-
-    public static double getCGlassGenerateTime(FluixDustFarmTileentity tileEntity) {
-        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
-                (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
-                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
-                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
-                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
-                                                1);
 
     }
 
-    public static double getCGlassBreakTime(FluixDustFarmTileentity tileEntity) {
-        PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
-        if (tileEntity.getPickType().isEnchanted()) {
-            tileEntity.setPickaxeEnchantmentStatus(tileEntity);
-        }
-        int baseValue = 20;
-        if (PickaxeEnchantments.getPickaxeEnchantmentStatus(tileEntity.pickaxeEnchantments, Enchantments.EFFICIENCY)) {
-            baseValue = 10;
-        }
+    public static double getFluixDustGenerateTime(FluixDustFarmTileentity farm) {
+        return Upgrades.getUpgradeStatus(farm.upgrades, ModItems.SPEED_UPGRADE.toStack()) ? (double) Main.SERVER_CONFIG.coalGenerateTime.get() - 20 * 4 / 8 : Main.SERVER_CONFIG.coalGenerateTime.get() - 20 * 4;
 
-        return getCGlassGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
-                pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
-                        pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
-                                pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
-                                        pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
-                                                (baseValue * 10));
+    }
+
+    public static double getFluixDustBreakTime(FluixDustFarmTileentity farm) {
+
+        return Upgrades.getUpgradeStatus(farm.upgrades, ModItems.SPEED_UPGRADE.toStack()) ? getFluixDustGenerateTime(farm) + 20 * 4 / 8 : getFluixDustGenerateTime(farm) + 20 * 4;
 
     }
 
@@ -116,7 +100,7 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
-            } else if (timer >= getCGlassBreakTime(this)) {
+            } else if (timer >= getFluixDustBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
                         drop = itemHandler.insertItem(i, drop, false);
@@ -128,7 +112,7 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getCGlassBreakTime(this)) {
+        } else if (timer >= getFluixDustBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -149,11 +133,11 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
         }
 
         int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
-        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
+        if (getUpgradeStatus(upgrades, ModItems.FORTUNE_UPGRADE.toStack())) {
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).asItem(), dropCount));
+        drops.add(new ItemStack(AE2Blocks.FLUIX_DUST.get(), dropCount));
         return drops;
     }
 
@@ -198,7 +182,11 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
             }
             compound.put("Upgrades", upgradesList);
         }
-
+// Saving ae2ItemsList correctly
+        if (fluixDustList != null && !fluixDustList.isEmpty()) {
+            DataResult<Tag> tagResult = ItemStack.CODEC.listOf().encodeStart(NbtOps.INSTANCE, fluixDustList);
+            compound.put("ae2Items", tagResult.result().orElse(new ListTag())); // Ensure it's saved correctly
+        }
         CompoundTag soundOnTag = new CompoundTag();
         soundOnTag.putBoolean("soundOn", soundOn);
         compound.put("soundON", soundOnTag);
@@ -222,6 +210,13 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
         if (pickType == null) {
 
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
+        }
+        // Fix: Ensure "ae2Items" exists before decoding
+        if (compound.contains("ae2Items")) {
+            DataResult<List<ItemStack>> decodedResult = ItemStack.CODEC.listOf().parse(NbtOps.INSTANCE, compound.get("ae2Items"));
+            fluixDustList = decodedResult.result().orElse(List.of()); // Default to empty list if decoding fails
+        } else {
+            fluixDustList = List.of(); // Ensure it's never null
         }
         soundOn = compound.getBoolean("soundON");
         timer = compound.getLong("Timer");
