@@ -2,7 +2,10 @@ package com.awesomeshot5051.resourceFarm.integration.waila;
 
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.*;
 import net.minecraft.*;
+import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.component.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.*;
@@ -27,13 +30,25 @@ public class HUDHandlerFarms implements IBlockComponentProvider {
 
     @Override
     public void appendTooltip(ITooltip iTooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
+        if (blockAccessor.getBlockEntity() instanceof FluixCrystalFarmTileentity blockEntity) {
+            if (!blockEntity.checkPasses(blockEntity)) {
+                if (Screen.hasShiftDown() && blockEntity instanceof FluixCrystalFarmTileentity blockEntity2) {
+                    for (ItemStack item : blockEntity2.getAE2ItemsList()) {
+                        iTooltip.add(Component.literal(BlockBase.convertMinecraftToReadableName(item.getDescriptionId())));
+                    }
+                } else {
+                    iTooltip.add(Component.literal("Items Missing!").append("Hold Shift for more info"));
+                }
+            }
+        }
         if (blockAccessor.getBlockEntity() instanceof FarmTileentity blockEntity) {
+
             ItemStack pickType = blockEntity.getPickType();
             if (blockEntity.getPickType() == ItemStack.EMPTY) {
                 pickType = blockEntity.getShovelType();
             }
             if (pickType != ItemStack.EMPTY) {
-                iTooltip.add(Component.translatable(convertToReadableName(pickType.getDescriptionId())).withStyle(ChatFormatting.RED));
+                iTooltip.add(Component.translatable(BlockBase.convertMinecraftToReadableName(pickType.getDescriptionId())).withStyle(ChatFormatting.RED));
             }
             if (!blockEntity.getCustomData().isEmpty()) {
                 iTooltip.add(Component.literal(
@@ -47,8 +62,18 @@ public class HUDHandlerFarms implements IBlockComponentProvider {
                                 .collect(Collectors.joining(" "))
                 ));
             }
-        }
 
+        } else if (blockAccessor.getBlockEntity() instanceof FluixCrystalFarmTileentity blockEntity) {
+            if (!blockEntity.checkPasses(blockEntity)) {
+                if (Screen.hasShiftDown()) {
+                    for (ItemStack item : blockEntity.getAE2ItemsList()) {
+                        iTooltip.add(Component.literal(BlockBase.convertMinecraftToReadableName(item.getDescriptionId())));
+                    }
+                } else {
+                    iTooltip.add(Component.literal("Items Missing!").append("Hold Shift for more info"));
+                }
+            }
+        }
     }
 
 

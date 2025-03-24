@@ -2,6 +2,7 @@ package com.awesomeshot5051.resourceFarm.integration.ae2.Fluix;
 
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.corelib.integration.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
@@ -20,13 +21,13 @@ import net.minecraft.world.item.component.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.items.*;
+import org.jetbrains.annotations.*;
 
 import java.util.*;
 
 import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 
-@SuppressWarnings("ALL")
 public class FluixCrystalFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
@@ -38,7 +39,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     public ItemStack pickaxeType;
     public boolean soundOn;
     public ItemContainerContents ae2Items;
-    public List<ItemStack> ae2ItemsList = new ArrayList<>();
+    public List<ItemStack> ae2ItemsList = new ArrayList<>(4);
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
@@ -82,6 +83,11 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
 
     }
 
+    @Override
+    public <T extends FarmTileentity> boolean checkPasses(T farm) {
+        return AE2Check.containsAllItems(AE2Blocks.itemsRequiredForFC, this.ae2ItemsList);
+    }
+
     public long getTimer() {
         return timer;
     }
@@ -97,7 +103,6 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     public boolean getSound() {
         return this.soundOn;
     }
-
 
     public ItemStack getPickType() {
         return pickType;
@@ -116,7 +121,11 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         }
         this.redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
         this.smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
+        /*if (!(ae2ItemsList.size() < 4) && !this.checkPasses(this)) {
+            return;
+        } else*/
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
+            assert level != null;
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
             } else if (timer >= getFluixCrystalBreakTime(this)) {
@@ -156,9 +165,19 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        if ()
-            drops.add(new ItemStack(AE2Blocks.FLUIX_CRYSTAL.get()));
+        if (!(ae2ItemsList.size() < 4) && AE2Check.containsAllItems(ae2ItemsList, AE2Blocks.itemsRequiredForFC)) {
+            drops.add(new ItemStack(AE2Blocks.FLUIX_CRYSTAL.get(), dropCount));
+        }
+        if (serverWorld.random.nextFloat() < 0.05f) {
+            if (!ae2ItemsList.isEmpty()) {
+                ae2ItemsList.remove(serverWorld.getRandom().nextIntBetweenInclusive(0, 3));
+            }
+        }
         return drops;
+    }
+
+    public List<ItemStack> getAE2ItemsList() {
+        return ae2ItemsList;
     }
 
     public Container getOutputInventory() {
@@ -167,7 +186,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
 
 
     @Override
-    protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
+    protected void saveAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
         try {
@@ -220,7 +239,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
 
 
     @Override
-    protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
+    protected void loadAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
         super.loadAdditional(compound, provider);
         ContainerHelper.loadAllItems(compound, inventory, provider);
 

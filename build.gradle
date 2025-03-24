@@ -175,8 +175,8 @@ dependencies {
     localRuntime "curse.maven:architectury-api-419699:${architecture_id}"
     localRuntime "curse.maven:glodium-957920:${glodium_id}"
     localRuntime "curse.maven:guideme-1173950:${guideme_id}"
-    shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.7")
-    runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.7"
+    shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.14")
+    runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.14"
 }
 
 tasks.register("generateModMetadata", ProcessResources) {
