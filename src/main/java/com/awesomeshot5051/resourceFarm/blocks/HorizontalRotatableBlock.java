@@ -1,14 +1,11 @@
 package com.awesomeshot5051.resourceFarm.blocks;
 
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.core.*;
+import net.minecraft.world.item.context.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
+import org.jetbrains.annotations.*;
 
 
 public class HorizontalRotatableBlock extends Block {
@@ -21,12 +18,13 @@ public class HorizontalRotatableBlock extends Block {
     }
 
     @Override
-    public BlockState rotate(BlockState state, Rotation rot) {
+    public @NotNull BlockState rotate(BlockState state, Rotation rot) {
         return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }
 
+    @SuppressWarnings("deprecation")
     @Override
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
+    public @NotNull BlockState mirror(BlockState state, Mirror mirrorIn) {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
 

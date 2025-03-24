@@ -30,7 +30,7 @@ public class BlockItemRendererBase<T extends BlockEntityRenderer<U>, U extends F
             renderer = rendererSupplier.apply(RendererProviders.createBlockEntityRendererContext());
         }
         if (itemStack.getItem() instanceof BlockItem blockItem) {
-            minecraft.getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), matrixStack, buffer, combinedLightIn, combinedOverlayIn, ModelData.builder().build(), RenderType.cutout());
+            minecraft.getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), matrixStack, buffer, combinedLightIn, combinedOverlayIn, ModelData.EMPTY, RenderType.cutout());
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
             itemStack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType);
         }

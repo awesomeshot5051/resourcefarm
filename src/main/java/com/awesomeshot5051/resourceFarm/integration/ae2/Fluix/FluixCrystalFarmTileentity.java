@@ -7,7 +7,6 @@ import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
@@ -30,13 +29,11 @@ import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 
 public class FluixCrystalFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
-    public ItemStack pickType;
     public List<ItemStack> upgradeList = new ArrayList<>();
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, this.upgradeList);
     public boolean redstoneUpgradeEnabled;
     public boolean smelterUpgradeEnabled;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
-    public ItemStack pickaxeType;
     public boolean soundOn;
     public ItemContainerContents ae2Items;
     public List<ItemStack> ae2ItemsList = new ArrayList<>(4);
@@ -50,37 +47,16 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.WOODEN_PICKAXE);
-        ae2Items = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.AIR)));
+//        ae2Items = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.AIR)));
     }
 
-    public static double getFluixCrystalGenerateTime(FluixCrystalFarmTileentity tileEntity) {
-        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
-                (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
-                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
-                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
-                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
-                                                1);
+    public static double getFluixCrystalGenerateTime(FluixCrystalFarmTileentity farm) {
+        return Main.SERVER_CONFIG.coalGenerateTime.get() - 20 * 4;
 
     }
 
-    public static double getFluixCrystalBreakTime(FluixCrystalFarmTileentity tileEntity) {
-        PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
-        if (tileEntity.getPickType().isEnchanted()) {
-            tileEntity.setPickaxeEnchantmentStatus(tileEntity);
-        }
-        int baseValue = 20;
-        if (PickaxeEnchantments.getPickaxeEnchantmentStatus(tileEntity.pickaxeEnchantments, Enchantments.EFFICIENCY)) {
-            baseValue = 10;
-        }
-
-        return getFluixCrystalGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
-                pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
-                        pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
-                                pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
-                                        pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
-                                                (baseValue * 10));
-
+    public static double getFluixCrystalBreakTime(FluixCrystalFarmTileentity farm) {
+        return getFluixCrystalGenerateTime(farm) + 20 * 4;
     }
 
     @Override
@@ -104,9 +80,6 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         return this.soundOn;
     }
 
-    public ItemStack getPickType() {
-        return pickType;
-    }
 
     @Override
     public Map<ItemStack, Boolean> getUpgrades() {
@@ -121,13 +94,13 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         }
         this.redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
         this.smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
+        setChanged();
         /*if (!(ae2ItemsList.size() < 4) && !this.checkPasses(this)) {
             return;
         } else*/
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             assert level != null;
             if (!level.hasNeighborSignal(getBlockPos())) {
-                return;
             } else if (timer >= getFluixCrystalBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -140,19 +113,22 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getFluixCrystalBreakTime(this)) {
-            for (ItemStack drop : getDrops()) {
-                for (int i = 0; i < itemHandler.getSlots(); i++) {
-                    drop = itemHandler.insertItem(i, drop, false);
-                    if (drop.isEmpty()) {
-                        break;
+        } else {
+            if (timer == getFluixCrystalGenerateTime(this)) {
+                sync();
+            } else if (timer >= getFluixCrystalBreakTime(this)) {
+                for (ItemStack drop : getDrops()) {
+                    for (int i = 0; i < itemHandler.getSlots(); i++) {
+                        drop = itemHandler.insertItem(i, drop, false);
+                        if (drop.isEmpty()) {
+                            break;
+                        }
                     }
                 }
+                timer = 0L;
+                sync();
             }
-            timer = 0L;
-            sync();
         }
-        setChanged();
     }
 
     private List<ItemStack> getDrops() {
@@ -169,7 +145,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
             drops.add(new ItemStack(AE2Blocks.FLUIX_CRYSTAL.get(), dropCount));
         }
         if (serverWorld.random.nextFloat() < 0.05f) {
-            if (!ae2ItemsList.isEmpty()) {
+            if (!ae2ItemsList.isEmpty() && !(ae2ItemsList.size() < 4)) {
                 ae2ItemsList.remove(serverWorld.getRandom().nextIntBetweenInclusive(0, 3));
             }
         }
@@ -189,14 +165,14 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     protected void saveAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
-        try {
-            if (pickType != null) {
-                DataResult<Tag> tag = ItemStack.STRICT_SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
-                compound.put("PickType", tag.getOrThrow());
-            }
-        } catch (IllegalStateException e) {
-            System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
-        }
+//        try {
+//            if (pickType != null) {
+//                DataResult<Tag> tag = ItemStack.STRICT_SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
+//                compound.put("PickType", tag.getOrThrow());
+//            }
+//        } catch (IllegalStateException e) {
+//            System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
+//        }
 
         // Saving ae2ItemsList correctly
         if (ae2ItemsList != null && !ae2ItemsList.isEmpty()) {
@@ -243,18 +219,18 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         super.loadAdditional(compound, provider);
         ContainerHelper.loadAllItems(compound, inventory, provider);
 
-        if (compound.contains("PickType")) {
-            SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
-        }
+//        if (compound.contains("PickType")) {
+//            SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
+//        }
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (compound.contains("Upgrades")) {
             upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
         }
-        if (pickType == null) {
-            pickType = new ItemStack(Items.WOODEN_PICKAXE);
-        }
+//        if (pickType == null) {
+//            pickType = new ItemStack(Items.WOODEN_PICKAXE);
+//        }
 
         // Fix: Ensure "ae2Items" exists before decoding
         if (compound.contains("ae2Items")) {
