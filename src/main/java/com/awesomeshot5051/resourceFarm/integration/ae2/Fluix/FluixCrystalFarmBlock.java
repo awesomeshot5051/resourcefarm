@@ -63,21 +63,23 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof FluixCrystalFarmTileentity farmTileEntity) {
-            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
+//            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
-                farmTileEntity.setChanged();
-                for (ItemStack upgrade : farmTileEntity.upgradeList) {
-                    updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, upgrade);
-                }
-                level.sendBlockUpdated(pos, state, state, 3);
+//                farmTileEntity.setChanged();
+//                for (ItemStack upgrade : farmTileEntity.upgradeList) {
+//                    updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, upgrade);
+//                }
+//                level.sendBlockUpdated(pos, state, state, 3);
             }
-            if (pickType != null) {
-                farmTileEntity.pickType = pickType.getStackInSlot(0);
-                farmTileEntity.setChanged();
-                updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
-                level.sendBlockUpdated(pos, state, state, 3);
-            }
+            farmTileEntity.setChanged();
+            level.sendBlockUpdated(pos, state, state, 3);
+//            if (pickType != null) {
+//                farmTileEntity.pickType = pickType.getStackInSlot(0);
+//                farmTileEntity.setChanged();
+//                updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
+//                level.sendBlockUpdated(pos, state, state, 3);
+//            }
         }
     }
 
