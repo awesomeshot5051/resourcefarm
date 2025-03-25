@@ -1,8 +1,30 @@
 /secrets/secrets.properties
-.gradle/
-/.idea/
-/build/
-/gradle/
-/run/
-/secrets/
-.gradle/8.10/executionHistory/
+
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+runs
+run-data
+
+repo
+
+src/generated
