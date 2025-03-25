@@ -41,9 +41,8 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
     @Override
     public void render(FluixCrystalFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
-        matrixStack.translate(0, 0, 0);
         matrixStack.pushPose();
-        renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
+        renderFluid(new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, combinedLight, combinedOverlay);
         Level level = farm.getLevel();
         assert level != null;
         matrixStack.scale(0.5f, 0.5f, 0.5f);
@@ -52,7 +51,7 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
         double breakTime = FluixCrystalFarmTileentity.getFluixCrystalBreakTime(farm);
 
         if ((!farm.getAE2ItemsList().isEmpty()) && AE2Check.containsAllItems(AE2Blocks.itemsRequiredForFC, farm.getAE2ItemsList())) {
-            renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
+            //renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
             if (farm.getTimer() >= generateTime) {
                 if (farm.redstoneUpgradeEnabled && !level.hasNeighborSignal(farm.getBlockPos())) {
                     blockRenderDispatcher.renderSingleBlock(
@@ -102,7 +101,7 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
                 }
             }
             if (farm.getAE2ItemsList().stream().anyMatch(item -> item.is(Items.WATER_BUCKET))) {
-                renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
+                //renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
             }
         }
 
@@ -167,10 +166,13 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
     }
 
 
-    private <T extends FarmTileentity> void renderFluid(T blockEntity, FluidStack fluidStack, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+    private void renderFluid(FluidStack fluidStack, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         if (fluidStack.isEmpty()) {
             return;
         }
+        float glassBorder = 0.06F;
+        float maxHeight = 1F - 2 * glassBorder;
+        float width = 1F - 2 * glassBorder;
 
         Fluid fluid = fluidStack.getFluid();
         ResourceLocation fluidStill = IClientFluidTypeExtensions.of(fluid).getStillTexture();
@@ -187,13 +189,13 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
         // Calculate fluid height based on amount
         float capacity = (float) 1000;
         float fillPercent = Math.max(0.0F, Math.min(1.0F, fluidStack.getAmount() / capacity));
-        float height = 0.875F * fillPercent; // 0.875 is the max height within the tank
+        float height = maxHeight * fillPercent;
 
         poseStack.pushPose();
 
         // Adjust the rendering position
-        poseStack.translate(0f, 1.25f, 0f); // TEMP: For testing purposes (Comment this out if needed)
-        poseStack.translate(0.125F, 0.125F, 0.125F);
+        //poseStack.translate(0f, 1.25f, 0f); // TEMP: For testing purposes (Comment this out if needed)
+        poseStack.translate(glassBorder, glassBorder, glassBorder);
 
         VertexConsumer builder = bufferSource.getBuffer(RenderType.translucent());
 
@@ -206,38 +208,38 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
         // Render the fluid cube
         // Top face (Y+)
         vertex(builder, poseStack, 0, height, 0, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0, height, 0.75F, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, height, 0.75F, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, height, 0, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, 0, height, width, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, height, width, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, height, 0, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
 
 // Bottom face (Y-)
         vertex(builder, poseStack, 0, 0, 0, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, 0, 0, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, 0, 0.75F, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0, 0, 0.75F, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, 0, 0, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, 0, width, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, 0, 0, width, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
 
 // North face (Z-)
         vertex(builder, poseStack, 0, 0, 0, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
         vertex(builder, poseStack, 0, height, 0, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, height, 0, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, 0, 0, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, height, 0, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, 0, 0, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
 
 // South face (Z+)
-        vertex(builder, poseStack, 0.75F, 0, 0.75F, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, height, 0.75F, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0, height, 0.75F, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0, 0, 0.75F, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, 0, width, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, height, width, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, 0, height, width, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, 0, 0, width, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
 
 // East face (X+)
-        vertex(builder, poseStack, 0.75F, 0, 0, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, height, 0, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, height, 0.75F, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0.75F, 0, 0.75F, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, 0, 0, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, height, 0, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, height, width, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, width, 0, width, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
 
 
 // West face (X-)
-        vertex(builder, poseStack, 0, 0, 0.75F, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
-        vertex(builder, poseStack, 0, height, 0.75F, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, 0, 0, width, minU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
+        vertex(builder, poseStack, 0, height, width, minU, minV, red, green, blue, alpha, packedLight, packedOverlay);
         vertex(builder, poseStack, 0, height, 0, maxU, minV, red, green, blue, alpha, packedLight, packedOverlay);
         vertex(builder, poseStack, 0, 0, 0, maxU, maxV, red, green, blue, alpha, packedLight, packedOverlay);
 
