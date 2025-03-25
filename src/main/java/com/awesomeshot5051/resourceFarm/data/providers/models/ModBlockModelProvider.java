@@ -1,10 +1,8 @@
 package com.awesomeshot5051.resourceFarm.data.providers.models;
 
 
-import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.*;
 import net.minecraft.data.*;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.data.*;
@@ -36,10 +34,7 @@ public class ModBlockModelProvider extends BaseBlockModelProvider {
         if (Main.ae2_installed) {
             ModBlocks.AE2_REGISTER.getEntries().forEach(blockEntry -> {
                 Block block = blockEntry.get();
-                if (block instanceof FluixCrystalFarmBlock || block instanceof FluixDustFarmBlock) {
-                    waterRenderer(block);
-                } else
-                    sideBottomTop(block.asItem());
+                sideBottomTop(block.asItem());
             });
         }
         if (Main.eae2_installed) {
