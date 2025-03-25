@@ -27,4 +27,4 @@ run-data
 
 repo
 
-src/generated/resources/.cache/
+src/generated/
