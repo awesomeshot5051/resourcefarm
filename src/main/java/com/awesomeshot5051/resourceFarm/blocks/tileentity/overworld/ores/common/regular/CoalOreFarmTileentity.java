@@ -33,7 +33,6 @@ public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBl
     public boolean redstoneUpgradeEnabled;
 
     public boolean smelterUpgradeEnabled;
-    public boolean redstoneUpgradeEnabled;
     public CustomData customData = CustomData.EMPTY;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     protected NonNullList<ItemStack> inventory;
@@ -80,6 +79,7 @@ public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBl
     }
 
 
+    @Override
     public ItemStack getPickType() {
         return pickType;
     }
@@ -89,6 +89,7 @@ public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBl
         return upgrades;
     }
 
+    @Override
     public long getTimer() {
         return timer;
     }
@@ -232,6 +233,7 @@ public class CoalOreFarmTileentity extends FarmTileentity implements ITickableBl
         return outputItemHandler;
     }
 
+    @Override
     protected Map<ResourceKey<Enchantment>, Boolean> getPickaxeEnchantments() {
         return pickaxeEnchantments;
     }
