@@ -1,0 +1,6 @@
+{
+  "name": "Special Farms",
+  "parent": "resource_farms:crafting",
+  "description": "Information on Crafting the Special Farms",
+  "icon": "minecraft:netherite_ingot"
+}

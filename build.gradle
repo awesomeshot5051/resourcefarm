@@ -100,6 +100,7 @@ repositories {
             password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
         }
     }
+
 }
 
 base {
@@ -109,6 +110,7 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
+
     version = project.neo_version
 
     parchment {
@@ -117,6 +119,7 @@ neoForge {
     }
 
     runs {
+
         client {
             client()
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
@@ -175,10 +178,11 @@ dependencies {
     localRuntime "curse.maven:architectury-api-419699:${architecture_id}"
     localRuntime "curse.maven:glodium-957920:${glodium_id}"
     localRuntime "curse.maven:guideme-1173950:${guideme_id}"
-    shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.14")
-    runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.14"
+    shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.15")
+    runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.15"
+    compileOnly("vazkii.patchouli:Patchouli:${VERSION}:api")
+    localRuntime("vazkii.patchouli:Patchouli:${VERSION}")
 }
-
 tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
             minecraft_version      : minecraft_version,

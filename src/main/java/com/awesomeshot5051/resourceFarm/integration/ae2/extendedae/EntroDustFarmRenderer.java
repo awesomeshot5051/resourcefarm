@@ -47,7 +47,7 @@ public class EntroDustFarmRenderer extends RendererBase<EntroDustFarmTileentity>
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        AE2Blocks.ENTRO_BUDDING_FULLY.get().defaultBlockState(),
+                        Block.byItem(AE2Blocks.ENTRO_BUDDING_HARDLY.get()).defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,

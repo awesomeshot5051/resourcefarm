@@ -1,0 +1,15 @@
+{
+  "name": "The Fluix Crystal Farm",
+  "icon": "ae2:fluix_crystal",
+  "category": "resource_farms:ae2_integration/ae2_integration",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Fluix Crystal farm has a special use case. You craft it using the recipe below. But just crafting it does not mean that the farm is active. Just like with regular AE2 mechanics, you must first activate it. This is done by interacting with the block with a Water Bucket, Redstone, Quartz and Certus Quartz. If you have not added any one of these to the block, Jade will tell you what the block is missing. There is also a 0.0002% chance that at any moment while the world is loaded, the block will randomly consume one of the items. To reactivate the block, simply check what item is missing using Jade, then add it to the block. If you don't have Jade, you can also interact with all of the items, as only the one that is missing will be consumed."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "resource_farms:flcr_farm"
+    }
+  ]
+}

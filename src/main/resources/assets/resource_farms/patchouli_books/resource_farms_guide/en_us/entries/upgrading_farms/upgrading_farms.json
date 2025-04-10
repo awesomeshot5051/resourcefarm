@@ -1,0 +1,29 @@
+{
+  "name": "Crafting Soil Farms",
+  "icon": "resource_farms:sand_farm",
+  "category": "resource_farms:upgrading_farms",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "All the farms, by default will start with the pickaxe or shovel level that you crafted it with. If you crafted the Stone Farm with a Stone Pickaxe, it will have a Stone Pickaxe. Similarly, if you crafted the Sand Farm with a Stone Shovel, it will have a Stone Shovel. However, the drop rates of these are pretty slow, about once every 2 minutes. To increase the rate, you can \"Upgrade\" the farm using the Resource of the next level. To take a Stone Farm with a Stone Pickaxe to the Iron Tier, you use four Iron surrounding the Farm. To take it to diamond, you surround the entire farm with Diamond. With the exception of the Netherite Tier, you can jump levels. You must have a Diamond Tier farm before you can get a Netherite Tier. "
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Sand Farm",
+      "recipe": "resource_farms:sand_farm_shovel_stone_upgrade_recipe",
+      "recipe2": "resource_farms:sand_farm_shovel_iron_upgrade_recipe"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Sand Farm",
+      "recipe": "resource_farms:sand_farm_shovel_gold_upgrade_recipe",
+      "recipe2": "resource_farms:sand_farm_shovel_diamond_upgrade_recipe"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Sand Farm",
+      "recipe": "resource_farms:sand_farm_shovel_netherite_upgrade_recipe",
+      "text": "You must have a Diamond Tier before you can get to this tier. If you try to jump to this tier, the recipe won't work."
+    }
+  ]
+}

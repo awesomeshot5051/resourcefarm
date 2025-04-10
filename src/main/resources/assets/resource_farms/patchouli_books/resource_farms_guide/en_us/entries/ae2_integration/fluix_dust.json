@@ -1,0 +1,16 @@
+{
+  "name": "The Fluix Dust Farm",
+  "icon": "ae2:fluix_dust",
+  "category": "resource_farms:ae2_integration/ae2_integration",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Fluix Dust farm has a special use case. You craft it using the recipe below. But just crafting it does not mean that the farm is active. Just like with regular AE2 mechanics, you must first activate it. Normally, you would crush Fluix Crystals in an Inscriber. However, if you put a Fluix Crystal in, along with any kind of slab, including modded slabs, it will \"Crush\" the Fluix Crystal for you and produce Fluix Dust. No more annoying Inscriber Crusher Machine sounds!$(br)Using the Speed Upgrade on this farm will increase it's drop rate 2 fold. Meaning it will drop twice as fast."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "resource_farms:fldu_farm",
+      "recipe2": "resource_farms:fldu_farm_speed_upgrade_recipe"
+    }
+  ]
+}

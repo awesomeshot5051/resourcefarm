@@ -7,7 +7,7 @@ import net.minecraft.core.*;
 public class CertusQuartzCrystalFarmItemRenderer extends BlockItemRendererBase<CertusQuartzCrystalFarmRenderer, CertusQuartzCrystalFarmTileentity> {
 
     public CertusQuartzCrystalFarmItemRenderer() {
-        super(CertusQuartzCrystalFarmRenderer::new, () -> new CertusQuartzCrystalFarmTileentity(BlockPos.ZERO, ModBlocks.CCQC_FARM.get().defaultBlockState()));
+        super(CertusQuartzCrystalFarmRenderer::new, () -> new CertusQuartzCrystalFarmTileentity(BlockPos.ZERO, ModBlocks.CQC_FARM.get().defaultBlockState()));
     }
 
 }

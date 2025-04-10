@@ -1,6 +1,7 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite;
 
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.*;
@@ -10,6 +11,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -28,13 +30,17 @@ public class MysteriousCubeFarmRenderer extends RendererBase<MysteriousCubeFarmT
 
     @Override
     public void render(MysteriousCubeFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        if (PickaxeType.getRank(farm.getPickType().getItem()) < PickaxeType.getRank(Items.IRON_PICKAXE)) {
+            return;
+        }
         Level level = farm.getLevel();
         assert level != null;
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
-        if (farm.getTimer() >= MysteriousCubeFarmTileentity.getCGlassGenerateTime(farm)) {
+
+        if (farm.getTimer() >= MysteriousCubeFarmTileentity.getMCubeGenerateTime(farm)) {
             if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
                 blockRenderDispatcher.renderSingleBlock(
                         Blocks.AIR.defaultBlockState(),
@@ -56,7 +62,7 @@ public class MysteriousCubeFarmRenderer extends RendererBase<MysteriousCubeFarmT
                         RenderType.SOLID
                 );
             }
-        } else if (farm.getTimer() >= MysteriousCubeFarmTileentity.getCGlassBreakTime(farm)) {
+        } else if (farm.getTimer() >= MysteriousCubeFarmTileentity.getMCubeBreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),
                     matrixStack,

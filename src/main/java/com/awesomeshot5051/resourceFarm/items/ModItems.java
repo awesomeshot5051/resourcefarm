@@ -18,6 +18,11 @@ public class ModItems {
     public static final DeferredRegister<Item> DYNAMIC_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredRegister<Item> AE2_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredRegister<Item> EAE2_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
+    public static final DeferredRegister.Items AEITEMS = DeferredRegister.createItems(Main.MODID);
+    public static final DeferredRegister.Items EAEITEMS = DeferredRegister.createItems(Main.MODID);
+
+
     public static final DeferredHolder<Item, Item> ANDESITE_FARM = ITEM_REGISTER.register("andesite_farm", () -> ModBlocks.ANDESITE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> CLAY_FARM = ITEM_REGISTER.register("clay_farm", () -> ModBlocks.CLAY_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> COPPER_FARM = ITEM_REGISTER.register("copper_farm", () -> ModBlocks.COPPER_FARM.get().toItem());
@@ -71,7 +76,7 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> SSAND_FARM = ITEM_REGISTER.register("ssand_farm", () -> ModBlocks.SSAND_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TERRACOTTA_FARM = ITEM_REGISTER.register("terracotta_farm", () -> ModBlocks.TERRACOTTA_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TUFF_FARM = ITEM_REGISTER.register("tuff_farm", () -> ModBlocks.TUFF_FARM.get().toItem());
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
+
     public static final DeferredHolder<Item, Item> CCHORUS_FARM = DYNAMIC_REGISTER.register("cchorus_farm", () -> ModBlocks.CCHORUS_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> CMENRIL_FARM = DYNAMIC_REGISTER.register("cmenril_farm", () -> ModBlocks.CMENRIL_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> MBRICK_FARM = DYNAMIC_REGISTER.register("mbrick_farm", () -> ModBlocks.MBRICK_FARM.get().toItem());
@@ -90,7 +95,6 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> CQC_FARM = AE2_REGISTER.register("cqc_farm", () -> ModBlocks.CQC_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> FLCR_FARM = AE2_REGISTER.register("flcr_farm", () -> ModBlocks.FLCR_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> FLDU_FARM = AE2_REGISTER.register("fldu_farm", () -> ModBlocks.FLDU_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> QC_FARM = AE2_REGISTER.register("qc_farm", () -> ModBlocks.QC_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> QG_FARM = AE2_REGISTER.register("qg_farm", () -> ModBlocks.QG_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> SSB_FARM = AE2_REGISTER.register("ssb_farm", () -> ModBlocks.SSB_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> MC_FARM = AE2_REGISTER.register("mc_farm", () -> ModBlocks.MC_FARM.get().toItem());
@@ -113,10 +117,13 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SPEED_UPGRADE = ITEMS.register("speed_upgrade",
             () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> FORTUNE_UPGRADE = ITEMS.register("fortune_upgrade",
-            () -> new Item(new Item.Properties()));
+    //    public static final DeferredItem<Item> FORTUNE_UPGRADE = ITEMS.register("fortune_upgrade",
+//            () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> REDSTONE_UPGRADE = ITEMS.register("redstone_upgrade",
             () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> AE_CONDUIT = AEITEMS.register("ae_conduit", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> EAE_CONDUIT = EAEITEMS.register("eae_conduit", () -> new Item(new Item.Properties()));
 
     private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPE_REGISTER = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Main.MODID);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockEntityData>> BLOCK_ENTITY_DATA_COMPONENT = DATA_COMPONENT_TYPE_REGISTER.register("block_entity", () -> DataComponentType.<BlockEntityData>builder().networkSynchronized(BlockEntityData.STREAM_CODEC).build());
@@ -133,9 +140,11 @@ public class ModItems {
         }
         if (Main.ae2_installed) {
             AE2_REGISTER.register(eventBus);
+            AEITEMS.register(eventBus);
         }
         if (Main.eae2_installed) {
             EAE2_REGISTER.register(eventBus);
+            EAEITEMS.register(eventBus);
         }
         REGISTRY.register(eventBus);
         ITEMS.register(eventBus);

@@ -46,18 +46,22 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         return ModRecipes.ENCHANTING_SERIALIZER.get();
     }
 
+    @Override
     public ItemStack getResultItem(HolderLookup.Provider registries) {
         return this.result;
     }
 
+    @Override
     public NonNullList<Ingredient> getIngredients() {
         return this.ingredients;
     }
 
+    @Override
     public boolean matches(CraftingInput input, Level level) {
         return super.matches(input, level);
     }
 
+    @Override
     public ItemStack assemble(CraftingInput input, HolderLookup.@NotNull Provider registries) {
         ModRecipeProvider.SHOVEL_BLOCKS.forEach(item -> shovelFarms.add(item.get()));
         List<ItemStack> ingredients = input.items();
@@ -67,14 +71,24 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             ALL_FARMS.add(sidedBlock.get());
         }
-        if (Main.terminals_installed) {
-            for (var sidedBlock : ModItems.TERMINAL_REGISTER.getEntries()) {
+        if (Main.ae2_installed) {
+            for (var sidedBlock : ModItems.AE2_REGISTER.getEntries()) {
                 ALL_FARMS.add(sidedBlock.get());
+            }
+            if (Main.eae2_installed) {
+                for (var sidedBlock : ModItems.EAE2_REGISTER.getEntries()) {
+                    ALL_FARMS.add(sidedBlock.get());
+                }
             }
         }
         if (Main.dynamic_installed) {
             for (var sidedBlock : ModItems.DYNAMIC_REGISTER.getEntries()) {
                 ALL_FARMS.add(sidedBlock.get());
+            }
+            if (Main.terminals_installed) {
+                for (var sidedBlock : ModItems.TERMINAL_REGISTER.getEntries()) {
+                    ALL_FARMS.add(sidedBlock.get());
+                }
             }
         }
         List<ItemStack> Ingredients = input.items();
@@ -87,6 +101,34 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             if (!shovelFarms.contains(sidedBlock.get())) {
                 farmBlocks.add(sidedBlock.get());
+            }
+        }
+        if (Main.ae2_installed) {
+            for (var sidedBlock : ModItems.AE2_REGISTER.getEntries()) {
+                if (!shovelFarms.contains(sidedBlock.get())) {
+                    farmBlocks.add(sidedBlock.get());
+                }
+            }
+            if (Main.eae2_installed) {
+                for (var sidedBlock : ModItems.EAE2_REGISTER.getEntries()) {
+                    if (!shovelFarms.contains(sidedBlock.get())) {
+                        farmBlocks.add(sidedBlock.get());
+                    }
+                }
+            }
+        }
+        if (Main.dynamic_installed) {
+            for (var sidedBlock : ModItems.DYNAMIC_REGISTER.getEntries()) {
+                if (!shovelFarms.contains(sidedBlock.get())) {
+                    farmBlocks.add(sidedBlock.get());
+                }
+            }
+            if (Main.terminals_installed) {
+                for (var sidedBlock : ModItems.TERMINAL_REGISTER.getEntries()) {
+                    if (!shovelFarms.contains(sidedBlock.get())) {
+                        farmBlocks.add(sidedBlock.get());
+                    }
+                }
             }
         }
 
@@ -161,6 +203,7 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
     }
 
 
+    @Override
     public boolean canCraftInDimensions(int width, int height) {
         return width * height >= this.ingredients.size();
     }
@@ -207,10 +250,12 @@ public class EnchantmentAdditionRecipe extends ShapelessRecipe {
             ItemStack.STREAM_CODEC.encode(buffer, recipe.result);
         }
 
+        @Override
         public MapCodec<EnchantmentAdditionRecipe> codec() {
             return CODEC;
         }
 
+        @Override
         public StreamCodec<RegistryFriendlyByteBuf, EnchantmentAdditionRecipe> streamCodec() {
             return STREAM_CODEC;
         }

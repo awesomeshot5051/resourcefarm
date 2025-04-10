@@ -1,0 +1,15 @@
+{
+  "name": "The Entro Crystal Farm",
+  "icon": "extendedae:entro_crystal",
+  "category": "resource_farms:ae2_integration/eae2_integration",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Entro Crystal Farm will generate Entro Crystal in the same way that it's normally generated. It will grow on Budding Quartz. You must also activate this block by adding a Fluix Crystal and an Entro Seed to it. And just like with the Entro Crystal, you can use a Crystal Resonance Generator and a Growth Accelerator to increase the drop speed in addition to incrementing the tier of the Farm. You can add up to four of each item to the block, by interacting with it. The block will not accept more than four. $(br)The drop speed will be divided by each set of pairs of the items you've added, meaning if you have 2 Crystal Resonance Generator and 2 Growth Accelerator, the drop speed will be divided by 2. That means you can increase the drop speed by up to 4 times."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "resource_farms:entc_farm"
+    }
+  ]
+}

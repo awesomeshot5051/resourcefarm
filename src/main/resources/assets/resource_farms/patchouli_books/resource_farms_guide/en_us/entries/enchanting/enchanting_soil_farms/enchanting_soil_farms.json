@@ -1,0 +1,16 @@
+{
+  "name": "Crafting Soil Farms",
+  "icon": "resource_farms:sand_farm",
+  "category": "resource_farms:enchanting/enchanting_soil_farms",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": " Only compatible enchantments can be used with the shovel farms. For example, you can't use Soul Speed on any of these farms. However, you CAN use Efficiency or Fortune on any of the Farms. Fortune will increase the drop count on all of the farms, including the ones that Fortune doesn't normally affect in Vanilla. Efficiency will increase the drop rate.$(br)You cannot combine multiple books with the farm at the same time. However, you are able to combine multiple enchantments onto a single book, then combine that with the farm. $(br)If you place the farm in the crafting grid with nothing else, it will remove ALL of the enchantments."
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Sand Farm",
+      "recipe": "resource_farms:sand_farm_enchant_upgrade_recipe"
+    }
+  ]
+}

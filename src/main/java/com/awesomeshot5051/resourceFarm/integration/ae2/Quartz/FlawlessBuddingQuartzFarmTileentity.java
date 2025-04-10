@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
@@ -10,7 +11,6 @@ import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -148,12 +148,12 @@ public class FlawlessBuddingQuartzFarmTileentity extends FarmTileentity implemen
             return Collections.emptyList();
         }
 
-        int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
+        int dropCount = 1;
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).asItem(), dropCount));
+        drops.add(new ItemStack(AEBlocks.FLAWLESS_BUDDING_QUARTZ, dropCount));
         return drops;
     }
 

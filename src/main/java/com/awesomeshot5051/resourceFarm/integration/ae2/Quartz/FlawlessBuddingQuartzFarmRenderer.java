@@ -1,7 +1,7 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
-import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.*;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
@@ -47,7 +47,7 @@ public class FlawlessBuddingQuartzFarmRenderer extends RendererBase<FlawlessBudd
                 );
             } else {
                 blockRenderDispatcher.renderSingleBlock(
-                        IDBlocks.CHORUS_GLASS.get().defaultBlockState(),
+                        AEBlocks.FLAWLESS_BUDDING_QUARTZ.block().defaultBlockState(),
                         matrixStack,
                         buffer,
                         combinedLight,

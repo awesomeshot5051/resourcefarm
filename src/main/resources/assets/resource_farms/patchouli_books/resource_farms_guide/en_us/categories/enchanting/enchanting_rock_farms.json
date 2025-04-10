@@ -1,0 +1,6 @@
+{
+  "name": "Enchanting",
+  "parent": "resource_farms:enchanting",
+  "description": "The Pickaxe Farms (farms that use a pickaxe in their recipes) can be enchanted. This section will explain how, as well as limitations",
+  "icon": "minecraft:diamond_pickaxe"
+}

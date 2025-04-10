@@ -1,0 +1,6 @@
+{
+  "name": "Rock Farms",
+  "parent": "resource_farms:crafting",
+  "description": "Information on Crafting the Soil Farms",
+  "icon": "minecraft:stone"
+}

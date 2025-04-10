@@ -12,6 +12,7 @@ import net.minecraft.tags.*;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.data.*;
 import net.neoforged.neoforge.registries.*;
+import org.jetbrains.annotations.*;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -72,7 +73,7 @@ public class BlockTagsProvider extends IntrinsicHolderTagsProvider<Block> implem
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(SMELTABLE_RESULTS)
                 .add(ModBlocks.COPPER_FARM.getKey(),
                         ModBlocks.DCOPPER_FARM.getKey(),

@@ -211,7 +211,6 @@ public class ModBlocks {
     public static final DeferredHolder<Block, CertusQuartzCrystalFarmBlock> CQC_FARM = AE2_REGISTER.register("cqc_farm", CertusQuartzCrystalFarmBlock::new);
     public static final DeferredHolder<Block, FluixCrystalFarmBlock> FLCR_FARM = AE2_REGISTER.register("flcr_farm", FluixCrystalFarmBlock::new);
     public static final DeferredHolder<Block, FluixDustFarmBlock> FLDU_FARM = AE2_REGISTER.register("fldu_farm", FluixDustFarmBlock::new);
-    public static final DeferredHolder<Block, QuartzClusterFarmBlock> QC_FARM = AE2_REGISTER.register("qc_farm", QuartzClusterFarmBlock::new);
     public static final DeferredHolder<Block, QuartzGlassFarmBlock> QG_FARM = AE2_REGISTER.register("qg_farm", QuartzGlassFarmBlock::new);
     public static final DeferredHolder<Block, SkyStoneFarmBlock> SSB_FARM = AE2_REGISTER.register("ssb_farm", SkyStoneFarmBlock::new);
     public static final DeferredHolder<Block, MysteriousCubeFarmBlock> MC_FARM = AE2_REGISTER.register("mc_farm", MysteriousCubeFarmBlock::new);

@@ -1,0 +1,20 @@
+{
+  "name": "Crafting Rock Farms",
+  "icon": "resource_farms:stone_farm",
+  "category": "resource_farms:crafting/rock_farms",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": " Crafting these farms is simple.You need 9 Glass Panes, a pickaxe and the rock that you want it to generate For example, the Stone Farm is created with 9 Glass Panes on the outside, any level of Pickaxe in the Middle and Stone below that. Just like in Regular Gameplay, the kind of Pickaxe determines the \"Mineing Speed\""
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Please note that at the moment Modded Pickaxes do work, but they will default to a Wooden Mining speed and you will be unable to upgrade them. As such, it's suggested to stick to vanilla Pickaxes. Support for Modded Pickaxes is a work in progress."
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Stone Farm",
+      "recipe": "resource_farms:stone_farm"
+    }
+  ]
+}

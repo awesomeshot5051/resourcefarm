@@ -95,10 +95,8 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         this.redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
         this.smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         setChanged();
-        /*if (!(ae2ItemsList.size() < 4) && !this.checkPasses(this)) {
-            return;
-        } else*/
-        if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
+        if (!(ae2ItemsList.size() < 4) && !this.checkPasses(this)) {
+        } else if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             assert level != null;
             if (!level.hasNeighborSignal(getBlockPos())) {
             } else if (timer >= getFluixCrystalBreakTime(this)) {
@@ -235,7 +233,8 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         // Fix: Ensure "ae2Items" exists before decoding
         if (compound.contains("ae2Items")) {
             DataResult<List<ItemStack>> decodedResult = ItemStack.CODEC.listOf().parse(NbtOps.INSTANCE, compound.get("ae2Items"));
-            ae2ItemsList = decodedResult.result().orElse(List.of()); // Default to empty list if decoding fails
+
+            ae2ItemsList = new ArrayList<>(decodedResult.result().orElseGet(ArrayList::new));
         } else {
             ae2ItemsList = List.of(); // Ensure it's never null
         }
