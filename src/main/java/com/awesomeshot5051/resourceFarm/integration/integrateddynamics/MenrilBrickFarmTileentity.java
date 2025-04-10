@@ -10,7 +10,6 @@ import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -153,7 +152,7 @@ public class MenrilBrickFarmTileentity extends FarmTileentity implements ITickab
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("integrateddynamics", "crystalized_menril_brick")), dropCount));
+        drops.add(new ItemStack(IDBlocks.MENRIL_BRICK.get(), dropCount));
         return drops;
     }
 

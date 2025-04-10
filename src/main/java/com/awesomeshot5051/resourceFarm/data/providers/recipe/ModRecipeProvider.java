@@ -1,10 +1,12 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe;
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
 import com.awesomeshot5051.resourceFarm.items.*;
+import com.glodblock.github.extendedae.common.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.*;
 import net.minecraft.data.*;
@@ -182,8 +184,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.ANDESITE)
                 .unlockedBy("has_andesite", has(Items.ANDESITE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "andesite_farm")); // Registers Andesite Farm
@@ -194,8 +195,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.BASALT)
                 .unlockedBy("has_basalt", has(Items.BASALT))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "basalt_farm")); // Registers Basalt Farm
@@ -206,8 +206,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.BLACKSTONE)
                 .unlockedBy("has_blackstone", has(Items.BLACKSTONE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "blackstone_farm")); // Registers Blackstone Farm
@@ -218,8 +217,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.CALCITE)
                 .unlockedBy("has_calcite", has(Items.CALCITE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "calcite_farm")); // Registers Calcite Farm
@@ -234,7 +232,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Ingredient.of(Items.CLAY))
                 .unlockedBy("has_clay_block", has(Items.CLAY))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
-                        convertToItemRegistryName(ModBlocks.CLAY_FARM.get().getDescriptionId()))); // Registers Clay Farm
+                        convertToRegistryName(ModBlocks.CLAY_FARM.get().getDescriptionId()))); // Registers Clay Farm
 
 // --- coal_farm ---
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COAL_FARM.get())
@@ -242,11 +240,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Ingredient.of(Items.COAL_ORE, Items.COAL_BLOCK))
                 .unlockedBy("has_coal", has(Items.COAL_ORE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "coal_farm")); // Registers Coal Farm
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COBBLESTONE_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BCB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('C', Items.COBBLESTONE)
+                .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "cobblestone_farm")); // Registers Coal Farm
 
 // --- concrete_powder_farm ---
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CONCRETE_POWDER_FARM.get())
@@ -254,8 +260,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL,
-                        Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('P', ItemTags.SHOVELS)
                 .define('C', Tags.Items.CONCRETE_POWDERS)
                 .unlockedBy("has_sand", has(Items.GREEN_CONCRETE_POWDER))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "cpowder_farm")); // Registers Concrete Powder Farm
@@ -278,8 +283,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Ingredient.of(Items.DEEPSLATE_COAL_ORE, Items.COAL_BLOCK))
                 .unlockedBy("has_coal", has(Items.DEEPSLATE_COAL_ORE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "dcoal_farm")); // Registers Deepslate Coal Farm
@@ -302,8 +306,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.DEEPSLATE)
                 .unlockedBy("has_deepslate", has(Items.DEEPSLATE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "deepslate_farm")); // Registers Deepslate Farm
@@ -314,8 +317,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.DIORITE)
                 .unlockedBy("has_diorite", has(Items.DIORITE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "diorite_farm")); // Registers Diorite Farm
@@ -326,8 +328,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BSB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL,
-                        Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('S', ItemTags.SHOVELS)
                 .define('C', Items.DIRT)
                 .unlockedBy("has_dirt", has(Items.DIRT))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "dirt_farm")); // Registers Dirt Farm
@@ -420,11 +421,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DGOLD_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
-                .pattern("GCG")
+                .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
                 .define('P', Ingredient.of(Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
-                .define('C', Ingredient.of(Items.DEEPSLATE_GOLD_ORE))
-                .define('G', Items.GOLD_BLOCK)
+                .define('C', Ingredient.of(Items.DEEPSLATE_GOLD_ORE, Items.GOLD_INGOT))
                 .unlockedBy("has_deepslate_gold", has(Items.DEEPSLATE_GOLD_ORE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "dgold_farm")); // Registers Deepslate Gold Farm
 
@@ -434,8 +434,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.GLOWSTONE)
                 .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "glowstone_farm")); // Registers Glowstone Farm
@@ -446,8 +445,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.GRANITE)
                 .unlockedBy("has_granite", has(Items.GRANITE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "granite_farm")); // Registers Granite Farm
@@ -509,7 +507,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('M', Items.MUD)
                 .unlockedBy("has_mud", has(Items.MUD))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
-                        convertToItemRegistryName(ModBlocks.MUD_FARM.get().getDescriptionId()))); // Registers Mud Farm
+                        convertToRegistryName(ModBlocks.MUD_FARM.get().getDescriptionId()))); // Registers Mud Farm
 
 // --- nether_gold_farm ---
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NETHER_GOLD_FARM.get())
@@ -517,8 +515,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.NETHER_GOLD_ORE)
                 .unlockedBy("has_nether_gold", has(Items.NETHER_GOLD_ORE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "nether_gold_farm")); // Registers Nether Gold Farm
@@ -529,8 +526,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.NETHER_QUARTZ_ORE)
                 .unlockedBy("has_nether_quartz", has(Items.NETHER_QUARTZ_ORE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "nether_quartz_farm")); // Registers Nether Quartz Farm
@@ -553,8 +549,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.NETHERRACK)
                 .unlockedBy("has_netherrack", has(Items.NETHERRACK))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "netherrack_farm")); // Registers Netherrack Farm
@@ -576,8 +571,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.PURPUR_BLOCK)
                 .unlockedBy("has_purpur", has(Items.PURPUR_BLOCK))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "purpur_farm")); // Registers Purpur Farm
@@ -610,8 +604,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BSB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL,
-                        Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('S', ItemTags.SHOVELS)
                 .define('C', Items.RED_SAND)
                 .unlockedBy("has_red_sand", has(Items.RED_SAND))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "rsand_farm")); // Registers Red Sand Farm
@@ -622,8 +615,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.SHOVELS)
                 .define('C', Items.SAND)
                 .unlockedBy("has_sand", has(Items.SAND))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "sand_farm")); // Registers Sand Farm
@@ -634,8 +626,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.SANDSTONE)
                 .unlockedBy("has_sandstone", has(Items.SANDSTONE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "sstone_farm")); // Registers Sandstone Farm
@@ -646,8 +637,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BSB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL,
-                        Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('S', ItemTags.SHOVELS)
                 .define('C', Items.SNOW_BLOCK)
                 .unlockedBy("has_snow", has(Items.SNOW_BLOCK))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "snow_farm")); // Registers Snow Farm
@@ -658,8 +648,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BSB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL,
-                        Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('S', ItemTags.SHOVELS)
                 .define('C', Items.SOUL_SOIL)
                 .unlockedBy("has_soul_soil", has(Items.SOUL_SOIL))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "ssoil_farm")); // Registers Soul Soil Farm
@@ -670,20 +659,193 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BSB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('S', Ingredient.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL,
-                        Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL))
+                .define('S', ItemTags.SHOVELS)
                 .define('C', Items.SOUL_SAND)
                 .unlockedBy("has_soul_sand", has(Items.SOUL_SAND))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "ssand_farm")); // Registers Soul Sand Farm
 
-// --- stone_farm ---
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ENTC_FARM.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("ACA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('S', ItemTags.PICKAXES)
+                .define('C', Ingredient.of(EAESingletons.FULLY_ENTROIZED_FLUIX_BUDDING, EAESingletons.MOSTLY_ENTROIZED_FLUIX_BUDDING, EAESingletons.HALF_ENTROIZED_FLUIX_BUDDING, EAESingletons.HARDLY_ENTROIZED_FLUIX_BUDDING))
+                .define('A', ModItems.EAE_CONDUIT)
+                .unlockedBy("has_entroized_fluix_budding", has(EAESingletons.FULLY_ENTROIZED_FLUIX_BUDDING))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.ENTC_FARM.get().getDescriptionId())));
+
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ENTB_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BEB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('E', EAESingletons.ENTRO_BLOCK)
+                .unlockedBy("has_entro_block", has(EAESingletons.ENTRO_BLOCK))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.ENTB_FARM.get().getDescriptionId())));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ENTD_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BEB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('E', Ingredient.of(EAESingletons.MOSTLY_ENTROIZED_FLUIX_BUDDING, EAESingletons.HALF_ENTROIZED_FLUIX_BUDDING, EAESingletons.HARDLY_ENTROIZED_FLUIX_BUDDING))
+                .unlockedBy("has_entro_block", has(EAESingletons.HALF_ENTROIZED_FLUIX_BUDDING))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.ENTD_FARM.get().getDescriptionId())));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SIL_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("BEB")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('E', EAESingletons.SILICON_BLOCK)
+                .unlockedBy("has_silicon_block", has(EAESingletons.SILICON_BLOCK))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.SIL_FARM.get().getDescriptionId())));
+
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FLCR_FARM.get())
+                .pattern("BBB")
+                .pattern("BCB")
+                .pattern("AAA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('C', AEItems.FLUIX_CRYSTAL)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_fluix_crystal", has(AEItems.FLUIX_CRYSTAL))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FLCR_FARM.get().getDescriptionId())));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FLDU_FARM.get())
+                .pattern("BBB")
+                .pattern("BDB")
+                .pattern("AAA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('D', AEItems.FLUIX_DUST)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_fluix_dust", has(AEItems.FLUIX_DUST))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FLDU_FARM.get().getDescriptionId())));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MC_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("AMA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('M', AEBlocks.MYSTERIOUS_CUBE)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_mc_cube", has(AEBlocks.MYSTERIOUS_CUBE))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.MC_FARM.get().getDescriptionId())));
+
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SSB_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("ASA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('S', AEBlocks.SKY_STONE_BLOCK)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_sky_stone", has(AEBlocks.SKY_STONE_BLOCK))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.SSB_FARM.get().getDescriptionId())));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CQC_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("ACA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('C', AEItems.CERTUS_QUARTZ_CRYSTAL)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_certus_crystal", has(AEItems.CERTUS_QUARTZ_CRYSTAL.get()))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.CQC_FARM.get().getDescriptionId())));
+
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CCQC_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("ASA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('S', AEItems.CERTUS_QUARTZ_CRYSTAL_CHARGED)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_charged_certus", has(AEItems.CERTUS_QUARTZ_CRYSTAL_CHARGED.get()))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.CCQC_FARM.get().getDescriptionId())));
+
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FBQ_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("ACA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('C', AEBlocks.FLAWED_BUDDING_QUARTZ)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_flawed_budding_quartz", has(AEBlocks.FLAWED_BUDDING_QUARTZ))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FBQ_FARM.get().getDescriptionId())));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FLBQ_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("ACA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('C', AEBlocks.FLAWLESS_BUDDING_QUARTZ)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_flawless_budding_quartz", has(AEBlocks.FLAWLESS_BUDDING_QUARTZ))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FLBQ_FARM.get().getDescriptionId())));
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.QG_FARM.get())
+                .pattern("BBB")
+                .pattern("BPB")
+                .pattern("ASA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('P', ItemTags.PICKAXES)
+                .define('S', AEBlocks.QUARTZ_GLASS)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_mc_cube", has(AEBlocks.QUARTZ_GLASS))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.QG_FARM.get().getDescriptionId())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AE_CONDUIT, 8)
+                .pattern("CCC")
+                .pattern("CQC")
+                .pattern("CCC")
+                .define('C', AEItems.CERTUS_QUARTZ_CRYSTAL)
+                .define('Q', Items.QUARTZ)
+                .unlockedBy("has_certus_quartz", has(AEItems.CERTUS_QUARTZ_CRYSTAL))
+                .unlockedBy("has_quartz", has(Items.QUARTZ))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.AE_CONDUIT.get().getDescriptionId())));
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EAE_CONDUIT, 8)
+                .pattern("QCQ")
+                .pattern("CAC")
+                .pattern("QCQ")
+                .define('Q', EAESingletons.ENTRO_CRYSTAL)
+                .define('A', ModItems.AE_CONDUIT)
+                .define('C', AEItems.CERTUS_QUARTZ_CRYSTAL)
+                .unlockedBy("has_certus_quartz", has(AEItems.CERTUS_QUARTZ_CRYSTAL))
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.EAE_CONDUIT.get().getDescriptionId())));
+
+
+        // --- stone_farm ---
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STONE_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.STONE)
                 .unlockedBy("has_stone", has(Items.STONE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "stone_farm")); // Registers Stone Farm
@@ -694,8 +856,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.TERRACOTTA)
                 .unlockedBy("has_terracotta", has(Items.TERRACOTTA))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "terracotta_farm")); // Registers Terracotta Farm
@@ -706,8 +867,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("BPB")
                 .pattern("BCB")
                 .define('B', Tags.Items.GLASS_PANES)
-                .define('P', Ingredient.of(Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-                        Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE))
+                .define('P', ItemTags.PICKAXES)
                 .define('C', Items.TUFF)
                 .unlockedBy("has_tuff", has(Items.TUFF))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "tuff_farm")); // Registers Tuff Farm
@@ -944,6 +1104,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                             convertToRegistryName(farmBlock.getDescriptionId()) + "_redstone_upgrade"));
         });
 
+
 // ==========================================================================
 // END OF RECIPE REGISTRATION
 // ==========================================================================
@@ -986,7 +1147,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', ItemTags.PICKAXES)
                 .define('C', CRYSTAL_CHORUS_BLOCK.asItem())
                 .unlockedBy("has_crystalized_chorus", has(CRYSTAL_CHORUS_BLOCK))
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModBlocks.CCHORUS_FARM.get().getDescriptionId())));
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.CCHORUS_FARM.get().getDescriptionId())));
+
+
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CCBRICK_FARM.get())
                 .pattern("GGG")
                 .pattern("GPG")
@@ -1004,7 +1167,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', ItemTags.PICKAXES)
                 .define('C', CRYSTAL_MENRIL_BlOCK.asItem())
                 .unlockedBy("has_crystalized_menril_block", has(CRYSTAL_MENRIL_BlOCK))
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModBlocks.CMENRIL_FARM.get().getDescriptionId())));
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.CMENRIL_FARM.get().getDescriptionId())));
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MBRICK_FARM.get())
                 .pattern("GGG")
                 .pattern("GPG")
@@ -1035,6 +1198,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', CHORUS_GLASS.asItem())
                 .unlockedBy("has_chorus_glass", has(CHORUS_GLASS.asItem()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.CCGLASS_FARM.get().getDescriptionId())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPEED_UPGRADE)
+                .pattern("RRR")
+                .pattern("RFR")
+                .pattern("RNR")
+                .define('R', Items.REDSTONE)
+                .define('F', Items.FLINT_AND_STEEL)
+                .define('N', Items.QUARTZ)
+                .unlockedBy("has_flint_and_steel", has(Items.FLINT_AND_STEEL))
+                .unlockedBy("has_netherrack", has(Items.REDSTONE))
+                .unlockedBy("has_quartz", has(Items.QUARTZ))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.SPEED_UPGRADE.asItem().getDescriptionId())));
+
+        CardUpgradeRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.FLDU_FARM.get())
+                .requires(ModBlocks.FLDU_FARM.get())
+                .requires(ModItems.SPEED_UPGRADE)
+                .requires(Items.SUGAR)
+                .requires(Items.REDSTONE)
+                .requires(Items.BLAZE_POWDER)
+                .unlockedBy("has_speed_upgrade", has(ModItems.SPEED_UPGRADE))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FLDU_FARM.get().getDescriptionId() + "_speed_upgrade_recipe")));
     }
 
     private String convertToItemRegistryName(String block) {

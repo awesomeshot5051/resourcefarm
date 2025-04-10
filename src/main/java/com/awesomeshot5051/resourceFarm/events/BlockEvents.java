@@ -1,8 +1,6 @@
 package com.awesomeshot5051.resourceFarm.events;
 
-import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -26,13 +24,13 @@ public class BlockEvents {
             DispenserBlock.registerBehavior(dyeItem, new DyeDispenseItemBehavior());
         }
 
-        // Register behavior for redstone, quartz, charged certus quartz, and water bucket
-        for (var item : new Item[]{
-                Items.REDSTONE, Items.QUARTZ, AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()}) {
-            DispenserBlock.registerBehavior(item, new FluixCrystalDispenseBehavior());
-        }
-        // Register behavior for water bucket
-        DispenserBlock.registerBehavior(Items.WATER_BUCKET, new FluixCrystalDispenseBehavior());
+//        // Register behavior for redstone, quartz, charged certus quartz, and water bucket
+//        for (var item : new Item[]{
+//                Items.REDSTONE, Items.QUARTZ, AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get()}) {
+//            DispenserBlock.registerBehavior(item, new FluixCrystalDispenseBehavior());
+//        }
+//        // Register behavior for water bucket
+//        DispenserBlock.registerBehavior(Items.WATER_BUCKET, new FluixCrystalDispenseBehavior());
     }
 
     @SubscribeEvent

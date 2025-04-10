@@ -23,20 +23,38 @@ public class AE2Blocks {
     public static final Supplier<Block> CERTUS_QUARTZ_CRYSTAL = lazyBlockGet("ae2:certus_quartz_crystal");
     public static final Supplier<Item> FLUIX_CRYSTAL = lazyItemGet("ae2:fluix_crystal");
     public static final Supplier<Item> FLUIX_DUST = lazyItemGet("ae2:fluix_dust");
-    public static final Supplier<Block> SMALL_QUARTZ_BUD = lazyBlockGet("ae2:small_quartz_bud");
-    //    public static final Supplier<Block> MEDIUM_QUARTZ_BUD = lazyBlockGet("ae2:medium_quartz_bud");
-//    public static final Supplier<Block> LARGE_QUARTZ_BUD = lazyBlockGet("ae2:large_quartz_bud");
+    public static final Supplier<Block> FLUIX_BLOCK = lazyBlockGet("ae2:fluix_block");
     public static final Supplier<Block> QUARTZ_CLUSTER = lazyBlockGet("ae2:quartz_cluster");
     public static final Supplier<Block> QUARTZ_GLASS = lazyBlockGet("ae2:quartz_glass");
     public static final Supplier<Block> SKY_STONE_BLOCK = lazyBlockGet("ae2:sky_stone_block");
     public static final Supplier<Block> MYSTERIOUS_CUBE = lazyBlockGet("ae2:mysterious_cube");
     public static final Supplier<Item> SILICON = lazyItemGet("ae2:silicon");
-    public static final Supplier<Block> ENTRO_CRYSTAL = lazyBlockGet("extendedae:entro_crystal");
+    public static final Supplier<Item> ENTRO_CRYSTAL = lazyItemGet("extendedae:entro_crystal");
+    public static final Supplier<Item> ENTRO_CLUSTER = lazyItemGet("extendedae:entro_cluster");
+    public static final Supplier<Item> LARGE_ENTRO_BUD = lazyItemGet("extendedae:entro_cluster_large");
+    public static final Supplier<Item> MEDIUM_ENTRO_BUD = lazyItemGet("extendedae:entro_cluster_medium");
+    public static final Supplier<Item> SMALL_ENTRO_BUD = lazyItemGet("extendedae:entro_cluster_small");
+    public static final Supplier<Item> ENTRO_BUDDING_FULLY = lazyItemGet("extendedae:entro_budding_fully");
+    public static final Supplier<Item> ENTRO_BUDDING_MOSTLY = lazyItemGet("extendedae:entro_budding_mostly");
+    public static final Supplier<Item> ENTRO_BUDDING_HALF = lazyItemGet("extendedae:entro_budding_half");
+    public static final Supplier<Item> ENTRO_BUDDING_HARDLY = lazyItemGet("extendedae:entro_budding_hardly");
     public static final Supplier<Item> ENTRO_SEED = lazyItemGet("extendedae:entro_seed");
     public static final Supplier<Item> ENTRO_DUST = lazyItemGet("extendedae:entro_dust");
     public static final Supplier<Block> ENTRO_BLOCK = lazyBlockGet("extendedae:entro_block");
-    public static final Supplier<Block> ENTRO_BUDDING_FULLY = lazyBlockGet("extendedae:entro_budding_fully");
     public static final Supplier<Block> SILICON_BLOCK = lazyBlockGet("extendedae:silicon_block");
+    public static final Supplier<Block> SKY_STONE_SLAB = lazyBlockGet("ae2:sky_stone_slab");
+    public static final Supplier<Block> SMOOTH_SKY_STONE_SLAB = lazyBlockGet("ae2:smooth_sky_stone_slab");
+    public static final Supplier<Block> SKY_STONE_BRICK_SLAB = lazyBlockGet("ae2:sky_stone_brick_slab");
+    public static final Supplier<Block> SKY_STONE_SMALL_BRICK_SLAB = lazyBlockGet("ae2:sky_stone_small_brick_slab");
+    public static final Supplier<Block> FLUIX_SLAB = lazyBlockGet("ae2:fluix_slab");
+    public static final Supplier<Block> QUARTZ_SLAB = lazyBlockGet("ae2:quartz_slab");
+    public static final Supplier<Block> CUT_QUARTZ_SLAB = lazyBlockGet("ae2:cut_quartz_slab");
+    public static final Supplier<Block> SMOOTH_QUARTZ_SLAB = lazyBlockGet("ae2:smooth_quartz_slab");
+    public static final Supplier<Block> QUARTZ_BRICK_SLAB = lazyBlockGet("ae2:quartz_brick_slab");
+    public static final Supplier<Block> CHISELED_QUARTZ_SLAB = lazyBlockGet("ae2:chiseled_quartz_slab");
+    public static final Supplier<Block> QUARTZ_PILLAR_SLAB = lazyBlockGet("ae2:quartz_pillar_slab");
+
+
     public static List<ItemStack> itemsRequiredForFD;
 
     public static void createItemsRequiredForFD(Level level) {

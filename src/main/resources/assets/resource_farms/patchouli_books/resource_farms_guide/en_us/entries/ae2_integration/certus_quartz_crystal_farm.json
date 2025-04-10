@@ -1,0 +1,15 @@
+{
+  "name": "The Certus Quartz Crystal Farm",
+  "icon": "ae2:certus_quartz_crystal",
+  "category": "resource_farms:ae2_integration/ae2_integration",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Certus Quartz Crystal Farm will generate Certus Quartz Crystal in the same way that it's normally generated. It will grow on Budding Quartz. And just like with the Certus Quartz Crystal, you can use a Crystal Resonance Generator and a Growth Accelerator to increase the drop speed in addition to incrementing the tier of the Farm. You can add up to four of each item to the block, by interacting with it. The block will not accept more than four. $(br)The drop speed will be divided by each set of pairs of the items you've added, meaning if you have 2 Crystal Resonance Generator and 2 Growth Accelerator, the drop speed will be divided by 2. That means you can increase the drop speed by up to 4 times."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "resource_farms:cqc_farm"
+    }
+  ]
+}

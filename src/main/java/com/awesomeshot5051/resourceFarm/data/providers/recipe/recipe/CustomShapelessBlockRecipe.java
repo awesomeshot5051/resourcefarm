@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
@@ -88,6 +89,29 @@ public class CustomShapelessBlockRecipe extends ShapelessRecipe {
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             ALL_FARMS.add(sidedBlock.get());
         }
+        if (Main.ae2_installed) {
+            for (var sidedBlock : ModItems.AE2_REGISTER.getEntries()) {
+                ALL_FARMS.add(sidedBlock.get());
+            }
+            if (Main.eae2_installed) {
+                for (var sidedBlock : ModItems.EAE2_REGISTER.getEntries()) {
+                    ALL_FARMS.add(sidedBlock.get());
+                }
+            }
+        }
+
+        if (Main.dynamic_installed) {
+            for (var sidedBlock : ModItems.DYNAMIC_REGISTER.getEntries()) {
+                ALL_FARMS.add(sidedBlock.get());
+            }
+            if (Main.terminals_installed) {
+                for (var sidedBlock : ModItems.TERMINAL_REGISTER.getEntries()) {
+                    ALL_FARMS.add(sidedBlock.get());
+                }
+            }
+        }
+
+
         ItemContainerContents pickContents = null;
         ItemStack farm = ingredients.stream()
                 .filter(item -> ALL_FARMS.contains(item.getItem()))

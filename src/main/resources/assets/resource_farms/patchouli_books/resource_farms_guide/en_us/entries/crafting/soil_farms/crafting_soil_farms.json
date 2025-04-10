@@ -1,0 +1,16 @@
+{
+  "name": "Crafting Soil Farms",
+  "icon": "resource_farms:sand_farm",
+  "category": "resource_farms:crafting/soil_farms",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": " Crafting these farms is simple.You need 9 Glass Panes, a shovel and the rock that you want it to generate For example, the Sand Farm is created with 9 Glass Panes on the outside, any level of Shovel in the Middle and Sand below that. Just like in Regular Gameplay, the kind of Shovel determines the \"Mineing Speed\"$(br)Please note that at the moment Modded Shovels do work, but they will default to a Wooden Mining speed and you will be unable to upgrade them. As such, it's suggested to stick to vanilla Shovels. Support for Modded Shovels is a work in progress."
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Sand Farm",
+      "recipe": "resource_farms:sand_farm"
+    }
+  ]
+}

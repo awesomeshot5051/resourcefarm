@@ -1,0 +1,33 @@
+{
+  "name": "Special Farms Crafting",
+  "icon": "resource_farms:diamond_farm",
+  "category": "resource_farms:crafting/special_farms",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "All though most of the farm's recipes are straight forward. The following farms, as well as their deepslate variants where applicable, have special recipes.$(br)$(li)Diamond Farm $(li)Emerald Farm $(li)Netherite Farm $(li)Concrete Farm$(br)They all require something in addition to the resource. Their recipes are displayed on the next few pages. "
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Diamond Farm",
+      "recipe": "resource_farms:diamond_farm",
+      "recipe2": "resource_farms:ddiamond_farm"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Emerald Farm",
+      "recipe": "resource_farms:emerald_farm",
+      "recipe2": "resource_farms:demerald_farm"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Concrete Farm",
+      "recipe": "resource_farms:concrete_farm",
+      "text": "For this farm, just like in Vanilla, you must \"Waterlog\" the Concrete Powder Farm, by combining the Concrete Powder Farm with a water bucket. The Shovel Rank used in the Concrete Powder Farm will be converted into the corresponding Pickaxe Rank.$(br)"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "For example, if you made a Concrete Powder Farm with a Diamond Shovel, the Pickaxe used in the Concrete Farm will be Diamond. $(br)Once again, while the Recipe accepts Modded Shovels, they will all default to Wooden. But the conversion to a Concrete Farm from the Concrete Powder farm will NOT be possible."
+    }
+  ]
+}

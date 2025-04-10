@@ -107,6 +107,27 @@ public class UpgradeRecipe extends ShapedRecipe {
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             ALL_FARMS.add(sidedBlock.get());
         }
+        if (Main.ae2_installed) {
+            for (var sidedBlock : ModItems.AE2_REGISTER.getEntries()) {
+                ALL_FARMS.add(sidedBlock.get());
+            }
+            if (Main.eae2_installed) {
+                for (var sidedBlock : ModItems.EAE2_REGISTER.getEntries()) {
+                    ALL_FARMS.add(sidedBlock.get());
+                }
+            }
+        }
+        if (Main.dynamic_installed) {
+            for (var sidedBlock : ModItems.DYNAMIC_REGISTER.getEntries()) {
+                ALL_FARMS.add(sidedBlock.get());
+            }
+            if (Main.terminals_installed) {
+                for (var sidedBlock : ModItems.TERMINAL_REGISTER.getEntries()) {
+                    ALL_FARMS.add(sidedBlock.get());
+                }
+            }
+        }
+
         ItemStack farm = ingredients.stream()
                 .filter(item -> ALL_FARMS.contains(item.getItem()))
                 .findFirst()

@@ -9,8 +9,6 @@ import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.data.providers.tags.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
-import net.minecraft.*;
-import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.world.*;
@@ -76,20 +74,6 @@ public class FluixDustFarmBlock extends BlockBase implements EntityBlock, IItemB
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
         FluixDustFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new FluixDustFarmTileentity(BlockPos.ZERO, ModBlocks.FLDU_FARM.get().defaultBlockState()));
-        if (Screen.hasShiftDown()) {
-            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
-            ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
-            components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
-                    .withStyle(ChatFormatting.RED));
-            if (stack.has(ModDataComponents.UPGRADE)) {
-                for (ItemStack upgrade : stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList())
-                    components.add(Component.literal(convertToReadableName(upgrade.getDescriptionId())));
-            }
-        } else {
-            components.add(Component.literal("Hold §4Shift§r to see tool").withStyle(ChatFormatting.YELLOW));
-        }
-
-
     }
 
     private String convertToReadableName(String block) {
@@ -111,9 +95,10 @@ public class FluixDustFarmBlock extends BlockBase implements EntityBlock, IItemB
         if (heldItem.is(ModItemTags.SLABS_AND_FLUX_CRYSTAL) && fluixDust.size() < 2) {
             fluixDust.add(heldItem.copyWithCount(1));
             heldItem.shrink(1);
+            ((FluixDustFarmTileentity) tileEntity).fluixDustList = fluixDust;
             return ItemInteractionResult.CONSUME;
         }
-        if (fluixDust.size() == 2 && AE2Check.containsAllItems(fluixDust, ModItemTags.SLABS_AND_FLUX_CRYSTAL, Objects.requireNonNull(tileEntity.getLevel()))) {
+        if (fluixDust.size() == 2 && AE2Check.containsAllItems(fluixDust, ModItemTags.SLABS_AND_FLUX_CRYSTAL, Objects.requireNonNull(tileEntity.getLevel()), 1)) {
             ((FluixDustFarmTileentity) tileEntity).fluixDustList = fluixDust;
             return ItemInteractionResult.CONSUME;
         }

@@ -1,15 +1,17 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.*;
 import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -20,6 +22,7 @@ import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRender
 
 public class ChargedCertusQuartzCrystalFarmRenderer extends RendererBase<ChargedCertusQuartzCrystalFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
+    private final ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
     public ChargedCertusQuartzCrystalFarmRenderer(BlockEntityRendererProvider.Context renderer) {
         super(renderer);
@@ -46,14 +49,15 @@ public class ChargedCertusQuartzCrystalFarmRenderer extends RendererBase<Charged
                         RenderType.SOLID
                 );
             } else {
-                blockRenderDispatcher.renderSingleBlock(
-                        AE2Blocks.ENTRO_BLOCK.get().defaultBlockState(),
-                        matrixStack,
-                        buffer,
+                itemRenderer.renderStatic(
+                        AEItems.CERTUS_QUARTZ_CRYSTAL_CHARGED.get().getDefaultInstance(),
+                        ItemDisplayContext.GROUND,
                         combinedLight,
                         combinedOverlay,
-                        ModelData.EMPTY,
-                        RenderType.SOLID
+                        matrixStack,
+                        buffer,
+                        farm.getLevel(),
+                        0
                 );
             }
         } else if (farm.getTimer() >= ChargedCertusQuartzCrystalFarmTileentity.getCGlassBreakTime(farm)) {

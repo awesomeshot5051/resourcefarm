@@ -1,0 +1,6 @@
+{
+  "name": "Shovel Farms",
+  "parent": "resource_farms:enchanting",
+  "description": "The Shovel Farms (farms that use a shovel in their recipe) can be enchanted. This section will explain how, as well as limitations",
+  "icon": "minecraft:diamond_shovel"
+}

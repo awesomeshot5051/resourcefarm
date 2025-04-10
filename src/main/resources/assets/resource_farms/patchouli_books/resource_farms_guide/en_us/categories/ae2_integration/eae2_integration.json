@@ -1,0 +1,6 @@
+{
+  "name": "Extended AE2 Integration",
+  "parent": "resource_farms:ae2_integration",
+  "description": "Information on the Extended AE2 Integration",
+  "icon": "ae2:fluix_crystal"
+}

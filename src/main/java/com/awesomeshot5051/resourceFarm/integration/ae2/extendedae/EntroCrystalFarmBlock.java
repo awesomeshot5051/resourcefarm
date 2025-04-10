@@ -1,6 +1,7 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.extendedae;
 
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.corelib.block.*;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.client.*;
@@ -24,11 +25,14 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
+import org.jetbrains.annotations.*;
 
 import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
 
+import static com.awesomeshot5051.resourceFarm.data.providers.tags.ModItemTags.*;
 import static net.minecraft.world.item.BlockItem.*;
 
 public class EntroCrystalFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
@@ -54,7 +58,7 @@ public class EntroCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
     }
 
     @Override
-    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+    public void setPlacedBy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable LivingEntity placer, @NotNull ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof EntroCrystalFarmTileentity farmTileEntity) {
@@ -67,7 +71,6 @@ public class EntroCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
                 }
                 level.sendBlockUpdated(pos, state, state, 3);
             }
-
             if (pickType != null) {
                 farmTileEntity.pickType = pickType.getStackInSlot(0);
                 farmTileEntity.setChanged();
@@ -79,7 +82,7 @@ public class EntroCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> components, @NotNull TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
         EntroCrystalFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new EntroCrystalFarmTileentity(BlockPos.ZERO, ModBlocks.ENTC_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
@@ -108,22 +111,59 @@ public class EntroCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack heldItem, @NotNull BlockState state, Level worldIn, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand handIn, @NotNull BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
         if (!(tileEntity instanceof EntroCrystalFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
+        // Define allowed speed-up items with their max limits
+        Item crystalResonanceGenerator = AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem();
+        Item growthAccelerator = AEBlocks.GROWTH_ACCELERATOR.asItem(); // Assuming this exists
+        Map<ItemStack, Integer> speedUpItems = new HashMap<>(farm.getSpeedUpItems());
+        if ((heldItem.is(crystalResonanceGenerator) || heldItem.is(growthAccelerator)) && getSpeedUpItemCount(speedUpItems, heldItem) < 4) {
+            // Find existing matching item in the map
+            ItemStack existingKey = null;
+            for (ItemStack stack : speedUpItems.keySet()) {
+                if (ItemStack.isSameItemSameComponents(stack, heldItem)) {
+                    existingKey = stack;
+                    break;
+                }
+            }
 
+            int currentCount = 0;
+            if (existingKey != null) {
+                currentCount = speedUpItems.get(existingKey);
+            }
 
+            if (currentCount < 4) {
+                // If key exists, update its count; otherwise add new entry
+                if (existingKey != null) {
+                    speedUpItems.put(existingKey, currentCount + 1);
+                } else {
+                    speedUpItems.put(heldItem.copyWithCount(1), 1);
+                }
+                farm.setSpeedUpItems(speedUpItems);
+                return ItemInteractionResult.SUCCESS;
+            } else {
+                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            }
+        }
+        List<ItemStack> entroRequirements = new ArrayList<>(farm.entroRequiremnts);
+        if (heldItem.is(ENTRO_CRYSTAL_REQUIRMENTS) && entroRequirements.size() < 2) {
+            entroRequirements.add(heldItem.copyWithCount(1));
+            heldItem.shrink(1);
+            farm.entroRequiremnts = entroRequirements;
+            return ItemInteractionResult.CONSUME;
+        }
+        farm.entroRequiremnts = entroRequirements;
         player.openMenu(new MenuProvider() {
             @Override
-            public Component getDisplayName() {
+            public @NotNull Component getDisplayName() {
                 return Component.translatable(state.getBlock().getDescriptionId());
             }
 
-            @Nullable
             @Override
-            public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
+            public @NotNull AbstractContainerMenu createMenu(int id, @NotNull Inventory playerInventory, @NotNull Player player) {
                 return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.ENTC_FARM::get);
             }
         });
@@ -132,25 +172,34 @@ public class EntroCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level1, BlockState state, BlockEntityType<T> type) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level1, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
         return new SimpleBlockEntityTicker<>();
     }
 
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+    public BlockEntity newBlockEntity(@NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return new EntroCrystalFarmTileentity(blockPos, blockState);
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.MODEL;
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public float getShadeBrightness(BlockState state, BlockGetter worldIn, BlockPos pos) {
+    public float getShadeBrightness(@NotNull BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos) {
         return 1F;
+    }
+
+    private int getSpeedUpItemCount(Map<ItemStack, Integer> items, ItemStack template) {
+        for (Map.Entry<ItemStack, Integer> entry : items.entrySet()) {
+            if (ItemStack.isSameItemSameComponents(entry.getKey(), template)) {
+                return entry.getValue();
+            }
+        }
+        return 0;
     }
 }

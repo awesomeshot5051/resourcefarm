@@ -2,7 +2,9 @@ package com.awesomeshot5051.resourceFarm.integration.theoneprobe;
 
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.*;
 import mcjty.theoneprobe.api.*;
+import net.minecraft.client.gui.screens.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.entity.player.*;
@@ -13,6 +15,8 @@ import net.minecraft.world.level.block.state.*;
 
 import java.util.*;
 import java.util.stream.*;
+
+import static com.awesomeshot5051.resourceFarm.blocks.BlockBase.*;
 
 public class TileInfoProvider implements IProbeInfoProvider {
 
@@ -35,39 +39,18 @@ public class TileInfoProvider implements IProbeInfoProvider {
 //        }
     }
 
-//    private void addFarm(FluidFarmTileentity farmTileentity, IProbeInfo iProbeInfo) {
-//        if (farmTileentity != null) {
-//            IProbeInfo info = iProbeInfo.horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
-//            ItemStack pickType = farmTileentity.getPickType();
-//            if (farmTileentity.getPickType() == ItemStack.EMPTY) {
-//                pickType = farmTileentity.getShovelType();
-//            }
-//            if (!farmTileentity.getCustomData().isEmpty()) {
-//                info.text(Component.literal(
-//                        Arrays.stream(farmTileentity.getCustomData()
-//                                        .toString()
-//                                        .replace("{}", " ")
-//                                        .replace("{Upgrade:\"", "")
-//                                        .replace("\"}", "")
-//                                        .split("_"))
-//                                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
-//                                .collect(Collectors.joining(" "))
-//                ));
-//            }
-//            if (!farmTileentity.checkPasses(farmTileentity)) {
-//                if (Screen.hasShiftDown() && farmTileentity instanceof FluixCrystalFarmTileentity blockEntity) {
-//                    for (ItemStack item : blockEntity.getAE2ItemsList()) {
-//                        info.item(item).text(convertToReadableName(item.getDescriptionId()));
-//                    }
-//                } else {
-//                    info.text("Items Missing!").text("Hold Shift for more info");
-//                }
-//            }
-//            info.item(pickType).text(convertToReadableName(pickType.getDescriptionId()));
-//        }
-//    }
 
     private void addFarm(FarmTileentity farmTileentity, IProbeInfo iProbeInfo) {
+        if (farmTileentity instanceof FluixCrystalFarmTileentity blockEntity && !farmTileentity.checkPasses(farmTileentity)) {
+            IProbeInfo info = iProbeInfo.horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
+            if (Screen.hasShiftDown()) {
+                for (ItemStack item : blockEntity.getAE2ItemsList()) {
+                    info.item(item).text(convertMinecraftToReadableName(item.toString()));
+                }
+            } else {
+                info.text("Items Missing!").text("Hold Shift for more info");
+            }
+        }
         if (farmTileentity != null) {
             IProbeInfo info = iProbeInfo.horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
             ItemStack pickType = farmTileentity.getPickType();

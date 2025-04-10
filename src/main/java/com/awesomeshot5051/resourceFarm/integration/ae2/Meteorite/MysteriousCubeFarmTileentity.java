@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite;
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
@@ -10,7 +11,6 @@ import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -50,7 +50,7 @@ public class MysteriousCubeFarmTileentity extends FarmTileentity implements ITic
         pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
-    public static double getCGlassGenerateTime(MysteriousCubeFarmTileentity tileEntity) {
+    public static double getMCubeGenerateTime(MysteriousCubeFarmTileentity tileEntity) {
         return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
                 (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
@@ -60,7 +60,7 @@ public class MysteriousCubeFarmTileentity extends FarmTileentity implements ITic
 
     }
 
-    public static double getCGlassBreakTime(MysteriousCubeFarmTileentity tileEntity) {
+    public static double getMCubeBreakTime(MysteriousCubeFarmTileentity tileEntity) {
         PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
         if (tileEntity.getPickType().isEnchanted()) {
             tileEntity.setPickaxeEnchantmentStatus(tileEntity);
@@ -70,7 +70,7 @@ public class MysteriousCubeFarmTileentity extends FarmTileentity implements ITic
             baseValue = 10;
         }
 
-        return getCGlassGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
+        return getMCubeGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
                 pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
                         pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
@@ -107,6 +107,9 @@ public class MysteriousCubeFarmTileentity extends FarmTileentity implements ITic
 
     @Override
     public void tick() {
+        if (PickaxeType.getRank(getPickType().getItem()) < PickaxeType.getRank(Items.IRON_PICKAXE)) {
+            return;
+        }
         timer++;
         for (ItemStack upgrade : this.upgradeList) {
             Upgrades.setUpgradeStatus(this.upgrades, upgrade, true);
@@ -116,7 +119,7 @@ public class MysteriousCubeFarmTileentity extends FarmTileentity implements ITic
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
-            } else if (timer >= getCGlassBreakTime(this)) {
+            } else if (timer >= getMCubeBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
                         drop = itemHandler.insertItem(i, drop, false);
@@ -128,7 +131,7 @@ public class MysteriousCubeFarmTileentity extends FarmTileentity implements ITic
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getCGlassBreakTime(this)) {
+        } else if (timer >= getMCubeBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -148,12 +151,19 @@ public class MysteriousCubeFarmTileentity extends FarmTileentity implements ITic
             return Collections.emptyList();
         }
 
-        int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
+        int dropCount = 1;
         if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.FORTUNE)) {
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).asItem(), dropCount));
+        drops.add(new ItemStack(AEItems.ENGINEERING_PROCESSOR_PRESS, dropCount));
+        drops.add(new ItemStack(AEItems.LOGIC_PROCESSOR_PRESS, dropCount));
+        drops.add(new ItemStack(AEItems.SILICON_PRESS, dropCount));
+        drops.add(new ItemStack(AEItems.CALCULATION_PROCESSOR_PRESS, dropCount));
+        if (getPickaxeEnchantmentStatus(pickaxeEnchantments, Enchantments.SILK_TOUCH)) {
+            drops.clear();
+            drops.add(new ItemStack(AEBlocks.MYSTERIOUS_CUBE, dropCount));
+        }
         return drops;
     }
 

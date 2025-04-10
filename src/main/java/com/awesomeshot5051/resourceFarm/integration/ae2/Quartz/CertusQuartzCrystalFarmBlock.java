@@ -1,6 +1,7 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
 
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.corelib.block.*;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.client.*;
@@ -32,6 +33,7 @@ import java.util.stream.*;
 import static net.minecraft.world.item.BlockItem.*;
 
 public class CertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
+
 
     public CertusQuartzCrystalFarmBlock() {
         super(Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
@@ -81,7 +83,7 @@ public class CertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlo
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        CertusQuartzCrystalFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CertusQuartzCrystalFarmTileentity(BlockPos.ZERO, ModBlocks.CCQC_FARM.get().defaultBlockState()));
+        CertusQuartzCrystalFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new CertusQuartzCrystalFarmTileentity(BlockPos.ZERO, ModBlocks.CQC_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
@@ -114,6 +116,38 @@ public class CertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlo
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
 
+        // Define allowed speed-up items with their max limits
+        Item crystalResonanceGenerator = AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem();
+        Item growthAccelerator = AEBlocks.GROWTH_ACCELERATOR.asItem(); // Assuming this exists
+        Map<ItemStack, Integer> speedUpItems = new HashMap<>(farm.getSpeedUpItems());
+        if ((heldItem.is(crystalResonanceGenerator) || heldItem.is(growthAccelerator)) && getSpeedUpItemCount(speedUpItems, heldItem) < 4) {
+            // Find existing matching item in the map
+            ItemStack existingKey = null;
+            for (ItemStack stack : speedUpItems.keySet()) {
+                if (ItemStack.isSameItemSameComponents(stack, heldItem)) {
+                    existingKey = stack;
+                    break;
+                }
+            }
+
+            int currentCount = 0;
+            if (existingKey != null) {
+                currentCount = speedUpItems.get(existingKey);
+            }
+
+            if (currentCount < 4) {
+                // If key exists, update its count; otherwise add new entry
+                if (existingKey != null) {
+                    speedUpItems.put(existingKey, currentCount + 1);
+                } else {
+                    speedUpItems.put(heldItem.copyWithCount(1), 1);
+                }
+                farm.setSpeedUpItems(speedUpItems);
+                return ItemInteractionResult.SUCCESS;
+            } else {
+                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            }
+        }
 
         player.openMenu(new MenuProvider() {
             @Override
@@ -124,7 +158,7 @@ public class CertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlo
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CCQC_FARM::get);
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CQC_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -152,5 +186,14 @@ public class CertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlo
     @Override
     public float getShadeBrightness(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return 1F;
+    }
+
+    private int getSpeedUpItemCount(Map<ItemStack, Integer> items, ItemStack template) {
+        for (Map.Entry<ItemStack, Integer> entry : items.entrySet()) {
+            if (ItemStack.isSameItemSameComponents(entry.getKey(), template)) {
+                return entry.getValue();
+            }
+        }
+        return 0;
     }
 }

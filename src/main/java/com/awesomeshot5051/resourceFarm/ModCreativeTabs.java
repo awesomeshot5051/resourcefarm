@@ -38,15 +38,31 @@ public class ModCreativeTabs {
                         Block block = blockEntry.get();
                         output.accept(new ItemStack(block.asItem()));
                     });
+                    ModItems.AEITEMS.getEntries().forEach(
+                            blockEntry -> {
+                                Item item = blockEntry.get();
+                                output.accept(new ItemStack(item));
+                            }
+                    );
                 }
                 if (Main.eae2_installed) {
                     ModBlocks.EAE2_REGISTER.getEntries().forEach(blockEntry -> {
                         Block block = blockEntry.get();
                         output.accept(new ItemStack(block.asItem()));
                     });
+                    ModItems.EAEITEMS.getEntries().forEach(
+                            blockEntry -> {
+                                Item item = blockEntry.get();
+                                output.accept(new ItemStack(item));
+                            }
+                    );
                 }
-                output.accept(new ItemStack(ModItems.SMELTER_UPGRADE.get()));
-                output.accept(new ItemStack(ModItems.REDSTONE_UPGRADE.get()));
+                ModItems.ITEMS.getEntries().forEach(
+                        blockEntry -> {
+                            Item item = blockEntry.get();
+                            output.accept(new ItemStack(item));
+                        }
+                );
             })
             .title(Component.translatable("itemGroup.resource_farms"))
             .build());

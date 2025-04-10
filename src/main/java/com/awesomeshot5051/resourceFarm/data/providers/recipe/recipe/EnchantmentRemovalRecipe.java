@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.items.*;
@@ -54,6 +55,29 @@ public class EnchantmentRemovalRecipe extends ShapelessRecipe {
         for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
             if (!shovelFarms.contains(sidedBlock.get())) {
                 farmBlocks.add(sidedBlock.get());
+            }
+        }
+        for (var sidedBlock : ModItems.ITEM_REGISTER.getEntries()) {
+            farmBlocks.add(sidedBlock.get());
+        }
+        if (Main.ae2_installed) {
+            for (var sidedBlock : ModItems.AE2_REGISTER.getEntries()) {
+                farmBlocks.add(sidedBlock.get());
+            }
+            if (Main.eae2_installed) {
+                for (var sidedBlock : ModItems.EAE2_REGISTER.getEntries()) {
+                    farmBlocks.add(sidedBlock.get());
+                }
+            }
+        }
+        if (Main.dynamic_installed) {
+            for (var sidedBlock : ModItems.DYNAMIC_REGISTER.getEntries()) {
+                farmBlocks.add(sidedBlock.get());
+            }
+            if (Main.terminals_installed) {
+                for (var sidedBlock : ModItems.TERMINAL_REGISTER.getEntries()) {
+                    farmBlocks.add(sidedBlock.get());
+                }
             }
         }
         List<ItemStack> ingredient = input.items();

@@ -1,16 +1,18 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.extendedae;
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.corelib.integration.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -24,23 +26,26 @@ import java.util.*;
 
 import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
+import static com.awesomeshot5051.resourceFarm.data.providers.tags.ModItemTags.*;
+import static com.awesomeshot5051.resourceFarm.integration.SpeedStatusCheck.*;
 
 @SuppressWarnings("ALL")
 public class EntroCrystalFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
-    public ItemStack pickType;
+
     public List<ItemStack> upgradeList = new ArrayList<>();
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, this.upgradeList);
     public boolean redstoneUpgradeEnabled;
-    public boolean smelterUpgradeEnabled;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
     public boolean soundOn;
-
+    public List<ItemStack> entroRequiremnts = new ArrayList<>(2);
+    public ItemStack pickType;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
     protected OutputItemHandler outputItemHandler;
+    private Map<ItemStack, Integer> speedUpItems;
 
     public EntroCrystalFarmTileentity(BlockPos pos, BlockState state) {
         super(ModTileEntities.ENTC_FARM.get(), ModBlocks.ENTC_FARM.get().defaultBlockState(), pos, state);
@@ -48,19 +53,36 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
         pickType = new ItemStack(Items.WOODEN_PICKAXE);
+        speedUpItems = new HashMap<>();
     }
 
-    public static double getCGlassGenerateTime(EntroCrystalFarmTileentity tileEntity) {
-        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
+    public static double getEntroCrystalGenerateTime(EntroCrystalFarmTileentity tileEntity) {
+        double returnValue = (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
                 (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
                                 tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
                                         tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
                                                 1);
 
+        Map<ItemStack, Integer> speedUpItems = tileEntity.getSpeedUpItems();
+        if (speedStatusCheck(speedUpItems, AEBlocks.GROWTH_ACCELERATOR.asItem().getDefaultInstance(),
+                AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem().getDefaultInstance())) {
+
+            // Find the matching key in the map
+            for (Map.Entry<ItemStack, Integer> entry : speedUpItems.entrySet()) {
+                if (entry.getKey().is(AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem())) {
+                    Integer count = entry.getValue();
+                    if (count != null && count > 0) {
+                        returnValue = returnValue / count;
+                    }
+                    break;
+                }
+            }
+        }
+        return returnValue;
     }
 
-    public static double getCGlassBreakTime(EntroCrystalFarmTileentity tileEntity) {
+    public static double getEntroCrystalBreakTime(EntroCrystalFarmTileentity tileEntity) {
         PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
         if (tileEntity.getPickType().isEnchanted()) {
             tileEntity.setPickaxeEnchantmentStatus(tileEntity);
@@ -69,14 +91,42 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
         if (PickaxeEnchantments.getPickaxeEnchantmentStatus(tileEntity.pickaxeEnchantments, Enchantments.EFFICIENCY)) {
             baseValue = 10;
         }
+        double returnValue = (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
+                (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
+                        tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
+                                tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
+                                        tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
+                                                1);
 
-        return getCGlassGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
-                pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
-                        pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
-                                pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
-                                        pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
-                                                (baseValue * 10));
+        Map<ItemStack, Integer> speedUpItems = tileEntity.getSpeedUpItems();
+        if (speedStatusCheck(speedUpItems, AEBlocks.GROWTH_ACCELERATOR.asItem().getDefaultInstance(),
+                AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem().getDefaultInstance())) {
 
+            // Find the matching key in the map
+            for (Map.Entry<ItemStack, Integer> entry : speedUpItems.entrySet()) {
+                if (entry.getKey().is(AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem())) {
+                    Integer count = entry.getValue();
+                    if (count != null && count > 0) {
+                        returnValue = returnValue / count;
+                    }
+                    break;
+                }
+            }
+        }
+        return returnValue;
+    }
+
+    public Map<ItemStack, Integer> getSpeedUpItems() {
+        return speedUpItems != null ? speedUpItems : new HashMap<>();
+    }
+
+    public void setSpeedUpItems(Map<ItemStack, Integer> speedUpItems) {
+        this.speedUpItems = speedUpItems;
+    }
+
+    @Override
+    public <T extends FarmTileentity> boolean checkPasses(T farm) {
+        return AE2Check.containsAllItems(entroRequiremnts, ENTRO_CRYSTAL_REQUIRMENTS, level, 2);
     }
 
     public long getTimer() {
@@ -95,28 +145,33 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
         return this.soundOn;
     }
 
-
-    public ItemStack getPickType() {
-        return pickType;
-    }
-
     @Override
     public Map<ItemStack, Boolean> getUpgrades() {
         return this.upgrades;
     }
 
+    public ItemStack getPickType() {
+        return pickType;
+    }
+
+    public List<ItemStack> getEntroRequiremnts() {
+        return entroRequiremnts;
+    }
+
     @Override
     public void tick() {
+        if ((entroRequiremnts.isEmpty()) || !checkPasses(this)) {
+            return;
+        }
         timer++;
         for (ItemStack upgrade : this.upgradeList) {
             Upgrades.setUpgradeStatus(this.upgrades, upgrade, true);
         }
         this.redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
-        this.smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
-            } else if (timer >= getCGlassBreakTime(this)) {
+            } else if (timer >= getEntroCrystalBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
                         drop = itemHandler.insertItem(i, drop, false);
@@ -128,7 +183,7 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getCGlassBreakTime(this)) {
+        } else if (timer >= getEntroCrystalBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -153,7 +208,8 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).asItem(), dropCount));
+        if (!(entroRequiremnts.isEmpty()) && checkPasses(this))
+            drops.add(new ItemStack(AE2Blocks.ENTRO_CRYSTAL.get(), dropCount));
         return drops;
     }
 
@@ -164,9 +220,6 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
 
     @Override
     protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
-
-        ContainerHelper.saveAllItems(compound, inventory, false, provider);
-
         try {
             if (pickType != null) {
                 DataResult<Tag> tag = ItemStack.STRICT_SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
@@ -175,6 +228,7 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
         } catch (IllegalStateException e) {
             System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
         }
+        ContainerHelper.saveAllItems(compound, inventory, false, provider);
         if (!pickaxeEnchantments.isEmpty()) {
             ListTag enchantmentsList = new ListTag();
             for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : pickaxeEnchantments.entrySet()) {
@@ -198,6 +252,21 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
             }
             compound.put("Upgrades", upgradesList);
         }
+        if (entroRequiremnts != null && !entroRequiremnts.isEmpty()) {
+            DataResult<Tag> tagResult = ItemStack.CODEC.listOf().encodeStart(NbtOps.INSTANCE, entroRequiremnts);
+            compound.put("eae2Items", tagResult.result().orElse(new ListTag())); // Ensure it's saved correctly
+        }
+        if (!speedUpItems.isEmpty()) {
+            ListTag speedUpItemsList = new ListTag();
+            for (Map.Entry<ItemStack, Integer> entry : speedUpItems.entrySet()) {
+                CompoundTag itemTag = new CompoundTag();
+                DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, entry.getKey());
+                itemTag.put("item", tag.getOrThrow());
+                itemTag.putInt("count", entry.getValue());
+                speedUpItemsList.add(itemTag);
+            }
+            compound.put("SpeedUpItems", speedUpItemsList);
+        }
 
         CompoundTag soundOnTag = new CompoundTag();
         soundOnTag.putBoolean("soundOn", soundOn);
@@ -219,9 +288,28 @@ public class EntroCrystalFarmTileentity extends FarmTileentity implements ITicka
         if (compound.contains("Upgrades")) {
             upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
         }
-        if (pickType == null) {
+        if (compound.contains("eae2Items")) {
+            DataResult<List<ItemStack>> decodedResult = ItemStack.CODEC.listOf().parse(NbtOps.INSTANCE, compound.get("eae2Items"));
+            entroRequiremnts = new ArrayList<>(decodedResult.result().orElseGet(ArrayList::new));
+        } else {
+            entroRequiremnts = List.of(); // Ensure it's never null
+        }
+        if (compound.contains("SpeedUpItems")) {
+            speedUpItems = new HashMap<>();
+            ListTag speedUpItemsList = compound.getList("SpeedUpItems", 10);
 
-            pickType = new ItemStack(Items.WOODEN_PICKAXE);
+            for (int i = 0; i < speedUpItemsList.size(); ++i) {
+                CompoundTag itemTag = speedUpItemsList.getCompound(i);
+                CompoundTag itemData = itemTag.getCompound("item");
+                ItemStack item = ItemStack.parseOptional(provider, itemData);
+                int count = itemTag.getInt("count");
+
+                if (!item.isEmpty()) {
+                    speedUpItems.put(item, count);
+                }
+            }
+        } else {
+            speedUpItems = new HashMap<>(); // Ensure it's never null
         }
         soundOn = compound.getBoolean("soundON");
         timer = compound.getLong("Timer");

@@ -1,0 +1,15 @@
+{
+  "name": "The Extended AE Conduit",
+  "icon": "resource_farms:eae_conduit",
+  "category": "resource_farms:ae2_integration/eae2_integration",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Extended AE (EAE) Conduit is what lets the Farm harness the Extended AE items. Without it, it will not function."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "resource_farms:eae_conduit"
+    }
+  ]
+}

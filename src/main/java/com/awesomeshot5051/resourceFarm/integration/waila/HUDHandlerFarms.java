@@ -3,6 +3,7 @@ package com.awesomeshot5051.resourceFarm.integration.waila;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
@@ -33,8 +34,20 @@ public class HUDHandlerFarms implements IBlockComponentProvider {
         if (blockAccessor.getBlockEntity() instanceof FluixCrystalFarmTileentity blockEntity) {
             if (!blockEntity.checkPasses(blockEntity)) {
                 if (Screen.hasShiftDown() && blockEntity instanceof FluixCrystalFarmTileentity blockEntity2) {
-                    for (ItemStack item : blockEntity2.getAE2ItemsList()) {
-                        iTooltip.add(Component.literal(BlockBase.convertMinecraftToReadableName(item.getDescriptionId())));
+                    List<ItemStack> requiredItems = AE2Blocks.itemsRequiredForFC;
+                    List<ItemStack> presentItems = blockEntity2.getAE2ItemsList();
+
+                    for (ItemStack required : requiredItems) {
+                        boolean found = false;
+                        for (ItemStack present : presentItems) {
+                            if (ItemStack.isSameItemSameComponents(required, present)) {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            iTooltip.add(Component.literal(BlockBase.convertMinecraftToReadableName(required.getDescriptionId())));
+                        }
                     }
                 } else {
                     iTooltip.add(Component.literal("Items Missing!").append("Hold Shift for more info"));
@@ -63,16 +76,16 @@ public class HUDHandlerFarms implements IBlockComponentProvider {
                 ));
             }
 
-        } else if (blockAccessor.getBlockEntity() instanceof FluixCrystalFarmTileentity blockEntity) {
-            if (!blockEntity.checkPasses(blockEntity)) {
-                if (Screen.hasShiftDown()) {
-                    for (ItemStack item : blockEntity.getAE2ItemsList()) {
-                        iTooltip.add(Component.literal(BlockBase.convertMinecraftToReadableName(item.getDescriptionId())));
-                    }
-                } else {
-                    iTooltip.add(Component.literal("Items Missing!").append("Hold Shift for more info"));
-                }
-            }
+//        } else if (blockAccessor.getBlockEntity() instanceof FluixCrystalFarmTileentity blockEntity) {
+//            if (!blockEntity.checkPasses(blockEntity)) {
+//                if (Screen.hasShiftDown()) {
+//                    for (ItemStack item : blockEntity.getAE2ItemsList()) {
+//                        iTooltip.add(Component.literal(BlockBase.convertMinecraftToReadableName(item.getDescriptionId())));
+//                    }
+//                } else {
+//                    iTooltip.add(Component.literal("Items Missing!").append("Hold Shift for more info"));
+//                }
+//            }
         }
     }
 

@@ -1,0 +1,15 @@
+{
+  "name": "The AE Conduit",
+  "icon": "resource_farms:ae_conduit",
+  "category": "resource_farms:ae2_integration/ae2_integration",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The AE Conduit is what lets the Farm harness the AE items. Without it, it will not function."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "resource_farms:ae_conduit"
+    }
+  ]
+}

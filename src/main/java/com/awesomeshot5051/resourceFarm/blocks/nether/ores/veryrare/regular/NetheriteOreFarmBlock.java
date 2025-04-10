@@ -3,6 +3,7 @@ package com.awesomeshot5051.resourceFarm.blocks.nether.ores.veryrare.regular;
 import com.awesomeshot5051.corelib.block.*;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.client.*;
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.veryrare.regular.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.*;
@@ -31,6 +32,7 @@ import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
 import org.jetbrains.annotations.*;
 
+import javax.annotation.*;
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
@@ -120,7 +122,9 @@ public class NetheriteOreFarmBlock extends BlockBase implements EntityBlock, IIt
         if (!(tileEntity instanceof NetheriteOreFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-
+        if (heldItem.is(Items.DIAMOND_PICKAXE)) {
+            return ItemInteractionResult.CONSUME;
+        }
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -134,6 +138,17 @@ public class NetheriteOreFarmBlock extends BlockBase implements EntityBlock, IIt
             }
         });
         return ItemInteractionResult.SUCCESS;
+    }
+
+    @Override
+    public boolean canHarvestBlock(BlockState state, BlockGetter level, BlockPos pos, Player player) {
+        if (player.getMainHandItem().is(Items.DIAMOND_PICKAXE) || player.getMainHandItem().is(Items.NETHERITE_PICKAXE)) {
+            Main.LOGGER.info("Breaking {} with {}", this, player.getMainHandItem());
+            return true;
+        } else {
+            Main.LOGGER.warn("Failed to break {} due to the fact that you are breaking it with {}", this, player.getMainHandItem());
+            return false;
+        }
     }
 
     @Nullable

@@ -1,6 +1,5 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Fluix;
 
-import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.integration.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
 import com.awesomeshot5051.resourceFarm.integration.ae2.*;
@@ -42,11 +41,13 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
     public void render(FluixCrystalFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
-        renderFluid(new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, combinedLight, combinedOverlay);
+        if (farm.getAE2ItemsList().stream().anyMatch(itemStack -> itemStack.is(Items.WATER_BUCKET))) {
+            renderFluid(new FluidStack(Fluids.WATER, 100), matrixStack, buffer, combinedLight, combinedOverlay);
+        }
         Level level = farm.getLevel();
         assert level != null;
         matrixStack.scale(0.5f, 0.5f, 0.5f);
-        matrixStack.translate(0.8, 0.3, 1.1); // Center position with slight lift
+        matrixStack.translate(0.6, 0.3, 1.1); // Center position with slight lift
         double generateTime = FluixCrystalFarmTileentity.getFluixCrystalGenerateTime(farm);
         double breakTime = FluixCrystalFarmTileentity.getFluixCrystalBreakTime(farm);
 
@@ -86,9 +87,9 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
                 );
             } else {
                 // Render floating ingredients at different positions
-                renderFloatingItem(Items.REDSTONE.getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.0, 0);
-                renderFloatingItem(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get().getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.2, 120);
-                renderFloatingItem(Items.QUARTZ.getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, -0.2, 240);
+                renderFloatingItem(Items.REDSTONE.getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 0);
+                renderFloatingItem(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get().getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 120);
+                renderFloatingItem(Items.QUARTZ.getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 240);
             }
         } else {
             // Render items dynamically based on how many exist
@@ -97,12 +98,12 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
                 for (int i = 0; i < itemCount; i++) {
                     ItemStack item = farm.getAE2ItemsList().get(i);
                     double angle = (360.0 / itemCount) * i; // Spread out items evenly in a circle
-                    renderFloatingItem(item, matrixStack, buffer, combinedLight, combinedOverlay, 0.6, angle);
+                    renderFloatingItem(item, matrixStack, buffer, combinedLight, combinedOverlay, 0.8, angle);
                 }
             }
-            if (farm.getAE2ItemsList().stream().anyMatch(item -> item.is(Items.WATER_BUCKET))) {
-                //renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
-            }
+//            if (farm.getAE2ItemsList().stream().anyMatch(item -> item.is(Items.WATER_BUCKET))) {
+//                //renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
+//            }
         }
 
         matrixStack.popPose();

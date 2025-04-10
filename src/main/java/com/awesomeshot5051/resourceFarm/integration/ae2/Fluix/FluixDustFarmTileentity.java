@@ -2,6 +2,7 @@ package com.awesomeshot5051.resourceFarm.integration.ae2.Fluix;
 
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.corelib.integration.*;
 import com.awesomeshot5051.corelib.inventory.*;
 import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
@@ -24,11 +25,11 @@ import java.util.*;
 
 import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
+import static com.awesomeshot5051.resourceFarm.data.providers.tags.ModItemTags.*;
 
 
 public class FluixDustFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
-    public ItemStack pickType;
     public List<ItemStack> upgradeList = new ArrayList<>();
     public Map<ItemStack, Boolean> upgrades = initializeUpgrades(Main.UPGRADES, this.upgradeList);
     public boolean redstoneUpgradeEnabled;
@@ -49,7 +50,6 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
-        pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
     public static double getFluixDustGenerateTime(FluixDustFarmTileentity farm) {
@@ -63,6 +63,7 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
 
     }
 
+    @Override
     public long getTimer() {
         return timer;
     }
@@ -80,10 +81,6 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
     }
 
 
-    public ItemStack getPickType() {
-        return pickType;
-    }
-
     @Override
     public Map<ItemStack, Boolean> getUpgrades() {
         return this.upgrades;
@@ -96,11 +93,24 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
             Upgrades.setUpgradeStatus(this.upgrades, upgrade, true);
         }
         this.redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
-        this.smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
-        if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
-            assert level != null;
-            if (!level.hasNeighborSignal(getBlockPos())) {
-                return;
+        assert level != null;
+        if (!fluixDustList.isEmpty() && AE2Check.containsAllItems(fluixDustList, SLABS_AND_FLUX_CRYSTAL, level, 2)) {
+            if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
+                assert level != null;
+                if (!level.hasNeighborSignal(getBlockPos())) {
+                    return;
+                } else if (timer >= getFluixDustBreakTime(this)) {
+                    for (ItemStack drop : getDrops()) {
+                        for (int i = 0; i < itemHandler.getSlots(); i++) {
+                            drop = itemHandler.insertItem(i, drop, false);
+                            if (drop.isEmpty()) {
+                                break;
+                            }
+                        }
+                    }
+                    timer = 0L;
+                    sync();
+                }
             } else if (timer >= getFluixDustBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -113,17 +123,6 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getFluixDustBreakTime(this)) {
-            for (ItemStack drop : getDrops()) {
-                for (int i = 0; i < itemHandler.getSlots(); i++) {
-                    drop = itemHandler.insertItem(i, drop, false);
-                    if (drop.isEmpty()) {
-                        break;
-                    }
-                }
-            }
-            timer = 0L;
-            sync();
         }
         setChanged();
     }
@@ -134,11 +133,13 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
         }
 
         int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 3);
-        if (getUpgradeStatus(upgrades, ModItems.FORTUNE_UPGRADE.toStack())) {
-            dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
-        }
+//        if (getUpgradeStatus(upgrades, ModItems.FORTUNE_UPGRADE.toStack())) {
+//            dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
+//        }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(AE2Blocks.FLUIX_DUST.get(), dropCount));
+        if (!fluixDustList.isEmpty() && AE2Check.containsAllItems(fluixDustList, SLABS_AND_FLUX_CRYSTAL, level, 2)) {
+            drops.add(new ItemStack(AE2Blocks.FLUIX_DUST.get(), dropCount));
+        }
         return drops;
     }
 
@@ -152,14 +153,6 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
-        try {
-            if (pickType != null) {
-                DataResult<Tag> tag = ItemStack.STRICT_SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
-                compound.put("PickType", tag.getOrThrow());
-            }
-        } catch (IllegalStateException e) {
-            System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
-        }
         if (!pickaxeEnchantments.isEmpty()) {
             ListTag enchantmentsList = new ListTag();
             for (Map.Entry<ResourceKey<Enchantment>, Boolean> entry : pickaxeEnchantments.entrySet()) {
@@ -199,18 +192,11 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
     @Override
     protected void loadAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
         ContainerHelper.loadAllItems(compound, inventory, provider);
-        if (compound.contains("PickType")) {
-            SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
-        }
         if (compound.contains("PickaxeEnchantments")) {
             pickaxeEnchantments = SyncableTileentity.loadPickaxeEnchantments(compound, provider, this);
         }
         if (compound.contains("Upgrades")) {
             upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
-        }
-        if (pickType == null) {
-
-            pickType = new ItemStack(Items.WOODEN_PICKAXE);
         }
         // Fix: Ensure "ae2Items" exists before decoding
         if (compound.contains("ae2Items")) {
@@ -229,6 +215,7 @@ public class FluixDustFarmTileentity extends FarmTileentity implements ITickable
         return outputItemHandler;
     }
 
+    @Override
     protected Map<ResourceKey<Enchantment>, Boolean> getPickaxeEnchantments() {
         return pickaxeEnchantments;
     }

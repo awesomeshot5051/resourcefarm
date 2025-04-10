@@ -31,6 +31,7 @@ import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
 import org.jetbrains.annotations.*;
 
+import javax.annotation.*;
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
@@ -43,7 +44,7 @@ public class DeepslateDiamondOreFarmBlock extends BlockBase implements EntityBlo
     public static final EnumProperty<PickaxeType> PICKAXE_TYPE = EnumProperty.create("pickaxe_type", PickaxeType.class);
 
     public DeepslateDiamondOreFarmBlock() {
-        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion());
+        super(Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).noOcclusion().requiresCorrectToolForDrops());
     }
 
     private void playSound(@NotNull Level level, BlockState state, SoundEvent sound, DeepslateDiamondOreFarmTileentity farm) {

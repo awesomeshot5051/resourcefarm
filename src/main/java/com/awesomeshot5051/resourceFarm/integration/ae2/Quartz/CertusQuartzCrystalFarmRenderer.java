@@ -1,29 +1,27 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
-import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.*;
 import net.minecraft.client.renderer.blockentity.*;
-import net.minecraft.client.renderer.texture.*;
-import net.minecraft.resources.*;
-import net.minecraft.world.inventory.*;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.client.model.data.*;
 
 import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.*;
-
+import static com.mojang.math.Axis.*;
 
 public class CertusQuartzCrystalFarmRenderer extends RendererBase<CertusQuartzCrystalFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
+    private final ItemRenderer itemRenderer;
 
     public CertusQuartzCrystalFarmRenderer(BlockEntityRendererProvider.Context renderer) {
         super(renderer);
         this.blockRenderDispatcher = renderer.getBlockRenderDispatcher();
+        this.itemRenderer = renderer.getItemRenderer();
     }
 
     @Override
@@ -31,34 +29,67 @@ public class CertusQuartzCrystalFarmRenderer extends RendererBase<CertusQuartzCr
         Level level = farm.getLevel();
         assert level != null;
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
+
+        double generateTime = CertusQuartzCrystalFarmTileentity.getCertusQuartzGenerateTime(farm);
+        double breakTime = CertusQuartzCrystalFarmTileentity.getCertusQuartzBreakTime(farm);
+
         matrixStack.pushPose();
-        matrixStack.scale(.5f, .5f, .5f);
-        matrixStack.translate(.5, 0, 0.5);
-        if (farm.getTimer() >= CertusQuartzCrystalFarmTileentity.getCGlassGenerateTime(farm)) {
-            if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
-                blockRenderDispatcher.renderSingleBlock(
-                        Blocks.AIR.defaultBlockState(),
-                        matrixStack,
-                        buffer,
-                        combinedLight,
-                        combinedOverlay,
-                        ModelData.EMPTY,
-                        RenderType.SOLID
-                );
-            } else {
-                blockRenderDispatcher.renderSingleBlock(
-                        IDBlocks.CHORUS_GLASS.get().defaultBlockState(),
-                        matrixStack,
-                        buffer,
-                        combinedLight,
-                        combinedOverlay,
-                        ModelData.EMPTY,
-                        RenderType.SOLID
-                );
+        matrixStack.scale(.4f, .4f, .4f);
+        matrixStack.translate(.6f, .6f, .8f);
+        if (farm.redstoneUpgradeEnabled) {
+            if (!level.hasNeighborSignal(farm.getBlockPos())) {
+                return;
             }
-        } else if (farm.getTimer() >= CertusQuartzCrystalFarmTileentity.getCGlassBreakTime(farm)) {
+        }
+        if (farm.getTimer() < generateTime) {
             blockRenderDispatcher.renderSingleBlock(
-                    Blocks.AIR.defaultBlockState(),
+                    AEBlocks.CHIPPED_BUDDING_QUARTZ.block().defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+            matrixStack.popPose();
+            return;
+        }
+
+        if (farm.getTimer() < breakTime) {
+            double progress = (farm.getTimer() - generateTime) / (breakTime - generateTime);
+
+            Block buddingBlock;
+            Block crystalBlock;
+            if (progress < 0.25) {
+                buddingBlock = AEBlocks.DAMAGED_BUDDING_QUARTZ.block();
+                crystalBlock = Block.byItem(AEBlocks.SMALL_QUARTZ_BUD.item().get());
+            } else if (progress < 0.5) {
+                buddingBlock = AEBlocks.CHIPPED_BUDDING_QUARTZ.block();
+                crystalBlock = Block.byItem(AEBlocks.MEDIUM_QUARTZ_BUD.item().get());
+            } else if (progress < 0.75) {
+                buddingBlock = AEBlocks.FLAWED_BUDDING_QUARTZ.block();
+                crystalBlock = Block.byItem(AEBlocks.LARGE_QUARTZ_BUD.item().get());
+            } else {
+                buddingBlock = AEBlocks.FLAWLESS_BUDDING_QUARTZ.block();
+                crystalBlock = Block.byItem(AEBlocks.QUARTZ_CLUSTER.item().get());
+            }
+
+            blockRenderDispatcher.renderSingleBlock(
+                    buddingBlock.defaultBlockState(),
+                    matrixStack,
+                    buffer,
+                    combinedLight,
+                    combinedOverlay,
+                    ModelData.EMPTY,
+                    RenderType.SOLID
+            );
+
+            renderCrystalsOnAllSides(matrixStack, buffer, combinedLight, combinedOverlay, crystalBlock);
+
+
+        } else {
+            blockRenderDispatcher.renderSingleBlock(
+                    AEBlocks.CHIPPED_BUDDING_QUARTZ.block().defaultBlockState(),
                     matrixStack,
                     buffer,
                     combinedLight,
@@ -69,35 +100,59 @@ public class CertusQuartzCrystalFarmRenderer extends RendererBase<CertusQuartzCr
         }
 
         matrixStack.popPose();
-        if (farm.redstoneUpgradeEnabled) {
-            if (level.hasNeighborSignal(farm.getBlockPos())) {
-                renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
-            }
-        } else {
-            renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
-        }
+        renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
     }
 
 
-    public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {
-        if (breakStage < 0 || breakStage > 9) return;
+    private void renderCrystalsOnAllSides(PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay, Block crystalBlock) {
+        float scale = 0.5f;
+        float offset = 1.0f;
 
+        // Top
+        matrixStack.pushPose();
+        matrixStack.translate(0.2, offset, 0.2);
+        matrixStack.scale(scale, scale, scale);
+        blockRenderDispatcher.renderSingleBlock(crystalBlock.defaultBlockState(), matrixStack, buffer, combinedLight, combinedOverlay, ModelData.EMPTY, RenderType.SOLID);
+        matrixStack.popPose();
 
-        TextureAtlasSprite breakingSprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS)
-                .apply(ResourceLocation.fromNamespaceAndPath("minecraft", "block/destroy_stage_" + breakStage));
+        // Bottom
+        matrixStack.pushPose();
+        matrixStack.translate(0.8, -offset + 1.1, 0.2);
+        matrixStack.scale(scale, scale, scale);
+        matrixStack.mulPose(ZP.rotationDegrees(180));
+        blockRenderDispatcher.renderSingleBlock(crystalBlock.defaultBlockState(), matrixStack, buffer, combinedLight, combinedOverlay, ModelData.EMPTY, RenderType.SOLID);
+        matrixStack.popPose();
 
+        // Front
+        matrixStack.pushPose();
+        matrixStack.translate(.3, 0.3, -offset + 1);
+        matrixStack.mulPose(XP.rotationDegrees(-90));
+        matrixStack.scale(scale, scale, scale);
+        blockRenderDispatcher.renderSingleBlock(crystalBlock.defaultBlockState(), matrixStack, buffer, combinedLight, combinedOverlay, ModelData.EMPTY, RenderType.SOLID);
+        matrixStack.popPose();
 
-        RenderType breakingRenderType = RenderType.crumbling(breakingSprite.atlasLocation());
+        // Back
+        matrixStack.pushPose();
+        matrixStack.translate(0.2, 0.8, offset);
+        matrixStack.mulPose(XP.rotationDegrees(90));
+        matrixStack.scale(scale, scale, scale);
+        blockRenderDispatcher.renderSingleBlock(crystalBlock.defaultBlockState(), matrixStack, buffer, combinedLight, combinedOverlay, ModelData.EMPTY, RenderType.SOLID);
+        matrixStack.popPose();
 
-        blockRenderDispatcher.getModelRenderer().renderModel(
-                matrixStack.last(),
-                buffer.getBuffer(breakingRenderType),
-                blockState,
-                blockRenderDispatcher.getBlockModel(blockState),
-                1.0F, 1.0F, 1.0F,
-                combinedLight,
-                combinedOverlay,
-                ModelData.EMPTY,
-                breakingRenderType);
+        // Left
+        matrixStack.pushPose();
+        matrixStack.translate(-offset + 1, 0.3, 0.2);
+        matrixStack.mulPose(ZP.rotationDegrees(90));
+        matrixStack.scale(scale, scale, scale);
+        blockRenderDispatcher.renderSingleBlock(crystalBlock.defaultBlockState(), matrixStack, buffer, combinedLight, combinedOverlay, ModelData.EMPTY, RenderType.SOLID);
+        matrixStack.popPose();
+
+        // Right
+        matrixStack.pushPose();
+        matrixStack.translate(offset, 0.8, 0.3);
+        matrixStack.mulPose(ZP.rotationDegrees(-90));
+        matrixStack.scale(scale, scale, scale);
+        blockRenderDispatcher.renderSingleBlock(crystalBlock.defaultBlockState(), matrixStack, buffer, combinedLight, combinedOverlay, ModelData.EMPTY, RenderType.SOLID);
+        matrixStack.popPose();
     }
 }

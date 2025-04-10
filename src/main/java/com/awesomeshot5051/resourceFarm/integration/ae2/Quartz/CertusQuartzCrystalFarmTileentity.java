@@ -1,5 +1,6 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
 
+import appeng.core.definitions.*;
 import com.awesomeshot5051.corelib.blockentity.*;
 import com.awesomeshot5051.corelib.datacomponents.*;
 import com.awesomeshot5051.corelib.inventory.*;
@@ -10,7 +11,6 @@ import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -24,6 +24,7 @@ import java.util.*;
 
 import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
+import static com.awesomeshot5051.resourceFarm.integration.SpeedStatusCheck.*;
 
 @SuppressWarnings("ALL")
 public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
@@ -36,31 +37,48 @@ public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
     public boolean soundOn;
-
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
     protected OutputItemHandler outputItemHandler;
+    private Map<ItemStack, Integer> speedUpItems = new HashMap<>();
 
     public CertusQuartzCrystalFarmTileentity(BlockPos pos, BlockState state) {
-        super(ModTileEntities.CCQC_FARM.get(), ModBlocks.CCQC_FARM.get().defaultBlockState(), pos, state);
+        super(ModTileEntities.CQC_FARM.get(), ModBlocks.CQC_FARM.get().defaultBlockState(), pos, state);
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
         pickType = new ItemStack(Items.WOODEN_PICKAXE);
+        speedUpItems = new HashMap<>();
     }
 
-    public static double getCGlassGenerateTime(CertusQuartzCrystalFarmTileentity tileEntity) {
-        return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
+    public static double getCertusQuartzGenerateTime(CertusQuartzCrystalFarmTileentity tileEntity) {
+        double returnValue = (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
                 (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
                                 tileEntity.getPickType().getItem().equals(Items.DIAMOND_PICKAXE) ? 25 :
                                         tileEntity.getPickType().getItem().equals(Items.NETHERITE_PICKAXE) ? 30 :
                                                 1);
 
+        Map<ItemStack, Integer> speedUpItems = tileEntity.getSpeedUpItems();
+        if (speedStatusCheck(speedUpItems, AEBlocks.GROWTH_ACCELERATOR.asItem().getDefaultInstance(),
+                AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem().getDefaultInstance())) {
+
+            // Find the matching key in the map
+            for (Map.Entry<ItemStack, Integer> entry : speedUpItems.entrySet()) {
+                if (entry.getKey().is(AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem())) {
+                    Integer count = entry.getValue();
+                    if (count != null && count > 0) {
+                        returnValue = returnValue / count;
+                    }
+                    break;
+                }
+            }
+        }
+        return returnValue;
     }
 
-    public static double getCGlassBreakTime(CertusQuartzCrystalFarmTileentity tileEntity) {
+    public static double getCertusQuartzBreakTime(CertusQuartzCrystalFarmTileentity tileEntity) {
         PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
         if (tileEntity.getPickType().isEnchanted()) {
             tileEntity.setPickaxeEnchantmentStatus(tileEntity);
@@ -70,17 +88,41 @@ public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements
             baseValue = 10;
         }
 
-        return getCGlassGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
+        double returnValue = getCertusQuartzGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
                 pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
                         pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
                                         pickAxe.equals(PickaxeType.GOLDEN) ? (baseValue * 2) :
                                                 (baseValue * 10));
 
+        Map<ItemStack, Integer> speedUpItems = tileEntity.getSpeedUpItems();
+        if (speedStatusCheck(speedUpItems, AEBlocks.GROWTH_ACCELERATOR.asItem().getDefaultInstance(),
+                AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem().getDefaultInstance())) {
+
+            // Find the matching key in the map
+            for (Map.Entry<ItemStack, Integer> entry : speedUpItems.entrySet()) {
+                if (entry.getKey().is(AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem())) {
+                    Integer count = entry.getValue();
+                    if (count != null && count > 0) {
+                        returnValue = returnValue / count;
+                    }
+                    break;
+                }
+            }
+        }
+        return returnValue;
     }
 
     public long getTimer() {
         return timer;
+    }
+
+    public Map<ItemStack, Integer> getSpeedUpItems() {
+        return speedUpItems != null ? speedUpItems : new HashMap<>();
+    }
+
+    public void setSpeedUpItems(Map<ItemStack, Integer> speedUpItems) {
+        this.speedUpItems = speedUpItems;
     }
 
     @Override
@@ -116,7 +158,7 @@ public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
-            } else if (timer >= getCGlassBreakTime(this)) {
+            } else if (timer >= getCertusQuartzBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
                         drop = itemHandler.insertItem(i, drop, false);
@@ -128,7 +170,7 @@ public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getCGlassBreakTime(this)) {
+        } else if (timer >= getCertusQuartzBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -153,7 +195,7 @@ public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).asItem(), dropCount));
+        drops.add(new ItemStack(AEItems.CERTUS_QUARTZ_CRYSTAL.get(), dropCount));
         return drops;
     }
 
@@ -198,7 +240,17 @@ public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements
             }
             compound.put("Upgrades", upgradesList);
         }
-
+        if (getSpeedUpItems() != null && !speedUpItems.isEmpty()) {
+            ListTag speedUpItemsList = new ListTag();
+            for (Map.Entry<ItemStack, Integer> entry : speedUpItems.entrySet()) {
+                CompoundTag itemTag = new CompoundTag();
+                DataResult<Tag> tag = ItemStack.SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, entry.getKey());
+                itemTag.put("item", tag.getOrThrow());
+                itemTag.putInt("count", entry.getValue());
+                speedUpItemsList.add(itemTag);
+            }
+            compound.put("SpeedUpItems", speedUpItemsList);
+        }
         CompoundTag soundOnTag = new CompoundTag();
         soundOnTag.putBoolean("soundOn", soundOn);
         compound.put("soundON", soundOnTag);
@@ -222,6 +274,23 @@ public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements
         if (pickType == null) {
 
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
+        }
+        if (compound.contains("SpeedUpItems")) {
+            speedUpItems = new HashMap<>();
+            ListTag speedUpItemsList = compound.getList("SpeedUpItems", 10);
+
+            for (int i = 0; i < speedUpItemsList.size(); ++i) {
+                CompoundTag itemTag = speedUpItemsList.getCompound(i);
+                CompoundTag itemData = itemTag.getCompound("item");
+                ItemStack item = ItemStack.parseOptional(provider, itemData);
+                int count = itemTag.getInt("count");
+
+                if (!item.isEmpty()) {
+                    speedUpItems.put(item, count);
+                }
+            }
+        } else {
+            speedUpItems = new HashMap<>(); // Ensure it's never null
         }
         soundOn = compound.getBoolean("soundON");
         timer = compound.getLong("Timer");
