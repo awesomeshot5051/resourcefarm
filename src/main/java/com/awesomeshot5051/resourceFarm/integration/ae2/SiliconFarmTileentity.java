@@ -10,7 +10,6 @@ import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -153,7 +152,7 @@ public class SiliconFarmTileentity extends FarmTileentity implements ITickableBl
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).asItem(), dropCount));
+        drops.add(new ItemStack(AE2Blocks.SILICON.get(), dropCount));
         return drops;
     }
 

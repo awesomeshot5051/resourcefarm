@@ -7,10 +7,10 @@ import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
@@ -153,7 +153,7 @@ public class QuartzGlassFarmTileentity extends FarmTileentity implements ITickab
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("integratedterminals", "chorus_glass")).asItem(), dropCount));
+        drops.add(new ItemStack(AE2Blocks.QUARTZ_GLASS.get(), dropCount));
         return drops;
     }
 

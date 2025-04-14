@@ -17,8 +17,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.neoforged.neoforge.client.model.data.*;
 
-import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.*;
-
 
 public class ChargedCertusQuartzCrystalFarmRenderer extends RendererBase<ChargedCertusQuartzCrystalFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
@@ -36,7 +34,7 @@ public class ChargedCertusQuartzCrystalFarmRenderer extends RendererBase<Charged
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
-        matrixStack.translate(.5, 0, 0.5);
+        matrixStack.translate(1, .5, 1);
         if (farm.getTimer() >= ChargedCertusQuartzCrystalFarmTileentity.getCGlassGenerateTime(farm)) {
             if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
                 blockRenderDispatcher.renderSingleBlock(
@@ -73,13 +71,13 @@ public class ChargedCertusQuartzCrystalFarmRenderer extends RendererBase<Charged
         }
 
         matrixStack.popPose();
-        if (farm.redstoneUpgradeEnabled) {
-            if (level.hasNeighborSignal(farm.getBlockPos())) {
-                renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
-            }
-        } else {
-            renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
-        }
+//        if (farm.redstoneUpgradeEnabled) {
+//            if (level.hasNeighborSignal(farm.getBlockPos())) {
+//                renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+//            }
+////        } else {
+////            renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
+////        }
     }
 
 
