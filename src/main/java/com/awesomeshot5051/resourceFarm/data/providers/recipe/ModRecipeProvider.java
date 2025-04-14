@@ -707,7 +707,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.SIL_FARM.get().getDescriptionId())));
 
 
-        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FLCR_FARM.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FLCR_FARM.get())
                 .pattern("BBB")
                 .pattern("BCB")
                 .pattern("AAA")
@@ -718,7 +718,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_fluix_crystal", has(AEItems.FLUIX_CRYSTAL))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FLCR_FARM.get().getDescriptionId())));
 
-        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FLDU_FARM.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FLDU_FARM.get())
                 .pattern("BBB")
                 .pattern("BDB")
                 .pattern("AAA")
@@ -729,7 +729,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_fluix_dust", has(AEItems.FLUIX_DUST))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FLDU_FARM.get().getDescriptionId())));
 
-        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MC_FARM.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MC_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
                 .pattern("AMA")
