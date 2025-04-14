@@ -1198,6 +1198,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', CHORUS_GLASS.asItem())
                 .unlockedBy("has_chorus_glass", has(CHORUS_GLASS.asItem()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.CCGLASS_FARM.get().getDescriptionId())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AEBlocks.FLAWLESS_BUDDING_QUARTZ)
+                .pattern("FFF")
+                .pattern("FFF")
+                .pattern("FFF")
+                .define('F', AEBlocks.FLAWED_BUDDING_QUARTZ)
+                .unlockedBy("has_flawed_budding_quartz", has(AEBlocks.FLAWED_BUDDING_QUARTZ))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(AEBlocks.FLAWLESS_BUDDING_QUARTZ.getEnglishName())));
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPEED_UPGRADE)
                 .pattern("RRR")
                 .pattern("RFR")

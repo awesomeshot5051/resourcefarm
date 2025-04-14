@@ -20,7 +20,7 @@ public class AE2Blocks {
             new ItemStack(Items.REDSTONE),
             new ItemStack(Items.WATER_BUCKET),
             new ItemStack(Items.QUARTZ));
-    public static final Supplier<Block> CERTUS_QUARTZ_CRYSTAL = lazyBlockGet("ae2:certus_quartz_crystal");
+    public static final Supplier<Item> CERTUS_QUARTZ_CRYSTAL = lazyItemGet("ae2:certus_quartz_crystal");
     public static final Supplier<Item> FLUIX_CRYSTAL = lazyItemGet("ae2:fluix_crystal");
     public static final Supplier<Item> FLUIX_DUST = lazyItemGet("ae2:fluix_dust");
     public static final Supplier<Block> FLUIX_BLOCK = lazyBlockGet("ae2:fluix_block");
