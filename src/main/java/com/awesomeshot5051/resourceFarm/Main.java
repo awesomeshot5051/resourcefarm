@@ -1,36 +1,30 @@
 package com.awesomeshot5051.resourceFarm;
 
-import com.awesomeshot5051.corelib.CommonRegistry;
-import com.awesomeshot5051.corelib.datacomponents.Upgrades;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.ModRecipes;
-import com.awesomeshot5051.resourceFarm.datacomponents.ModDataComponents;
-import com.awesomeshot5051.resourceFarm.events.BlockEvents;
-import com.awesomeshot5051.resourceFarm.events.GuiEvents;
-import com.awesomeshot5051.resourceFarm.gui.Containers;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import com.awesomeshot5051.resourceFarm.loottable.ModLootTables;
-import com.awesomeshot5051.resourceFarm.sounds.ModSounds;
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.item.ItemStack;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModList;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.neoforge.common.NeoForge;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.awesomeshot5051.corelib.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.events.*;
+import com.awesomeshot5051.resourceFarm.gui.*;
+import com.awesomeshot5051.resourceFarm.integration.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.awesomeshot5051.resourceFarm.loottable.*;
+import com.awesomeshot5051.resourceFarm.sounds.*;
+import net.minecraft.core.*;
+import net.minecraft.world.item.*;
+import net.neoforged.api.distmarker.*;
+import net.neoforged.bus.api.*;
+import net.neoforged.fml.*;
+import net.neoforged.fml.common.*;
+import net.neoforged.fml.config.*;
+import net.neoforged.fml.event.lifecycle.*;
+import net.neoforged.fml.loading.*;
+import net.neoforged.neoforge.common.*;
+import org.apache.logging.log4j.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Mod(Main.MODID)
 public class Main {
@@ -75,6 +69,7 @@ public class Main {
         ModItems.init(eventBus);
 
         ModTileEntities.init(eventBus);
+        eventBus.addListener(IMC::enqueueIMC);
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
