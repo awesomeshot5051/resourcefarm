@@ -1,27 +1,36 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe;
 
-import appeng.core.definitions.*;
-import com.awesomeshot5051.resourceFarm.*;
+import appeng.core.definitions.AEBlocks;
+import appeng.core.definitions.AEItems;
 import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
-import com.awesomeshot5051.resourceFarm.items.*;
-import com.glodblock.github.extendedae.common.*;
-import net.minecraft.core.*;
-import net.minecraft.core.registries.*;
-import net.minecraft.data.*;
-import net.minecraft.data.recipes.*;
-import net.minecraft.resources.*;
-import net.minecraft.tags.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.*;
-import net.minecraft.world.level.block.*;
-import net.neoforged.neoforge.common.*;
-import net.neoforged.neoforge.common.conditions.*;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
+import com.glodblock.github.extendedae.common.EAESingletons;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.pedroksl.advanced_ae.common.definitions.AAEItems;
 
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
+
+import static com.awesomeshot5051.resourceFarm.blocks.ModBlocks.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public static final List<Supplier<Item>> SHOVEL_BLOCKS = List.of(
@@ -46,6 +55,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.DCOAL_FARM::get,
             ModBlocks.IRON_FARM::get,
             ModBlocks.DIRON_FARM::get,
+            ModBlocks.DDIAMOND_FARM::get,
+            ModBlocks.DIAMOND_FARM::get,
             ModBlocks.GOLD_FARM::get,
             ModBlocks.DGOLD_FARM::get,
             ModBlocks.NETHER_GOLD_FARM::get,
@@ -71,6 +82,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     public static Block MENRIL_GLASS; //farm
     public static Block CHORUS_GLASS;
     public static List<Supplier<Item>> PICKAXE_BLOCKS = new ArrayList<>();
+    public static List<Supplier<Block>> AE_BLOCKS = new ArrayList<>();
+    public static List<Supplier<Block>> INSCRIBER_BLOCKS = List.of(
+            DDIAMOND_FARM::get,
+            DIAMOND_FARM::get,
+            GOLD_FARM::get,
+            DGOLD_FARM::get,
+            SIL_FARM::get,
+            SI_FARM::get,
+            CCQC_FARM::get,
+            CQC_FARM::get,
+            SSB_FARM::get,
+            SS_FARM::get,
+            QA_FARM::get,
+            QID_FARM::get
+    );
 
     static {
         for (var item : ModItems.ITEM_REGISTER.getEntries()) {
@@ -108,6 +134,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 if (registeredItem instanceof BlockItem blockItem) {
                     // Convert to Supplier<Block> and add to the list
                     ALL_FARMS.add(blockItem::getBlock);
+                    AE_BLOCKS.add(blockItem::getBlock);
                 }
             }
         }
@@ -118,6 +145,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 if (registeredItem instanceof BlockItem blockItem) {
                     // Convert to Supplier<Block> and add to the list
                     ALL_FARMS.add(blockItem::getBlock);
+                    AE_BLOCKS.add(blockItem::getBlock);
+                }
+            }
+            if (Main.aae2_installed) {
+                for (var item : ModItems.AAE2_REGISTER.getEntries()) {
+                    Item registeredItem = item.get(); // Get the Item instance
+
+                    if (registeredItem instanceof BlockItem blockItem) {
+                        // Convert to Supplier<Block> and add to the list
+                        ALL_FARMS.add(blockItem::getBlock);
+                        AE_BLOCKS.add(blockItem::getBlock);
+                    }
                 }
             }
         }
@@ -346,7 +385,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("resource_farms", "diamond_farm")); // Registers Diamond Farm
 
 // --- ddiamond_farm ---
-        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DDIAMOND_FARM.get())
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, DDIAMOND_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
                 .pattern("DCD")
@@ -729,7 +768,53 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_fluix_dust", has(AEItems.FLUIX_DUST))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FLDU_FARM.get().getDescriptionId())));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MC_FARM.get())
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, QA_FARM.get())
+                .pattern("BBB")
+                .pattern("BDB")
+                .pattern("AAA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('D', AAEItems.QUANTUM_ALLOY)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_quantum_alloy", has(AAEItems.QUANTUM_ALLOY))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.QA_FARM.get().getDescriptionId())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, QID_FARM.get())
+                .pattern("BBB")
+                .pattern("BDB")
+                .pattern("AAA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('D', AAEItems.QUANTUM_INFUSED_DUST)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_quantum_infused_dust", has(AAEItems.QUANTUM_INFUSED_DUST))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.QID_FARM.get().getDescriptionId())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SS_FARM.get())
+                .pattern("BBB")
+                .pattern("BDB")
+                .pattern("AAA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('D', AAEItems.SHATTERED_SINGULARITY)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_shattered_singularity", has(AAEItems.SHATTERED_SINGULARITY))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.SS_FARM.get().getDescriptionId())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SI_FARM.get())
+                .pattern("BBB")
+                .pattern("BDB")
+                .pattern("AAA")
+                .define('B', Tags.Items.GLASS_PANES)
+                .define('D', AEItems.SINGULARITY)
+                .define('A', ModItems.AE_CONDUIT)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_quantum_alloy", has(AEItems.SINGULARITY))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.SI_FARM.get().getDescriptionId())));
+
+
+        CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MC_FARM.get())
                 .pattern("BBB")
                 .pattern("BPB")
                 .pattern("AMA")
@@ -740,6 +825,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
                 .unlockedBy("has_mc_cube", has(AEBlocks.MYSTERIOUS_CUBE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.MC_FARM.get().getDescriptionId())));
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.INSCRIBER_UPGRADE)
+                .pattern("AAA")
+                .pattern("AIA")
+                .pattern("AAA")
+                .define('A', ModItems.AE_CONDUIT)
+                .define('I', AEBlocks.INSCRIBER)
+                .unlockedBy("has_ae_conduit", has(ModItems.AE_CONDUIT))
+                .unlockedBy("has_inscriber", has(AEBlocks.INSCRIBER))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToItemRegistryName(ModItems.INSCRIBER_UPGRADE.get().getDescriptionId())));
 
 
         CustomShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SSB_FARM.get())
@@ -889,6 +985,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         /*
          * UPGRADE RECIPE BUILDERS FOR PICKAXE & SHOVEL UPGRADES
          */
+
 // -- Pickaxe Upgrades --
         PICKAXE_BLOCKS.forEach(farmBlockSupplier -> {
             Item farmBlock = farmBlockSupplier.get();
@@ -996,6 +1093,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
                             convertToRegistryName(farmBlock.getDescriptionId()) + "_shovel_gold_upgrade_recipe"));
         });
+
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
             Item farmBlock = farmBlockSupplier.get();
             // Diamond shovel upgrade recipe
@@ -1009,6 +1107,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
                             convertToRegistryName(farmBlock.getDescriptionId()) + "_shovel_diamond_upgrade_recipe"));
         });
+
         SHOVEL_BLOCKS.forEach(farmBlockSupplier -> {
             Item farmBlock = farmBlockSupplier.get();
             // Netherite shovel upgrade recipe
@@ -1022,6 +1121,99 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
                             convertToRegistryName(farmBlock.getDescriptionId()) + "_shovel_netherite_upgrade_recipe"));
         });
+
+        INSCRIBER_BLOCKS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            // Stone pickaxe upgrade recipe
+            if (PICKAXE_BLOCKS.stream().anyMatch(farmBlockSupp -> farmBlockSupp.get().getDefaultInstance().is(farmBlock.asItem()))) {
+                // Skip the block if it's in the pickaxe blocks list
+                return;
+            }
+
+            UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
+                    .pattern("SSS")
+                    .pattern("SFS")
+                    .pattern("SSS")
+                    .define('S', Ingredient.of(Items.COBBLESTONE, Items.COBBLED_DEEPSLATE))
+                    .define('F', farmBlock.asItem())
+                    .unlockedBy("has_stone", has(Items.COBBLESTONE))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
+                            convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_stone_upgrade_recipe"));
+        });
+
+        INSCRIBER_BLOCKS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            if (PICKAXE_BLOCKS.stream().anyMatch(farmBlockSupp -> farmBlockSupp.get().getDefaultInstance().is(farmBlock.asItem()))) {
+                // Skip the block if it's in the pickaxe blocks list
+                return;
+            }
+
+            // Iron pickaxe upgrade recipe
+            UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
+                    .pattern("III")
+                    .pattern("IFI")
+                    .pattern("III")
+                    .define('I', Items.IRON_INGOT)
+                    .define('F', farmBlock.asItem())
+                    .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
+                            convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_iron_upgrade_recipe"));
+        });
+        INSCRIBER_BLOCKS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            if (PICKAXE_BLOCKS.stream().anyMatch(farmBlockSupp -> farmBlockSupp.get().getDefaultInstance().is(farmBlock.asItem()))) {
+                // Skip the block if it's in the pickaxe blocks list
+                return;
+            }
+
+            // Gold pickaxe upgrade recipe
+            UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
+                    .pattern("GGG")
+                    .pattern("GFG")
+                    .pattern("GGG")
+                    .define('G', Items.GOLD_INGOT)
+                    .define('F', farmBlock.asItem())
+                    .unlockedBy("has_gold", has(Items.GOLD_INGOT))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
+                            convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_gold_upgrade_recipe"));
+        });
+        INSCRIBER_BLOCKS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            if (PICKAXE_BLOCKS.stream().anyMatch(farmBlockSupp -> farmBlockSupp.get().getDefaultInstance().is(farmBlock.asItem()))) {
+                // Skip the block if it's in the pickaxe blocks list
+                return;
+            }
+
+            // Diamond pickaxe upgrade recipe
+            UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
+                    .pattern("DDD")
+                    .pattern("DFD")
+                    .pattern("DDD")
+                    .define('D', Items.DIAMOND)
+                    .define('F', farmBlock.asItem())
+                    .unlockedBy("has_diamond", has(Items.DIAMOND))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
+                            convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_diamond_upgrade_recipe"));
+        });
+        INSCRIBER_BLOCKS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            if (PICKAXE_BLOCKS.stream().anyMatch(farmBlockSupp -> farmBlockSupp.get().getDefaultInstance().is(farmBlock.asItem()))) {
+                // Skip the block if it's in the pickaxe blocks list
+                return;
+            }
+
+            // Netherite pickaxe upgrade recipe
+            UpgradeRecipeBuilder.shaped(RecipeCategory.MISC, farmBlock)
+                    .pattern(" N ")
+                    .pattern("NFN")
+                    .pattern(" N ")
+                    .define('N', Items.NETHERITE_INGOT)
+                    .define('F', farmBlock.asItem())
+                    .unlockedBy("has_netherite", has(Items.NETHERITE_INGOT))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
+                            convertToRegistryName(farmBlock.getDescriptionId()) + "_pickaxe_netherite_upgrade_recipe"));
+        });
+
 
         /*
          * ENCHANTMENT RECIPES
@@ -1064,6 +1256,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .unlockedBy("has_lava_bucket", has(Items.LAVA_BUCKET))
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
                             convertToRegistryName(farmBlock.getDescriptionId()) + "_smelter_upgrade"));
+        });
+
+        INSCRIBER_BLOCKS.forEach(farmBlockSupplier -> {
+            Block farmBlock = farmBlockSupplier.get();
+            // Enchantment removal recipe
+            CardUpgradeRecipeBuilder.shapeless(RecipeCategory.MISC, farmBlock)
+                    .requires(farmBlock.asItem())
+                    .requires(ModItems.INSCRIBER_UPGRADE)
+                    .unlockedBy("has_farm", has(farmBlock.asItem()))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID,
+                            convertToRegistryName(farmBlock.getDescriptionId() + "_inscriber_upgrade_recipe")));
         });
 
 // --- Shaped Recipes for Upgrade Items ---

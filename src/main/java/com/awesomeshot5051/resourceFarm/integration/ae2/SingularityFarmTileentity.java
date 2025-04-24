@@ -1,4 +1,4 @@
-package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
+package com.awesomeshot5051.resourceFarm.integration.ae2;
 
 import appeng.core.definitions.AEItems;
 import com.awesomeshot5051.corelib.blockentity.FarmTileentity;
@@ -6,13 +6,13 @@ import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
 import com.awesomeshot5051.corelib.blockentity.SyncableTileentity;
 import com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments;
 import com.awesomeshot5051.corelib.datacomponents.Upgrades;
+import com.awesomeshot5051.corelib.integration.AE2Check;
 import com.awesomeshot5051.corelib.inventory.ItemListInventory;
 import com.awesomeshot5051.resourceFarm.Main;
 import com.awesomeshot5051.resourceFarm.OutputItemHandler;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
-import com.awesomeshot5051.resourceFarm.integration.ae2.AE2Blocks;
 import com.awesomeshot5051.resourceFarm.items.ModItems;
 import com.mojang.serialization.DataResult;
 import net.minecraft.core.BlockPos;
@@ -44,7 +44,7 @@ import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.ini
 import static com.awesomeshot5051.corelib.datacomponents.Upgrades.initializeUpgrades;
 
 @SuppressWarnings("ALL")
-public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
+public class SingularityFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
     public List<ItemStack> upgradeList = new ArrayList<>();
@@ -53,23 +53,23 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
     public boolean smelterUpgradeEnabled;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
+    public List<ItemStack> singularityRequirements = new ArrayList<>(4);
     public boolean soundOn;
-
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
     protected OutputItemHandler outputItemHandler;
-    private Boolean inscriberPressInstalled = false;
 
-    public ChargedCertusQuartzCrystalFarmTileentity(BlockPos pos, BlockState state) {
-        super(ModTileEntities.CCQC_FARM.get(), ModBlocks.CCQC_FARM.get().defaultBlockState(), pos, state);
+
+    public SingularityFarmTileentity(BlockPos pos, BlockState state) {
+        super(ModTileEntities.SI_FARM.get(), ModBlocks.SI_FARM.get().defaultBlockState(), pos, state);
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
         pickType = new ItemStack(Items.WOODEN_PICKAXE);
     }
 
-    public static double getCGlassGenerateTime(ChargedCertusQuartzCrystalFarmTileentity tileEntity) {
+    public static double getSingularityGenerateTime(SingularityFarmTileentity tileEntity) {
         return (double) Main.SERVER_CONFIG.coalGenerateTime.get() /
                 (tileEntity.getPickType().getItem().equals(Items.IRON_PICKAXE) ? 15 :
                         tileEntity.getPickType().getItem().equals(Items.GOLDEN_PICKAXE) ? 20 :
@@ -79,7 +79,7 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
 
     }
 
-    public static double getCGlassBreakTime(ChargedCertusQuartzCrystalFarmTileentity tileEntity) {
+    public static double getSingularityBreakTime(SingularityFarmTileentity tileEntity) {
         PickaxeType pickAxe = PickaxeType.fromItem(tileEntity.getPickType().getItem());
         if (tileEntity.getPickType().isEnchanted()) {
             tileEntity.setPickaxeEnchantmentStatus(tileEntity);
@@ -89,7 +89,7 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
             baseValue = 10;
         }
 
-        return getCGlassGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
+        return getSingularityGenerateTime(tileEntity) + (pickAxe.equals(PickaxeType.NETHERITE) ? (baseValue * 8) :
                 pickAxe.equals(PickaxeType.DIAMOND) ? (baseValue * 4) :
                         pickAxe.equals(PickaxeType.IRON) ? (baseValue * 2) :
                                 pickAxe.equals(PickaxeType.STONE) ? (baseValue * 2) :
@@ -102,12 +102,12 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
         return timer;
     }
 
-    public boolean getInscriberPressInstalled() {
-        return this.inscriberPressInstalled;
+    public List<ItemStack> getSingularityRequirements() {
+        return this.singularityRequirements;
     }
 
-    public void setInscriberPressInstalled(boolean inscriberPressInstalled) {
-        this.inscriberPressInstalled = inscriberPressInstalled;
+    public void setSingularityRequirements(List<ItemStack> singularityRequirements) {
+        this.singularityRequirements = singularityRequirements;
     }
 
     @Override
@@ -143,7 +143,7 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
-            } else if (timer >= getCGlassBreakTime(this)) {
+            } else if (timer >= getSingularityBreakTime(this)) {
                 for (ItemStack drop : getDrops()) {
                     for (int i = 0; i < itemHandler.getSlots(); i++) {
                         drop = itemHandler.insertItem(i, drop, false);
@@ -155,7 +155,7 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
                 timer = 0L;
                 sync();
             }
-        } else if (timer >= getCGlassBreakTime(this)) {
+        } else if (timer >= getSingularityBreakTime(this)) {
             for (ItemStack drop : getDrops()) {
                 for (int i = 0; i < itemHandler.getSlots(); i++) {
                     drop = itemHandler.insertItem(i, drop, false);
@@ -180,11 +180,11 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
             dropCount = serverWorld.random.nextIntBetweenInclusive(1, 5);
         }
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get(), dropCount));
-        if (inscriberPressInstalled) {
+        if (AE2Check.containsAllItems(AE2Blocks.singularityRequirements, this.singularityRequirements)) {
             drops.clear();
-            drops.add(new ItemStack(AEItems.CERTUS_QUARTZ_DUST.get(), dropCount));
+            drops.add(new ItemStack(AEItems.SINGULARITY.stack().getItem(), dropCount));
         }
+
         return drops;
     }
 
@@ -217,8 +217,9 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
             }
             compound.put("PickaxeEnchantments", enchantmentsList);
         }
-        if (inscriberPressInstalled) {
-            compound.putBoolean("InscriberPressInstalled", inscriberPressInstalled);
+        if (singularityRequirements != null && !singularityRequirements.isEmpty()) {
+            DataResult<Tag> tagResult = ItemStack.CODEC.listOf().encodeStart(NbtOps.INSTANCE, singularityRequirements);
+            compound.put("singularityRequirments", tagResult.result().orElse(new ListTag())); // Ensure it's saved correctly
         }
         if (!upgrades.isEmpty()) {
             ListTag upgradesList = new ListTag();
@@ -253,12 +254,16 @@ public class ChargedCertusQuartzCrystalFarmTileentity extends FarmTileentity imp
         if (compound.contains("Upgrades")) {
             upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
         }
-        if (compound.contains("InscriberPressInstalled")) {
-            inscriberPressInstalled = compound.getBoolean("InscriberPressInstalled");
-        }
         if (pickType == null) {
 
             pickType = new ItemStack(Items.WOODEN_PICKAXE);
+        }
+        if (compound.contains("singularityRequirments")) {
+            DataResult<List<ItemStack>> decodedResult = ItemStack.CODEC.listOf().parse(NbtOps.INSTANCE, compound.get("singularityRequirments"));
+
+            singularityRequirements = new ArrayList<>(decodedResult.result().orElseGet(ArrayList::new));
+        } else {
+            singularityRequirements = List.of(); // Ensure it's never null
         }
         soundOn = compound.getBoolean("soundON");
         timer = compound.getLong("Timer");

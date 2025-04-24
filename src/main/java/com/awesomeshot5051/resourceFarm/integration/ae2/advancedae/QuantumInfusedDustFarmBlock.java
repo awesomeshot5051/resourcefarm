@@ -1,16 +1,17 @@
-package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
+package com.awesomeshot5051.resourceFarm.integration.ae2.advancedae;
 
 
-import appeng.core.definitions.AEItems;
 import com.awesomeshot5051.corelib.block.IItemBlock;
 import com.awesomeshot5051.corelib.blockentity.SimpleBlockEntityTicker;
 import com.awesomeshot5051.corelib.client.CustomRendererBlockItem;
 import com.awesomeshot5051.corelib.client.ItemRenderer;
+import com.awesomeshot5051.corelib.datacomponents.Upgrades;
 import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData;
 import com.awesomeshot5051.resourceFarm.datacomponents.ModDataComponents;
 import com.awesomeshot5051.resourceFarm.gui.OutputContainer;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -51,12 +52,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static net.minecraft.world.item.BlockItem.TooltipContext;
 import static net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag;
+import static net.minecraft.world.item.Item.TooltipContext;
 
-public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
+public class QuantumInfusedDustFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
-    public ChargedCertusQuartzCrystalFarmBlock() {
+    public QuantumInfusedDustFarmBlock() {
         super(Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
     }
 
@@ -71,7 +72,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new ChargedCertusQuartzCrystalItemRenderer();
+                return new QuantumInfusedDustItemRenderer();
             }
         };
     }
@@ -80,7 +81,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (blockEntity instanceof ChargedCertusQuartzCrystalFarmTileentity farmTileEntity) {
+        if (blockEntity instanceof QuantumInfusedDustFarmTileentity farmTileEntity) {
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
@@ -104,7 +105,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        ChargedCertusQuartzCrystalFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new ChargedCertusQuartzCrystalFarmTileentity(BlockPos.ZERO, ModBlocks.CCQC_FARM.get().defaultBlockState()));
+        QuantumInfusedDustFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new QuantumInfusedDustFarmTileentity(BlockPos.ZERO, ModBlocks.QID_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
@@ -133,11 +134,11 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof ChargedCertusQuartzCrystalFarmTileentity farm)) {
+        if (!(tileEntity instanceof QuantumInfusedDustFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        if (!farm.getInscriberPressInstalled()) {
-            farm.setInscriberPressInstalled(heldItem.is(AEItems.CALCULATION_PROCESSOR_PRESS.asItem()));
+        if (!Upgrades.getUpgradeStatus(farm.upgrades, ModItems.INSCRIBER_UPGRADE.toStack())) {
+            Upgrades.setUpgradeStatus(farm.upgrades, ModItems.INSCRIBER_UPGRADE.toStack(), true);
             heldItem.shrink(1);
             return ItemInteractionResult.SUCCESS;
         }
@@ -151,7 +152,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CCQC_FARM::get);
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.QID_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -167,7 +168,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new ChargedCertusQuartzCrystalFarmTileentity(blockPos, blockState);
+        return new QuantumInfusedDustFarmTileentity(blockPos, blockState);
     }
 
     @Override

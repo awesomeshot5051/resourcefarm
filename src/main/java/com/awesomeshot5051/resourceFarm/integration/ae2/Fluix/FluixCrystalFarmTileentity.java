@@ -1,31 +1,46 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Fluix;
 
-import com.awesomeshot5051.corelib.blockentity.*;
-import com.awesomeshot5051.corelib.datacomponents.*;
-import com.awesomeshot5051.corelib.integration.*;
-import com.awesomeshot5051.corelib.inventory.*;
-import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.*;
-import com.awesomeshot5051.resourceFarm.items.*;
-import com.mojang.serialization.*;
-import net.minecraft.core.*;
-import net.minecraft.nbt.*;
-import net.minecraft.resources.*;
-import net.minecraft.server.level.*;
-import net.minecraft.world.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.*;
-import net.minecraft.world.item.enchantment.*;
-import net.minecraft.world.level.block.state.*;
-import net.neoforged.neoforge.items.*;
-import org.jetbrains.annotations.*;
+import com.awesomeshot5051.corelib.blockentity.FarmTileentity;
+import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
+import com.awesomeshot5051.corelib.blockentity.SyncableTileentity;
+import com.awesomeshot5051.corelib.datacomponents.Upgrades;
+import com.awesomeshot5051.corelib.integration.AE2Check;
+import com.awesomeshot5051.corelib.inventory.ItemListInventory;
+import com.awesomeshot5051.resourceFarm.Main;
+import com.awesomeshot5051.resourceFarm.OutputItemHandler;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
+import com.awesomeshot5051.resourceFarm.integration.ae2.AE2Blocks;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
+import com.mojang.serialization.DataResult;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Container;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
-import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
-import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.getPickaxeEnchantmentStatus;
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.initializePickaxeEnchantments;
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.initializeUpgrades;
 
 public class FluixCrystalFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
@@ -41,6 +56,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     protected long timer;
     protected ItemStackHandler itemHandler;
     protected OutputItemHandler outputItemHandler;
+
 
     public FluixCrystalFarmTileentity(BlockPos pos, BlockState state) {
         super(ModTileEntities.FLCR_FARM.get(), ModBlocks.FLCR_FARM.get().defaultBlockState(), pos, state);
@@ -64,6 +80,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         return AE2Check.containsAllItems(AE2Blocks.itemsRequiredForFC, this.ae2ItemsList);
     }
 
+    @Override
     public long getTimer() {
         return timer;
     }
@@ -142,11 +159,11 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         if (!(ae2ItemsList.size() < 4) && AE2Check.containsAllItems(ae2ItemsList, AE2Blocks.itemsRequiredForFC)) {
             drops.add(new ItemStack(AE2Blocks.FLUIX_CRYSTAL.get(), dropCount));
         }
-        if (serverWorld.random.nextFloat() < 0.05f) {
-            if (!ae2ItemsList.isEmpty() && !(ae2ItemsList.size() < 4)) {
-                ae2ItemsList.remove(serverWorld.getRandom().nextIntBetweenInclusive(0, 3));
-            }
-        }
+//        if (serverWorld.random.nextFloat() < 0.05f) {
+//            if (!ae2ItemsList.isEmpty() && !(ae2ItemsList.size() < 4)) {
+//                ae2ItemsList.remove(serverWorld.getRandom().nextIntBetweenInclusive(0, 3));
+//            }
+//        }
         return drops;
     }
 
@@ -162,16 +179,6 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
     @Override
     protected void saveAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
-
-//        try {
-//            if (pickType != null) {
-//                DataResult<Tag> tag = ItemStack.STRICT_SINGLE_ITEM_CODEC.encodeStart(NbtOps.INSTANCE, pickType.getItem().getDefaultInstance());
-//                compound.put("PickType", tag.getOrThrow());
-//            }
-//        } catch (IllegalStateException e) {
-//            System.err.println("Failed to encode pickType due to registry access issue: " + e.getMessage());
-//        }
-
         // Saving ae2ItemsList correctly
         if (ae2ItemsList != null && !ae2ItemsList.isEmpty()) {
             DataResult<Tag> tagResult = ItemStack.CODEC.listOf().encodeStart(NbtOps.INSTANCE, ae2ItemsList);
@@ -250,6 +257,7 @@ public class FluixCrystalFarmTileentity extends FarmTileentity implements ITicka
         return outputItemHandler;
     }
 
+    @Override
     protected Map<ResourceKey<Enchantment>, Boolean> getPickaxeEnchantments() {
         return pickaxeEnchantments;
     }

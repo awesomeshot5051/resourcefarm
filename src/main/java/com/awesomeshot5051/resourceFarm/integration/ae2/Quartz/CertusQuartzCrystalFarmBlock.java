@@ -1,36 +1,56 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
 
 
-import appeng.core.definitions.*;
-import com.awesomeshot5051.corelib.block.*;
-import com.awesomeshot5051.corelib.blockentity.*;
-import com.awesomeshot5051.corelib.client.*;
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
-import com.awesomeshot5051.resourceFarm.gui.*;
-import net.minecraft.*;
-import net.minecraft.client.gui.screens.*;
-import net.minecraft.core.*;
-import net.minecraft.network.chat.*;
-import net.minecraft.world.*;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.*;
-import net.neoforged.api.distmarker.*;
+import appeng.core.definitions.AEBlocks;
+import appeng.core.definitions.AEItems;
+import com.awesomeshot5051.corelib.block.IItemBlock;
+import com.awesomeshot5051.corelib.blockentity.SimpleBlockEntityTicker;
+import com.awesomeshot5051.corelib.client.CustomRendererBlockItem;
+import com.awesomeshot5051.corelib.client.ItemRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData;
+import com.awesomeshot5051.resourceFarm.datacomponents.ModDataComponents;
+import com.awesomeshot5051.resourceFarm.gui.OutputContainer;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
-import java.util.stream.*;
+import java.util.stream.Collectors;
 
-import static net.minecraft.world.item.BlockItem.*;
+import static net.minecraft.world.item.BlockItem.TooltipContext;
+import static net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag;
 
 public class CertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
@@ -115,7 +135,11 @@ public class CertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlo
         if (!(tileEntity instanceof CertusQuartzCrystalFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-
+        if (!farm.getInscriberPressInstalled()) {
+            farm.setInscriberPressInstalled(heldItem.is(AEItems.CALCULATION_PROCESSOR_PRESS.asItem()));
+            heldItem.shrink(1);
+            return ItemInteractionResult.SUCCESS;
+        }
         // Define allowed speed-up items with their max limits
         Item crystalResonanceGenerator = AEBlocks.CRYSTAL_RESONANCE_GENERATOR.asItem();
         Item growthAccelerator = AEBlocks.GROWTH_ACCELERATOR.asItem(); // Assuming this exists

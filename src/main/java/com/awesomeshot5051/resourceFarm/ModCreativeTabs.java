@@ -1,14 +1,17 @@
 package com.awesomeshot5051.resourceFarm;
 
 
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.items.*;
-import net.minecraft.core.registries.*;
-import net.minecraft.network.chat.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.*;
-import net.neoforged.bus.api.*;
-import net.neoforged.neoforge.registries.*;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModCreativeTabs {
 
@@ -56,6 +59,12 @@ public class ModCreativeTabs {
                                 output.accept(new ItemStack(item));
                             }
                     );
+                }
+                if (Main.aae2_installed) {
+                    ModBlocks.AAE2_REGISTER.getEntries().forEach(blockEntry -> {
+                        Block block = blockEntry.get();
+                        output.accept(new ItemStack(block.asItem()));
+                    });
                 }
                 ModItems.ITEMS.getEntries().forEach(
                         blockEntry -> {

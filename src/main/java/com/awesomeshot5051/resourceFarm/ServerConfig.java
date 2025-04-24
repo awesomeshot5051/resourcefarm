@@ -26,11 +26,11 @@ public class ServerConfig extends ConfigBase {
 
         copperGenerateTime = builder
                 .comment("The time in ticks the copper farm takes to generate resources")
-                .defineInRange("copper_farm.generate_time", 20 * 30, 20 * 30, 20 * 30);
+                .defineInRange("copper_farm.generate_time", 20 * 30, 20 * 3, 20 * 30);
 
         coalGenerateTime = builder
                 .comment("The time in ticks the coal farm takes to generate resources")
-                .defineInRange("coal_farm.generate_time", 20 * 30, 20 * 30, 20 * 30);
+                .defineInRange("coal_farm.generate_time", 20 * 3, 20 * 30, 20 * 30);
 
 
         ironGenerateTime = builder

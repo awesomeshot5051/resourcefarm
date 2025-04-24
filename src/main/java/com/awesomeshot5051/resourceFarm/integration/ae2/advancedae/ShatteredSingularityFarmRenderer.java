@@ -1,8 +1,11 @@
-package com.awesomeshot5051.resourceFarm.integration.ae2.Fluix;
+package com.awesomeshot5051.resourceFarm.integration.ae2.advancedae;
 
+import appeng.core.definitions.AEItems;
+import com.awesomeshot5051.corelib.datacomponents.Upgrades;
 import com.awesomeshot5051.corelib.integration.AE2Check;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.RendererBase;
 import com.awesomeshot5051.resourceFarm.integration.ae2.AE2Blocks;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -27,14 +30,18 @@ import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.pedroksl.advanced_ae.common.definitions.AAEItems;
 import org.joml.Matrix4f;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTileentity> {
+
+public class ShatteredSingularityFarmRenderer extends RendererBase<ShatteredSingularityFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
     private final ItemRenderer itemRenderer;
 
-    public FluixCrystalFarmRenderer(BlockEntityRendererProvider.Context renderer) {
+    public ShatteredSingularityFarmRenderer(BlockEntityRendererProvider.Context renderer) {
         super(renderer);
         this.blockRenderDispatcher = renderer.getBlockRenderDispatcher();
         itemRenderer = renderer.getItemRenderer();
@@ -42,21 +49,27 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
     }
 
     @Override
-    public void render(FluixCrystalFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(ShatteredSingularityFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
-        if (farm.getAE2ItemsList().stream().anyMatch(itemStack -> itemStack.is(Items.WATER_BUCKET))) {
-            renderFluid(new FluidStack(Fluids.WATER, 100), matrixStack, buffer, combinedLight, combinedOverlay);
+        if (farm.getShatteredSingularityItemsList().stream().anyMatch(itemStack -> itemStack.is(Items.LAVA_BUCKET))) {
+            renderFluid(new FluidStack(Fluids.LAVA, 100), matrixStack, buffer, combinedLight, combinedOverlay);
         }
         Level level = farm.getLevel();
         assert level != null;
         matrixStack.scale(0.5f, 0.5f, 0.5f);
         matrixStack.translate(0.6, 0.3, 1.1); // Center position with slight lift
-        double generateTime = FluixCrystalFarmTileentity.getFluixCrystalGenerateTime(farm);
-        double breakTime = FluixCrystalFarmTileentity.getFluixCrystalBreakTime(farm);
+        double generateTime = ShatteredSingularityFarmTileentity.getShatteredSingularityGenerateTime(farm);
+        double breakTime = ShatteredSingularityFarmTileentity.getShatteredSingularityBreakTime(farm);
+        List<ItemStack> fullRequirements = Upgrades.getUpgradeStatus(farm.upgrades, ModItems.INSCRIBER_UPGRADE.toStack())
+                ? new ArrayList<>() {{
+            addAll(AE2Blocks.shatteredSingularityRequirements);
+            addAll(AE2Blocks.inscriberQuantumPress);
+        }}
+                : AE2Blocks.shatteredSingularityRequirements;
 
-        if ((!farm.getAE2ItemsList().isEmpty()) && AE2Check.containsAllItems(AE2Blocks.itemsRequiredForFC, farm.getAE2ItemsList())) {
-            //renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
+        if (AE2Check.containsAllItems(fullRequirements, farm.getShatteredSingularityItemsList())) {
+            //renderFluid(farm, new FluidStack(Fluids.LAVA, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
             if (farm.getTimer() >= generateTime) {
                 if (farm.redstoneUpgradeEnabled && !level.hasNeighborSignal(farm.getBlockPos())) {
                     blockRenderDispatcher.renderSingleBlock(
@@ -70,7 +83,7 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
                     );
                 } else {
                     itemRenderer.renderStatic(
-                            AE2Blocks.FLUIX_CRYSTAL.get().getDefaultInstance(),
+                            AAEItems.SHATTERED_SINGULARITY.stack(2).getItem().getDefaultInstance(),
                             ItemDisplayContext.GROUND, combinedLight,
                             combinedOverlay,
                             matrixStack,
@@ -91,23 +104,24 @@ public class FluixCrystalFarmRenderer extends RendererBase<FluixCrystalFarmTilee
                 );
             } else {
                 // Render floating ingredients at different positions
-                renderFloatingItem(Items.REDSTONE.getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 0);
-                renderFloatingItem(AE2Blocks.CHARGED_CERTUS_QUARTZ_CRYSTAL.get().getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 120);
-                renderFloatingItem(Items.QUARTZ.getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 240);
+                renderFloatingItem(AEItems.SINGULARITY.asItem().getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 0);
+                renderFloatingItem(AEItems.ENDER_DUST.asItem().getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 120);
+                renderFloatingItem(AEItems.SKY_DUST.asItem().getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 240);
+                if (fullRequirements.size() == 6) {
+                    renderFloatingItem(AEItems.LOGIC_PROCESSOR_PRESS.asItem().getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 360);
+                    renderFloatingItem(AEItems.ENGINEERING_PROCESSOR_PRESS.asItem().getDefaultInstance(), matrixStack, buffer, combinedLight, combinedOverlay, 0.1, 480);
+                }
             }
         } else {
             // Render items dynamically based on how many exist
-            int itemCount = farm.getAE2ItemsList().size();
+            int itemCount = farm.getShatteredSingularityItemsList().size();
             if (itemCount > 0) {
                 for (int i = 0; i < itemCount; i++) {
-                    ItemStack item = farm.getAE2ItemsList().get(i);
+                    ItemStack item = farm.getShatteredSingularityItemsList().get(i);
                     double angle = (360.0 / itemCount) * i; // Spread out items evenly in a circle
                     renderFloatingItem(item, matrixStack, buffer, combinedLight, combinedOverlay, 0.8, angle);
                 }
             }
-//            if (farm.getAE2ItemsList().stream().anyMatch(item -> item.is(Items.WATER_BUCKET))) {
-//                //renderFluid(farm, new FluidStack(Fluids.WATER, 1000), matrixStack, buffer, getLightLevel(farm.getLevel(), farm.getBlockPos()), combinedOverlay);
-//            }
         }
 
         matrixStack.popPose();

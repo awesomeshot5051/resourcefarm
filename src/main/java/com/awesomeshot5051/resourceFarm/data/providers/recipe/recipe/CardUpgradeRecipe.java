@@ -1,24 +1,32 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe;
 
-import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
-import com.awesomeshot5051.resourceFarm.items.*;
-import com.mojang.serialization.*;
-import com.mojang.serialization.codecs.*;
-import net.minecraft.core.*;
-import net.minecraft.core.component.*;
-import net.minecraft.network.*;
-import net.minecraft.network.codec.*;
-import net.minecraft.resources.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.*;
+import com.awesomeshot5051.resourceFarm.Main;
+import com.awesomeshot5051.resourceFarm.datacomponents.ModDataComponents;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.crafting.*;
-import net.minecraft.world.level.*;
-import net.neoforged.neoforge.common.util.*;
-import org.jetbrains.annotations.*;
+import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.util.RecipeMatcher;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
-import java.util.stream.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("ALL")
 public class CardUpgradeRecipe extends ShapelessRecipe {
@@ -97,6 +105,11 @@ public class CardUpgradeRecipe extends ShapelessRecipe {
             }
             if (Main.eae2_installed) {
                 for (var sidedBlock : ModItems.EAE2_REGISTER.getEntries()) {
+                    ALL_FARMS.add(sidedBlock.get());
+                }
+            }
+            if (Main.aae2_installed) {
+                for (var sidedBlock : ModItems.AAE2_REGISTER.getEntries()) {
                     ALL_FARMS.add(sidedBlock.get());
                 }
             }

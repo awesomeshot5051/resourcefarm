@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.78'
+    id 'net.neoforged.moddev' version '2.0.80'
     id 'com.gradleup.shadow' version '9.0.0-beta6'
     id("org.shipkit.shipkit-github-release") version "2.0.1"
     id("org.shipkit.shipkit-changelog") version "2.0.1"
@@ -170,6 +170,8 @@ dependencies {
     implementation "curse.maven:integrated-dynamics-236307:${id_id}"
     implementation "curse.maven:integrated-terminals-295910:${terminals_id}"
     implementation "curse.maven:integrated-tunnels-251389:${tunnels_id}"
+    implementation "curse.maven:advancedae-1084104:${aae_id}"
+    localRuntime "curse.maven:geckolib-388172:${gecko_id}"
     localRuntime "curse.maven:cyclops-core-232758:${cyclops_id}"
     localRuntime "curse.maven:common-capabilities-247007:${capabilities_id}"
     implementation "curse.maven:applied-energistics-223794:${ae_id}"
@@ -180,8 +182,8 @@ dependencies {
     localRuntime "curse.maven:guideme-1173950:${guideme_id}"
     shadow("com.awesomeshot5051.corelib:corelib:1.21-3.0.15")
     runtimeOnly "com.awesomeshot5051.corelib:corelib:1.21-3.0.15"
-    compileOnly("vazkii.patchouli:Patchouli:${VERSION}:api")
-    localRuntime("vazkii.patchouli:Patchouli:${VERSION}")
+//    compileOnly("vazkii.patchouli:Patchouli:${VERSION}:api")
+//    localRuntime("vazkii.patchouli:Patchouli:${VERSION}")
 }
 tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [

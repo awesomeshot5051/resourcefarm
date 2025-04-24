@@ -2,10 +2,10 @@ package com.awesomeshot5051.resourceFarm.data.providers.models;
 
 
 import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import net.minecraft.data.*;
-import net.minecraft.world.level.block.*;
-import net.neoforged.neoforge.common.data.*;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class ModBlockModelProvider extends BaseBlockModelProvider {
 
@@ -33,6 +33,12 @@ public class ModBlockModelProvider extends BaseBlockModelProvider {
         }
         if (Main.ae2_installed) {
             ModBlocks.AE2_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                sideBottomTop(block.asItem());
+            });
+        }
+        if (Main.aae2_installed) {
+            ModBlocks.AAE2_REGISTER.getEntries().forEach(blockEntry -> {
                 Block block = blockEntry.get();
                 sideBottomTop(block.asItem());
             });

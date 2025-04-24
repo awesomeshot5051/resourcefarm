@@ -1,4 +1,4 @@
-package com.awesomeshot5051.resourceFarm.integration.ae2;
+package com.awesomeshot5051.resourceFarm.integration.ae2.advancedae;
 
 
 import appeng.core.definitions.AEItems;
@@ -7,11 +7,13 @@ import com.awesomeshot5051.corelib.blockentity.SimpleBlockEntityTicker;
 import com.awesomeshot5051.corelib.client.CustomRendererBlockItem;
 import com.awesomeshot5051.corelib.client.ItemRenderer;
 import com.awesomeshot5051.corelib.datacomponents.Upgrades;
+import com.awesomeshot5051.corelib.integration.AE2Check;
 import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData;
 import com.awesomeshot5051.resourceFarm.datacomponents.ModDataComponents;
 import com.awesomeshot5051.resourceFarm.gui.OutputContainer;
+import com.awesomeshot5051.resourceFarm.integration.ae2.AE2Blocks;
 import com.awesomeshot5051.resourceFarm.items.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -45,22 +47,24 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+import net.pedroksl.advanced_ae.common.definitions.AAEItems;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.awesomeshot5051.resourceFarm.integration.ae2.AE2Blocks.QUANTUM_INFUSION_BUCKET;
 import static net.minecraft.world.item.BlockItem.TooltipContext;
-import static net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag;
 
-public class SiliconFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
+public class QuantumAlloyFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
-    public SiliconFarmBlock() {
+    public QuantumAlloyFarmBlock() {
         super(Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
     }
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -73,7 +77,7 @@ public class SiliconFarmBlock extends BlockBase implements EntityBlock, IItemBlo
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new SiliconFarmItemRenderer();
+                return new QuantumAlloyFarmItemRenderer();
             }
         };
     }
@@ -82,36 +86,21 @@ public class SiliconFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (blockEntity instanceof SiliconFarmTileentity farmTileEntity) {
-            ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
+        if (blockEntity instanceof QuantumAlloyFarmTileentity farmTileEntity) {
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
-                farmTileEntity.setChanged();
-                for (ItemStack upgrade : farmTileEntity.upgradeList) {
-                    updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, upgrade);
-                }
-                level.sendBlockUpdated(pos, state, state, 3);
             }
 
-            if (pickType != null) {
-                farmTileEntity.pickType = pickType.getStackInSlot(0);
-                farmTileEntity.setChanged();
-                updateCustomBlockEntityTag(level, placer instanceof Player ? (Player) placer : null, pos, pickType.getStackInSlot(0));
-                level.sendBlockUpdated(pos, state, state, 3);
-            }
-
+            farmTileEntity.setChanged();
+            level.sendBlockUpdated(pos, state, state, 3);
         }
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        SiliconFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new SiliconFarmTileentity(BlockPos.ZERO, ModBlocks.SIL_FARM.get().defaultBlockState()));
+        QuantumAlloyFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new QuantumAlloyFarmTileentity(BlockPos.ZERO, ModBlocks.QA_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
-            ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
-            ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
-            components.add(Component.literal("This farm has a " + convertToReadableName(pickType.getItem().getDefaultInstance().getDescriptionId()) + " on it.")
-                    .withStyle(ChatFormatting.RED));
             if (stack.has(ModDataComponents.UPGRADE)) {
                 for (ItemStack upgrade : stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList())
                     components.add(Component.literal(convertToReadableName(upgrade.getDescriptionId())));
@@ -132,19 +121,103 @@ public class SiliconFarmBlock extends BlockBase implements EntityBlock, IItemBlo
                 .collect(Collectors.joining(" "));
     }
 
+    int getTotalCount(List<ItemStack> list, Item item) {
+        return list.stream()
+                .filter(stack -> stack.is(item))
+                .mapToInt(ItemStack::getCount)
+                .sum();
+    }
+
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+    protected @NotNull ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof SiliconFarmTileentity farm)) {
+        if (!(tileEntity instanceof QuantumAlloyFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        if (Upgrades.getUpgradeStatus(farm.getUpgrades(), ModItems.INSCRIBER_UPGRADE.toStack())) {
-            if (!farm.getInscriberPressInstalled()) {
-                farm.setInscriberPressInstalled(heldItem.is(AEItems.SILICON_PRESS.asItem()));
+        List<ItemStack> quantumItemsNeeded = new ArrayList<>(farm.getQuantumAlloyRequirements());
+        boolean updated = false;
+
+// Helper method to get count of specific item in the list
+
+// Add Copper Ingot
+        if (!farm.checkPasses(farm)) {
+            if (heldItem.is(Items.COPPER_INGOT)) {
+                int current = getTotalCount(quantumItemsNeeded, Items.COPPER_INGOT);
+                int toAdd = Math.min(4 - current, heldItem.getCount());
+
+                if (toAdd > 0) {
+                    quantumItemsNeeded.removeIf(stack -> stack.is(Items.COPPER_INGOT));
+                    quantumItemsNeeded.add(new ItemStack(Items.COPPER_INGOT, current + toAdd));
+                    heldItem.shrink(toAdd);
+                    updated = true;
+                }
+            }
+
+// Add Shattered Singularity
+            else if (heldItem.is(AAEItems.SHATTERED_SINGULARITY.get())) {
+                int current = getTotalCount(quantumItemsNeeded, AAEItems.SHATTERED_SINGULARITY.get());
+                int toAdd = Math.min(4 - current, heldItem.getCount());
+
+                if (toAdd > 0) {
+                    quantumItemsNeeded.removeIf(stack -> stack.is(AAEItems.SHATTERED_SINGULARITY.get()));
+                    quantumItemsNeeded.add(new ItemStack(AAEItems.SHATTERED_SINGULARITY.get(), current + toAdd));
+                    heldItem.shrink(toAdd);
+                    updated = true;
+                }
+            }
+
+// Add Singularity
+            else if (heldItem.is(AEItems.SINGULARITY.get())) {
+                int current = getTotalCount(quantumItemsNeeded, AEItems.SINGULARITY.get());
+                int toAdd = Math.min(4 - current, heldItem.getCount());
+
+                if (toAdd > 0) {
+                    quantumItemsNeeded.removeIf(stack -> stack.is(AEItems.SINGULARITY.get()));
+                    quantumItemsNeeded.add(new ItemStack(AEItems.SINGULARITY.get(), current + toAdd));
+                    heldItem.shrink(toAdd);
+                    updated = true;
+                }
+            }
+
+// Add Quantum Infusion Bucket (only once)
+            else if (heldItem.is(QUANTUM_INFUSION_BUCKET.get()) &&
+                    quantumItemsNeeded.stream().noneMatch(stack -> stack.is(QUANTUM_INFUSION_BUCKET.get()))) {
+                quantumItemsNeeded.add(new ItemStack(QUANTUM_INFUSION_BUCKET.get()));
                 heldItem.shrink(1);
-                return ItemInteractionResult.SUCCESS;
+
+                int slotIndex = player.getInventory().findSlotMatchingItem(heldItem);
+                if (slotIndex != -1) {
+                    player.getInventory().setItem(slotIndex, new ItemStack(Items.BUCKET));
+                } else if (!player.getInventory().contains(new ItemStack(Items.BUCKET))) {
+                    player.getInventory().add(new ItemStack(Items.BUCKET));
+                }
+
+                updated = true;
+            }
+
+            if (updated) {
+                farm.setQuantumAlloyRequirements(quantumItemsNeeded);
+
+                boolean hasCopper = getTotalCount(quantumItemsNeeded, Items.COPPER_INGOT) == 4;
+                boolean hasShattered = getTotalCount(quantumItemsNeeded, AAEItems.SHATTERED_SINGULARITY.get()) == 4;
+                boolean hasSingularity = getTotalCount(quantumItemsNeeded, AEItems.SINGULARITY.get()) == 4;
+                boolean hasInfusion = quantumItemsNeeded.stream().anyMatch(stack -> stack.is(QUANTUM_INFUSION_BUCKET.get()));
+
+                if (hasCopper && hasShattered && hasSingularity && hasInfusion) {
+                    return ItemInteractionResult.SUCCESS;
+                }
+
+                return ItemInteractionResult.CONSUME;
             }
         }
+        if (AE2Check.containsAllItems(AE2Blocks.quantumAlloyRequirements, farm.getQuantumAlloyRequirements()) && Upgrades.getUpgradeStatus(farm.getUpgrades(), ModItems.INSCRIBER_UPGRADE.get().getDefaultInstance())) {
+            if (heldItem.is(AAEItems.QUANTUM_PROCESSOR_PRESS.asItem()) && !farm.getInscriberInstalled()) {
+                farm.setInscriberInstalled(heldItem.is(AAEItems.QUANTUM_PROCESSOR_PRESS.asItem()));
+                heldItem.shrink(1);
+                return ItemInteractionResult.CONSUME;
+            }
+        }
+
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -154,7 +227,7 @@ public class SiliconFarmBlock extends BlockBase implements EntityBlock, IItemBlo
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.SIL_FARM::get);
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.QA_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -170,7 +243,7 @@ public class SiliconFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new SiliconFarmTileentity(blockPos, blockState);
+        return new QuantumAlloyFarmTileentity(blockPos, blockState);
     }
 
     @Override
@@ -183,4 +256,6 @@ public class SiliconFarmBlock extends BlockBase implements EntityBlock, IItemBlo
     public float getShadeBrightness(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return 1F;
     }
+
+
 }

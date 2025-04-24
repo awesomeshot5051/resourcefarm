@@ -1,32 +1,60 @@
 package com.awesomeshot5051.resourceFarm.blocks;
 
-import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.blocks.end.rock.common.*;
-import com.awesomeshot5051.resourceFarm.blocks.nether.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.nether.ores.veryrare.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.*;
-import com.awesomeshot5051.resourceFarm.blocks.nether.soil.*;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.uncommon.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.uncommon.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.regular.*;
+import com.awesomeshot5051.resourceFarm.Main;
+import com.awesomeshot5051.resourceFarm.blocks.end.rock.common.EndStoneFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.end.rock.common.PurpurFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.ores.common.regular.NetherGoldOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.ores.common.regular.NetherQuartzOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.ores.veryrare.regular.NetheriteOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.BasaltFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.BlackstoneFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.GlowstoneFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.NetherrackFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.soil.SoulSandFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.nether.soil.SoulSoilFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateCoalOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateCopperOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateGoldOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateIronOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.CoalOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.CopperOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.GoldOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.IronOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.deepslate.DeepslateDiamondOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.deepslate.DeepslateLapisOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.regular.DiamondOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.regular.LapisOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.uncommon.deepslate.DeepslateRedstoneOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.uncommon.regular.RedstoneOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.deepslate.DeepslateEmeraldOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.regular.EmeraldOreFarmBlock;
 import com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.overworld.soil.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.FluixCrystalFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.FluixDustFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.MysteriousCubeFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.SkyStoneFarmBlock;
 import com.awesomeshot5051.resourceFarm.integration.ae2.Quartz.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.*;
-import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.*;
-import com.awesomeshot5051.resourceFarm.integration.integratedterminals.*;
-import net.minecraft.core.registries.*;
-import net.minecraft.world.level.block.*;
-import net.neoforged.bus.api.*;
-import net.neoforged.neoforge.registries.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.SiliconFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.SingularityFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.advancedae.QuantumAlloyFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.advancedae.QuantumInfusedDustFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.advancedae.ShatteredSingularityFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.EntroBlockFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.EntroCrystalFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.EntroDustFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.SiliconBlockFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.CrystalChorusBrickFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.CrystalChorusFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.CrystalMenrilFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.MenrilBrickFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.CrystalChorusGlassFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.MenrilGlassFarmBlock;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModBlocks {
 
@@ -34,6 +62,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> DYNAMIC_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
     public static final DeferredRegister<Block> TERMINALS_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
     public static final DeferredRegister<Block> AE2_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
+    public static final DeferredRegister<Block> AAE2_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
     public static final DeferredRegister<Block> EAE2_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK, Main.MODID);
     // Vanilla Minecraft farm blocks registration using BLOCK_REGISTER:
 
@@ -215,6 +244,14 @@ public class ModBlocks {
     public static final DeferredHolder<Block, SkyStoneFarmBlock> SSB_FARM = AE2_REGISTER.register("ssb_farm", SkyStoneFarmBlock::new);
     public static final DeferredHolder<Block, MysteriousCubeFarmBlock> MC_FARM = AE2_REGISTER.register("mc_farm", MysteriousCubeFarmBlock::new);
     public static final DeferredHolder<Block, SiliconFarmBlock> SIL_FARM = AE2_REGISTER.register("sil_farm", SiliconFarmBlock::new);
+    public static final DeferredHolder<Block, SingularityFarmBlock> SI_FARM = AE2_REGISTER.register("si_farm", SingularityFarmBlock::new);
+
+    //Advanced AE Farm blocks registration (AAE2_REGISTER):
+
+    public static final DeferredHolder<Block, QuantumAlloyFarmBlock> QA_FARM = AAE2_REGISTER.register("qa_farm", QuantumAlloyFarmBlock::new);
+    public static final DeferredHolder<Block, ShatteredSingularityFarmBlock> SS_FARM = AAE2_REGISTER.register("ss_farm", ShatteredSingularityFarmBlock::new);
+    public static final DeferredHolder<Block, QuantumInfusedDustFarmBlock> QID_FARM = AAE2_REGISTER.register("qid_farm", QuantumInfusedDustFarmBlock::new);
+
 
     // Extended AE farm blocks registration (EA2_REGISTER):
     public static final DeferredHolder<Block, EntroCrystalFarmBlock> ENTC_FARM = EAE2_REGISTER.register("entc_farm", EntroCrystalFarmBlock::new);
@@ -237,6 +274,9 @@ public class ModBlocks {
         }
         if (Main.ae2_installed) {
             AE2_REGISTER.register(eventBus);
+        }
+        if (Main.aae2_installed) {
+            AAE2_REGISTER.register(eventBus);
         }
     }
 

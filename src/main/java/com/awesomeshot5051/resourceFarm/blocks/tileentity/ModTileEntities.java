@@ -1,56 +1,100 @@
 package com.awesomeshot5051.resourceFarm.blocks.tileentity;
 
-import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.end.rock.common.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.veryrare.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.rock.common.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.soil.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.uncommon.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.uncommon.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.veryRare.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.veryRare.regular.*;
+import com.awesomeshot5051.resourceFarm.Main;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.end.rock.common.EndStoneFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.end.rock.common.PurpurFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.common.regular.NetherGoldOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.common.regular.NetherQuartzOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.veryrare.regular.NetheriteOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.rock.common.BasaltFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.rock.common.BlackstoneFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.rock.common.GlowstoneFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.rock.common.NetherrackFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.soil.SoulSandFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.soil.SoulSoilFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateCoalOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateCopperOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateGoldOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.deepslate.DeepslateIronOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.CoalOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.CopperOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.GoldOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.common.regular.IronOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.deepslate.DeepslateDiamondOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.deepslate.DeepslateLapisOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.regular.DiamondOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.rare.regular.LapisOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.uncommon.deepslate.DeepslateRedstoneOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.uncommon.regular.RedstoneOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.veryRare.deepslate.DeepslateEmeraldOreFarmTileentity;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.ores.veryRare.regular.EmeraldOreFarmTileentity;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.overworld.soil.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.end.rock.common.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.ores.veryrare.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.rock.common.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.soil.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.rare.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.rare.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.uncommon.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.uncommon.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.veryrare.deepslate.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.veryrare.regular.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.end.rock.common.EndStoneFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.end.rock.common.PurpurFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.ores.common.regular.NetherQuartzOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.ores.veryrare.regular.NetheriteOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.rock.common.BasaltFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.rock.common.BlackstoneFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.rock.common.GlowstoneFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.rock.common.NetherrackFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.soil.SoulSandFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.soil.SoulSoilFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.deepslate.DeepslateCoalOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.deepslate.DeepslateCopperOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.deepslate.DeepslateGoldOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.deepslate.DeepslateIronOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.CoalOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.CopperOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.GoldOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.common.regular.IronOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.rare.deepslate.DeepslateDiamondOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.rare.deepslate.DeepslateLapisOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.rare.regular.DiamondOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.rare.regular.LapisOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.uncommon.deepslate.DeepslateRedstoneOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.uncommon.regular.RedstoneOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.veryrare.deepslate.DeepslateEmeraldOreFarmRenderer;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.ores.veryrare.regular.EmeraldOreFarmRenderer;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.overworld.soil.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.FluixCrystalFarmRenderer;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.FluixCrystalFarmTileentity;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.FluixDustFarmRenderer;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.FluixDustFarmTileentity;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.MysteriousCubeFarmRenderer;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.MysteriousCubeFarmTileentity;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.SkyStoneFarmRenderer;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.SkyStoneFarmTileentity;
 import com.awesomeshot5051.resourceFarm.integration.ae2.Quartz.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.SiliconFarmRenderer;
+import com.awesomeshot5051.resourceFarm.integration.ae2.SiliconFarmTileentity;
+import com.awesomeshot5051.resourceFarm.integration.ae2.SingularityFarmRenderer;
+import com.awesomeshot5051.resourceFarm.integration.ae2.SingularityFarmTileentity;
+import com.awesomeshot5051.resourceFarm.integration.ae2.advancedae.*;
 import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.*;
 import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.*;
-import com.awesomeshot5051.resourceFarm.integration.integratedterminals.*;
-import net.minecraft.client.renderer.blockentity.*;
-import net.minecraft.core.registries.*;
-import net.minecraft.world.level.block.entity.*;
-import net.neoforged.api.distmarker.*;
-import net.neoforged.bus.api.*;
-import net.neoforged.neoforge.capabilities.*;
-import net.neoforged.neoforge.registries.*;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.CrystalChorusGlassFarmRenderer;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.CrystalChorusGlassFarmTileentity;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.MenrilGlassFarmRenderer;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.MenrilGlassFarmTileentity;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 
 public class ModTileEntities {
     private static final DeferredRegister<BlockEntityType<?>> DYNAMIC_BLOCK_ENTITY_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
     private static final DeferredRegister<BlockEntityType<?>> AE2_BLOCK_ENTITY_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
+    private static final DeferredRegister<BlockEntityType<?>> AAE2_BLOCK_ENTITY_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
     private static final DeferredRegister<BlockEntityType<?>> EAE2_BLOCK_ENTITY_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
     // === EAE2 (Extended AE) Tileentity Type Registrations ===
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_REGISTER = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
@@ -115,7 +159,12 @@ public class ModTileEntities {
             BlockEntityRenderers.register(ModTileEntities.MGLASS_FARM.get(), MenrilGlassFarmRenderer::new);
             BlockEntityRenderers.register(ModTileEntities.CCGLASS_FARM.get(), CrystalChorusGlassFarmRenderer::new);
         }
-        if (Main.eae2_installed) {
+        if (Main.aae2_installed) {
+            BlockEntityRenderers.register(ModTileEntities.SS_FARM.get(), ShatteredSingularityFarmRenderer::new);
+            BlockEntityRenderers.register(ModTileEntities.QA_FARM.get(), QuantumAlloyFarmRenderer::new);
+            BlockEntityRenderers.register(ModTileEntities.QID_FARM.get(), QuantumInfusedDustRenderer::new);
+        }
+        if (Main.ae2_installed) {
             BlockEntityRenderers.register(ModTileEntities.FBQ_FARM.get(), FlawedBuddingQuartzFarmRenderer::new);
             BlockEntityRenderers.register(ModTileEntities.FLBQ_FARM.get(), FlawlessBuddingQuartzFarmRenderer::new);
             BlockEntityRenderers.register(ModTileEntities.CCQC_FARM.get(), ChargedCertusQuartzCrystalFarmRenderer::new);
@@ -126,14 +175,18 @@ public class ModTileEntities {
             BlockEntityRenderers.register(ModTileEntities.SSB_FARM.get(), SkyStoneFarmRenderer::new);
             BlockEntityRenderers.register(ModTileEntities.MC_FARM.get(), MysteriousCubeFarmRenderer::new);
             BlockEntityRenderers.register(ModTileEntities.SIL_FARM.get(), SiliconFarmRenderer::new);
+            BlockEntityRenderers.register(ModTileEntities.SI_FARM.get(), SingularityFarmRenderer::new);
 
-            // EAE2 (Extended AE) tileentity renderers
-            BlockEntityRenderers.register(ModTileEntities.ENTC_FARM.get(), EntroCrystalFarmRenderer::new);
+
+            if (Main.eae2_installed) {
+                // EAE2 (Extended AE) tileentity renderers
+                BlockEntityRenderers.register(ModTileEntities.ENTC_FARM.get(), EntroCrystalFarmRenderer::new);
 //            BlockEntityRenderers.register(ModTileEntities.ENS_FARM.get(), EntroSeedFarmRenderer::new);
-            BlockEntityRenderers.register(ModTileEntities.ENTD_FARM.get(), EntroDustFarmRenderer::new);
-            BlockEntityRenderers.register(ModTileEntities.ENTB_FARM.get(), EntroBlockFarmRenderer::new);
+                BlockEntityRenderers.register(ModTileEntities.ENTD_FARM.get(), EntroDustFarmRenderer::new);
+                BlockEntityRenderers.register(ModTileEntities.ENTB_FARM.get(), EntroBlockFarmRenderer::new);
 //            BlockEntityRenderers.register(ModTileEntities.EBF_FARM.get(), EntroBuddingFullyFarmRenderer::new);
-            BlockEntityRenderers.register(ModTileEntities.SIB_FARM.get(), SiliconBlockFarmRenderer::new);
+                BlockEntityRenderers.register(ModTileEntities.SIB_FARM.get(), SiliconBlockFarmRenderer::new);
+            }
         }
     }
 
@@ -235,6 +288,12 @@ public class ModTileEntities {
             event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SSB_FARM.get(), (object, context) -> object.getItemHandler());
             event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, MC_FARM.get(), (object, context) -> object.getItemHandler());
             event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SIL_FARM.get(), (object, context) -> object.getItemHandler());
+            if (Main.aae2_installed) {
+                event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SS_FARM.get(), (object, context) -> object.getItemHandler());
+                event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, QA_FARM.get(), (object, context) -> object.getItemHandler());
+                event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, QID_FARM.get(), (object, context) -> object.getItemHandler());
+
+            }
             if (Main.eae2_installed) {
                 // EAE2 (Extended AE) tileentities
                 event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ENTC_FARM.get(), (object, context) -> object.getItemHandler());
@@ -261,6 +320,9 @@ public class ModTileEntities {
         if (Main.eae2_installed) {
             EAE2_BLOCK_ENTITY_REGISTER.register(eventBus);
         }
+        if (Main.aae2_installed) {
+            AAE2_BLOCK_ENTITY_REGISTER.register(eventBus);
+        }
     }    //    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EntroSeedFarmTileentity>> ENS_FARM = EAE2_BLOCK_ENTITY_REGISTER.register("ens_farm", () ->
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EntroBlockFarmTileentity>> ENTB_FARM = EAE2_BLOCK_ENTITY_REGISTER.register("entb_farm", () ->
@@ -270,6 +332,24 @@ public class ModTileEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SiliconFarmTileentity>> SIL_FARM = AE2_BLOCK_ENTITY_REGISTER.register("sil_farm", () ->
             BlockEntityType.Builder.of(SiliconFarmTileentity::new, ModBlocks.SIL_FARM.get()).build(null)
+    );
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SingularityFarmTileentity>> SI_FARM = AE2_BLOCK_ENTITY_REGISTER.register("si_farm", () ->
+            BlockEntityType.Builder.of(SingularityFarmTileentity::new, ModBlocks.SI_FARM.get()).build(null)
+    );
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShatteredSingularityFarmTileentity>> SS_FARM = AAE2_BLOCK_ENTITY_REGISTER.register("ss_farm", () ->
+            BlockEntityType.Builder.of(ShatteredSingularityFarmTileentity::new, ModBlocks.SS_FARM.get()).build(null)
+    );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<QuantumAlloyFarmTileentity>> QA_FARM = AAE2_BLOCK_ENTITY_REGISTER.register("qa_farm", () ->
+            BlockEntityType.Builder.of(QuantumAlloyFarmTileentity::new, ModBlocks.QA_FARM.get()).build(null)
+    );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<QuantumInfusedDustFarmTileentity>> QID_FARM = AAE2_BLOCK_ENTITY_REGISTER.register("qid_farm", () ->
+            BlockEntityType.Builder.of(QuantumInfusedDustFarmTileentity::new, ModBlocks.QID_FARM.get()).build(null)
     );
 
 

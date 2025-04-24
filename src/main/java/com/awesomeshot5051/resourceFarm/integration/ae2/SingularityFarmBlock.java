@@ -1,4 +1,4 @@
-package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
+package com.awesomeshot5051.resourceFarm.integration.ae2;
 
 
 import appeng.core.definitions.AEItems;
@@ -6,11 +6,13 @@ import com.awesomeshot5051.corelib.block.IItemBlock;
 import com.awesomeshot5051.corelib.blockentity.SimpleBlockEntityTicker;
 import com.awesomeshot5051.corelib.client.CustomRendererBlockItem;
 import com.awesomeshot5051.corelib.client.ItemRenderer;
+import com.awesomeshot5051.corelib.datacomponents.Upgrades;
 import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
 import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
 import com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData;
 import com.awesomeshot5051.resourceFarm.datacomponents.ModDataComponents;
 import com.awesomeshot5051.resourceFarm.gui.OutputContainer;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -45,18 +47,15 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
-import static net.minecraft.world.item.BlockItem.TooltipContext;
 import static net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag;
+import static net.minecraft.world.item.Item.TooltipContext;
 
-public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
+public class SingularityFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
-    public ChargedCertusQuartzCrystalFarmBlock() {
+    public SingularityFarmBlock() {
         super(Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
     }
 
@@ -71,7 +70,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new ChargedCertusQuartzCrystalItemRenderer();
+                return new SingularityFarmItemRenderer();
             }
         };
     }
@@ -80,7 +79,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
         BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (blockEntity instanceof ChargedCertusQuartzCrystalFarmTileentity farmTileEntity) {
+        if (blockEntity instanceof SingularityFarmTileentity farmTileEntity) {
             ItemContainerContents pickType = stack.get(ModDataComponents.PICK_TYPE);
             if (stack.has(ModDataComponents.UPGRADE)) {
                 farmTileEntity.upgradeList = stack.getOrDefault(ModDataComponents.UPGRADE, ItemContainerContents.EMPTY).stream().toList();
@@ -104,7 +103,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        ChargedCertusQuartzCrystalFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new ChargedCertusQuartzCrystalFarmTileentity(BlockPos.ZERO, ModBlocks.CCQC_FARM.get().defaultBlockState()));
+        SingularityFarmTileentity trader = BlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new SingularityFarmTileentity(BlockPos.ZERO, ModBlocks.SI_FARM.get().defaultBlockState()));
         if (Screen.hasShiftDown()) {
             ItemContainerContents defaultType = ItemContainerContents.fromItems(Collections.singletonList(new ItemStack(Items.WOODEN_PICKAXE)));
             ItemStack pickType = ItemContainerContents.fromItems(Collections.singletonList(Objects.requireNonNull(stack.getOrDefault(ModDataComponents.PICK_TYPE, defaultType)).copyOne())).copyOne();
@@ -133,15 +132,68 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof ChargedCertusQuartzCrystalFarmTileentity farm)) {
+        if (!(tileEntity instanceof SingularityFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        if (!farm.getInscriberPressInstalled()) {
-            farm.setInscriberPressInstalled(heldItem.is(AEItems.CALCULATION_PROCESSOR_PRESS.asItem()));
-            heldItem.shrink(1);
-            return ItemInteractionResult.SUCCESS;
-        }
+        List<ItemStack> singularityItemsNeeded = new ArrayList<>(farm.singularityRequirements);
+        boolean updated = false;
+        if (Upgrades.getUpgradeStatus(farm.getUpgrades(), ModItems.INSCRIBER_UPGRADE.toStack())) {
+// Matter Ball logic
+            if (heldItem.is(AEItems.MATTER_BALL.get())) {
+                int currentCount = singularityItemsNeeded.stream()
+                        .filter(stack -> stack.is(AEItems.MATTER_BALL.get()))
+                        .mapToInt(ItemStack::getCount)
+                        .sum();
 
+                int heldCount = heldItem.getCount();
+                int total = currentCount + heldCount;
+
+                if (currentCount < 64) {
+                    int toAdd = Math.min(64 - currentCount, heldCount);
+                    if (toAdd > 0) {
+                        // Remove old Matter Ball entry if it exists
+                        singularityItemsNeeded.removeIf(stack -> stack.is(AEItems.MATTER_BALL.get()));
+                        // Add updated stack
+                        singularityItemsNeeded.add(new ItemStack(AEItems.MATTER_BALL.get(), currentCount + toAdd));
+                        heldItem.shrink(toAdd);
+                        updated = true;
+                    }
+                }
+            }
+
+// Lava Bucket logic
+            else if (heldItem.is(Items.LAVA_BUCKET) &&
+                    singularityItemsNeeded.stream().noneMatch(stack -> stack.is(Items.LAVA_BUCKET))) {
+                singularityItemsNeeded.add(new ItemStack(Items.LAVA_BUCKET));
+                heldItem.shrink(1);
+
+                int slotIndex = player.getInventory().findSlotMatchingItem(heldItem);
+                if (slotIndex != -1) {
+                    player.getInventory().setItem(slotIndex, new ItemStack(Items.BUCKET));
+                } else if (!player.getInventory().contains(new ItemStack(Items.BUCKET))) {
+                    player.getInventory().add(new ItemStack(Items.BUCKET));
+                }
+
+                updated = true;
+            }
+
+            if (updated) {
+                farm.singularityRequirements = singularityItemsNeeded;
+
+                boolean hasMatterBall = singularityItemsNeeded.stream()
+                        .anyMatch(stack -> stack.is(AEItems.MATTER_BALL.get()) && stack.getCount() == 64);
+
+                boolean hasLavaBucket = singularityItemsNeeded.stream()
+                        .anyMatch(stack -> stack.is(Items.LAVA_BUCKET));
+
+                if (hasMatterBall && hasLavaBucket) {
+                    return ItemInteractionResult.SUCCESS;
+                }
+
+                return ItemInteractionResult.CONSUME;
+            }
+
+        }
         player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -151,7 +203,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.CCQC_FARM::get);
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.SI_FARM::get);
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -167,7 +219,7 @@ public class ChargedCertusQuartzCrystalFarmBlock extends BlockBase implements En
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new ChargedCertusQuartzCrystalFarmTileentity(blockPos, blockState);
+        return new SingularityFarmTileentity(blockPos, blockState);
     }
 
     @Override

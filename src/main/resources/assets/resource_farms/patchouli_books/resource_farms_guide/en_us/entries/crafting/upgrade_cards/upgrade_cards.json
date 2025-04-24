@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "As of right now, there are three upgrade cards. They are$(br)$(li)The Redstone Upgrade $(li)The Smelter Upgrade $(li)The Speed Upgrade$(br) The Redstone upgrade allows you to toggle the farm on and off using redstone.$(br)The Smelter upgrade will smelt the drops before they are outputted to the buffer. This upgrade is only applicable on farms that have a smelting recipe.$(br) The Speed Upgrade speeds up the drop rate. Currently, this only works on the Fluix Dust Farm from the AE2 integration. If you don't have AE2 installed, you can't use it."
+      "text": "As of right now, there are four upgrade cards. They are$(br)$(li)The Redstone Upgrade $(li)The Smelter Upgrade $(li)The Speed Upgrade $(li) The Inscriber Upgrade $(br)The Redstone upgrade allows you to toggle the farm on and off using redstone.$(br)The Smelter upgrade will smelt the drops before they are outputted to the buffer. This upgrade is only applicable on farms that have a smelting recipe.$(br) The Speed Upgrade speeds up the drop rate. Currently, this only works on the Fluix Dust Farm from the AE2 integration. If you don't have AE2 installed, you can't use it.$(br) The inscriber upgrade inscribes the drops for you."
     },
     {
       "type": "patchouli:crafting",
@@ -21,7 +21,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "You put the Upgrade cards on the Farms but combining them in the crafting table with a few other ingredients based on the card."
+      "text": "You put the Upgrade cards on the Farms by combining them in the crafting table with a few other ingredients based on the card."
     },
     {
       "type": "patchouli:crafting",
@@ -33,6 +33,12 @@
       "type": "patchouli:crafting",
       "title": "Putting the Upgrade on the Fluix Dust Farms",
       "recipe": "resource_farms:fldu_farm_speed_upgrade_recipe"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Putting the Inscriber Upgrade on the Farms",
+      "recipe": "resource_farms:diamond_farm_inscriber_upgrade_recipe",
+      "text": "Just putting the inscriber upgrade on isn't enough. You must also put the press usually used for that material.$(br)For example, with Gold, you would normally use the logic press. So you interact with the farm with a logic press. It will be consumed, and now it starts pressing the results.$(br)In this example, you must also have the smelter upgrade enabled, since the normal result of the Gold Farm is Raw Gold."
     }
   ]
 }

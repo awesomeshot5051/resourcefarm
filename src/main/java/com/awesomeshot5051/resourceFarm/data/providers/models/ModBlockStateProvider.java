@@ -1,15 +1,15 @@
 package com.awesomeshot5051.resourceFarm.data.providers.models;
 
-import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import net.minecraft.data.*;
-import net.minecraft.resources.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.properties.*;
-import net.neoforged.neoforge.client.model.generators.*;
-import net.neoforged.neoforge.common.data.*;
-import net.neoforged.neoforge.registries.*;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -65,6 +65,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
         }
         if (Main.eae2_installed) {
             ModBlocks.EAE2_REGISTER.getEntries().forEach(blockEntry -> {
+                Block block = blockEntry.get();
+                String blockName = blockEntry.getId().getPath();
+                if (block.defaultBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
+                    directionalBlock(block, modLoc("block/" + blockName));
+                } else {
+                    blockWithItem(blockEntry);
+                }
+            });
+        }
+        if (Main.aae2_installed) {
+            ModBlocks.AAE2_REGISTER.getEntries().forEach(blockEntry -> {
                 Block block = blockEntry.get();
                 String blockName = blockEntry.getId().getPath();
                 if (block.defaultBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {

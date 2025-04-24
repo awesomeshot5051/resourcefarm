@@ -1,41 +1,48 @@
-package com.awesomeshot5051.resourceFarm.blocks.tileentity.render.nether.ores.common.regular;
+package com.awesomeshot5051.resourceFarm.integration.ae2.advancedae;
 
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.nether.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.*;
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.block.*;
-import net.minecraft.client.renderer.blockentity.*;
-import net.minecraft.client.renderer.texture.*;
-import net.minecraft.resources.*;
-import net.minecraft.world.inventory.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
-import net.neoforged.neoforge.client.model.data.*;
+import com.awesomeshot5051.corelib.datacomponents.Upgrades;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.render.RendererBase;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.client.model.data.ModelData;
+import net.pedroksl.advanced_ae.common.definitions.AAEItems;
 
-import static com.awesomeshot5051.resourceFarm.BlockInternalRender.PickaxeRendererUtil.*;
 
-
-@SuppressWarnings("ALL")
-public class NetherQuartzOreFarmRenderer extends RendererBase<NetherQuartzOreFarmTileentity> {
+public class QuantumInfusedDustRenderer extends RendererBase<QuantumInfusedDustFarmTileentity> {
     private final BlockRenderDispatcher blockRenderDispatcher;
+    private final ItemRenderer itemRenderer;
 
-    public NetherQuartzOreFarmRenderer(BlockEntityRendererProvider.Context renderer) {
+    public QuantumInfusedDustRenderer(BlockEntityRendererProvider.Context renderer) {
         super(renderer);
         this.blockRenderDispatcher = renderer.getBlockRenderDispatcher();
+        itemRenderer = renderer.getItemRenderer();
     }
 
     @Override
-    public void render(NetherQuartzOreFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(QuantumInfusedDustFarmTileentity farm, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         Level level = farm.getLevel();
         assert level != null;
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
+        if (!(farm.getInscriberPressInstalled() && Upgrades.getUpgradeStatus(farm.getUpgrades(), ModItems.INSCRIBER_UPGRADE.toStack()))) {
+            return;
+        }
         matrixStack.pushPose();
         matrixStack.scale(.5f, .5f, .5f);
         matrixStack.translate(.5, 0, 0.5);
-        if (farm.getTimer() >= NetherQuartzOreFarmTileentity.getNetherQuartzGenerateTime(farm)) {
+        if (farm.getTimer() >= QuantumInfusedDustFarmTileentity.getQAGenerateTime(farm)) {
             if (farm.redstoneUpgradeEnabled && !(level.hasNeighborSignal(farm.getBlockPos()))) {
                 blockRenderDispatcher.renderSingleBlock(
                         Blocks.AIR.defaultBlockState(),
@@ -47,17 +54,17 @@ public class NetherQuartzOreFarmRenderer extends RendererBase<NetherQuartzOreFar
                         RenderType.SOLID
                 );
             } else {
-                blockRenderDispatcher.renderSingleBlock(
-                        Blocks.NETHER_QUARTZ_ORE.defaultBlockState(),
+                itemRenderer.renderStatic(
+                        AAEItems.QUANTUM_INFUSED_DUST.get().getDefaultInstance(),
+                        ItemDisplayContext.GROUND, combinedLight,
+                        combinedOverlay,
                         matrixStack,
                         buffer,
-                        combinedLight,
-                        combinedOverlay,
-                        ModelData.EMPTY,
-                        RenderType.SOLID
+                        farm.getLevel(),
+                        0
                 );
             }
-        } else if (farm.getTimer() >= NetherQuartzOreFarmTileentity.getNetherQuartzBreakTime(farm)) {
+        } else if (farm.getTimer() >= QuantumInfusedDustFarmTileentity.getQABreakTime(farm)) {
             blockRenderDispatcher.renderSingleBlock(
                     Blocks.AIR.defaultBlockState(),
                     matrixStack,
@@ -70,14 +77,8 @@ public class NetherQuartzOreFarmRenderer extends RendererBase<NetherQuartzOreFar
         }
 
         matrixStack.popPose();
-
-        if (farm.redstoneUpgradeEnabled) {
-            if (level.hasNeighborSignal(farm.getBlockPos())) {
-                renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
-            }
-        } else
-            renderSwingingPickaxe(farm, matrixStack, buffer, combinedLight, combinedOverlay, farm.getPickType(), getDirection(), farm.getTimer());
     }
+
 
     public void renderBreakingAnimation(BlockState blockState, PoseStack matrixStack, MultiBufferSource buffer, int breakStage, int combinedLight, int combinedOverlay) {
         if (breakStage < 0 || breakStage > 9) return;

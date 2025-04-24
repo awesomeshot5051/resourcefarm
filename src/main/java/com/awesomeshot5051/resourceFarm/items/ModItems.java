@@ -1,14 +1,17 @@
 package com.awesomeshot5051.resourceFarm.items;
 
-import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.datacomponents.*;
-import net.minecraft.core.component.*;
-import net.minecraft.core.registries.*;
-import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.*;
-import net.neoforged.bus.api.*;
-import net.neoforged.neoforge.registries.*;
+import com.awesomeshot5051.resourceFarm.Main;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.Item;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 @SuppressWarnings("ALL")
 public class ModItems {
@@ -17,6 +20,7 @@ public class ModItems {
     public static final DeferredRegister<Item> TERMINAL_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredRegister<Item> DYNAMIC_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredRegister<Item> AE2_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
+    public static final DeferredRegister<Item> AAE2_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredRegister<Item> EAE2_REGISTER = DeferredRegister.create(BuiltInRegistries.ITEM, Main.MODID);
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.MODID);
     public static final DeferredRegister.Items AEITEMS = DeferredRegister.createItems(Main.MODID);
@@ -99,6 +103,15 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> SSB_FARM = AE2_REGISTER.register("ssb_farm", () -> ModBlocks.SSB_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> MC_FARM = AE2_REGISTER.register("mc_farm", () -> ModBlocks.MC_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> SIL_FARM = AE2_REGISTER.register("sil_farm", () -> ModBlocks.SIL_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> SI_FARM = AE2_REGISTER.register("si_farm", () -> ModBlocks.SI_FARM.get().toItem());
+
+// ----------------------------
+// Advanced AE (AAE2) Item Registrations
+// ----------------------------
+
+    public static final DeferredHolder<Item, Item> SS_FARM = AAE2_REGISTER.register("ss_farm", () -> ModBlocks.SS_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> QA_FARM = AAE2_REGISTER.register("qa_farm", () -> ModBlocks.QA_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> QID_FARM = AAE2_REGISTER.register("qid_farm", () -> ModBlocks.QID_FARM.get().toItem());
 
 
 // ----------------------------
@@ -121,6 +134,8 @@ public class ModItems {
 //            () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> REDSTONE_UPGRADE = ITEMS.register("redstone_upgrade",
             () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> INSCRIBER_UPGRADE = ITEMS.register("inscriber_upgrade", () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> AE_CONDUIT = AEITEMS.register("ae_conduit", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> EAE_CONDUIT = EAEITEMS.register("eae_conduit", () -> new Item(new Item.Properties()));
@@ -145,6 +160,9 @@ public class ModItems {
         if (Main.eae2_installed) {
             EAE2_REGISTER.register(eventBus);
             EAEITEMS.register(eventBus);
+        }
+        if (Main.aae2_installed) {
+            AAE2_REGISTER.register(eventBus);
         }
         REGISTRY.register(eventBus);
         ITEMS.register(eventBus);

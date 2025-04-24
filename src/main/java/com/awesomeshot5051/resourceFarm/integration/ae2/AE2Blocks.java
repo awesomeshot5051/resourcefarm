@@ -1,25 +1,25 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2;
 
-import net.minecraft.core.registries.*;
-import net.minecraft.resources.*;
-import net.minecraft.tags.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
-import net.neoforged.fml.*;
+import appeng.core.definitions.AEItems;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.neoforged.fml.ModList;
+import net.pedroksl.advanced_ae.common.definitions.AAEItems;
 
-import java.util.*;
-import java.util.function.*;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class AE2Blocks {
     public static final Supplier<Block> FLAWED_BUDDING_QUARTZ = lazyBlockGet("ae2:flawed_budding_quartz");
     public static final Supplier<Block> FLAWLESS_BUDDING_QUARTZ = lazyBlockGet("ae2:flawless_budding_quartz");
     public static final Supplier<Item> CHARGED_CERTUS_QUARTZ_CRYSTAL = lazyItemGet("ae2:charged_certus_quartz_crystal");
-    public static final List<ItemStack> itemsRequiredForFC = List.of(
-            new ItemStack(CHARGED_CERTUS_QUARTZ_CRYSTAL.get()),
-            new ItemStack(Items.REDSTONE),
-            new ItemStack(Items.WATER_BUCKET),
-            new ItemStack(Items.QUARTZ));
     public static final Supplier<Item> CERTUS_QUARTZ_CRYSTAL = lazyItemGet("ae2:certus_quartz_crystal");
     public static final Supplier<Item> FLUIX_CRYSTAL = lazyItemGet("ae2:fluix_crystal");
     public static final Supplier<Item> FLUIX_DUST = lazyItemGet("ae2:fluix_dust");
@@ -53,7 +53,7 @@ public class AE2Blocks {
     public static final Supplier<Block> QUARTZ_BRICK_SLAB = lazyBlockGet("ae2:quartz_brick_slab");
     public static final Supplier<Block> CHISELED_QUARTZ_SLAB = lazyBlockGet("ae2:chiseled_quartz_slab");
     public static final Supplier<Block> QUARTZ_PILLAR_SLAB = lazyBlockGet("ae2:quartz_pillar_slab");
-
+    public static final Supplier<Item> QUANTUM_INFUSION_BUCKET = lazyItemGet("advanced_ae:quantum_infusion_bucket");
 
     public static List<ItemStack> itemsRequiredForFD;
 
@@ -108,4 +108,30 @@ public class AE2Blocks {
             return item;
         };
     }
+
+    public static final List<ItemStack> itemsRequiredForFC = List.of(
+            new ItemStack(CHARGED_CERTUS_QUARTZ_CRYSTAL.get()),
+            new ItemStack(Items.REDSTONE),
+            new ItemStack(Items.WATER_BUCKET),
+            new ItemStack(Items.QUARTZ));
+    public static final List<ItemStack> singularityRequirements = List.of(
+            new ItemStack(AEItems.MATTER_BALL, 64),
+            new ItemStack(Items.LAVA_BUCKET, 1)
+    );
+    public static final List<ItemStack> quantumAlloyRequirements = List.of(
+            new ItemStack(Items.COPPER_INGOT, 4),
+            new ItemStack(AAEItems.SHATTERED_SINGULARITY, 4),
+            new ItemStack(AEItems.SINGULARITY, 4),
+            new ItemStack(QUANTUM_INFUSION_BUCKET.get())
+    );
+    public static final List<ItemStack> shatteredSingularityRequirements = List.of(
+            new ItemStack(AEItems.SINGULARITY),
+            new ItemStack(AEItems.ENDER_DUST, 2),
+            new ItemStack(AEItems.SKY_DUST, 2),
+            new ItemStack(Items.LAVA_BUCKET)
+    );
+    public static final List<ItemStack> inscriberQuantumPress = List.of(
+            new ItemStack(AEItems.ENGINEERING_PROCESSOR_PRESS),
+            new ItemStack(AEItems.LOGIC_PROCESSOR_PRESS)
+    );
 }

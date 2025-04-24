@@ -1,29 +1,47 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite;
 
-import com.awesomeshot5051.corelib.blockentity.*;
-import com.awesomeshot5051.corelib.datacomponents.*;
-import com.awesomeshot5051.corelib.inventory.*;
-import com.awesomeshot5051.resourceFarm.*;
-import com.awesomeshot5051.resourceFarm.blocks.*;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
-import com.awesomeshot5051.resourceFarm.enums.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.*;
-import com.awesomeshot5051.resourceFarm.items.*;
-import com.mojang.serialization.*;
-import net.minecraft.core.*;
-import net.minecraft.nbt.*;
-import net.minecraft.resources.*;
-import net.minecraft.server.level.*;
-import net.minecraft.world.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.*;
-import net.minecraft.world.level.block.state.*;
-import net.neoforged.neoforge.items.*;
+import appeng.core.definitions.AEItems;
+import com.awesomeshot5051.corelib.blockentity.FarmTileentity;
+import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
+import com.awesomeshot5051.corelib.blockentity.SyncableTileentity;
+import com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments;
+import com.awesomeshot5051.corelib.datacomponents.Upgrades;
+import com.awesomeshot5051.corelib.inventory.ItemListInventory;
+import com.awesomeshot5051.resourceFarm.Main;
+import com.awesomeshot5051.resourceFarm.OutputItemHandler;
+import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
+import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
+import com.awesomeshot5051.resourceFarm.integration.ae2.AE2Blocks;
+import com.awesomeshot5051.resourceFarm.items.ModItems;
+import com.mojang.serialization.DataResult;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Container;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
-import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
-import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.getPickaxeEnchantmentStatus;
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.initializePickaxeEnchantments;
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.initializeUpgrades;
 
 @SuppressWarnings("ALL")
 public class SkyStoneFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
@@ -41,6 +59,7 @@ public class SkyStoneFarmTileentity extends FarmTileentity implements ITickableB
     protected long timer;
     protected ItemStackHandler itemHandler;
     protected OutputItemHandler outputItemHandler;
+    private Boolean inscriberPressInstalled = false;
 
     public SkyStoneFarmTileentity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SSB_FARM.get(), ModBlocks.SSB_FARM.get().defaultBlockState(), pos, state);
@@ -81,6 +100,14 @@ public class SkyStoneFarmTileentity extends FarmTileentity implements ITickableB
 
     public long getTimer() {
         return timer;
+    }
+
+    public boolean getInscriberPressInstalled() {
+        return this.inscriberPressInstalled;
+    }
+
+    public void setInscriberPressInstalled(boolean inscriberPressInstalled) {
+        this.inscriberPressInstalled = inscriberPressInstalled;
     }
 
     @Override
@@ -154,6 +181,10 @@ public class SkyStoneFarmTileentity extends FarmTileentity implements ITickableB
         }
         List<ItemStack> drops = new ArrayList<>();
         drops.add(new ItemStack(AE2Blocks.SKY_STONE_BLOCK.get(), dropCount));
+        if (Upgrades.getUpgradeStatus(upgrades, ModItems.INSCRIBER_UPGRADE.toStack())) {
+            drops.clear();
+            drops.add(new ItemStack(AEItems.SKY_DUST.get(), dropCount));
+        }
         return drops;
     }
 
@@ -185,6 +216,12 @@ public class SkyStoneFarmTileentity extends FarmTileentity implements ITickableB
                 }
             }
             compound.put("PickaxeEnchantments", enchantmentsList);
+        }
+        if (inscriberPressInstalled) {
+            compound.putBoolean("InscriberPressInstalled", inscriberPressInstalled);
+        }
+        if (inscriberPressInstalled) {
+            compound.putBoolean("InscriberPressInstalled", inscriberPressInstalled);
         }
         if (!upgrades.isEmpty()) {
             ListTag upgradesList = new ListTag();
@@ -218,6 +255,12 @@ public class SkyStoneFarmTileentity extends FarmTileentity implements ITickableB
         }
         if (compound.contains("Upgrades")) {
             upgrades = SyncableTileentity.loadUpgrades(compound, provider, this);
+        }
+        if (compound.contains("InscriberPressInstalled")) {
+            inscriberPressInstalled = compound.getBoolean("InscriberPressInstalled");
+        }
+        if (compound.contains("InscriberPressInstalled")) {
+            inscriberPressInstalled = compound.getBoolean("InscriberPressInstalled");
         }
         if (pickType == null) {
 
