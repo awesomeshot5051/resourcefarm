@@ -164,23 +164,21 @@ public class FluixCrystalFarmBlock extends BlockBase implements EntityBlock, IIt
         }
         if (itemsNeeded.size() == 4 && containsAllItems(AE2Blocks.itemsRequiredForFC, itemsNeeded)) {
             farm.ae2ItemsList = itemsNeeded;
-        } else {
-
-
-            player.openMenu(new MenuProvider() {
-                @Override
-                public Component getDisplayName() {
-                    return Component.translatable(state.getBlock().getDescriptionId());
-                }
-
-                @Nullable
-                @Override
-                public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                    return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.FLCR_FARM::get);
-                }
-            });
-            return ItemInteractionResult.SUCCESS;
         }
+
+
+        player.openMenu(new MenuProvider() {
+            @Override
+            public Component getDisplayName() {
+                return Component.translatable(state.getBlock().getDescriptionId());
+            }
+
+            @Nullable
+            @Override
+            public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.FLCR_FARM::get);
+            }
+        });
         return ItemInteractionResult.SUCCESS;
     }
 
