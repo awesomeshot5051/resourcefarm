@@ -9,7 +9,6 @@ import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.soil.*;
-import com.awesomeshot5051.resourceFarm.sounds.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
@@ -31,6 +30,7 @@ import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
 import org.jetbrains.annotations.*;
 
+import javax.annotation.*;
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
@@ -114,7 +114,7 @@ public class ClayFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
         if (!(tileEntity instanceof ClayFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
+
 
         player.openMenu(new MenuProvider() {
             @Override

@@ -10,7 +10,6 @@ import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.enums.*;
 import com.awesomeshot5051.resourceFarm.gui.*;
 import com.awesomeshot5051.resourceFarm.items.render.overworld.ores.common.regular.*;
-import com.awesomeshot5051.resourceFarm.sounds.*;
 import net.minecraft.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.core.*;
@@ -33,6 +32,7 @@ import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
 import org.jetbrains.annotations.*;
 
+import javax.annotation.*;
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.*;
@@ -137,7 +137,7 @@ public class CopperOreFarmBlock extends BlockBase implements EntityBlock, IItemB
         if (!(tileEntity instanceof CopperOreFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        playSound(Objects.requireNonNull(worldIn), state, ModSounds.PICKAXE_SOUND.get(), farm);
+
 
         player.openMenu(new MenuProvider() {
             @Override

@@ -46,30 +46,34 @@ public class Main {
 
 
     public Main(IEventBus eventBus) {
-        eventBus.addListener(this::commonSetup);
-        eventBus.addListener(ModTileEntities::onRegisterCapabilities);
-
-
-        Containers.init(eventBus);
-        ModCreativeTabs.init(eventBus);
-        ModLootTables.init(eventBus);
-
-        ModSounds.register(eventBus);
-        ModRecipes.registerRecipes(eventBus);
-        ModRecipes.registerTypes(eventBus);
+        // 🔧 Register configs FIRST
         SERVER_CONFIG = CommonRegistry.registerConfig(MODID, ModConfig.Type.SERVER, ServerConfig.class);
         CLIENT_CONFIG = CommonRegistry.registerConfig(MODID, ModConfig.Type.CLIENT, ClientConfig.class);
-        if (FMLEnvironment.dist.isClient()) {
-            eventBus.addListener(Main.this::clientSetup);
 
-            Containers.initClient(eventBus);
-        }
-        ModDataComponents.register(eventBus);
+        // 🎧 Add main event listeners
+        eventBus.addListener(this::commonSetup);
+        eventBus.addListener(ModTileEntities::onRegisterCapabilities);
+        eventBus.addListener(IMC::enqueueIMC);
+
+        // 📦 Register core content
+        ModDataComponents.register(eventBus); // Data components need to come early
         ModBlocks.init(eventBus);
         ModItems.init(eventBus);
+        ModTileEntities.init(eventBus); // Register tile entities after blocks and items
 
-        ModTileEntities.init(eventBus);
-        eventBus.addListener(IMC::enqueueIMC);
+        // 🎨 Register non-core systems
+        ModSounds.register(eventBus);
+        ModLootTables.init(eventBus);
+        ModRecipes.registerTypes(eventBus); // Types before recipes
+        ModRecipes.registerRecipes(eventBus);
+        ModCreativeTabs.init(eventBus);
+        Containers.init(eventBus);
+
+        // 🖥️ Client-only code
+        if (FMLEnvironment.dist.isClient()) {
+            eventBus.addListener(Main.this::clientSetup);
+            Containers.initClient(eventBus); // Must match order with init
+        }
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
@@ -80,7 +84,6 @@ public class Main {
             }
             Main.UPGRADES = Upgrades.createUpgradesMap(upgrades);
         });
-
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -88,4 +91,5 @@ public class Main {
         ModTileEntities.clientSetup();
         NeoForge.EVENT_BUS.register(new GuiEvents());
     }
+
 }
