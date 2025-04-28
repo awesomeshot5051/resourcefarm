@@ -1,45 +1,30 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2.Quartz;
 
-import appeng.core.definitions.AEBlocks;
-import appeng.core.definitions.AEItems;
-import com.awesomeshot5051.corelib.blockentity.FarmTileentity;
-import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
-import com.awesomeshot5051.corelib.blockentity.SyncableTileentity;
-import com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments;
-import com.awesomeshot5051.corelib.datacomponents.Upgrades;
-import com.awesomeshot5051.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.OutputItemHandler;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import com.mojang.serialization.DataResult;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.NbtOps;
-import net.minecraft.nbt.Tag;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import appeng.core.definitions.*;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.corelib.inventory.*;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.mojang.serialization.*;
+import net.minecraft.core.*;
+import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.items.*;
 
 import java.util.*;
 
-import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.getPickaxeEnchantmentStatus;
-import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.initializePickaxeEnchantments;
-import static com.awesomeshot5051.corelib.datacomponents.Upgrades.initializeUpgrades;
-import static com.awesomeshot5051.resourceFarm.integration.SpeedStatusCheck.speedStatusCheck;
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
+import static com.awesomeshot5051.resourceFarm.integration.SpeedStatusCheck.*;
 
 @SuppressWarnings("ALL")
 public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
@@ -220,7 +205,7 @@ public class CertusQuartzCrystalFarmTileentity extends FarmTileentity implements
         }
         List<ItemStack> drops = new ArrayList<>();
         drops.add(new ItemStack(AEItems.CERTUS_QUARTZ_CRYSTAL.get(), dropCount));
-        if (inscriberPressInstalled) {
+        if (Upgrades.getUpgradeStatus(upgrades, ModItems.INSCRIBER_UPGRADE.toStack())) {
             drops.clear();
             drops.add(new ItemStack(AEItems.CERTUS_QUARTZ_DUST.get(), dropCount));
         }
