@@ -1,15 +1,15 @@
 package com.awesomeshot5051.resourceFarm.data.providers.models;
 
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import net.minecraft.data.*;
+import net.minecraft.resources.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.neoforged.neoforge.client.model.generators.*;
+import net.neoforged.neoforge.common.data.*;
+import net.neoforged.neoforge.registries.*;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -85,6 +85,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 }
             });
         }
+        blockWithItem(ModBlocks.ORE_FARM_BLOCK);
     }
 
 

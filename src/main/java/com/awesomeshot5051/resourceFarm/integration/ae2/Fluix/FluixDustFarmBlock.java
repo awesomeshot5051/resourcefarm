@@ -95,13 +95,14 @@ public class FluixDustFarmBlock extends BlockBase implements EntityBlock, IItemB
         if (heldItem.is(ModItemTags.SLABS_AND_FLUX_CRYSTAL) && fluixDust.size() < 2) {
             fluixDust.add(heldItem.copyWithCount(1));
             heldItem.shrink(1);
-            ((FluixDustFarmTileentity) tileEntity).fluixDustList = fluixDust;
+            farm.fluixDustList = fluixDust;
+            if (fluixDust.size() == 2 && AE2Check.containsAllItems(fluixDust, ModItemTags.SLABS_AND_FLUX_CRYSTAL, Objects.requireNonNull(tileEntity.getLevel()), 1)) {
+                farm.fluixDustList = fluixDust;
+                return ItemInteractionResult.CONSUME;
+            }
             return ItemInteractionResult.CONSUME;
         }
-        if (fluixDust.size() == 2 && AE2Check.containsAllItems(fluixDust, ModItemTags.SLABS_AND_FLUX_CRYSTAL, Objects.requireNonNull(tileEntity.getLevel()), 1)) {
-            ((FluixDustFarmTileentity) tileEntity).fluixDustList = fluixDust;
-            return ItemInteractionResult.CONSUME;
-        }
+
 
         player.openMenu(new MenuProvider() {
             @Override

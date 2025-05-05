@@ -1,34 +1,30 @@
 package com.awesomeshot5051.resourceFarm.data.providers.recipe;
 
-import appeng.core.definitions.AEBlocks;
-import appeng.core.definitions.AEItems;
+import appeng.core.definitions.*;
+import com.awesomeshot5051.resourceFarm.*;
 import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import com.awesomeshot5051.resourceFarm.base.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import com.glodblock.github.extendedae.common.EAESingletons;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.conditions.IConditionBuilder;
-import net.pedroksl.advanced_ae.common.definitions.AAEItems;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.glodblock.github.extendedae.common.*;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.data.*;
+import net.minecraft.data.recipes.*;
+import net.minecraft.resources.*;
+import net.minecraft.tags.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.neoforged.neoforge.common.*;
+import net.neoforged.neoforge.common.conditions.*;
+import net.pedroksl.advanced_ae.common.definitions.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
 
 import static com.awesomeshot5051.resourceFarm.blocks.ModBlocks.*;
 
@@ -203,6 +199,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
+    }
+
+    protected static void oreSmelting(RecipeOutput pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
+        oreCooking(pRecipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
+                pExperience, pCookingTIme, pGroup, "_from_smelting");
+    }
+
+    protected static void oreBlasting(RecipeOutput pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+        oreCooking(pRecipeOutput, RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, pIngredients, pCategory, pResult,
+                pExperience, pCookingTime, pGroup, "_from_blasting");
+    }
+
+    protected static <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput pRecipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+        for (ItemLike itemlike : pIngredients) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime,
+                    pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike),
+                    has(itemlike)).save(
+                    pRecipeOutput, Main.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
+        }
     }
 
     @Override
@@ -1431,7 +1446,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.BLAZE_POWDER)
                 .unlockedBy("has_speed_upgrade", has(ModItems.SPEED_UPGRADE))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Main.MODID, convertToRegistryName(ModBlocks.FLDU_FARM.get().getDescriptionId() + "_speed_upgrade_recipe")));
+
+
+        new DynamicRecipeStore().loadVanillaOreRecipes();
     }
+
 
     private String convertToItemRegistryName(String block) {
         return block.toLowerCase().replace(' ', '_').replace("item.resource_farms.", "");

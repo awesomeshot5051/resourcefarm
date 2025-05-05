@@ -1,60 +1,42 @@
 package com.awesomeshot5051.resourceFarm.blocks;
 
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.blocks.end.rock.common.EndStoneFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.end.rock.common.PurpurFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.ores.common.regular.NetherGoldOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.ores.common.regular.NetherQuartzOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.ores.veryrare.regular.NetheriteOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.BasaltFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.BlackstoneFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.GlowstoneFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.NetherrackFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.soil.SoulSandFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.nether.soil.SoulSoilFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateCoalOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateCopperOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateGoldOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.DeepslateIronOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.CoalOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.CopperOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.GoldOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.IronOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.deepslate.DeepslateDiamondOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.deepslate.DeepslateLapisOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.regular.DiamondOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.regular.LapisOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.uncommon.deepslate.DeepslateRedstoneOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.uncommon.regular.RedstoneOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.deepslate.DeepslateEmeraldOreFarmBlock;
-import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.regular.EmeraldOreFarmBlock;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.OreFarmDir.*;
+import com.awesomeshot5051.resourceFarm.blocks.end.rock.common.*;
+import com.awesomeshot5051.resourceFarm.blocks.nether.ores.common.regular.*;
+import com.awesomeshot5051.resourceFarm.blocks.nether.ores.veryrare.regular.*;
+import com.awesomeshot5051.resourceFarm.blocks.nether.rock.common.*;
+import com.awesomeshot5051.resourceFarm.blocks.nether.soil.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.deepslate.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.common.regular.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.deepslate.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.rare.regular.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.uncommon.deepslate.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.uncommon.regular.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.deepslate.*;
+import com.awesomeshot5051.resourceFarm.blocks.overworld.ores.veryRare.regular.*;
 import com.awesomeshot5051.resourceFarm.blocks.overworld.rock.common.*;
 import com.awesomeshot5051.resourceFarm.blocks.overworld.soil.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.FluixCrystalFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.FluixDustFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.MysteriousCubeFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.SkyStoneFarmBlock;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Fluix.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.Meteorite.*;
 import com.awesomeshot5051.resourceFarm.integration.ae2.Quartz.*;
-import com.awesomeshot5051.resourceFarm.integration.ae2.SiliconFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.SingularityFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.advancedae.QuantumAlloyFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.advancedae.QuantumInfusedDustFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.advancedae.ShatteredSingularityFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.EntroBlockFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.EntroCrystalFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.EntroDustFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.SiliconBlockFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.CrystalChorusBrickFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.CrystalChorusFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.CrystalMenrilFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.MenrilBrickFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.integratedterminals.CrystalChorusGlassFarmBlock;
-import com.awesomeshot5051.resourceFarm.integration.integratedterminals.MenrilGlassFarmBlock;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import com.awesomeshot5051.resourceFarm.integration.ae2.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.advancedae.*;
+import com.awesomeshot5051.resourceFarm.integration.ae2.extendedae.*;
+import com.awesomeshot5051.resourceFarm.integration.integrateddynamics.*;
+import com.awesomeshot5051.resourceFarm.integration.integratedterminals.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.bus.api.*;
+import net.neoforged.neoforge.common.extensions.*;
+import net.neoforged.neoforge.registries.*;
+
+import java.util.function.*;
 
 public class ModBlocks {
 
@@ -261,6 +243,33 @@ public class ModBlocks {
     //    public static final DeferredHolder<Block, EntroBuddingFullyFarmBlock> EBF_FARM = EA2_REGISTER.register("ebf_farm", EntroBuddingFullyFarmBlock::new);
     public static final DeferredHolder<Block, SiliconBlockFarmBlock> SIB_FARM = EAE2_REGISTER.register("sib_farm", SiliconBlockFarmBlock::new);
 
+    public static final DeferredRegister.Blocks BLOCKS =
+            DeferredRegister.createBlocks(Main.MODID);
+    public static final DeferredRegister.Items ITEMS =
+            DeferredRegister.createItems(Main.MODID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
+            DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.MODID);
+    public static final DeferredRegister<MenuType<?>> MENUS =
+            DeferredRegister.create(BuiltInRegistries.MENU, Main.MODID);
+    public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
+            DeferredRegister.create(Registries.RECIPE_SERIALIZER, Main.MODID);
+    public static final DeferredRegister<RecipeType<?>> TYPES =
+            DeferredRegister.create(Registries.RECIPE_TYPE, Main.MODID);
+    public static final DeferredBlock<OreFarmBlock> ORE_FARM_BLOCK = registerBlock("ore_farm_block", () ->
+            new OreFarmBlock(BlockBehaviour.Properties.of()));
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<OreFarmRecipe>> ORE_FARM_SERIALIZER =
+            SERIALIZERS.register("ore_farm", OreFarmRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeType<?>, RecipeType<OreFarmRecipe>> ORE_FARM_TYPE =
+            TYPES.register("ore_farm", () -> new RecipeType<OreFarmRecipe>() {
+                @Override
+                public String toString() {
+                    return "ore_farm";
+                }
+            });
+
+
+//  All the registrations
+
     public static void init(IEventBus eventBus) {
         BLOCK_REGISTER.register(eventBus);
         if (Main.dynamic_installed) {
@@ -278,6 +287,33 @@ public class ModBlocks {
         if (Main.aae2_installed) {
             AAE2_REGISTER.register(eventBus);
         }
+        BLOCKS.register(eventBus);
+        ITEMS.register(eventBus);
+        BLOCK_ENTITIES.register(eventBus);
+        MENUS.register(eventBus);
+        // Custom Recipes
+        SERIALIZERS.register(eventBus);
+        TYPES.register(eventBus);
     }
+
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
+        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+
+    public static final Supplier<BlockEntityType<OreFarmBlockEntity>> ORE_FARM_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("ore_farm_block_entity", () -> BlockEntityType.Builder.
+                    of(OreFarmBlockEntity::new,
+                            ORE_FARM_BLOCK.get())
+                    .build(null));
+
+    public static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
+        ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    public static final Supplier<MenuType<OreFarmMenu>> ORE_FARM_MENU = MENUS.register(
+            "ore_farm_menu", () -> IMenuTypeExtension.create(OreFarmMenu::new));
+
 
 }

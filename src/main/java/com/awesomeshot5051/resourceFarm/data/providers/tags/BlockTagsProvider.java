@@ -95,6 +95,8 @@ public class BlockTagsProvider extends IntrinsicHolderTagsProvider<Block> implem
                         ModBlocks.COBBLESTONE_FARM.getKey(),
                         ModBlocks.STONE_FARM.getKey());
         addEffectiveTools();
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.ORE_FARM_BLOCK.get());
     }
 
     private void addEffectiveTools() {

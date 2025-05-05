@@ -2,6 +2,8 @@ package com.awesomeshot5051.resourceFarm;
 
 import com.awesomeshot5051.corelib.*;
 import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.OreFarmDir.*;
+import com.awesomeshot5051.resourceFarm.base.*;
 import com.awesomeshot5051.resourceFarm.blocks.*;
 import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
 import com.awesomeshot5051.resourceFarm.data.providers.recipe.recipe.*;
@@ -12,8 +14,12 @@ import com.awesomeshot5051.resourceFarm.integration.*;
 import com.awesomeshot5051.resourceFarm.items.*;
 import com.awesomeshot5051.resourceFarm.loottable.*;
 import com.awesomeshot5051.resourceFarm.sounds.*;
+import com.awesomeshot5051.resourceFarm.util.*;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.tags.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.*;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.bus.api.*;
 import net.neoforged.fml.*;
@@ -21,6 +27,8 @@ import net.neoforged.fml.common.*;
 import net.neoforged.fml.config.*;
 import net.neoforged.fml.event.lifecycle.*;
 import net.neoforged.fml.loading.*;
+import net.neoforged.neoforge.capabilities.*;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.common.*;
 import org.apache.logging.log4j.*;
 
@@ -68,6 +76,8 @@ public class Main {
         ModRecipes.registerRecipes(eventBus);
         ModCreativeTabs.init(eventBus);
         Containers.init(eventBus);
+        eventBus.addListener(this::registerCapabilities);
+        eventBus.addListener(this::registerScreens);
 
         // 🖥️ Client-only code
         if (FMLEnvironment.dist.isClient()) {
@@ -84,12 +94,44 @@ public class Main {
             }
             Main.UPGRADES = Upgrades.createUpgradesMap(upgrades);
         });
+        event.enqueueWork(() -> {
+            BuiltInRegistries.ITEM.stream()
+                    .filter(item -> item.builtInRegistryHolder().is(Tags.Items.ORES))
+                    .filter(item -> !BuiltInRegistries.ITEM.getKey(item).getNamespace().equals("minecraft"))
+                    .forEach(item -> {
+                        OreFarmRecipe recipe = new OreFarmRecipe(
+                                Ingredient.of(ItemTags.PICKAXES),
+                                Ingredient.of(item),
+                                List.of(
+                                        new ChanceResult(new ItemStack(item), 1.0f),
+                                        new ChanceResult(new ItemStack(Items.COBBLESTONE), 0.5f)
+                                )
+                        );
+                        new DynamicRecipeStore().addRecipe(recipe);
+                    });
+        });
     }
 
     @OnlyIn(Dist.CLIENT)
     public void clientSetup(FMLClientSetupEvent event) {
         ModTileEntities.clientSetup();
         NeoForge.EVENT_BUS.register(new GuiEvents());
+    }
+
+    private void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlocks.ORE_FARM_BLOCK_ENTITY.get(),
+                AbstractFarmBlockEntity::getCapabilityHandler);
+//        event.registerBlockEntity(
+//                Capabilities.ItemHandler.BLOCK,
+//                ModBlocks.TREE_FARM_BLOCK_ENTITY.get(),
+//                AbstractFarmBlockEntity::getCapabilityHandler);
+    }
+
+    private void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ModBlocks.ORE_FARM_MENU.get(), OreFarmScreen::new);
+//        event.register(ModRegistry.TREE_FARM_MENU.get(), TreeFarmScreen::new);
     }
 
 }
