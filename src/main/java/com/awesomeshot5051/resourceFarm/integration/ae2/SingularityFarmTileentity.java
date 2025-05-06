@@ -1,49 +1,33 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2;
 
-import appeng.core.definitions.AEItems;
-import com.awesomeshot5051.corelib.blockentity.FarmTileentity;
-import com.awesomeshot5051.corelib.blockentity.ITickableBlockEntity;
-import com.awesomeshot5051.corelib.blockentity.SyncableTileentity;
-import com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments;
-import com.awesomeshot5051.corelib.datacomponents.Upgrades;
-import com.awesomeshot5051.corelib.integration.AE2Check;
-import com.awesomeshot5051.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.resourceFarm.Main;
-import com.awesomeshot5051.resourceFarm.OutputItemHandler;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
-import com.awesomeshot5051.resourceFarm.blocks.tileentity.ModTileEntities;
-import com.awesomeshot5051.resourceFarm.enums.PickaxeType;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import com.mojang.serialization.DataResult;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.NbtOps;
-import net.minecraft.nbt.Tag;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import appeng.core.definitions.*;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.corelib.integration.*;
+import com.awesomeshot5051.corelib.inventory.*;
+import com.awesomeshot5051.resourceFarm.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.blocks.tileentity.*;
+import com.awesomeshot5051.resourceFarm.enums.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import com.mojang.serialization.*;
+import net.minecraft.core.*;
+import net.minecraft.nbt.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.level.block.state.*;
+import net.neoforged.neoforge.items.*;
+import org.jetbrains.annotations.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.getPickaxeEnchantmentStatus;
-import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.initializePickaxeEnchantments;
-import static com.awesomeshot5051.corelib.datacomponents.Upgrades.initializeUpgrades;
+import static com.awesomeshot5051.corelib.datacomponents.PickaxeEnchantments.*;
+import static com.awesomeshot5051.corelib.datacomponents.Upgrades.*;
 
-@SuppressWarnings("ALL")
+
 public class SingularityFarmTileentity extends FarmTileentity implements ITickableBlockEntity {
 
     public ItemStack pickType;
@@ -53,13 +37,12 @@ public class SingularityFarmTileentity extends FarmTileentity implements ITickab
     public boolean smelterUpgradeEnabled;
     public Map<ResourceKey<Enchantment>, Boolean> pickaxeEnchantments = initializePickaxeEnchantments();
     public ItemStack pickaxeType;
-    public List<ItemStack> singularityRequirements = new ArrayList<>(4);
     public boolean soundOn;
     protected NonNullList<ItemStack> inventory;
     protected long timer;
     protected ItemStackHandler itemHandler;
     protected OutputItemHandler outputItemHandler;
-
+    private List<ItemStack> singularityRequirements = new ArrayList<>(4);
 
     public SingularityFarmTileentity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SI_FARM.get(), ModBlocks.SI_FARM.get().defaultBlockState(), pos, state);
@@ -98,6 +81,7 @@ public class SingularityFarmTileentity extends FarmTileentity implements ITickab
 
     }
 
+    @Override
     public long getTimer() {
         return timer;
     }
@@ -109,6 +93,7 @@ public class SingularityFarmTileentity extends FarmTileentity implements ITickab
     public void setSingularityRequirements(List<ItemStack> singularityRequirements) {
         this.singularityRequirements = singularityRequirements;
     }
+
 
     @Override
     public boolean toggleSound() {
@@ -123,6 +108,7 @@ public class SingularityFarmTileentity extends FarmTileentity implements ITickab
     }
 
 
+    @Override
     public ItemStack getPickType() {
         return pickType;
     }
@@ -141,6 +127,7 @@ public class SingularityFarmTileentity extends FarmTileentity implements ITickab
         this.redstoneUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack());
         this.smelterUpgradeEnabled = Upgrades.getUpgradeStatus(upgrades, ModItems.SMELTER_UPGRADE.toStack());
         if (Upgrades.getUpgradeStatus(upgrades, ModItems.REDSTONE_UPGRADE.toStack())) {
+            assert level != null;
             if (!level.hasNeighborSignal(getBlockPos())) {
                 return;
             } else if (timer >= getSingularityBreakTime(this)) {
@@ -194,7 +181,7 @@ public class SingularityFarmTileentity extends FarmTileentity implements ITickab
 
 
     @Override
-    protected void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
+    protected void saveAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
 
         ContainerHelper.saveAllItems(compound, inventory, false, provider);
 
@@ -243,7 +230,7 @@ public class SingularityFarmTileentity extends FarmTileentity implements ITickab
 
 
     @Override
-    protected void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
+    protected void loadAdditional(@NotNull CompoundTag compound, HolderLookup.@NotNull Provider provider) {
         ContainerHelper.loadAllItems(compound, inventory, provider);
         if (compound.contains("PickType")) {
             SyncableTileentity.loadPickType(compound, provider).ifPresent(stack -> this.pickType = stack);
@@ -275,6 +262,7 @@ public class SingularityFarmTileentity extends FarmTileentity implements ITickab
         return outputItemHandler;
     }
 
+    @Override
     protected Map<ResourceKey<Enchantment>, Boolean> getPickaxeEnchantments() {
         return pickaxeEnchantments;
     }

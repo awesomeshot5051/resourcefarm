@@ -1,57 +1,39 @@
 package com.awesomeshot5051.resourceFarm.integration.ae2;
 
 
-import appeng.core.definitions.AEItems;
-import com.awesomeshot5051.corelib.block.IItemBlock;
-import com.awesomeshot5051.corelib.blockentity.SimpleBlockEntityTicker;
-import com.awesomeshot5051.corelib.client.CustomRendererBlockItem;
-import com.awesomeshot5051.corelib.client.ItemRenderer;
-import com.awesomeshot5051.corelib.datacomponents.Upgrades;
-import com.awesomeshot5051.resourceFarm.blocks.BlockBase;
-import com.awesomeshot5051.resourceFarm.blocks.ModBlocks;
+import appeng.core.definitions.*;
+import com.awesomeshot5051.corelib.block.*;
+import com.awesomeshot5051.corelib.blockentity.*;
+import com.awesomeshot5051.corelib.client.*;
+import com.awesomeshot5051.corelib.datacomponents.*;
+import com.awesomeshot5051.resourceFarm.blocks.*;
+import com.awesomeshot5051.resourceFarm.datacomponents.*;
 import com.awesomeshot5051.resourceFarm.datacomponents.BlockEntityData;
-import com.awesomeshot5051.resourceFarm.datacomponents.ModDataComponents;
-import com.awesomeshot5051.resourceFarm.gui.OutputContainer;
-import com.awesomeshot5051.resourceFarm.items.ModItems;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.ItemContainerContents;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
+import com.awesomeshot5051.resourceFarm.gui.*;
+import com.awesomeshot5051.resourceFarm.items.*;
+import net.minecraft.*;
+import net.minecraft.client.gui.screens.*;
+import net.minecraft.core.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.*;
+import net.neoforged.api.distmarker.*;
 
-import javax.annotation.Nullable;
+import javax.annotation.*;
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.stream.*;
 
-import static net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag;
-import static net.minecraft.world.item.Item.TooltipContext;
+import static net.minecraft.world.item.BlockItem.*;
 
 public class SingularityFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
@@ -129,13 +111,17 @@ public class SingularityFarmBlock extends BlockBase implements EntityBlock, IIte
                 .collect(Collectors.joining(" "));
     }
 
+    int getTotalCount(List<ItemStack> list, Item item) {
+        return list.stream().filter(stack -> stack.is(item)).mapToInt(ItemStack::getCount).sum();
+    }
+
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
         if (!(tileEntity instanceof SingularityFarmTileentity farm)) {
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        List<ItemStack> singularityItemsNeeded = new ArrayList<>(farm.singularityRequirements);
+        List<ItemStack> singularityItemsNeeded = new ArrayList<>(farm.getSingularityRequirements());
         boolean updated = false;
         if (Upgrades.getUpgradeStatus(farm.getUpgrades(), ModItems.INSCRIBER_UPGRADE.toStack())) {
 // Matter Ball logic
@@ -178,7 +164,7 @@ public class SingularityFarmBlock extends BlockBase implements EntityBlock, IIte
             }
 
             if (updated) {
-                farm.singularityRequirements = singularityItemsNeeded;
+                farm.setSingularityRequirements(singularityItemsNeeded);
 
                 boolean hasMatterBall = singularityItemsNeeded.stream()
                         .anyMatch(stack -> stack.is(AEItems.MATTER_BALL.get()) && stack.getCount() == 64);
@@ -190,7 +176,7 @@ public class SingularityFarmBlock extends BlockBase implements EntityBlock, IIte
                     return ItemInteractionResult.SUCCESS;
                 }
 
-                return ItemInteractionResult.CONSUME;
+//                return ItemInteractionResult.CONSUME;
             }
 
         }
