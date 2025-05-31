@@ -51,7 +51,8 @@ public class DynamicRecipeStore {
     }
 
     // Load modded ore recipes dynamically during runtime
-    public void loadModdedOreRecipes(List<OreFarmRecipe> moddedRecipes) {
+    public Collection<? extends OreFarmRecipe> loadModdedOreRecipes(List<OreFarmRecipe> moddedRecipes) {
         moddedRecipes.forEach(this::addRecipe);
+        return moddedRecipes;
     }
 }

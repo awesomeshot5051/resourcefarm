@@ -1,13 +1,13 @@
 package com.awesomeshot5051.resourceFarm;
 
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.items.IItemHandler;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.core.*;
+import net.minecraft.world.item.*;
+import net.neoforged.neoforge.items.*;
+import org.jetbrains.annotations.*;
 
-import javax.annotation.Nonnull;
+import javax.annotation.*;
 import javax.annotation.Nullable;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 public class MultiItemStackHandler implements IItemHandler {
 
@@ -16,7 +16,7 @@ public class MultiItemStackHandler implements IItemHandler {
     @Nullable
     protected Predicate<ItemStack> inputValidator;
 
-    public MultiItemStackHandler(NonNullList<ItemStack> modifiable, NonNullList<ItemStack> takeOnly, Predicate<ItemStack> inputValidator) {
+    public MultiItemStackHandler(NonNullList<ItemStack> modifiable, NonNullList<ItemStack> takeOnly, @org.jetbrains.annotations.Nullable Predicate<ItemStack> inputValidator) {
         this.modifiable = modifiable;
         this.takeOnly = takeOnly;
         this.inputValidator = inputValidator;

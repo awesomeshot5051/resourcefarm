@@ -59,7 +59,6 @@ public class Main {
         CLIENT_CONFIG = CommonRegistry.registerConfig(MODID, ModConfig.Type.CLIENT, ClientConfig.class);
 
         // 🎧 Add main event listeners
-        eventBus.addListener(this::commonSetup);
         eventBus.addListener(ModTileEntities::onRegisterCapabilities);
         eventBus.addListener(IMC::enqueueIMC);
 
@@ -84,6 +83,7 @@ public class Main {
             eventBus.addListener(Main.this::clientSetup);
             Containers.initClient(eventBus); // Must match order with init
         }
+        eventBus.addListener(this::commonSetup);
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
@@ -96,7 +96,7 @@ public class Main {
         });
         event.enqueueWork(() -> {
             BuiltInRegistries.ITEM.stream()
-                    .filter(item -> item.builtInRegistryHolder().is(Tags.Items.ORES))
+                    .filter(item -> item.getDefaultInstance().getTags().anyMatch(tag -> tag.toString().equals(Tags.Items.ORES.toString())))
                     .filter(item -> !BuiltInRegistries.ITEM.getKey(item).getNamespace().equals("minecraft"))
                     .forEach(item -> {
                         OreFarmRecipe recipe = new OreFarmRecipe(
@@ -123,10 +123,6 @@ public class Main {
                 Capabilities.ItemHandler.BLOCK,
                 ModBlocks.ORE_FARM_BLOCK_ENTITY.get(),
                 AbstractFarmBlockEntity::getCapabilityHandler);
-//        event.registerBlockEntity(
-//                Capabilities.ItemHandler.BLOCK,
-//                ModBlocks.TREE_FARM_BLOCK_ENTITY.get(),
-//                AbstractFarmBlockEntity::getCapabilityHandler);
     }
 
     private void registerScreens(RegisterMenuScreensEvent event) {

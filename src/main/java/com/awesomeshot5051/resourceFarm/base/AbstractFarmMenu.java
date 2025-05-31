@@ -23,10 +23,10 @@ public abstract class AbstractFarmMenu<T extends AbstractFarmBlockEntity> extend
     protected static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
     protected static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
     protected static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
+    protected static final int VANILLA_FIRST_SLOT_INDEX = 0;
     protected static final int VANILLA_LAST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT - 1;
     protected static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_LAST_SLOT_INDEX + 1;
     // Slot index boundaries
-    protected static final int VANILLA_FIRST_SLOT_INDEX = 0;
     protected final T blockEntity;
 
 

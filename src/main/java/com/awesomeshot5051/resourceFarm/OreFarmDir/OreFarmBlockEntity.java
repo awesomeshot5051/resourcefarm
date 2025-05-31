@@ -63,15 +63,16 @@ public class OreFarmBlockEntity extends AbstractFarmBlockEntity {
 
     private List<OreFarmRecipe> getAllRecipes() {
         List<OreFarmRecipe> vanillaRecipes = new ArrayList<>();
-
+        @SuppressWarnings("unchecked")
+        RecipeType<Recipe<RecipeInput>> castedRecipeType = (RecipeType<Recipe<RecipeInput>>) this.getRecipeType();
         // Fetch vanilla recipes from the RecipeManager
         assert this.level != null;
-        var recipes = this.level.getRecipeManager().getRecipesFor(ModBlocks.ORE_FARM_TYPE.get(), );
+        var recipes = this.level.getRecipeManager().getRecipesFor(castedRecipeType, this.createRecipeInput(), level);
 
         // Loop through recipes and filter for ore-related ones
         for (RecipeHolder<?> recipeHolder : recipes) {
             // Ensure the recipe is an instance of OreFarmRecipe
-            if (recipeHolder.getRecipe() instanceof OreFarmRecipe oreFarmRecipe) {
+            if (recipeHolder.value() instanceof OreFarmRecipe oreFarmRecipe) {
                 // Check if the result item is an ore
                 if (oreFarmRecipe.getResultItem(level.registryAccess()).is(Tags.Items.ORES)) {
                     vanillaRecipes.add(oreFarmRecipe);
@@ -80,7 +81,7 @@ public class OreFarmBlockEntity extends AbstractFarmBlockEntity {
         }
 
         // Combine with dynamically generated recipes
-        vanillaRecipes.addAll(this.dynamicRecipes);
+        vanillaRecipes.addAll(new DynamicRecipeStore().loadModdedOreRecipes(vanillaRecipes));
 
         return vanillaRecipes;
     }
