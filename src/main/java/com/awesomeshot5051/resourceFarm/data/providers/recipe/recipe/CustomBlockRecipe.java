@@ -80,10 +80,6 @@ public class CustomBlockRecipe extends ShapedRecipe {
         return result2;
     }
 
-    @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return width >= this.pattern.width() && height >= this.pattern.height();
-    }
 
     @Override
     public @NotNull ItemStack getResultItem(HolderLookup.@NotNull Provider provider) {
@@ -96,7 +92,7 @@ public class CustomBlockRecipe extends ShapedRecipe {
     }
 
     @Override
-    public @NotNull RecipeType<?> getType() {
+    public RecipeType<CraftingRecipe> getType() {
         return super.getType();
     }
 

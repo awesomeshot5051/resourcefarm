@@ -9,9 +9,7 @@ import net.minecraft.tags.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.*;
-import org.jetbrains.annotations.*;
 
-import javax.annotation.Nullable;
 import javax.annotation.*;
 import java.util.*;
 
@@ -105,23 +103,16 @@ public class CustomShapedRecipeBuilder implements RecipeBuilder {
         return this.result;
     }
 
-    @Override
-    public void save(RecipeOutput recipeOutput, @NotNull ResourceLocation id) {
-        ShapedRecipePattern shapedrecipepattern = this.ensureValid(id);
-        Advancement.Builder advancement$builder = recipeOutput.advancement()
-                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
-                .rewards(AdvancementRewards.Builder.recipe(id))
-                .requirements(AdvancementRequirements.Strategy.OR);
-        this.criteria.forEach(advancement$builder::addCriterion);
-        CustomBlockRecipe shapedrecipe = new CustomBlockRecipe(
-                Objects.requireNonNullElse(this.group, ""),
-                RecipeBuilder.determineBookCategory(this.category),
-                shapedrecipepattern,
-                this.resultStack,
-                this.showNotification
-        );
 
-        recipeOutput.accept(id, shapedrecipe, advancement$builder.build(id.withPrefix("recipes/" + this.category.getFolderName() + "/")));
+    @Override
+    public void save(RecipeOutput recipeOutput, ResourceKey<Recipe<?>> resourceKey) {
+        ShapedRecipePattern shapedrecipepattern = this.ensureValid(resourceKey.location());
+        Advancement.Builder advancement$builder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
+        Map var10000 = this.criteria;
+        Objects.requireNonNull(advancement$builder);
+        var10000.forEach(advancement$builder::addCriterion);
+        CustomBlockRecipe shapedrecipe = new CustomBlockRecipe(Objects.requireNonNullElse(this.group, ""), RecipeBuilder.determineBookCategory(this.category), shapedrecipepattern, this.resultStack, this.showNotification);
+        recipeOutput.accept(resourceKey, shapedrecipe, advancement$builder.build(resourceKey.location().withPrefix("recipes/" + this.category.getFolderName() + "/")));
     }
 
     private ShapedRecipePattern ensureValid(ResourceLocation location) {
